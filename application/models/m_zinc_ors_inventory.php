@@ -10,7 +10,7 @@ use application\models\Entities\E_Stock;
 
 class M_Zinc_Ors_Inventory  extends MY_Model {
 	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$districtList,$mfcCode,$dbSessionValues,
-	$facility,$commodity,$pref,$the_equip_Ids,$equip_elements,$the_ort_Ids,$ort_elements,$the_ors_Ids,$ors_elements,$z_elements,$the_z_Ids,$f_elements,$the_f_Ids;
+	$facility,$commodity,$ortAssessCode;
 
 	function __construct() {
 		parent::__construct();
@@ -19,164 +19,22 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 	function addRecord() {
         $s=microtime(true); /*mark the timestamp at the beginning of the transaction*/
+		 
+		 $this->elements = array();
+		 $this->theIds=array();
+		 
 		
 		if ($this -> input -> post()) {//check if a post was made
 		
-			$this->elements = array();
-			$this->theIds=array();
-			foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		  // print(($key." ".$val)).'<br \>';
-			   
-			//check if posted value is among the cloned ones   
-			if(!strpos("_",$key)){//useful to keep all the  non-cloned elements in the loop
-				 $this->id = 1;  // the id
-				 $this->attr = $key;//the attribute name
-			 }else{
-			 	//we separate the attribute name from the number
-					
-					 $this->frags = explode("_", $key);
-				   
-				    $this->id = $this->frags[1];  // the id
-				    
-				  
-				   $this->attr = $this->frags[0];//the attribute name
-			 	
-			 }
-			 
+	    $this->addFacilityInfo();
+		$this->addORTInfo();//<-
+		$this->addEquipmentAssessmentInfo();
+	    $this->addZincCommoditiesInfo();
+		$this->addORSCommoditiesInfo();
 			
-			  		
-				   
-				    //collect elements by the prefix to persist in the respective tuples
-			 
-			 if(strpos($key,'zn')==0){
-			 	$this->pref='zn';
-				 //print $this->pref.'<br />'; 
-			 }
-			 
-			 if(strpos($key,'ors')==0){
-			 	$this->pref='ors';
-				 // print $this->pref.'<br />';
-			 }
-			 
-			 if(strpos($key,'ort')==0){
-			 	$this->pref='ort';
-				  //print $this->pref.'<br />';
-			 }
-			 
-			 if(strpos($key,'equip')==0){
-			 	$this->pref='equip';
-				 //print $this->pref.'<br />'; 
-			 }
-			
-			 
-			 switch($this->pref){
-			 	case 'facility':
-				   $this->the_f_Ids[$this->attr]=$this->id;
-				  // print 'Enter facility....<br />';
-			      // print($this->attr."  ".$this->id."  ".$val).'<br />';
-				  //  print 'Exit facility....<br />';
-				   
-				   if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					// $this->elements[$this->id][$this->attr]=htmlentities($val);
-					$this->f_elements[$this->id][$this->attr]=htmlentities($val);
-				   }//else{
-				   	//$this->elements[$this->attr]='';
-				  // }
-					break;
-				case 'zn':
-					$this->the_z_Ids[$this->attr]=$this->id;
-					// print 'Enter zn....<br />';
-			       print($this->attr."  ".$this->id."  ".$val).'<br />';
-				   
-				   if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					// $this->elements[$this->id][$this->attr]=htmlentities($val);
-					$this->z_elements[$this->id][$this->attr]=htmlentities($val);
-				   }//else{
-				   	//$this->elements[$this->attr]='';
-				  // }
-					break;
-				case 'ors':
-					$this->the_ors_Ids[$this->attr]=$this->id;
-			       //print($this->attr."  ".$this->id."  ".$val).'<br />';
-				   
-				   if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					// $this->elements[$this->id][$this->attr]=htmlentities($val);
-					$this->ors_elements[$this->id][$this->attr]=htmlentities($val);
-				   }//else{
-				   	//$this->elements[$this->attr]='';
-				  // }
-					break;
-				case 'ort':
-					$this->the_ort_Ids[$this->attr]=$this->id;
-			       //print($this->attr."  ".$this->id."  ".$val).'<br />';
-				   
-				   if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					// $this->elements[$this->id][$this->attr]=htmlentities($val);
-					$this->ort_elements[$this->id][$this->attr]=htmlentities($val);
-				   }else{
-				   	$this->ort_elements[$this->attr]='';
-				   }
-					break;
-				case 'equip':
-					$this->the_equip_Ids[$this->attr]=$this->id;
-			      // print($this->attr."  ".$this->id."  ".$val).'<br />';
-				   
-				   if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					// $this->elements[$this->id][$this->attr]=htmlentities($val);
-					$this->equip_elements[$this->id][$this->attr]=htmlentities($val);
-				   }else{
-				   	$this->equip_elements[$this->attr]='';
-				   }
-					break;
-			 }
-				   
-				 
-					
-			} //close foreach($_POST)
-			
-			exit;
-			
-			//simple loop to insert data into the 3 tuples
-			for($t=0;$t<5;$t++){
-				switch($t){
-					case 0: //insert facility details
-						$this->addFacilityInfo();
-						break;
-					case 1: //insert ORT assessment info
-				
-				      	$this->addORTInfo();
-					 
-					 	break;
-					case 2: //insert equipment assesstment info
-				
-						$this->addEquipmentAssessmentInfo();
-						break;
-					case 3: //insert zn commodities
-			
-			          	$this->addZincCommoditiesInfo();
-			
-						break;
-				
-					case 4: //insert ORS commodities
-			
-			         $this->addORSCommoditiesInfo();
-			
-						break;
-				
-				}//close the switch($t)
-					
-			}//close the loop to insert data into the 3 tuples
-			
+			//exit;
 			
 			}//close the this->input->post
-			
-			
-			
 			$e=microtime(true);
 			$this->executionTime=round($e-$s,'4');
 	        $this->rowsInserted=$this->noOfInsertsBatch;
@@ -220,23 +78,31 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	private function addFacilityInfo(){
 			foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		   
-		    if(strpos($key,'facility')==0){//select data for facilities
-			 	$this->pref='facility';
-				 
-				print $this->pref.'<br />'; 
-				 
+		  
+		    if(substr($key,0,3)=="fac"){//select data for facilities
+			     $this->attr = $key;//the attribute name
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					// $this->elements[$this->id][$this->attr]=htmlentities($val);
+					$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+				   
 			 }
 			
 			 }//close foreach ($this -> input -> post() as $key => $val)
+			 
+			// exit;
 			
 		   //get county name,district name by id
 			$this->getCountyName($this->input->post('facilityCounty'));/*method defined in MY_Model*/
 			$this->getDistrictName($this->input->post('facilityDistrict'));/*method defined in MY_Model*/
 			
 		    //get the highest value of the array that will control the number of inserts to be done
-						$this->noOfInsertsBatch=max($this->the_f_Ids);
+						$this->noOfInsertsBatch=1; /*only 1 facility record is expected*/
 						 
-						 print "max rows: ".$this->noOfInsertsBatch; exit;
+						// print "max rows: ".$this->noOfInsertsBatch; exit;
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
 			 	
 				//insert facility if new, else update the existing one
@@ -246,7 +112,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				//$this -> theForm -> setDates($this->elements[$i]['visitDate']);;/*entry option*/
 				$this -> theForm -> setFacilityName($this->input->post('facilityName'));
-				$this -> theForm -> setFacilityMFC($this->input->post('facilityMFC').'1');
+				$this -> theForm -> setFacilityMFC($this->input->post('facilityMFC').'1');//developer test
 				$this -> theForm -> setFacilityDistrict($this->district->getDistrictName());
 				$this -> theForm -> setFacilityCounty($this->county->getCountyName());
 				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson'));
@@ -259,7 +125,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 					/*display user friendly message*/
 					
 				}//end of catch
@@ -271,8 +137,26 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	} //close addFacilityInfo
 	
 	private function addORTInfo(){
-		//get the highest value of the array that will control the number of inserts to be done
-						$this->noOfInsertsBatch=max($this->the_ort_Ids);
+		
+		    foreach ($this -> input -> post() as $key => $val) {//For every posted values
+		    if(substr($key,0,3)=="ort"){//select data for facilities
+			     $this->attr = $key;//the attribute name
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					// $this->elements[$this->id][$this->attr]=htmlentities($val);
+					$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+				   //print $key.' val='.$val.' <br />';
+			 }
+			
+			 }//close foreach ($this -> input -> post() as $key => $val)
+			 
+			 //exit;
+				
+		        //get the highest value of the array that will control the number of inserts to be done
+						$this->noOfInsertsBatch=1; //only 1 ort corner record inserted
 						 
 						 
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
@@ -283,48 +167,79 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			 	
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				$this -> theForm -> setFacilityMFC($this->input->post('facilityMFC'));
-				$this -> theForm -> setQuestion1($this->input->post('ortQuestion1'));
-				$this -> theForm -> setQuestion2($this->input->post('ortQuestion2'));
-				$this -> theForm -> setLocationOfDehydrationUnit($this->ort_elements[$i]['ortDehydrationLocation']);
+				$this -> theForm -> setQuestion1($this->elements['ortQuestion1']);
+				$this -> theForm -> setQuestion2($this->elements['ortQuestion2']);
+				if($this->elements['ortDehydrationLocation']==''){
+					$this->elements['ortDehydrationLocation']='N/A';
+				}
+				$this -> theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
 				$this -> theForm -> setDateOfAssessment($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
 						
-						//now do a batched insert, default at 5
-			  $this->batchSize=5;
-			if($i % $this->batchSize==0){
+						//now do a batched insert
+			
+			  
 			try{
 					
 				$this -> em -> flush();
+					//retrieve id of the last insert to use in in equipment assessment
+				//$this -> em -> refresh($this -> theForm);
+				
+				$this->ortAssessCode=$this->theForm->getOrtAssessmentCode();
+				//print ('last id: '.$this->ortAssessCode);exit;
+				
 				$this->em->clear(); //detaches all objects from doctrine
+				
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 					/*display user friendly message*/
 					
 				}//end of catch
 				
-			} else if($i<$this->batchSize || $i>$this->batchSize || $i==$this->noOfInsertsBatch && 
-			$this->noOfInsertsBatch-$i<$this->batchSize){
-				 //total records less than a batch, insert all of them
-				try{
-					
-				$this -> em -> flush();
-				$this->em->clear(); //detactes all objects from doctrine
-				}catch(Exception $ex){
-					//die($ex->getMessage());
-					/*display user friendly message*/
-					
-				}//end of catch
-				 
-				
-			}//end of batch condition
+			
 					 } //end of innner loop	
 	}//close addORTInfo
 	
 	private function addEquipmentAssessmentInfo(){
-		
-		
-		//get the highest value of the array that will control the number of inserts to be done
-						$this->noOfInsertsBatch=max($this->the_equip_Ids);
+		$count=1;$finalCount=0;
+		foreach ($this -> input -> post() as $key => $val) {//For every posted values
+		    if(substr($key,0,5)=="equip"){//select data for equipment
+			   //we separate the attribute name from the number
+					
+				  $this->frags = explode("_", $key);
+				   
+				  //$this->id = $this->frags[1];  // the id
+				
+				 $this->id = $count;  // the id
+				    
+				  
+				  $this->attr = $this->frags[0];//the attribute name
+				  
+				  
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					 $this->elements[$count][$this->attr]=htmlentities($val);
+					//$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+				 
+				   //mark the end of 1 row...for record count
+				if($this->attr=="equipBudgetPresent"){
+					//print 'count at:'.$count.'<br />';
+					$finalCount=$count;
+					 $count++;
+					  //print $key.' val='.$val.' id='.$this->id.' <br />';
+				}
+				   
+			 }
+			
+			 }//close foreach ($this -> input -> post() as $key => $val)
+			 
+			 //exit;
+		    
+		          //get the highest value of the array that will control the number of inserts to be done
+				  $this->noOfInsertsBatch=$finalCount;
 						 
 						 
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
@@ -334,13 +249,13 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			   
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
 			 	
-				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setEquipmentCode($this->equip_elements[$i]['equipCode']);
-				$this -> theForm -> setOrtCode($this->ortAssessment->getOrtAssessmentCode);
-				$this -> theForm -> setEquipmentAvailable($this->equip_elements[$i]['equipAvailable']);
-				$this -> theForm -> setQuantity($this->equip_elements[$i]['equipQuantity']);
-				$this -> theForm -> setSupplierName($this->equip_elements[$i]['equipSupplier']);
-				$this -> theForm -> setBudgetKept($this->equip_elements[$i]['equipBudgetPresent']);
+				//$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
+				$this -> theForm -> setEquipmentCode($this->elements[$i]['equipCode']);
+				$this -> theForm -> setOrtCode($this->ortAssessCode);
+				$this -> theForm -> setEquipmentAvailable($this->elements[$i]['equipAvailable']);
+				$this -> theForm -> setQuantity($this->elements[$i]['equipQuantity']);
+				$this -> theForm -> setSupplierName($this->elements[$i]['equipSupplier']);
+				$this -> theForm -> setBudgetKept($this->elements[$i]['equipBudgetPresent']);
 				$this -> em -> persist($this -> theForm);
 						
 						//now do a batched insert, default at 5
@@ -377,28 +292,61 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	}//close addEquipmentAssessmentInfo
 	
 	private function addZincCommoditiesInfo(){
-		 //get the highest value of the array that will control the number of inserts to be done
-			          
-			          
-			           
-						$this->noOfInsertsBatch=max($this->the_z_Ids);
+		 	
+		 $count=1;$finalCount=0;
+		foreach ($this -> input -> post() as $key => $val) {//For every posted values
+		    if(substr($key,0,2)=="zn"){//select data for zn commodities
+			   //we separate the attribute name from the number
+					
+				  $this->frags = explode("_", $key);
+				   
+				  //$this->id = $this->frags[1];  // the id
+				
+				$this->id = $count;  // the id
+				    
+				  
+				  $this->attr = $this->frags[0];//the attribute name
+				  
+				  //mark the end of 1 row...for record count
+				if($this->attr=="znStockComments"){
+					//print 'count at:'.$count.'<br />';
+					$finalCount=$count;
+					 $count++;
+				}
+				 
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					 $this->elements[$this->id][$this->attr]=htmlentities($val);
+					//$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->id][$this->attr]='';
+				   }
+				 // print $this->attr.' val='.$val.' id='.$this->id.' <br />';
+				  //print $key.' val='.$this->elements[$this->id][$this->attr].'<br />';
+				  
+			 }//close  if(substr($key,0,2)=="zn")
+			
+			 }//close foreach ($this -> input -> post() as $key => $val)
+			// print 'Record count at:'.$finalCount.'<br />';
+			 //exit;	
+			
+		  //get the record count that will control the number of inserts to be done        
+		  $this->noOfInsertsBatch=$finalCount;
 						 
 						 
-						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+		for($i=1; $i<=$this->noOfInsertsBatch;++$i){
 			 	
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_Stock(); //create an object of the model
-			   
-		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
 			 	
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setStockBatchNo($this->z_elements[$i]['znStockBatchNo']);
-				$this -> theForm -> setStockQuantity($this->z_elements[$i]['znStockQuantity']);
-				$this -> theForm -> setStockDateDispensed($this->z_elements[$i]['znStockDispensedDate']);
-				$this -> theForm -> setStockSupplier($this->z_elements[$i]['znStockSupplier']);
-				$this -> theForm -> setStockExpiryDate($this->z_elements[$i]['znStockExpiryDate']);
-				$this -> theForm -> setStockComments($this->z_elements[$i]['znStockComments']);
-				$this -> theForm -> setStockCommodityType($this->z_elements[$i]['znCommodityName']);
+				$this -> theForm -> setStockBatchNo($this->elements[$i]['znStockBatchNo']);
+				$this -> theForm -> setStockQuantity($this->elements[$i]['znStockQuantity']);
+				$this -> theForm -> setStockDateDispensed($this->elements[$i]['znStockDispensedDate']);
+				$this -> theForm -> setStockSupplier($this->elements[$i]['znStockSupplier']);
+				$this -> theForm -> setStockExpiryDate($this->elements[$i]['znStockExpiryDate']);
+				$this -> theForm -> setStockComments($this->elements[$i]['znStockComments']);
+				$this -> theForm -> setStockCommodityType($this->elements[$i]['znCommodityName']);
 				$this -> theForm -> setStockFacility($this->input->post('facilityMFC'));
 				$this -> theForm -> setStockDateOfInventory($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
@@ -411,7 +359,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 					/*display user friendly message*/
 					
 				}//end of catch
@@ -435,14 +383,51 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	}//close addZincCommoditiesInfo
 	
 	private function addORSCommoditiesInfo(){
+		
+		 $count=1;$finalCount=0;
+		foreach ($this -> input -> post() as $key => $val) {//For every posted values
+		    if(substr($key,0,3)=="ors"){//select data for ors commodities
+			   //we separate the attribute name from the number
+					
+				  $this->frags = explode("_", $key);
+				   
+				  $this->id = $this->frags[1];  // the id
+				  
+				  //$this->id = $count;  // the id
+				    
+				  
+				  $this->attr = $this->frags[0];//the attribute name
+				  
+				   //mark the end of 1 row...for record count
+				if($this->attr=="orsStockComments"){
+					//print 'count at:'.$count.'<br />';
+					$finalCount=$count;
+					 $count++;
+				}
+				  
+				  
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					 $this->elements[$this->id][$this->attr]=htmlentities($val);
+					//$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+				  // print $this->attr.' val='.$val.' id='.$this->id.' <br />';
+				  
+			 }//close if(substr($key,0,3)=="ors")
+			
+			 }//close foreach ($this -> input -> post() as $key => $val)
+			 
+			// print 'Record count at:'.$finalCount.'<br />';
+			 
+			// exit;	
+		
 		 //get the highest value of the array that will control the number of inserts to be done
-			          
-			          
-			           
-						$this->noOfInsertsBatch=max($this->the_ors_Ids);
+
+		$this->noOfInsertsBatch=$finalCount;		 
 						 
-						 
-						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+		for($i=1; $i<=$this->noOfInsertsBatch;++$i){
 			 	
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_Stock(); //create an object of the model
@@ -450,13 +435,13 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
 			 	
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setStockBatchNo($this->ors_elements[$i]['orsStockBatchNo']);
-				$this -> theForm -> setStockQuantity($this->ors_elements[$i]['orsStockQuantity']);
-				$this -> theForm -> setStockDateDispensed($this->ors_elements[$i]['orsStockDispensedDate']);
-				$this -> theForm -> setStockSupplier($this->ors_elements[$i]['orsStockSupplier']);
-				$this -> theForm -> setStockExpiryDate($this->ors_elements[$i]['orsStockExpiryDate']);
-				$this -> theForm -> setStockComments($this->ors_elements[$i]['orsStockComments']);
-				$this -> theForm -> setStockCommodityType($this->ors_elements[$i]['orsCommodityName']);
+				$this -> theForm -> setStockBatchNo($this->elements[$i]['orsStockBatchNo']);
+				$this -> theForm -> setStockQuantity($this->elements[$i]['orsStockQuantity']);
+				$this -> theForm -> setStockDateDispensed($this->elements[$i]['orsStockDispensedDate']);
+				$this -> theForm -> setStockSupplier($this->elements[$i]['orsStockSupplier']);
+				$this -> theForm -> setStockExpiryDate($this->elements[$i]['orsStockExpiryDate']);
+				$this -> theForm -> setStockComments($this->elements[$i]['orsStockComments']);
+				$this -> theForm -> setStockCommodityType($this->elements[$i]['orsCommodityName']);
 				$this -> theForm -> setStockFacility($this->input->post('facilityMFC'));
 				$this -> theForm -> setStockDateOfInventory($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
@@ -469,7 +454,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 					/*display user friendly message*/
 					
 				}//end of catch

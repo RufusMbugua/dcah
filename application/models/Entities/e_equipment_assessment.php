@@ -43,9 +43,14 @@ namespace models\Entities;
 	private $supplierName;
 	
    /**
-	* @Column(name="budgetKept", type="integer", length="1",nullable=true)
+	* @Column(name="budgetKept", type="integer", length=1,nullable=true)
 	* */
 	private $budgetKept;
+	
+	/**
+	* @Column(name="createdAt", type="datetime", nullable=true)
+	* */
+	//private $createdAt;
 	
 	public function getEquipmentAssessmentID() {
 			return $this -> equipmentAssessmentID;
@@ -57,7 +62,7 @@ namespace models\Entities;
 			return $this -> equipmentCode;
 	}
 	
-	public function setEquipmentCode($fequipmentCode) { $this -> equipmentCode = $equipmentCode;
+	public function setEquipmentCode($equipmentCode) { $this -> equipmentCode = $equipmentCode;
 	}
 	public function getOrtCode() {
 			return $this -> ortCode;
@@ -90,6 +95,13 @@ namespace models\Entities;
 	
 	public function setBudgetKept($budgetKept) { $this -> budgetKept = $budgetKept;
 	}
+	
+	//public function getCreatedAt() {
+			//return $this -> createdAt;
+	//}
+	
+	//public function setCreatedAt($createdAt) { $this ->createdAt = $createdAt;
+	//}
 	
 }
 ?>

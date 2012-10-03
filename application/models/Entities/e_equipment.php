@@ -26,7 +26,7 @@ class E_Equipment{
 	private $equipmentName;
 	
 	/**
-	 * @Column(name="createdAt", type="date", nullable=true)
+	 * @Column(name="createdAt", type="datetime", nullable=true)
 	 * */
 	private $createdAt;
 	
