@@ -28,7 +28,7 @@
 			</section>
 			<form class="form-login" method="post" accept-charset="utf-8">
 
-				<input name="username" type="text" placeholder="Your MFC Code" required="MFC Code Required"/>
+				<input name="username" type="text" placeholder="Your MFL Code" required/>
 				<p></p>
 				<button type="submit" class="awesome myblue large" formaction="<?php echo base_url().'c_auth/index'?>" />
 				Continue</button>

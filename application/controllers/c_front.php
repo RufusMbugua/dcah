@@ -11,7 +11,7 @@ class C_Front extends CI_Controller {
 
 	public function index() {
 		//if($this -> session -> userdata('mfc')){
-		$data['form'] = '<p>Your MFC Code is required.<p>';
+		$data['form'] = '<p>Your MFL Code is required.<p>';
 		$this -> load -> view('index', $data); //landing page
 	//	}else{
 		//	$this->inventory();

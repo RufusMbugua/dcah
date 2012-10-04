@@ -26,7 +26,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		
 		if ($this -> input -> post()) {//check if a post was made
 		
-	    $this->addFacilityInfo();
+	    //$this->addFacilityInfo();
 		$this->addORTInfo();//<-
 		$this->addEquipmentAssessmentInfo();
 	    $this->addZincCommoditiesInfo();
@@ -216,27 +216,29 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				  $this->attr = $this->frags[0];//the attribute name
 				  
 				  
-				 if (!empty($val)) {
-					//We then store the value of this attribute for this element.
-					 $this->elements[$count][$this->attr]=htmlentities($val);
-					//$this->elements[$this->attr]=htmlentities($val);
-				   }else{
-				   	$this->elements[$this->attr]='';
-				   }
-				 
-				   //mark the end of 1 row...for record count
+				     //mark the end of 1 row...for record count
 				if($this->attr=="equipBudgetPresent"){
 					//print 'count at:'.$count.'<br />';
 					$finalCount=$count;
 					 $count++;
-					  //print $key.' val='.$val.' id='.$this->id.' <br />';
+					 // print 'DOM: '.$key.' Attr: '.$this->attr.' val='.$val.' id='.$this->id.' <br />';
 				}
+				  
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					 $this->elements[$this->id][$this->attr]=htmlentities($val);
+					//$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->id][$this->attr]='';
+				   }
+				 
+				
 				   
 			 }
 			
 			 }//close foreach ($this -> input -> post() as $key => $val)
-			 
-			 //exit;
+			// print var_dump($this->elements);
+			// exit;
 		    
 		          //get the highest value of the array that will control the number of inserts to be done
 				  $this->noOfInsertsBatch=$finalCount;
