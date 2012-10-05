@@ -155,23 +155,27 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				/*----------------------------------------------------------------------------------------------------------------*/
 				
 				//so which link was clicked?
-			  $('.links').find('ul').on('click',function(){
+			  $('.form-container-menu').find('ul li').on('click',function(){
 				link_id='#'+$(this).find('a').attr('id');
-				//alert(link_id);
+				alert(link_id);
 				linkSub=$(link_id).attr('class');
 				//alert(linkSub);
 				linkIdUrl=link_id.substr(link_id.indexOf('#')+1,(link_id.indexOf('_li')-1));
 				//load url based on the class and id returned
 				//switch(linkSub){
 				switch(link_id){
-					case "#inventory_li":
+					case "#mnh_inventory_li":
 					linkDomain='c_load';
-					linkIdUrl='form_zinc_ors_inventory'
+					linkIdUrl='form_assessment_equipment';
+					break;
+					case "#zinc_inventory_li":
+					linkDomain='c_load';
+					linkIdUrl='form_zinc_ors_inventory';
 					break;
 				}/*close the case*/
 				if(linkDomain)
 				//+linkDomain+'/'+linkIdUrl
-				$(".form-container").load('<?php echo base_url();?>c_load/form_zinc_ors_inventory',function(){
+				$(".form-container").load('<?php echo base_url();?>c_load/'+linkIdUrl,function(){
 				//delegate events
 				//if(loaded==false)
 				loadGlobalScript();
@@ -247,8 +251,8 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 									
 							<section class="form-container-menu">
 								<ul>
-									<li><a class="awesome blue large">Zinc & ORS Inventory Status</a></li>
-									<li><a class="awesome blue large">MNH & Child Health Assessment</a></li>
+									<li><a id="zinc_inventory_li" class="awesome blue large">Zinc & ORS Inventory Status</a></li>
+									<li><a id="mnh_inventory_li" class="awesome blue large">MNH & Child Health Assessment</a></li>
 								</ul>
 							</section>					
 							<section class="form-container">
