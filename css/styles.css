@@ -905,7 +905,8 @@ div.slider-nav span.left {
 	height: 600px;
 	overflow: auto;
 	padding: 5px 5px 5px 5px;
-	margin: auto;
+	float:left;
+	margin-left:3%;
 	margin-top: 10px;
 	border: 2px solid #CCC;
 	-webkit-box-shadow: inset 0px 0px 6px 0px #000;
@@ -3577,3 +3578,26 @@ button.ui-button::-moz-focus-inner {
 	height: 100%;
 }
 /*---------------------------end of jquery-ui-1.8.18.custom.css------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/**
+ * 	Tabs
+ * 
+ *
+ */
+
+.tab-title{
+	margin-bottom:5%;
+	display:block;
+	width:100%;
+}
+.tabs{
+	display:block;
+	width:100%;
+	
+}

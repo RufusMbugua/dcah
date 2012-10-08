@@ -36,7 +36,68 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 					$("#profile-fancy").removeClass("show");
 					return false;
 				});
+				
+				
+				('.tab-title a .MCH').click(function() {
+					('.tab .MCH').show();
+					('.tab .PEDS').hide();
+					('.tab .OPD').hide();
+					('.tab .Pharmacy').hide();
+					('.tab .Stores').hide();
+					('.tab .Others').hide();
+					
+				});
+				
+				('.tab-title a .PEDS').click(function() {
+					('.tab .MCH').hide();
+					('.tab .PEDS').show();
+					('.tab .OPD').hide();
+					('.tab .Pharmacy').hide();
+					('.tab .Stores').hide();
+					('.tab .Others').hide();
+					
+				});
+				
+				('.tab-title a .OPD').click(function() {
+					('.tab .MCH').hide();
+					('.tab .PEDS').hide();
+					('.tab .OPD').show();
+					('.tab .Pharmacy').hide();
+					('.tab .Stores').hide();
+					('.tab .Others').hide();
+					
+				});
+				
+				('.tab-title a .Pharmacy').click(function() {
+					('.tab .MCH').hide();
+					('.tab .PEDS').hide();
+					('.tab .OPD').hide();
+					('.tab .Pharmacy').show();
+					('.tab .Stores').hide();
+					('.tab .Others').hide();
+					
+				});
+				('.tab-title a .Stores').click(function() {
+					('.tab .MCH').hide();
+					('.tab .PEDS').hide();
+					('.tab .OPD').hide();
+					('.tab .Pharmacy').hide();
+					('.tab .Stores').show();
+					('.tab .Others').hide();
+					
+				});
+				('.tab-title a .Others').click(function() {
+					('.tab .MCH').show();
+					('.tab .PEDS').hide();
+					('.tab .OPD').hide();
+					('.tab .Pharmacy').hide();
+					('.tab .Stores').hide();
+					('.tab .Others').show();
+					
+				});
+				
 			});/*end of doc ready*/
+			
 
 		</script>
 	
@@ -157,7 +218,6 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				//so which link was clicked?
 			  $('.form-container-menu').find('ul li').on('click',function(){
 				link_id='#'+$(this).find('a').attr('id');
-				alert(link_id);
 				linkSub=$(link_id).attr('class');
 				//alert(linkSub);
 				linkIdUrl=link_id.substr(link_id.indexOf('#')+1,(link_id.indexOf('_li')-1));
