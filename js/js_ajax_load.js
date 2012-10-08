@@ -48,7 +48,7 @@ $().ready(function(){
 			facilityDateOfInventory:{required: true},
 			facilityName:{required: true},
 			facilityContactPerson:{required: true},
-			facilityZincOrsDispensedFrom:{required: true},
+			facilityZincOrsDispensedFrom:{required: false},
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},

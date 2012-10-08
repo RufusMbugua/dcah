@@ -45,7 +45,7 @@ namespace models\Entities;
 	/**
 	* @Column(name="zincOrsDispensedFrom", type="string", length=45, nullable=false)
 	* */
-	private $zincOrsDispensedFrom;
+	//private $zincOrsDispensedFrom;
 	
 	/**
 	* @Column(name="facilityEmail", type="string", length=100, nullable=true)
@@ -104,11 +104,11 @@ namespace models\Entities;
 	public function setFacilityContactPerson($facilityContactPerson) { $this -> facilityContactPerson = $facilityContactPerson;
 	}
 	
-	public function getZincOrsDispensedFrom() {
+	/*public function getZincOrsDispensedFrom() {
 			return $this -> zincOrsDispensedFrom;}
 	
 	public function setZincOrsDispensedFrom($zincOrsDispensedFrom) { $this -> zincOrsDispensedFrom = $zincOrsDispensedFrom;
-	}
+	}*/
 	
 	public function getFacilityEmail() {
 			return $this -> facilityEmail;

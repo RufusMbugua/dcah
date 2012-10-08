@@ -116,7 +116,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setFacilityDistrict($this->district->getDistrictName());
 				$this -> theForm -> setFacilityCounty($this->county->getCountyName());
 				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson'));
-				$this -> theForm -> setZincOrsDispensedFrom($this->input->post('facilityZincOrsDispensedFrom'));
+				//$this -> theForm -> setZincOrsDispensedFrom($this->input->post('facilityZincOrsDispensedFrom'));
 				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail'));
 				$this -> em -> persist($this -> theForm);
                 
