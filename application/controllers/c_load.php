@@ -13,7 +13,7 @@ class C_Load extends MY_Controller {
 	<!-- form for collecting inventory status information -->
 	<h3 align="center"> ZINC &amp; ORS INVENTORY STATUS</h3>
 	<p align="center">
-		ZINC AND ORS MAPPING
+		<label class="dcah-label">ZINC AND ORS MAPPING</label>
 	</p>
 	<section class="block">
 		<section class="column">
@@ -93,91 +93,567 @@ class C_Load extends MY_Controller {
 		</section>
 	</section>
 	
-		<h3 align="center"> Zinc and ORS Stock at Hand (In Pharmacy) Assessment</h3>
-	<table>
-	<thead>
-		<tr><td style="color:#872300">Zinc Sulphate 20mg</td> </tr>
-		<tr>
-			
-				<td width="144">Batch No</td>
-				<td width="144">Quantities at Hand (Tablets)</td>
-				<td width="144">Date Supplied to Facility</td>
-				<td width="144">Supplier</td>
-				<td width="144">Expiry Date</td>
-				<td width="144">Comments</td>
-			
-	   </tr>
-	   </thead>
-		<tr class="clonable zinc">
-			<td width="144">
+	<h3 align="center"> Zinc and ORS Stock at Hand Assessment</h3>
+		<p style="text-align: center" style="color:#872300">
+			Indicate the quantities of the Zinc &ORS available in this facility at the following units
+		</p>
+	  <div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">MCH</a></li>
+		<li><a href="#tabs-2">PEDS WARD</a></li>
+		<li><a href="#tabs-3">OPD</a></li>
+		<li><a href="#tabs-4">PHARMACY</a></li>
+		<li><a href="#tabs-5">STORES</a></li>
+		<li><a href="#tabs-6">Others*</a></li>
+	</ul>
+	<div id="tabs-1" class="tab MCH">
+		
+
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
+	<div id="tabs-2" class="tab PEDS">
+		
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="tabs-3" class="tab OPD">
+		
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<div id="tabs-4" class="tab Pharmacy">
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-			</td>
-			<td width="144">
+				</td>
+				<!--td width="144">
 				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-			</td>
-			<td width="144">
+				</td-->
+				<td width="144">
 				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-			</td>
-		</tr>
-		<tr id="formbuttons_1">
-			<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-			<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-		</tr>
-	</table>
-	
-	<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-	<table>
-	   <thead>
-		<tr><td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td> </tr>
-		<tr>
-			
-				<td width="144">Batch No</td>
-				<td width="144">Quantities at Hand (Sachets)</td>
-				<td width="144">Date Supplied to Facility</td>
-				<td width="144">Supplier</td>
-				<td width="144">Expiry Date</td>
-				<td width="144">Comments</td>
-			
-	   </tr>
-	  </thead>
-	   <!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-		<tr class="clonable ors">
-			<td width="144">
+				</td>
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
 				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
 				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-			</td>
-			<td width="144">
+				</td>
+				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-			</td>
-			<td width="144">
+				</td-->
+				<td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-			</td>
-			<td width="144">
+				</td>
+				<td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-			</td>
-		</tr>
-		<tr id="formbuttons_2">
-			<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-			<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-		</tr>
-	</table>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
 	
+	<div id="tabs-5" class="tab Stores">
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="tabs-6" class="tab Others">
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300">Zinc Sulphate 20mg</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+				</tr>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div>
+</div><!--end of div tabs-->
+	  
 	<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
 	<section class="block">
 		<section class="column">
@@ -221,8 +697,41 @@ class C_Load extends MY_Controller {
 				</section>
 			</section>
 			<section class="row hide" style="display:none">
+					<label class="dcah-label"> If, YES, mention the various locations:</label>
+				</section>
+			<section class="row hide" style="display:none">
 				<section class="left" >
-					<label> If Yes, where is this location within the facility?</label>
+					<label> MCH</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> OPD</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> WARD </label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> Other*?</label>
 				</section>
 				<section class="right">
 					<section class="col">
@@ -241,12 +750,12 @@ class C_Load extends MY_Controller {
 	<input type="button" id="editEquipmentListTopButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/>
 	</tr>
 		<tr>
-			<thead>
-				<td width="144">Equipment Name</td>
-				<td width="144">Yes/No</td>
-				<td width="144">Total Equipment Quantities</td>
-				<td width="144">Who supplied the supplies to the facility? (respond by item)</td>
-				<td width="144">Is there a budget for replacement of the missing, stolen or Broken ORT Corner equipment in the Current *AOP/QIP?</td>
+			<thead >
+				<td width="144"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
+				<td width="144"><label class="dcah-label" style="font-size:1.0em">Yes/No</label></td>
+				<td width="144"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
+				<td width="144"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility? (respond by item)</label></td>
+				<td width="144"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing, stolen or Broken ORT Corner equipment in the Current *AOP/QIP?</label></td>
 			</thead>
 	   </tr>
 	   
@@ -1046,15 +1555,14 @@ class C_Load extends MY_Controller {
 
 	public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
-		$form_mnh_assessment.= '
-    <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment' . '" >
+		$form_mnh_assessment.= '<form name="form_assessment_equiqment" id="form_assessment_equiqment" method="POST" action="' . base_url() . 'submit/c_form/form_assessment_equiqment' . '" >
 	<!-- form for collecting inventory status information -->
 	<h3 align="center"> ASSESSMENT OF EQUIPMENT AND SUPPLIES FOR EmONC</h3>
 
 	<section class="block">
 		<section class="column-wide">
 			<section class="row-title">
-				<h3 align="left" >FACILITY DETAILS</h3>
+				<label class="dcah-label">FACILILTY DETAILS</label>
 			</section>
 			<section class="row">
 				<section class="left">
@@ -1117,17 +1625,15 @@ class C_Load extends MY_Controller {
 			<section class="column-wide">
 				<section class="row-title">
 					<section class="left">
-						Inventory Type: Labor & Delivery
+						<label class="dcah-label">Inventory Type: Labor & Delivery</label>
 					</section>
-					<section class="center" >
-						<section class="col">
-							YES
-						</section>
-						<section class="col">
-							NO
-						</section>
+					<section class="center">
+						<label class="dcah-label">ANSWER</label>
 					</section>
-
+					<section class="right">
+						<label class="dcah-label">COMMENTS (On Why NOT)</label>
+					</section>
+					
 				</section>
 
 				<section class="row">
@@ -1135,15 +1641,13 @@ class C_Load extends MY_Controller {
 						5. Does this facility provide delivery services
 					</section>
 					<section class="center">
-						<section class="col">
-							<input type="radio"/>
-						</section>
-						<section class="col">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" id="qn1Comment" name="qn1Comment"/>
 					</section>
 
 				</section>
@@ -1152,15 +1656,13 @@ class C_Load extends MY_Controller {
 						6. Does the facility provide 24 hour coverage for delivery services?
 					</section>
 					<section class="center">
-						<section class="col">
-							<input type="radio"/>
-						</section>
-						<section class="col">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" id="qn1Comment" name="qn1Comment"/>
 					</section>
 
 				</section>
@@ -1169,7 +1671,7 @@ class C_Load extends MY_Controller {
 						7. Is a person skilled in conducting deliveries present  at the facility or on call 24 hours a day,
 						including weekends, to provide delivery care?
 					</section>
-					<section class="right">
+					<section class="center">
 						<select>
 							<option>Yes, present, schedule observed</option>
 							<option>Yes, present, schedule reported, not seen</option>
@@ -1178,11 +1680,12 @@ class C_Load extends MY_Controller {
 							<option>No</option>
 						</select>
 					</section>
+					
 
 				</section>
 				<section class="row">
 					<section class="left">
-						8. Please tell me the total number of beds in the maternity ward / unit in this facility
+						8. Please tell me the total number of beds in the maternity ward / unit in this facility*
 					</section>
 					<section class="right">
 						<input type="number" />
@@ -1191,7 +1694,7 @@ class C_Load extends MY_Controller {
 				</section>
 
 				<section class="row-title">
-					ASK TO SEE THE ROOM WHERE NORMAL DELIVERIES ARE CONDUCTED
+					<label class="dcah-label">*Ask to see the room where Normal Deliveries are conducted</label>
 				</section>
 
 				<section class="row">
@@ -1217,43 +1720,15 @@ class C_Load extends MY_Controller {
 
 					<section class="row-title">
 						<section class="left">
-							10. EQUIPMENT REQUIRED FOR DELIVERY SERVICES
+							<label class="dcah-label">10. EQUIPMENT REQUIRED FOR DELIVERY SERVICES</label>
 						</section>
 						<section class="center">
-							<section class="row-title">
-								Availability (A)
-							</section>
-							<section class="col-x4">
-								Observed
-							</section>
-							<section class="col-x4">
-								Reported, Not Seen
-							</section>
-							<section class="col-x4">
-								Not Available
-							</section>
-							<section class="col-x4">
-								Dont Know
-							</section>
+								<label class="dcah-label">Availability (A)</label>
 						</section>
 						<section class="right">
-
-							<section class="row-title">
-								Functioning (B)
-								<section class="col">
-									YES
-								</section>
-								<section class="col">
-									NO
-								</section>
-								<section class="col">
-									Dont Know
-								</section>
-
-							</section>
+								<label class="dcah-label">Functioning (B)</label>
 						</section>
 					</section>
-
 				</section>
 
 				<section class="row">
@@ -1261,29 +1736,20 @@ class C_Load extends MY_Controller {
 						10a. Examination light
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1293,29 +1759,20 @@ class C_Load extends MY_Controller {
 						10b. Delivery bed/ couch
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1325,29 +1782,20 @@ class C_Load extends MY_Controller {
 						10c. Clean or sterile gloves
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1357,29 +1805,20 @@ class C_Load extends MY_Controller {
 						10d.Mackintosh
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1389,29 +1828,20 @@ class C_Load extends MY_Controller {
 						10e. Linen
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1421,29 +1851,20 @@ class C_Load extends MY_Controller {
 						10f. Disposable Needles (gauge 21, 23)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1453,29 +1874,20 @@ class C_Load extends MY_Controller {
 						10g. Sharps container
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1485,29 +1897,20 @@ class C_Load extends MY_Controller {
 						10h. At least five or more 2-ml or 5-ml disposable syringes
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1517,29 +1920,20 @@ class C_Load extends MY_Controller {
 						10i. Three properly labeled or colour coded IP buckets
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1549,29 +1943,20 @@ class C_Load extends MY_Controller {
 						10j. Jik
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1581,29 +1966,20 @@ class C_Load extends MY_Controller {
 						10k. Soap for washing instruments
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1613,29 +1989,20 @@ class C_Load extends MY_Controller {
 						10l.Soap for handwashing
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1645,29 +2012,20 @@ class C_Load extends MY_Controller {
 						10m.Properly Labelled or colour coded waste segragation bins
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1677,29 +2035,20 @@ class C_Load extends MY_Controller {
 						10n. Drip stand
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1709,29 +2058,20 @@ class C_Load extends MY_Controller {
 						10o. Single-use hand-drying towels
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1741,29 +2081,20 @@ class C_Load extends MY_Controller {
 						10p. Running  Water for handwashing
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -1774,14 +2105,13 @@ class C_Load extends MY_Controller {
 
 					<section class="row-title">
 						<section class="left">
-							11. Inspect the contents of available delivery
-							kits and note if it corresponds to the standard kit requirements
+							<label class="dcah-label">11. Inspect the contents of available delivery kits</label>
 						</section>
 						<section class="center">
-							Number
+							<label class="dcah-label">Quantity</label>
 						</section>
 						<section class="right">
-							Comments
+							<label class="dcah-label">Comments</label>
 						</section>
 					</section>
 
@@ -1944,71 +2274,38 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="row-title">
 					<section class="left">
-						12. Other Equipment and supplies
+						<label class="dcah-label">12. Other Equipment and supplies</label>
 					</section>
 					<section class="center">
-						<section class="row-title">
-							Availability (A)
+						<section class="center">
+							<label class="dcah-label">Availability (A)</label>
 						</section>
-						<section class="col-x4">
-							Observed
-						</section>
-						<section class="col-x4">
-							Reported, Not Seen
-						</section>
-						<section class="col-x4">
-							Not Available
-						</section>
-						<section class="col-x4">
-							Dont Know
-						</section>
+
 					</section>
 					<section class="right">
-
-						<section class="row-title">
-							Functioning (B)
-							<section class="col">
-								YES
-							</section>
-							<section class="col">
-								NO
-							</section>
-							<section class="col">
-								Dont Know
-							</section>
-
-						</section>
+							<label class="dcah-label">Functioning (B)</label>
 					</section>
 				</section>
 
 				<section class="row">
 					<section class="left">
-						12a. Stethoscopes � adult and neonatal
+						12a. Stethoscopes  adult and neonatal
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2018,29 +2315,20 @@ class C_Load extends MY_Controller {
 						12b. BP machine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2049,29 +2337,20 @@ class C_Load extends MY_Controller {
 						12c. Thermometer
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2080,29 +2359,20 @@ class C_Load extends MY_Controller {
 						12d. Fetoscope or sonicaid
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2111,29 +2381,20 @@ class C_Load extends MY_Controller {
 						12e. Suction Machine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2143,29 +2404,20 @@ class C_Load extends MY_Controller {
 						12f. Weighing Scale for babies
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2175,29 +2427,20 @@ class C_Load extends MY_Controller {
 						12g. Weighing scale for premature/ LBW babies; (digital/ graduated)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2207,29 +2450,20 @@ class C_Load extends MY_Controller {
 						12h. Adult resuscitation tray
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2239,29 +2473,20 @@ class C_Load extends MY_Controller {
 						12i. Autoclave or steriliser
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2271,29 +2496,20 @@ class C_Load extends MY_Controller {
 						12j. Manual Vacuum Aspiration kit
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2303,29 +2519,20 @@ class C_Load extends MY_Controller {
 						12k. Ventouse or Kiwi vacuum extractor
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2335,29 +2542,20 @@ class C_Load extends MY_Controller {
 						12l. Dilatation and curretage kit
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2367,29 +2565,20 @@ class C_Load extends MY_Controller {
 						12m. Raytech gauze
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2399,29 +2588,20 @@ class C_Load extends MY_Controller {
 						12n. Sanitary pads
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2431,29 +2611,20 @@ class C_Load extends MY_Controller {
 						12o. Elbow length gloves
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2463,29 +2634,20 @@ class C_Load extends MY_Controller {
 						12p. Patellar Hammer
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2495,29 +2657,20 @@ class C_Load extends MY_Controller {
 						12q. Sutures
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
-						<section class="col">
-							<input type="radio" />
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -2528,21 +2681,13 @@ class C_Load extends MY_Controller {
 
 				<section class="row-title">
 					<section class="left">
-						13. MEDICATIONS IN the Maternity /Labour ward
+						<label class="dcah-label">13. Medications in the Maternity/Labour ward</label>
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							Observed
-						</section>
-						<section class="col-x4">
-							Reported, Not Seen
-						</section>
-						<section class="col-x4">
-							Not Available
-						</section>
-						<section class="col-x4">
-							Dont Know
-						</section>
+						<label class="dcah-label">Availability</label>
+					</section>
+					<section class="right">
+						<label class="dcah-label">Comments</label>
 					</section>
 				</section>
 
@@ -2551,18 +2696,13 @@ class C_Load extends MY_Controller {
 						13a. Intravenous solutions: either Ringers lactate, D5NS, or NS infusion
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2575,18 +2715,13 @@ class C_Load extends MY_Controller {
 						13b. Injectable ergometrine/ methergine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2599,18 +2734,13 @@ class C_Load extends MY_Controller {
 						13c. Injectable oxytocin/ syntocin
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2623,18 +2753,13 @@ class C_Load extends MY_Controller {
 						13d. Injectable Hydralazine or Apresoline
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2647,18 +2772,13 @@ class C_Load extends MY_Controller {
 						13e. Injectable diazepam
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2671,18 +2791,13 @@ class C_Load extends MY_Controller {
 						13f. Injectable magnesium sulfate
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2695,18 +2810,13 @@ class C_Load extends MY_Controller {
 						13g. Injectable amoxicillin or ampicillin
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2719,18 +2829,13 @@ class C_Load extends MY_Controller {
 						13h. Injectable gentamicin
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2743,18 +2848,13 @@ class C_Load extends MY_Controller {
 						13i. Calcium gluconate
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2767,18 +2867,13 @@ class C_Load extends MY_Controller {
 						13j. Methyldopa/Aldomet
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2791,18 +2886,13 @@ class C_Load extends MY_Controller {
 						13k. Lidocaine (lignocaine) or other local anesthetic
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2815,18 +2905,13 @@ class C_Load extends MY_Controller {
 						13l. Nifedipine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2839,18 +2924,13 @@ class C_Load extends MY_Controller {
 						13m. Vitamin A
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2863,18 +2943,13 @@ class C_Load extends MY_Controller {
 						13n. Vitamin K
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2887,18 +2962,13 @@ class C_Load extends MY_Controller {
 						13o. Oxygen
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2920,60 +2990,48 @@ class C_Load extends MY_Controller {
 				</section>
 
 				<section class="row">
+				<section class="row-title">
+					<section class="left">
+						<label class="dcah-label">QUESTION</label>
+					</section>
+					<section class="center">
+						<label class="dcah-label">ANSWER</label>
+					</section>
+				</section>
+				</section>
 					<section class="left">
 						14a. Does this facility perform newborn resuscitation?
 					</section>
 					<section class="right">
-						<section class="col">
-							<input type="radio"/>
-						</section>
-						<section class="col">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+						</select>
 					</section>
-				</section>
 				<section class="row">
 					<section class="left">
 						14b. Has this facility performed newborn resuscitation in the last 3 months with bag and mask?
 					</section>
 					<section class="right">
-						<section class="right">
-							<section class="col">
-								<input type="radio"/>
-							</section>
-							<section class="col">
-								<input type="radio"/>
-							</section>
-							<section class="col">
-								<input type="radio"/>
-							</section>
-						</section>
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
-
 				<section class="row-title">
 					<section class="left">
-						15. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE
+						<label class="dcah-label">15. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
 					</section>
 					<section class="center">
-						OBSERVED (a)
+						<label class="dcah-label">OBSERVED (a)</label>
 					</section>
 					<section class="center">
-						GO TO
+						<label class="dcah-label">FUNCTIONING(b)</label>
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							Observed
-						</section>
-						<section class="col-x4">
-							Reported, Not Seen
-						</section>
-						<section class="col-x4">
-							Not Available
-						</section>
-						<section class="col-x4">
-							Dont Know
-						</section>
+
 					</section>
 				</section>
 
@@ -2982,18 +3040,20 @@ class C_Load extends MY_Controller {
 						15a. Self inflating Neonatal Ambu bag ( 500 mls)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -3003,18 +3063,20 @@ class C_Load extends MY_Controller {
 						15b. Infant masks  (size 0-preterm)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -3024,18 +3086,20 @@ class C_Load extends MY_Controller {
 						15c. Infant mask size 1 (term new born)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3044,18 +3108,20 @@ class C_Load extends MY_Controller {
 						15d. Infant mask size 2 (infant up to 1 yr)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3064,18 +3130,20 @@ class C_Load extends MY_Controller {
 						15de. Clock  with seconds arm
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3084,18 +3152,20 @@ class C_Load extends MY_Controller {
 						15f. Neonatal Incubator
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3104,18 +3174,20 @@ class C_Load extends MY_Controller {
 						15g. A Radiant Heater
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3124,18 +3196,20 @@ class C_Load extends MY_Controller {
 						15h. Infant Scale
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3144,18 +3218,13 @@ class C_Load extends MY_Controller {
 						15i. Suction bulb for mucus extraction
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
 					</section>
 				</section>
 
@@ -3164,18 +3233,20 @@ class C_Load extends MY_Controller {
 						15j. Suction apparatus for use with catheter
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3184,18 +3255,20 @@ class C_Load extends MY_Controller {
 						15k. A flat, clean, dry and warm newborn resuscitation surface
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3204,18 +3277,20 @@ class C_Load extends MY_Controller {
 						15L. Disposable cord ties or clamps
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3224,41 +3299,29 @@ class C_Load extends MY_Controller {
 						15m. Clean and warm towels/cloths for drying / warming / wrapping baby
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
 					</section>
 				</section>
 
 				<section class="row-title">
 					<section class="left">
-						QUESTION
+						<label class="dcah-label">QUESTION</label>
 					</section>
 					<section class="center">
-						OBSERVED (a)
-					</section>
-					<section class="center">
-						GO TO
-					</section>
-					<section class="center">
-						<section class="col-x4">
-							Observed
-						</section>
-						<section class="col-x4">
-							Yes
-						</section>
-						<section class="col-x4">
-							No
-						</section>
+						<label class="dcah-label">ANSWER</label>
 					</section>
 				</section>
 
@@ -3267,12 +3330,11 @@ class C_Load extends MY_Controller {
 						16. Does this facility perform blood transfusions? (IF YES, Is there a blood bank or are there transfusion  services only)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Yes, blood bank available in facility </option>
+							<option> Yes, transfusion done but  no blood bank in the facility</option>
+							<option> No blood transfusion</option>
+						</select>
 					</section>
 				</section>
 
@@ -3281,52 +3343,44 @@ class C_Load extends MY_Controller {
 						17. Does this facility ever perform caesarean sections?
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Yes</option>
+							<option> No</option>
+						</select>
 					</section>
+				<section class="row hide" style="display:true">
+				<section class="left" >
+					<label class="dcah-label"> If Yes, how many caesarean sections were performed in August 2012</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="number" name="ortDehydrationLocation" id="ortDehydrationLocation"  value=""/>
+					</section>
+				</section>
+			</section>
 				</section>
 
-				<section class="row-title">
-					<section class="left">
-						18. EQUIPMENT
-					</section>
-					<section class="center">
-						<section class="col-x4">
-							Observed
-						</section>
-						<section class="col-x4">
-							Reported, Not Seen
-						</section>
-						<section class="col-x4">
-							Not Available
-						</section>
-						<section class="col-x4">
-							Dont Know
-						</section>
-					</section>
-				</section>
+				
 
 				<section class="row">
 					<section class="left">
-						13a. Operating Table
+						18a. Operating Table
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 
 				</section>
@@ -3336,18 +3390,20 @@ class C_Load extends MY_Controller {
 						18b. Operating Light
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3356,18 +3412,20 @@ class C_Load extends MY_Controller {
 						18c. Anaesthetic machine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3376,18 +3434,20 @@ class C_Load extends MY_Controller {
 						18d. Laryngoscopes
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3396,18 +3456,20 @@ class C_Load extends MY_Controller {
 						18e. Endotracheal tubes
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3416,18 +3478,20 @@ class C_Load extends MY_Controller {
 						18f. Anaesthetic drugs e.g ketamine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3436,18 +3500,20 @@ class C_Load extends MY_Controller {
 						18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3456,18 +3522,20 @@ class C_Load extends MY_Controller {
 						18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3476,18 +3544,20 @@ class C_Load extends MY_Controller {
 						18i. Scrub area adjacent to or in the operating room
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3496,18 +3566,20 @@ class C_Load extends MY_Controller {
 						18j. Running Water
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3516,18 +3588,20 @@ class C_Load extends MY_Controller {
 						18k. Suction Machine
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3536,18 +3610,20 @@ class C_Load extends MY_Controller {
 						18l. Standard Cesaerian section kit
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3556,18 +3632,20 @@ class C_Load extends MY_Controller {
 						18m. Sterile operation gowns
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3576,18 +3654,20 @@ class C_Load extends MY_Controller {
 						18n. Sterile Drapes
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3596,18 +3676,20 @@ class C_Load extends MY_Controller {
 						18o. Sterile gloves in various sizes (6.5 -9)
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3616,18 +3698,20 @@ class C_Load extends MY_Controller {
 						18p. IV canulas
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3636,18 +3720,20 @@ class C_Load extends MY_Controller {
 						18q. Drip Stand
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3656,18 +3742,20 @@ class C_Load extends MY_Controller {
 						18r. Blood transfusion set
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
 
@@ -3676,28 +3764,29 @@ class C_Load extends MY_Controller {
 						18s. Recovery room/ recovery area
 					</section>
 					<section class="center">
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
-						<section class="col-x4">
-							<input type="radio"/>
-						</section>
+						<select>
+							<option> Observed </option>
+							<option> Reported, Not Seen </option>
+							<option> Not Available </option>
+							<option> Dont Know </option>
+						</select>
+						<input type="number" />
+					</section>
+					<section class="center">
+						<select>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Dont Know </option>
+						</select>
 					</section>
 				</section>
-
+					 <label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 			</section>
-
+        
 		</section>
 
 </form>
-
-';
+		';
 
 		$data['form'] = $form_mnh_assessment;
 		$data['form_id'] = 'form_mnh_assessment';

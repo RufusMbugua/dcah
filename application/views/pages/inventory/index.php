@@ -178,6 +178,7 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				//delegate events
 				//if(loaded==false)
 				loadGlobalScript();
+				$( "#tabs" ).tabs();
 				//alert('done');
 				
 				 });
@@ -186,6 +187,7 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				/*----------------------------------------------------------------------------------------------------------------*/
 				
 				//load zinc form on form load
+				
 		
 		}); /*close document ready*/
 		</script>
@@ -250,11 +252,11 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 									
 							<section class="form-container-menu">
 								<ul>
-									<li><a id="zinc_inventory_li" class="awesome blue large">Zinc & ORS Inventory Status</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">MNH & Child Health Assessment</a></li>
+									<li><a id="zinc_inventory_li" class="awesome blue large">Zinc &amp; ORS Inventory Status</a></li>
+									<li><a id="mnh_inventory_li" class="awesome blue large">MNH &amp; Child Health Assessment</a></li>
 								</ul>
 							</section>					
-							<section class="form-container">
+							<section class="form-container ui-widget">
 								<?php
 								//echo 'facility '.$sessionMFC;
 								echo $form;

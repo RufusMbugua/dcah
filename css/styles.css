@@ -10,6 +10,7 @@ body {
 	margin: auto;
 	height: 1000px;
 	font-family: Linux Libertine-DR;
+	font-size:0.9em;
 }
 .container {
 	margin-top: -1%;
@@ -2173,6 +2174,15 @@ label.error {
 	-o-box-shadow: inset 0px 0px 3px 0px #000;
 	box-shadow: inset 0px 0px 3px 0px #000;
 }
+
+label.dcah-label{
+	width: auto;
+	color:#AA1317;
+	text-align: left;
+	display: inline-block;
+	font-size: 12px;
+	font-family: "Verdana", Geneva, sans-serif;
+}
 /*---------------------------end of inline.css------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------start of jquery-ui-1.8.18.custom.css------------------------------------------------------------------------------------------------------------------*/
@@ -3575,3 +3585,22 @@ button.ui-button::-moz-focus-inner {
 	height: 100%;
 }
 /*---------------------------end of jquery-ui-1.8.18.custom.css------------------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------start of customized tabs----------------------------------------------------------*/
+/**
+ * 	Tabs
+ * 
+ *
+ */
+
+.tab-title{
+	margin-bottom:5%;
+	display:block;
+	width:100%;
+}
+.tabs-dcah{
+	display:block;
+	width:100%;
+
+}
+/*-----------------------------end of customized tabs----------------------------------------------------------*/
