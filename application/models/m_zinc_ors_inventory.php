@@ -10,10 +10,11 @@ use application\models\Entities\E_Stock;
 
 class M_Zinc_Ors_Inventory  extends MY_Model {
 	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$districtList,$mfcCode,$dbSessionValues,
-	$facility,$commodity,$ortAssessCode;
+	$facility,$commodity,$ortAssessCode, $isFacility;
 
 	function __construct() {
 		parent::__construct();
+		$this->isFacility='false';
 		
 	}
 
@@ -61,6 +62,42 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			return $this->facility;
 		
 	}/*close facilityExists($mfc)*/
+	
+	public function getFacilityCode(){
+		if ($this -> input -> post()) {//check if a post was made
+			
+       //Working with an object of the entity
+       try{
+		$this->facility = $this->em->getRepository('models\Entities\e_facility')->findOneBy(array('facilityMFC' => $this -> input -> post('username')));
+	    
+	    if($this->facility){
+			return $this->isFacility='true';
+	    }
+		}catch(exception $ex){
+			//ignore
+				//die($ex->getMessage());
+		}
+		
+	}//close the this->input->post
+	}/*close getFacilityCode()*/
+	
+	public function verifyFacilityByName(){
+		if ($this -> input -> post()) {//check if a post was made
+			
+       //Working with an object of the entity
+       try{
+		$this->facility = $this->em->getRepository('models\Entities\e_facility')->findOneBy(array('facilityName' => $this -> input -> post('username')));
+	    
+	    if($this->facility){
+			return $this->isFacility='true';
+	    }
+		}catch(exception $ex){
+			//ignore
+				//die($ex->getMessage());
+		}
+		
+	}//close the this->input->post
+	}/*close verifyFacilityByName*/
 	
 	//checks if commodity name exists
 	 public function commodityExists($cName){
@@ -495,5 +532,31 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			return $this->mfcCode;
 		}
 	}
+	
+	/*retrieve form files by factory*/
+	function retrieveFacilityInfo($mfc){
+	      /*using DQL*/
+	      try{
+	      //geting server side param: $store=$this->uri->segment(param_position_from_base_url);
+	      $query = $this->em->createQuery('SELECT f FROM models\Entities\e_facility f WHERE f.facilityMFC= :fcode');
+		  $query->setParameter('fcode',$mfc);
+          
+          $this->formRecords = $query->getArrayResult();
+		 
+		  if(max($this->formRecords) !=0)
+		  $this->response=array('rData'=>$this->formRecords);
+		 //json format
+		 $this->formRecords= json_encode($this->response);
+		 // var_dump($this->formRecords);
+
+		  }catch(exception $ex){
+		  	//ignore
+		    //die($ex->getMessage());
+		  	return false;
+		  }
+		 
+		   return true;
+		   
+	}/*close retrieveForms($factory)*/
 	
 }//end of class M_Zinc_Ors_Inventory 

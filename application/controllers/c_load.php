@@ -1,10 +1,73 @@
 <?php
 class C_Load extends MY_Controller {
+	var $rows;
 	
 	public function __construct() {
 		parent::__construct();
 		//print var_dump($this->tValue); exit;
+		$rows='';
     
+	}
+	
+	public function getFacilityDetails(){
+    	/*retrieve files under this form if any*/
+		$this->load->model('m_zinc_ors_inventory');
+		//print 'mfc: '.$this -> session -> userdata('mfCode'); exit;
+		//if(($this->m_zinc_ors_inventory->retrieveFacilityInfo($this -> session -> userdata('mfCode')))==true){
+			if(($this->m_zinc_ors_inventory->retrieveFacilityInfo('16532'))==true){
+			//retrieve existing data..else just load a blank form
+			print $this->m_zinc_ors_inventory->formRecords;
+		}
+    }
+	
+	public function suggestFacilityName(){
+		$this->load->model('m_autocomplete');
+		$facilityName=$this->input->post('username',TRUE);
+		
+		//$facilityName='Afya';
+		
+		if (!strlen($facilityName)<2)
+		
+		//echo $facilityName; exit;
+		
+		try{
+		$this->rows=$this->m_autocomplete->getAutocomplete(array('keyword'=>$facilityName));
+		//die(var_dump($this->rows));
+		$json_names=array();
+		
+		foreach($this->rows as $key=>$value)
+			array_push($json_names,$value['facilityName']);
+			print json_encode($json_names);//die;
+		}catch(exception $ex){
+			//ignore
+			$ex->getMessage();
+		}
+		
+	}
+	
+	public function suggest(){
+		$this->load->model('m_autocomplete');
+		//$facilityName=$this->input->post('username',TRUE);
+		
+		//$facilityName='Afya';
+		
+		//if (!strlen($facilityName)<2)
+		
+		//echo $facilityName; exit;
+		
+		try{
+		$this->rows=$this->m_autocomplete->getAllFacilityNames();
+		//die(var_dump($this->rows));
+		$json_names=array();
+		
+		foreach($this->rows as $key=>$value)
+			array_push($json_names,$value['facilityName']);
+			print json_encode($json_names);die;
+		}catch(exception $ex){
+			//ignore
+			$ex->getMessage();
+		}
+		
 	}
 
 	public function form_zinc_ors_inventory(){
@@ -13,7 +76,9 @@ class C_Load extends MY_Controller {
 	<!-- form for collecting inventory status information -->
 	<h3 align="center"> ZINC &amp; ORS INVENTORY STATUS</h3>
 	<p align="center">
-		<label class="dcah-label">ZINC AND ORS MAPPING</label>
+	   <section class="row-title">
+			<label class="dcah-label">FACILITY DETAILS</label>
+	   </section
 	</p>
 	<section class="block">
 		<section class="column">
@@ -697,7 +762,7 @@ class C_Load extends MY_Controller {
 				</section>
 			</section>
 			<section class="row hide" style="display:none">
-					<label class="dcah-label"> If, YES, mention the various locations:</label>
+					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
 				</section>
 			<section class="row hide" style="display:none">
 				<section class="left" >
@@ -742,12 +807,14 @@ class C_Load extends MY_Controller {
 		</section>
 	</section>
 	
+	<section class="row-title">
+			<label class="dcah-label">EQUIPMENT</label>
+	</section>
 	<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
 	<section class="block">
-		
 	<table id="tableEquipmentList">
 	<tr class="row2">
-	<input type="button" id="editEquipmentListTopButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/>
+	<input type="button" id="editEquipmentListTopButton" name="editEquipmentListTopButton" class="awesome myblue medium" value="Edit List"/>
 	</tr>
 		<tr>
 			<thead >
@@ -1553,67 +1620,91 @@ class C_Load extends MY_Controller {
 		$this -> load -> view('form', $data);
 	}
 
-	public function form_mnh_equipment_assessment() {
+					
+					
+					
+					
+					
+						public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
-		$form_mnh_assessment.= '<form name="form_assessment_equiqment" id="form_assessment_equiqment" method="POST" action="' . base_url() . 'submit/c_form/form_assessment_equiqment' . '" >
+		$form_mnh_assessment.= '
+<form name="form_assessment_equiqment" id="form_assessment_equiqment" method="POST" action="' . base_url() . 'submit/c_form/form_assessment_equiqment' . '" >
 	<!-- form for collecting inventory status information -->
 	<h3 align="center"> ASSESSMENT OF EQUIPMENT AND SUPPLIES FOR EmONC</h3>
 
 	<section class="block">
-		<section class="column-wide">
-			<section class="row-title">
-				<label class="dcah-label">FACILILTY DETAILS</label>
-			</section>
-			<section class="row">
+		<section class="column">
+			<section class="row2">
 				<section class="left">
-					1. Faciliy Name
+					<label>Date:</label>
 				</section>
 				<section class="right">
-					<input type="text" />
+					<input type="date" name="facilityDateOfInventory" id="facilityDateOfInventory" readonly="readonly" class="autoDate" placeholder="click for date"/>
 				</section>
-
 			</section>
-
-			<section class="row">
+			<section class="row2">
 				<section class="left">
-					2. Faciliy Number
+					<label>Facility Name:</label>
 				</section>
 				<section class="right">
-					<input type="number" />
+					<input type="text" name="facilityName" id="facilityName"/>
 				</section>
-
 			</section>
-
-			<!--
-			<section class="row">
-			<section class="left">
-			</section>
-			<section class="center">
-			</section>
-			-->
-
-			<section class="row">
+			<section class="row2">
 				<section class="left">
-					3. Keph Level
+					<label>Facility Contact Person:</label>
 				</section>
 				<section class="right">
-					<select>
-						<option>Keph 1</option>
-						<option>Keph 2</option>
-						<option>Keph 3</option>
-						<option>Keph 4</option>
-						<option>Keph 5</option>
-						<option>Keph 6</option>
+					<input type="text" name="facilityContactPerson" id="facilityContactPerson"/>
+				</section>
+			</section>
+			<section class="row2">
+				<!--section class="left">
+				<label>Drugs Dispensed From</label>
+				</section>
+				<section class="right">
+				<input type="text" name="facilityZincOrsDispensedFrom" id="facilityZincOrsDispensedFrom"/>
+				</section-->
+			</section>
+		</section>
+		<section class="column" style="margin-bottom:30px">
+			<section class="row2">
+				<section class="left">
+					<label>District:</label>
+				</section>
+				<section class="right">
+					<select name="facilityDistrict" id="facilityDistrict">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectDistricts . '
 					</select>
 				</section>
 			</section>
-
-			<section class="row">
+			<section class="row2">
 				<section class="left">
-					4. Date<em>(Today)</em>
+					<label>County:</label>
 				</section>
 				<section class="right">
-					<input type="date" class="autoDate" />
+					<select name="facilityCounty" id="facilityCounty">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectCounties . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+					<label>Telephone Contact:</label>
+				</section>
+				<section class="right">
+					<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="15"/>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+					<label>Email:</label>
+				</section>
+				<section class="right">
+					<input type="email" name="facilityEmail" id="facilityEmail" maxlength="100"/>
+					<input type="hidden"  name="facilityMFC" id="facilityMFC"/>
 				</section>
 			</section>
 		</section>
@@ -1633,7 +1724,7 @@ class C_Load extends MY_Controller {
 					<section class="right">
 						<label class="dcah-label">COMMENTS (On Why NOT)</label>
 					</section>
-					
+
 				</section>
 
 				<section class="row">
@@ -1641,13 +1732,13 @@ class C_Load extends MY_Controller {
 						5. Does this facility provide delivery services
 					</section>
 					<section class="center">
-						<select>
+						<select name="q5FacilityDelivery" id="q5FacilityDelivery_1">
 							<option>Yes</option>
 							<option>No</option>
 						</select>
 					</section>
 					<section class="right">
-						<input type="text" id="qn1Comment" name="qn1Comment"/>
+						<input type="text" id="q5Comment" name="q5Comment_1"/>
 					</section>
 
 				</section>
@@ -1655,14 +1746,14 @@ class C_Load extends MY_Controller {
 					<section class="left">
 						6. Does the facility provide 24 hour coverage for delivery services?
 					</section>
-					<section class="center">
+					<section class="center" name="q6FacilityDelivery_1" id="q6FacilityDelivery_1">
 						<select>
 							<option>Yes</option>
 							<option>No</option>
 						</select>
 					</section>
 					<section class="right">
-						<input type="text" id="qn1Comment" name="qn1Comment"/>
+						<input type="text" name="q6Comment_1" id="q6Comment"/>
 					</section>
 
 				</section>
@@ -1672,7 +1763,7 @@ class C_Load extends MY_Controller {
 						including weekends, to provide delivery care?
 					</section>
 					<section class="center">
-						<select>
+						<select name="q7ConductingDelivery_1" id="q7ConductingDelivery_1">
 							<option>Yes, present, schedule observed</option>
 							<option>Yes, present, schedule reported, not seen</option>
 							<option>Yes, on-call schedule observed</option>
@@ -1680,7 +1771,6 @@ class C_Load extends MY_Controller {
 							<option>No</option>
 						</select>
 					</section>
-					
 
 				</section>
 				<section class="row">
@@ -1688,7 +1778,7 @@ class C_Load extends MY_Controller {
 						8. Please tell me the total number of beds in the maternity ward / unit in this facility*
 					</section>
 					<section class="right">
-						<input type="number" />
+						<input type="number" name="q8TotalBeds_1" id="q8TotalBeds_1"/>
 					</section>
 
 				</section>
@@ -1702,7 +1792,7 @@ class C_Load extends MY_Controller {
 						9. Describe the setting of the Delivery Room
 					</section>
 					<section class="right">
-						<select>
+						<select name="q9DeliveryRoom_1" id="q9DeliveryRoom_1">
 							<option>private room, visual & auditory privacy</option>
 							<option>non-private room, visual & auditory privacy</option>
 							<option>visual privacy only</option>
@@ -1723,10 +1813,10 @@ class C_Load extends MY_Controller {
 							<label class="dcah-label">10. EQUIPMENT REQUIRED FOR DELIVERY SERVICES</label>
 						</section>
 						<section class="center">
-								<label class="dcah-label">Availability (A)</label>
+							<label class="dcah-label">Availability (A)</label>
 						</section>
 						<section class="right">
-								<label class="dcah-label">Functioning (B)</label>
+							<label class="dcah-label">Functioning (B)</label>
 						</section>
 					</section>
 				</section>
@@ -1736,16 +1826,14 @@ class C_Load extends MY_Controller {
 						10a. Examination light
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10aExamninatioLight_1" id="q10aExamninatioLight_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10aYAD_1" id="q10aYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1759,16 +1847,14 @@ class C_Load extends MY_Controller {
 						10b. Delivery bed/ couch
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10bDeliveryBed_1" id="q10bDeliveryBed_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10bYAD_1" id="q10bYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1782,16 +1868,14 @@ class C_Load extends MY_Controller {
 						10c. Clean or sterile gloves
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10cLeanSterile_1" id="q10cLeanSterile_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10cYAD_1" id="q10cYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1805,16 +1889,14 @@ class C_Load extends MY_Controller {
 						10d.Mackintosh
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="qc10dMackintosh_1" id="qc10dMackintosh_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10dYAD_1" id="q10dYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1828,16 +1910,14 @@ class C_Load extends MY_Controller {
 						10e. Linen
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10eLinen_1" id="q10eLinen_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10eYAD_1" name="q10eYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1851,16 +1931,14 @@ class C_Load extends MY_Controller {
 						10f. Disposable Needles (gauge 21, 23)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10fDisposableNeedles_1" id="q10fDisposableNeedles_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10fYAD_1" id="q10fYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1874,16 +1952,14 @@ class C_Load extends MY_Controller {
 						10g. Sharps container
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10gSharpsContainer_1" id="q10gSharpsContainer_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10gYAD_1" id="q10gYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1897,16 +1973,14 @@ class C_Load extends MY_Controller {
 						10h. At least five or more 2-ml or 5-ml disposable syringes
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10hDisposableSyringes_1" id="q10hDisposableSyringes_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10hYAD_1" id="q10hYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1920,16 +1994,14 @@ class C_Load extends MY_Controller {
 						10i. Three properly labeled or colour coded IP buckets
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10iIPBuckets_1" id="q10iIPBuckets_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10iYAD_1" id="q10iYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1943,16 +2015,14 @@ class C_Load extends MY_Controller {
 						10j. Jik
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10jJik_1" id="q10jJik_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10jYAD_1" id="q10jYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1966,16 +2036,14 @@ class C_Load extends MY_Controller {
 						10k. Soap for washing instruments
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10kWashingInstruments_1" id="q10kWashingInstruments_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10kYAD_1" id="q10kYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -1989,15 +2057,13 @@ class C_Load extends MY_Controller {
 						10l.Soap for handwashing
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10lSoapHandwashing_1" id="q10lSoapHandwashing_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
-					<section class="right">
+					<section class="right" name="q10lYAD_1" id="q10lYAD_1">
 						<select>
 							<option> Yes </option>
 							<option> No </option>
@@ -2012,16 +2078,14 @@ class C_Load extends MY_Controller {
 						10m.Properly Labelled or colour coded waste segragation bins
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10mLabelledColor_1" id="q10mLabelledColor_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10mYAD_1" id="q10mYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2035,15 +2099,13 @@ class C_Load extends MY_Controller {
 						10n. Drip stand
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10nDripStand_1" id="q10nDripStand_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
-					<section class="right">
+					<section class="right" name="q10nYAD_1" id="q10nYAD_1">
 						<select>
 							<option> Yes </option>
 							<option> No </option>
@@ -2058,16 +2120,14 @@ class C_Load extends MY_Controller {
 						10o. Single-use hand-drying towels
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10oSingleTowels_1" id="q10oSingleTowels_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10oYAD_1" id="q10oYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2081,16 +2141,14 @@ class C_Load extends MY_Controller {
 						10p. Running  Water for handwashing
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q10pRunningWater_1" id="q10pRunningWater_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q10pYAD_1" id="q10pYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2122,10 +2180,10 @@ class C_Load extends MY_Controller {
 						11a. Cord scissors-1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11aCordScissors_1" id="q11aCordScissors_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11aComment_1" id="q11aComment_1"/>
 					</section>
 
 				</section>
@@ -2135,10 +2193,10 @@ class C_Load extends MY_Controller {
 						11b. Cord clamps/ ties
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11bCordClamps_1" id="q11bCordClamps_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11bComment_1" id="q11bComment_1"/>
 					</section>
 
 				</section>
@@ -2149,10 +2207,10 @@ class C_Load extends MY_Controller {
 					</section>
 
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11cLongArtery_1" id="q11cLongArtery_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11cComment_1" id="q11cComment_1"/>
 					</section>
 
 				</section>
@@ -2162,10 +2220,10 @@ class C_Load extends MY_Controller {
 						11d. Episiotomy scissors  -1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11dEpisotomy_1" id="q11dEpisotomy_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11dComment_1" id="q11dComment_1"/>
 					</section>
 
 				</section>
@@ -2175,10 +2233,10 @@ class C_Load extends MY_Controller {
 						11e. Kidney dishes  -2
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11eKidneyDishes_1" id="q11eKidneyDishes_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11eComment_1" id="q11eComment_1"/>
 					</section>
 
 				</section>
@@ -2188,10 +2246,10 @@ class C_Load extends MY_Controller {
 						11f. Gallipots -1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11fGallipots_1" id="q11fGallipots_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11fComment_1" id="q11fComment_1"/>
 					</section>
 
 				</section>
@@ -2201,10 +2259,10 @@ class C_Load extends MY_Controller {
 						11g. Sponge-holding forceps -1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11gSpongeForceps_1" id="q11gSpongeForceps_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11gComment_1" id="q11gComment_1"/>
 					</section>
 
 				</section>
@@ -2214,10 +2272,10 @@ class C_Load extends MY_Controller {
 						11h. Needle holder-1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11hNeedleHolder_1" id="q11hNeedleHolder_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11hComment_1" id="q11hComment_1"/>
 					</section>
 
 				</section>
@@ -2227,10 +2285,10 @@ class C_Load extends MY_Controller {
 						11i. Dissecting forceps -toothed-1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11iDissectingForceps_1" id="q11iDissectingForceps_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11iComment_1" id="q11iComment_1"/>
 					</section>
 
 				</section>
@@ -2240,10 +2298,10 @@ class C_Load extends MY_Controller {
 						11j. Instrument tray with cover -1
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11jInstrumentTray_1" id="q11jInstrumentTray_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11jComment_1" id="q11jComment_1"/>
 					</section>
 
 				</section>
@@ -2253,10 +2311,10 @@ class C_Load extends MY_Controller {
 						11k. Total number of delivery kits in the labour ward
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11jDeliveryLabour_1" id="q11jDeliveryKits_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11kComment_1" id="q11kComment_1"/>
 					</section>
 				</section>
 
@@ -2265,10 +2323,10 @@ class C_Load extends MY_Controller {
 						11l. Total number of delivery kits with all required items above (17C)
 					</section>
 					<section class="center">
-						<input type="number" />
+						<input type="number" name="q11kDeliveryAvailable_1" id="q11kDeliveryAvailable_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q11kComment_1" id="q11kComment_1"/>
 					</section>
 
 				</section>
@@ -2283,7 +2341,7 @@ class C_Load extends MY_Controller {
 
 					</section>
 					<section class="right">
-							<label class="dcah-label">Functioning (B)</label>
+						<label class="dcah-label">Functioning (B)</label>
 					</section>
 				</section>
 
@@ -2292,16 +2350,14 @@ class C_Load extends MY_Controller {
 						12a. Stethoscopes  adult and neonatal
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12aStethoscopes_1" id="q12aStethoscopes_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12aYAD_1" id="q12aYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2315,16 +2371,14 @@ class C_Load extends MY_Controller {
 						12b. BP machine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12bBPMachine_1" id="q12bBPMachine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12bYAD_1" id="q12bYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2337,16 +2391,14 @@ class C_Load extends MY_Controller {
 						12c. Thermometer
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12cThermometer_1" id="q12cThermometer_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12cYAD_1" id="q12cYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2359,16 +2411,14 @@ class C_Load extends MY_Controller {
 						12d. Fetoscope or sonicaid
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q11dFetoscope_1" id="q11dFetoscope_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12dYAD_1" id="q12dYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2381,16 +2431,14 @@ class C_Load extends MY_Controller {
 						12e. Suction Machine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12eSuctionMachine_1" id="q12eSuctionMachine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12eYAD_1" id="q12eYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2404,16 +2452,14 @@ class C_Load extends MY_Controller {
 						12f. Weighing Scale for babies
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12fWeighingBabies_1" id="q12fWeighingBabies_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12fYAD_1" id="q12fYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2427,16 +2473,14 @@ class C_Load extends MY_Controller {
 						12g. Weighing scale for premature/ LBW babies; (digital/ graduated)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12gWeighingPremature_1" id="q12gWeighingPremature_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12gYAD_1" id="q12gYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2450,16 +2494,14 @@ class C_Load extends MY_Controller {
 						12h. Adult resuscitation tray
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12hAdultResuscitation_1" id="q12hAdultResuscitation_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12hYAD_1" id="q12hYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2473,16 +2515,14 @@ class C_Load extends MY_Controller {
 						12i. Autoclave or steriliser
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12iAutoclave_1" id="q12iAutoclave_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12iYAD_1" id="q12iYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2496,16 +2536,14 @@ class C_Load extends MY_Controller {
 						12j. Manual Vacuum Aspiration kit
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12jManualVacuum_1" id="q12jManualVacuum_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12jYAD_1" id="q12jYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2519,16 +2557,14 @@ class C_Load extends MY_Controller {
 						12k. Ventouse or Kiwi vacuum extractor
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12kVentouse_1" id="q12kVentouse_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12kYAD_1" id="q12kYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2542,16 +2578,14 @@ class C_Load extends MY_Controller {
 						12l. Dilatation and curretage kit
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12lDilation_1" id="q12lDilation_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12lYAD_1" id="q12lYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2565,16 +2599,14 @@ class C_Load extends MY_Controller {
 						12m. Raytech gauze
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12mRaytechGauze_1" id="q12mRaytechGauze_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12mYAD_1" id="q12mYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2588,16 +2620,14 @@ class C_Load extends MY_Controller {
 						12n. Sanitary pads
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12nSanitaryPads_1" id="q12nSanitaryPads_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12nYAD_1" id="q12nYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2611,16 +2641,14 @@ class C_Load extends MY_Controller {
 						12o. Elbow length gloves
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12oElbowGloves_1" id="q12oElbowGloves_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12oYAD_1" id="q12oYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2634,16 +2662,14 @@ class C_Load extends MY_Controller {
 						12p. Patellar Hammer
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12pPatellarHammer_1" id="q12pPatellarHammer_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12pYAD_1" id="q12pYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2657,16 +2683,14 @@ class C_Load extends MY_Controller {
 						12q. Sutures
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q12qSutures_1" id="q12qSutures_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q12qYAD_1" id="q12qYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2696,16 +2720,14 @@ class C_Load extends MY_Controller {
 						13a. Intravenous solutions: either Ringers lactate, D5NS, or NS infusion
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13aIntravenousSolutions_1" id="q13aIntravenousSolutions_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13aNumber_1" id="q13aNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13aComment_1" id="q13aComment_1"/>
 					</section>
 
 				</section>
@@ -2715,16 +2737,14 @@ class C_Load extends MY_Controller {
 						13b. Injectable ergometrine/ methergine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13bIntectableErgomtrine_1" id="q13bIntectableErgomtrine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13bNumber_1" id="q13bNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13bComment_1" id="q13bComment_1"/>
 					</section>
 
 				</section>
@@ -2734,16 +2754,14 @@ class C_Load extends MY_Controller {
 						13c. Injectable oxytocin/ syntocin
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13cInjectableOxytocin_1" id="q13cInjectableOxytocin_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13cNumber_1" id="q13cNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13cComment_1" id="q13cComment_1"/>
 					</section>
 
 				</section>
@@ -2753,16 +2771,14 @@ class C_Load extends MY_Controller {
 						13d. Injectable Hydralazine or Apresoline
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13dInjectableHydralazine_1" id="q13dInjectableHydralazine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13dNumber_1" id="q13dNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13dComment_1" id="q13dComment_1" />
 					</section>
 
 				</section>
@@ -2772,16 +2788,14 @@ class C_Load extends MY_Controller {
 						13e. Injectable diazepam
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13eInjectableDiazepam_1" id="q13eInjectableDiazepam_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13eNumber_1" id="q13eNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13eComment_1" id="q13eComment_1"/>
 					</section>
 
 				</section>
@@ -2791,16 +2805,14 @@ class C_Load extends MY_Controller {
 						13f. Injectable magnesium sulfate
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13fInjectableMagnesium_1" id="q13fInjectableMagnesium_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13fNumber_1" id="q13fNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13fComment_1" id="q13fComment_1"/>
 					</section>
 
 				</section>
@@ -2810,16 +2822,14 @@ class C_Load extends MY_Controller {
 						13g. Injectable amoxicillin or ampicillin
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13gInjectableAmoxicillin_1" id="q13gInjectableAmoxicillin_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13gNumber_1" id="q13gNumber_1" />
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13Comment_1" id="q13Comment_1" />
 					</section>
 
 				</section>
@@ -2829,16 +2839,14 @@ class C_Load extends MY_Controller {
 						13h. Injectable gentamicin
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13hInjectableGentamicin_1" id="q13hInjectableGentamicin_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13hNumber_1" id="q13hNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13hComment_1"  id="q13hComment_1"/>
 					</section>
 
 				</section>
@@ -2848,16 +2856,14 @@ class C_Load extends MY_Controller {
 						13i. Calcium gluconate
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13iCalciumGluconate_1" id="q13iCalciumGluconate_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13iNumber_1" id="q13iNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13iComment_1" id="q13iComment_1"/>
 					</section>
 
 				</section>
@@ -2867,16 +2873,14 @@ class C_Load extends MY_Controller {
 						13j. Methyldopa/Aldomet
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13jMethyldopa_1" id="q13jMethyldopa_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13jNumber_1" id="q13jNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13jComment_1" id="q13jComment_1"/>
 					</section>
 
 				</section>
@@ -2886,16 +2890,14 @@ class C_Load extends MY_Controller {
 						13k. Lidocaine (lignocaine) or other local anesthetic
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13kLidocaine_1" id="q13kLidocaine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13kNumber_1" id="q13kNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13kComment_1" id="q13kComment_1"/>
 					</section>
 
 				</section>
@@ -2905,13 +2907,11 @@ class C_Load extends MY_Controller {
 						13l. Nifedipine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13lNifedipine_1" id="q13lNifedipine_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13lNumber_1" id="q13lNumber_1" />
 					</section>
 					<section class="right">
 						<input type="text" />
@@ -2924,16 +2924,14 @@ class C_Load extends MY_Controller {
 						13m. Vitamin A
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13mVitaminA_1" id="q13mVitaminA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13mNumber_1" id="q13mNumber_1" />
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13mComment_1" id="q13mComment_1"/>
 					</section>
 
 				</section>
@@ -2943,16 +2941,14 @@ class C_Load extends MY_Controller {
 						13n. Vitamin K
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13nVitaminK_1" id="q13nVitaminK_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13nNumber_1" id="q13nNumber_1"/>
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13nComment_1" id="q13nComment_1"/>
 					</section>
 
 				</section>
@@ -2962,16 +2958,14 @@ class C_Load extends MY_Controller {
 						13o. Oxygen
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q13oOxygen_1" id="q13oOxygen_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q13oNumber_1" id="q13oNumber_1" />
 					</section>
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13oComment_1" id="q13oComment_1" />
 					</section>
 
 				</section>
@@ -2981,39 +2975,40 @@ class C_Load extends MY_Controller {
 						13p. Other / specify
 					</section>
 					<section class="center">
-						<textarea></textarea>
+						<input type="text" name="q13pOther_1" id="q13pOther_1" />
 					</section>
+					<input type="number" name="q13pNumber_1" id="q13pNumber_1" />
 					<section class="right">
-						<input type="text" />
+						<input type="text" name="q13pComment_1" id="q13pComment_1" />
 					</section>
 
 				</section>
 
 				<section class="row">
-				<section class="row-title">
-					<section class="left">
-						<label class="dcah-label">QUESTION</label>
-					</section>
-					<section class="center">
-						<label class="dcah-label">ANSWER</label>
+					<section class="row-title">
+						<section class="left">
+							<label class="dcah-label">QUESTION</label>
+						</section>
+						<section class="center">
+							<label class="dcah-label">ANSWER</label>
+						</section>
 					</section>
 				</section>
+				<section class="left">
+					14a. Does this facility perform newborn resuscitation?
 				</section>
-					<section class="left">
-						14a. Does this facility perform newborn resuscitation?
-					</section>
-					<section class="right">
-						<select>
-							<option> Yes </option>
-							<option> No </option>
-						</select>
-					</section>
+				<section class="right">
+					<select name="q14aYA_1" id="q14aYA_1">
+						<option> Yes </option>
+						<option> No </option>
+					</select>
+				</section>
 				<section class="row">
 					<section class="left">
 						14b. Has this facility performed newborn resuscitation in the last 3 months with bag and mask?
 					</section>
 					<section class="right">
-						<select>
+						<select name="q14bYAD_1" id="q14bYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3040,16 +3035,14 @@ class C_Load extends MY_Controller {
 						15a. Self inflating Neonatal Ambu bag ( 500 mls)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15aYA_1" id="q15aYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15aNumber_1" id="q15aNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15aYAD_1" id="q15aYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3063,16 +3056,14 @@ class C_Load extends MY_Controller {
 						15b. Infant masks  (size 0-preterm)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15bYA_1" id="q15bYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15bNumber_1" id="q15bNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15bYAD_1" id="q15bYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3086,16 +3077,14 @@ class C_Load extends MY_Controller {
 						15c. Infant mask size 1 (term new born)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15cYA_1" id="q15cYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15cNumber_1" id="q15cNumber_1" />
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15cYAD_1" id="q15cYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3108,16 +3097,14 @@ class C_Load extends MY_Controller {
 						15d. Infant mask size 2 (infant up to 1 yr)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15dYA_1" id="q15dYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15dNumber_1" id="q15dNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15dYAD_1" id="q15dYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3127,19 +3114,17 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						15de. Clock  with seconds arm
+						15e. Clock  with seconds arm
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15eYA_1" id="q15eYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15eNumber_1" id="q15eNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15eYAD_1" id="q15eYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3152,16 +3137,14 @@ class C_Load extends MY_Controller {
 						15f. Neonatal Incubator
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15fYA_1" id="q15fYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15fNumber_1" id="q15fNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15fYAD_1" id="q15fYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3174,16 +3157,14 @@ class C_Load extends MY_Controller {
 						15g. A Radiant Heater
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15gYA_1" id="q15gYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15gNumber_1" id="q15gNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15gYAD_1" id="q15gYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3196,16 +3177,14 @@ class C_Load extends MY_Controller {
 						15h. Infant Scale
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15hYA_1" id="q15hYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15hNumber_1" id="q15hNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15hYAD_1" id="q15hYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3218,13 +3197,18 @@ class C_Load extends MY_Controller {
 						15i. Suction bulb for mucus extraction
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15iYA_1" id="q15iYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15iNumber_1" id="q15iNumber_1"/>
+						<section class="right">
+							<select name="q15iYAD_1" id="q15iYAD_1">
+								<option> Yes </option>
+								<option> No </option>
+								<option> Do Not Know </option>
+							</select>
+						</section>
 					</section>
 				</section>
 
@@ -3233,16 +3217,14 @@ class C_Load extends MY_Controller {
 						15j. Suction apparatus for use with catheter
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15jYA_1" id="q15jYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15jNumber_1" id="q15jNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15jYAD_1" id="q15jYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3255,16 +3237,14 @@ class C_Load extends MY_Controller {
 						15k. A flat, clean, dry and warm newborn resuscitation surface
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15kYA_1" id="q15kYA_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15kNumber_1" id="q15kNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15kYAD_1" id="q15kYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3277,16 +3257,14 @@ class C_Load extends MY_Controller {
 						15L. Disposable cord ties or clamps
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15lDisposableCord_1" id="q15lDisposableCord_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15lNumber_1" id="q15lNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15lNumber_1" id="q15lYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3299,16 +3277,14 @@ class C_Load extends MY_Controller {
 						15m. Clean and warm towels/cloths for drying / warming / wrapping baby
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="q15mCleanTowels_1" id="q15mCleanTowels_1">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
-						<input type="number" />
+						<input type="number" name="q15mNumber_1" id="q15mNumber_1"/>
 					</section>
 					<section class="right">
-						<select>
+						<select name="q15mYAD_1" id="q15mYAD_1">
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -3330,10 +3306,15 @@ class C_Load extends MY_Controller {
 						16. Does this facility perform blood transfusions? (IF YES, Is there a blood bank or are there transfusion  services only)
 					</section>
 					<section class="center">
-						<select>
-							<option> Yes, blood bank available in facility </option>
-							<option> Yes, transfusion done but  no blood bank in the facility</option>
-							<option> No blood transfusion</option>
+						<select name="q16BloodTransfusions_1">
+							<option>Yes, performs transfusion</option>
+							<option>No</option>
+						</select>
+					</section>
+					<section class="right">
+						<select name="q16BloodBanks_1">
+							<option>Yes, blood bank available</option>
+							<option>No</option>
 						</select>
 					</section>
 				</section>
@@ -3348,30 +3329,26 @@ class C_Load extends MY_Controller {
 							<option> No</option>
 						</select>
 					</section>
-				<section class="row hide" style="display:true">
-				<section class="left" >
-					<label class="dcah-label"> If Yes, how many caesarean sections were performed in August 2012</label>
-				</section>
-				<section class="right">
-					<section class="col">
-						<input type="number" name="ortDehydrationLocation" id="ortDehydrationLocation"  value=""/>
+					<section class="row hide" style="display:true">
+						<section class="left" >
+							<label class="dcah-label"> If Yes, how many caesarean sections were performed in August 2012</label>
+						</section>
+						<section class="right">
+							<section class="col">
+								<input type="number" name="ortDehydrationLocation" id="ortDehydrationLocation"  value=""/>
+							</section>
+						</section>
 					</section>
 				</section>
-			</section>
-				</section>
-
-				
 
 				<section class="row">
 					<section class="left">
 						18a. Operating Table
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3390,11 +3367,9 @@ class C_Load extends MY_Controller {
 						18b. Operating Light
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3412,11 +3387,9 @@ class C_Load extends MY_Controller {
 						18c. Anaesthetic machine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3434,11 +3407,9 @@ class C_Load extends MY_Controller {
 						18d. Laryngoscopes
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3456,11 +3427,9 @@ class C_Load extends MY_Controller {
 						18e. Endotracheal tubes
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3478,11 +3447,9 @@ class C_Load extends MY_Controller {
 						18f. Anaesthetic drugs e.g ketamine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3500,11 +3467,9 @@ class C_Load extends MY_Controller {
 						18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3522,11 +3487,9 @@ class C_Load extends MY_Controller {
 						18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3544,11 +3507,9 @@ class C_Load extends MY_Controller {
 						18i. Scrub area adjacent to or in the operating room
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3566,11 +3527,9 @@ class C_Load extends MY_Controller {
 						18j. Running Water
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3588,11 +3547,9 @@ class C_Load extends MY_Controller {
 						18k. Suction Machine
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3610,11 +3567,9 @@ class C_Load extends MY_Controller {
 						18l. Standard Cesaerian section kit
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3632,11 +3587,9 @@ class C_Load extends MY_Controller {
 						18m. Sterile operation gowns
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3654,11 +3607,9 @@ class C_Load extends MY_Controller {
 						18n. Sterile Drapes
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3676,11 +3627,9 @@ class C_Load extends MY_Controller {
 						18o. Sterile gloves in various sizes (6.5 -9)
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3698,11 +3647,9 @@ class C_Load extends MY_Controller {
 						18p. IV canulas
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3720,11 +3667,9 @@ class C_Load extends MY_Controller {
 						18q. Drip Stand
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3742,11 +3687,9 @@ class C_Load extends MY_Controller {
 						18r. Blood transfusion set
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3764,11 +3707,9 @@ class C_Load extends MY_Controller {
 						18s. Recovery room/ recovery area
 					</section>
 					<section class="center">
-						<select>
-							<option> Observed </option>
-							<option> Reported, Not Seen </option>
-							<option> Not Available </option>
-							<option> Dont Know </option>
+						<select class="cloned left-combo" name="" id="">
+							<option>Yes </option>
+							<option>No </option>
 						</select>
 						<input type="number" />
 					</section>
@@ -3780,9 +3721,9 @@ class C_Load extends MY_Controller {
 						</select>
 					</section>
 				</section>
-					 <label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+				<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 			</section>
-        
+
 		</section>
 
 </form>
@@ -3794,7 +3735,5 @@ class C_Load extends MY_Controller {
 		$this -> load -> view('form', $data);
 
 	}
-		
-			
 
 }

@@ -69,7 +69,7 @@ function __construct()  {
 			  $this->m_zinc_ors_inventory->retrieveCountyAndDistrictNames();
 			  $this->m_zinc_ors_inventory->getMFCEntered();
 			  
-			  $sess_data=array('mfc'=>$this->m_zinc_ors_inventory->mfcCode);
+			 $sess_data=array('mfc'=>$this->m_zinc_ors_inventory->mfcCode);
 		     $this -> session -> set_userdata($sess_data);
 			 
 			  $countyName_array=array('allCounties'=>$this->m_zinc_ors_inventory->dbSessionValues[1]);
