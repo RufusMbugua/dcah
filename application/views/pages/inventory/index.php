@@ -221,29 +221,21 @@ $sessionMFC = $this -> session -> userdata('mfc');
 				//switch(linkSub){
 				switch(link_id){
 					case "#mnh_inventory_li":
-<<<<<<< HEAD
-					linkDomain='c_load';
-					linkIdUrl='form_mnh_equipment_assessment';
-					break;
-					case "#zinc_inventory_li":
-					linkDomain='c_load';
-=======
+
 					linkDomain='c_load';
 					linkIdUrl='form_assessment_equipment';
 					break;
 					case "#zinc_inventory_li":
 					linkDomain='c_load';
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
-					linkIdUrl='form_zinc_ors_inventory';
+entory';
 					break;
 				}/*close the case*/
 				if(linkDomain)
 				//+linkDomain+'/'+linkIdUrl
-<<<<<<< HEAD
-				$(".form-container").load('<?php echo base_url();?>'+linkDomain+'/'+linkIdUrl,function(){
-=======
+
+
 				$(".form-container").load('<?php echo base_url();?>c_load/'+linkIdUrl,function(){
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
+
 				//delegate events
 				
 				//if(loaded==false)
@@ -353,13 +345,10 @@ $sessionMFC = $this -> session -> userdata('mfc');
 									
 							<section class="form-container-menu">
 								<ul>
-<<<<<<< HEAD
+
 									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
 									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal & New-born Health Assessment</a></li>
-=======
-									<li><a id="zinc_inventory_li" class="awesome blue large">Zinc & ORS Inventory Status</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">MNH & Child Health Assessment</a></li>
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
+
 								</ul>
 							</section>					
 							<section class="form-container ui-widget">

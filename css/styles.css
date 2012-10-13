@@ -901,20 +901,13 @@ div.slider-nav span.left {
 }
 .form-container {
 	margin-top: -1%;
-<<<<<<< HEAD
+
 	width: 75%;
 	height: 700px;
 	overflow: auto;
 	padding: 5px 5px 5px 5px;
 	margin-left:2%;
-=======
-	width: 70%;
-	height: 600px;
-	overflow: auto;
-	padding: 5px 5px 5px 5px;
-	float:left;
-	margin-left:3%;
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
+
 	margin-top: 10px;
 	border: 2px solid #CCC;
 	-webkit-box-shadow: inset 0px 0px 6px 0px #000;
