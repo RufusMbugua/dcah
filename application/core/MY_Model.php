@@ -28,28 +28,6 @@ function __construct() {
 			}
 	}
 	
-	function facilityExists($mfc) {
-        $s=microtime(true); /*mark the timestamp at the beginning of the transaction*/
-		
-		if ($this -> input -> post()) {//check if a post was made
-			
-       //Working with an object of the entity
-		$user = $this->em->getRepository('models\Entities\e_systemuser')->findOneBy(array('username' => $this -> input -> post('username'), 'password' => $this -> input -> post('secret')));
-	    
-		
-		
-	    if($user){
-	    	$this->email = $user -> getUsername();
-			$this->userRights=$user->getUserRights();
-			$this->affiliation=$user->getAffiliation();
-			return $this->isUser='true';
-	    }
-		
-		}//close the this->input->post
-		$e=microtime(true);
-		$this->executionTime=round($e-$s,'4');
-		return $this -> isUser = 'true';
-	} /*end of facilityExists()*/
 	
 	function getAllDistrictNames(){
 		 /*using DQL*/

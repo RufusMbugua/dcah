@@ -1,10 +1,6 @@
 <?php
-ob_start();
+//ob_start();
 $sessionMFC = $this -> session -> userdata('mfc');
-//$sessionCounty=$this -> session -> userdata('allCounties');
-/*$accessLevel=$this -> session -> userdata('userRights');
-$vehicle=$this -> session -> userdata('vehicle');
-$affiliation=$this -> session -> userdata('affiliation');*/
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -174,10 +170,11 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				}/*close the case*/
 				if(linkDomain)
 				//+linkDomain+'/'+linkIdUrl
-				$(".form-container").load('<?php echo base_url();?>c_load/'+linkIdUrl,function(){
+				$(".form-container").load('<?php echo base_url();?>'+linkDomain+'/'+linkIdUrl,function(){
 				//delegate events
+				
 				//if(loaded==false)
-				loadGlobalScript();
+				loadGlobalScript();renderFacilityInfo();
 				$( "#tabs" ).tabs();
 				//alert('done');
 				
@@ -187,6 +184,37 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 				/*----------------------------------------------------------------------------------------------------------------*/
 				
 				//load zinc form on form load
+				
+				/*-----------------------------------------------------------------------------------------------------------------*/
+				/*start of ajax data requests*/
+				function renderFacilityInfo(){
+    			 $.ajax({
+		            type: "GET",
+		            url: "<?php echo base_url()?>c_load/getFacilityDetails",
+		            dataType:"json",
+		            cache:"true",
+		            data:"",
+		            success: function(data){
+		            	var info = data.rData;
+				    $.each(info , function(i,facility) {
+		            	//alert("Name: "+facility.facilityMFC);//render found data
+                   	$("#facilityName").val(facility.facilityName);
+                   	$("#facilityContactPerson").val(facility.facilityContactPerson);
+                   	$("#facilityDistrict").val(facility.facilityDistrict);
+                   	$("#facilityCounty").val(facility.facilityCounty);
+                   	$("#facilityEmail").val(facility.facilityEmail);
+                   	$("#facilityTelephone").val(facility.facilityTelephone);
+                  });
+		         
+		            	//return false;
+		            },
+		            beforeSend:function(){},
+		            afterSend:function(){}
+		        });
+         		return false;
+    		}
+				/*end of ajax data requests*/
+				/*-----------------------------------------------------------------------------------------------------------------*/
 				
 		
 		}); /*close document ready*/
@@ -252,8 +280,8 @@ $affiliation=$this -> session -> userdata('affiliation');*/
 									
 							<section class="form-container-menu">
 								<ul>
-									<li><a id="zinc_inventory_li" class="awesome blue large">Zinc &amp; ORS Inventory Status</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">MNH &amp; Child Health Assessment</a></li>
+									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
+									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal & New-born Health Assessment</a></li>
 								</ul>
 							</section>					
 							<section class="form-container ui-widget">

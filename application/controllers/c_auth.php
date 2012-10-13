@@ -7,15 +7,26 @@ class C_Auth extends MY_Controller {
 	}
 	
 	public function index(){
-		//print var_dump($this -> session -> userdata('allCounties')); exit;
-		//if($this->doCheckFacilityCode()==false){
-			//$this->requestMFC();
-		//}else{
-		//	redirect(base_url() . 'c_front/inventory', 'refresh');
-		//}
-		    //$data['form'] = '<p>MFC Code Required for Access!<p>';
-			//$this -> load -> view('index', $data);
+		$this->load->model('m_zinc_ors_inventory');
+		$this->m_zinc_ors_inventory->getFacilityCode();
+	    if ($this->m_zinc_ors_inventory->isFacility=='true') {
+	    	
+			/*retrieve facility details*/
+			
+			
+			
+			/*create session data*/
+			$newdata = array('mfName' => $this->m_zinc_ors_inventory->facility->getFacilityName());
+            //var_dump($newdata); exit;
+			$this -> session -> set_userdata($newdata);
+	
 			redirect(base_url() . 'c_front/inventory', 'refresh');
+
+		} else {
+			#use an ajax request and not a whole refresh
+			$data['form'] = '<p>Facility Not Found!<p>';
+			$this -> load -> view('index', $data);
+		}
 	}
 
 
@@ -43,7 +54,8 @@ class C_Auth extends MY_Controller {
 	public function logout(){
 		$data['form'] = '<p>You need to login.<p>';
 		$this -> load -> view('index', $data);
-		$this->session->sess_destroy();
 		redirect(base_url(), 'refresh');
+		$this->session->sess_destroy();
 	}
-}?>
+}
+?>
