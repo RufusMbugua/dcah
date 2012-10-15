@@ -1,7 +1,7 @@
 <?php
-//ob_start();
-$sessionMFC = $this -> session -> userdata('mfc');
-$sessionMFCode=$this -> session -> userdata('mfCode');
+ob_start();
+$mfName = $this -> session -> userdata('fName');
+$mfCode=$this -> session -> userdata('fCode');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -124,7 +124,7 @@ $sessionMFCode=$this -> session -> userdata('mfCode');
 				/*start of submit_form_data click event*/
 				//function triggerFormSubmit(){
 				$("#submit_form_data").click(function() {
-				$("#facilityMFC").val('<?php echo $sessionMFCode; ?>');
+				$("#facilityMFC").val('<?php echo $mfCode; ?>');
 				$(form_id).submit();
 			
 				});//}/*end of submit_form_data click event*/
@@ -201,8 +201,12 @@ $sessionMFCode=$this -> session -> userdata('mfCode');
 		            	//alert("Name: "+facility.facilityMFC);//render found data
                    	$("#facilityName").val(facility.facilityName);
                    	$("#facilityContactPerson").val(facility.facilityContactPerson);
-                   	$("#facilityDistrict").val(facility.facilityDistrict);
-                   	$("#facilityCounty").val(facility.facilityCounty);
+                   	//$("#facilityDistrict").val(facility.facilityDistrict);
+                   	
+                   	$("#facilityDistrict option:text=" + facility.facilityDistrict +"").attr("selected", "selected"); 
+                   	
+                   	//$("#facilityCounty").val(facility.facilityCounty);
+                   	$("#facilityCounty option:text=" + facility.facilityCounty +"").attr("selected", "selected"); 
                    	$("#facilityEmail").val(facility.facilityEmail);
                    	$("#facilityTelephone").val(facility.facilityTelephone);
                   });
@@ -229,7 +233,7 @@ $sessionMFCode=$this -> session -> userdata('mfCode');
 		<section class="left-side">
 		<section id="profile-before">
 			
-		<section class="title"><?php  echo 'Karibu, '. $sessionMFC;?>
+		<section class="title"><?php  echo 'Karibu, '. $mfName;?>
 			
 		</section>
 		<section class="other">
@@ -257,50 +261,47 @@ $sessionMFCode=$this -> session -> userdata('mfCode');
 					</form>
 				</section>
 				<section class="links">
-						<ul>
-							<a id="instructions_li" class="current">Instructions</a>
-							<a id="inventory_report_li" href="<?php echo base_url().'c_front/reports' ?>">Reports</a>
-						</ul>
-						</section>
-					</nav>
+					<ul>
+						<a id="instructions_li" class="current">Instructions</a>
+						<a id="inventory_report_li" href="<?php echo base_url().'c_front/reports' ?>">Reports</a>
+					</ul>
+				</section>
+			</nav>
 			
 						
-							<!--section class="menu-container"> 
-								<section class="menu salt">
-											<h2>Post</h2>
-											<div title="click to expand" class="max salt">+</div>
-												<div title="click to minimize" class="min salt" style="display:none">-</div>
-											<ul>						
-												<li>
-													<a id = "internalFort_A1_li" class="salt-url">Fortified Salt-Table A-1</a>
-												</li>
-											</ul>
-										</section><!-- End of Menu: Post Data Forms -->
-							</section--><!-- End of Menu-Container -->
+			<!--section class="menu-container"> 
+				<section class="menu salt">
+							<h2>Post</h2>
+							<div title="click to expand" class="max salt">+</div>
+								<div title="click to minimize" class="min salt" style="display:none">-</div>
+							<ul>						
+								<li>
+									<a id = "internalFort_A1_li" class="salt-url">Fortified Salt-Table A-1</a>
+								</li>
+							</ul>
+						</section><!-- End of Menu: Post Data Forms -->
+				</section--><!-- End of Menu-Container -->
 									
 									
-							<section class="form-container-menu">
-								<ul>
-									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal and New-born Health Assessment</a></li>
-								</ul>
-							</section>					
-							<section class="form-container ui-widget">
-								<?php
-								//echo 'facility '.$sessionMFC;
-								echo $form;
-								?>
-							</section><!-- End of Form-Container Section-->							
-							
-						
+				<section class="form-container-menu">
+					<ul>
+						<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
+						<li><a id="mnh_inventory_li" class="awesome blue large">Maternal and New-born Health Assessment</a></li>
+					</ul>
+				</section>					
+				<section class="form-container ui-widget">
+					<?php
 					
-		</section>
-		<div id="accountSettings" class="reveal-modal">
-			<div>
-				
+					echo $form;
+					?>
+				</section><!-- End of Form-Container Section-->							
+			</section>
+			<div id="accountSettings" class="reveal-modal">
+				<div>
+					
+				</div>
+				<a class="close-reveal-modal">&#215;</a>
 			</div>
-			<a class="close-reveal-modal">&#215;</a>
-		</div>
-	</body>
-</html>
-<?php ob_end_flush();?>
+		</body>
+		</html>
+        <?php ob_end_flush();?>

@@ -6,24 +6,21 @@ class C_Auth extends MY_Controller {
 		parent::__construct();
 	}
 	
-	public function index(){
+	public function go(){
 		$this->load->model('m_zinc_ors_inventory');
 		$this->m_zinc_ors_inventory->verifyFacilityByName();
 	    if ($this->m_zinc_ors_inventory->isFacility=='true') {
 	    	
 			/*retrieve facility details*/
 			
-			
-			
 			/*create session data*/
-			$newdata = array('mfName' => $this->m_zinc_ors_inventory->facility->getFacilityName());
-			$mf_code=array('mfCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC());
-            //var_dump($newdata); exit;
+			$newdata = array('fName' => $this->m_zinc_ors_inventory->facility->getFacilityName(),'fCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC());
+           // var_dump($newdata); exit;
 			
-	
-			redirect(base_url() . 'c_front/inventory', 'refresh');
 			$this -> session -> set_userdata($newdata);
-			$this -> session -> set_userdata($mf_code);
+	
+			
+			redirect(base_url() . 'c_front/inventory', 'refresh');
 
 		} else {
 			#use an ajax request and not a whole refresh
@@ -35,12 +32,14 @@ class C_Auth extends MY_Controller {
 
 
    public function doCheckFacilityCode(){/**from the session data*/
-	if(!$this -> session -> userdata('mfc')){
+	if(!$this -> session -> userdata('fName')){
+		redirect(base_url() . 'c_front/inventory', 'refresh');
 		return true;
-		//redirect(base_url() . 'c_front/inventory', 'refresh');
+		
 		}else{
+			$this->requestMFC();
 			return false;
-		// $this->requestMFC();
+		 
 		}
 		
 		
@@ -48,7 +47,7 @@ class C_Auth extends MY_Controller {
    
    private function requestMFC(){
    	        #use an ajax request and not a whole refresh
-			$data['form'] = '<p>MFC Code Not Found!<p>';
+			$data['form'] = '<p>Facility Identification Required!<p>';
 			$this -> load -> view('index', $data);
    }
    
@@ -57,8 +56,8 @@ class C_Auth extends MY_Controller {
 	public function logout(){
 		$data['form'] = '<p>You need to login.<p>';
 		$this -> load -> view('index', $data);
-		redirect(base_url(), 'refresh');
 		$this->session->sess_destroy();
+		redirect(base_url(), 'refresh');
+		
 	}
 }
-?>

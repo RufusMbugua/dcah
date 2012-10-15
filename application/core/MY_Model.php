@@ -3,7 +3,7 @@
 
 class  MY_Model  extends  CI_Model{
 
-public $em, $response, $theForm,$district,$county,$formRecords,$facilityExists;
+public $em, $response, $theForm,$district,$county,$level,$type,$formRecords,$facilityExists;
 
 function __construct() {
 		parent::__construct();
@@ -54,6 +54,32 @@ function __construct() {
 		return $this->county;
 	}/*end of getDistrictNames*/
 	
+	function getAllFacilityTypes(){
+		 /*using DQL*/
+		 try{
+	      $query = $this->em->createQuery('SELECT t.facilityTypeID,t.facilityType FROM models\Entities\e_facility_type t ORDER BY t.facilityType ASC');
+          $this->type = $query->getResult();
+		  //die(var_dump($this->type));
+		 }catch(exception $ex){
+		 	//ignore
+		 	//$ex->getMessage();//exit;
+		 }
+		return $this->type;
+	}/*end of getAllFacilityTypes*/
+	
+	function getAllFacilityLevels(){
+		 /*using DQL*/
+		 try{
+	      $query = $this->em->createQuery('SELECT l.facilityLevelID,l.facilityLevel FROM models\Entities\e_facility_level l ORDER BY l.facilityLevel ASC');
+          $this->level = $query->getResult();
+		  //die(var_dump($this->level));
+		 }catch(exception $ex){
+		 	//ignore
+		 	//$ex->getMessage();//exit;
+		 }
+		return $this->level;
+	}/*end of getAllFacilityLevels*/
+	
 	/*utilized in several models*/
 	public function getDistrictName($id){
 		try{
@@ -63,7 +89,7 @@ function __construct() {
 				//ignore
 				//die($ex->getMessage());
 			}
-	}
+	}//end of getDistrictName
 	
 	/*utilized in several models*/
 	public function getCountyName($id){

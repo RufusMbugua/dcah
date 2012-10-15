@@ -966,7 +966,8 @@ pre::-webkit-scrollbar-thumb:horizontal {
 	text-align: center;
 }
 .form-container input {
-	width: 115px;
+	/*width: 115px;*/
+	width:auto;
 	padding: 10px auto;
 }
 input.radio {
