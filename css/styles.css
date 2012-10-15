@@ -10,7 +10,7 @@ body {
 	margin: auto;
 	height: 1000px;
 	font-family: Linux Libertine-DR;
-	font-size:0.9em;
+	font-size: 0.9em;
 }
 .container {
 	margin-top: -1%;
@@ -891,26 +891,21 @@ div.slider-nav span.left {
  Quicksand Font Family (and variants)
  * */
 @import url('fonts.css');
-.form-container-menu{
+.form-container-menu {
 	width: 60%;
-	height:5%;
-	margin:auto;
+	height: 5%;
+	margin: auto;
 }
-.form-container-menu li{
-	display:inline-block;
+.form-container-menu li {
+	display: inline-block;
 }
 .form-container {
 	margin-top: -1%;
-
 	width: 75%;
 	height: 700px;
 	overflow: auto;
 	padding: 5px 5px 5px 5px;
-	margin-left:2%;
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
+	margin-left: 2%;
 	margin-top: 10px;
 	border: 2px solid #CCC;
 	-webkit-box-shadow: inset 0px 0px 6px 0px #000;
@@ -2180,9 +2175,9 @@ label.error {
 	box-shadow: inset 0px 0px 3px 0px #000;
 }
 
-label.dcah-label{
+label.dcah-label {
 	width: auto;
-	color:#AA1317;
+	color: #AA1317;
 	text-align: left;
 	display: inline-block;
 	font-size: 12px;
@@ -3054,7 +3049,6 @@ label.dcah-label{
 .ui-autocomplete {
 	position: absolute;
 	cursor: default;
-	
 }
 /* workarounds */
 * html .ui-autocomplete {
@@ -3592,38 +3586,20 @@ button.ui-button::-moz-focus-inner {
 }
 /*---------------------------end of jquery-ui-1.8.18.custom.css------------------------------------------------------------------------------------------------------------------*/
 
-<<<<<<< HEAD
-/*-----------------------------start of customized tabs----------------------------------------------------------*/
-=======
-
-
-
-
-
-
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
 /**
  * 	Tabs
- * 
+ *
  *
  */
 
-.tab-title{
-	margin-bottom:5%;
-	display:block;
-	width:100%;
+.tab-title {
+	margin-bottom: 5%;
+	display: block;
+	width: 100%;
 }
-<<<<<<< HEAD
-.tabs-dcah{
-	display:block;
-	width:100%;
 
+.tabs {
+	display: block;
+	width: 100%;
 }
-/*-----------------------------end of customized tabs----------------------------------------------------------*/
-=======
-.tabs{
-	display:block;
-	width:100%;
-	
-}
->>>>>>> 585295bb6124db8540b4d012f0d40091a067002e
+
