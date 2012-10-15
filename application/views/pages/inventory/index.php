@@ -1,6 +1,10 @@
 <?php
 //ob_start();
 $sessionMFC = $this -> session -> userdata('mfc');
+<<<<<<< HEAD
+=======
+$sessionMFCode=$this -> session -> userdata('mfCode');
+>>>>>>> upstream/master
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -184,7 +188,7 @@ $sessionMFC = $this -> session -> userdata('mfc');
 				/*start of submit_form_data click event*/
 				//function triggerFormSubmit(){
 				$("#submit_form_data").click(function() {
-				$("#facilityMFC").val('<?php echo $sessionMFC; ?>');
+				$("#facilityMFC").val('<?php echo $sessionMFCode; ?>');
 				$(form_id).submit();
 			
 				});//}/*end of submit_form_data click event*/
@@ -232,10 +236,14 @@ $sessionMFC = $this -> session -> userdata('mfc');
 				}/*close the case*/
 				if(linkDomain)
 				//+linkDomain+'/'+linkIdUrl
+<<<<<<< HEAD
 
 
 				$(".form-container").load('<?php echo base_url();?>c_load/'+linkIdUrl,function(){
 
+=======
+				$(".form-container").load('<?php echo base_url();?>'+linkDomain+'/'+linkIdUrl,function(){
+>>>>>>> upstream/master
 				//delegate events
 				
 				//if(loaded==false)
@@ -345,10 +353,15 @@ $sessionMFC = $this -> session -> userdata('mfc');
 									
 							<section class="form-container-menu">
 								<ul>
+<<<<<<< HEAD
 
 									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
 									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal & New-born Health Assessment</a></li>
 
+=======
+									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
+									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal and New-born Health Assessment</a></li>
+>>>>>>> upstream/master
 								</ul>
 							</section>					
 							<section class="form-container ui-widget">

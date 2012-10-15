@@ -1,22 +1,77 @@
 <?php
 class C_Load extends MY_Controller {
+	var $rows;
 	
 	public function __construct() {
 		parent::__construct();
 		//print var_dump($this->tValue); exit;
+		$rows='';
     
 	}
 	
 	public function getFacilityDetails(){
     	/*retrieve files under this form if any*/
 		$this->load->model('m_zinc_ors_inventory');
-		//print 'mfc: '.$this -> session -> userdata('mfc'); exit;
-		//if(($this->m_zinc_ors_inventory->retrieveFacilityInfo($this -> session -> userdata('mfc')))==true){
+//print 'mfc: '.$this -> session -> userdata('mfCode'); exit;
+		//if(($this->m_zinc_ors_inventory->retrieveFacilityInfo($this -> session -> userdata('mfCode')))==true){
+
 			if(($this->m_zinc_ors_inventory->retrieveFacilityInfo('16532'))==true){
 			//retrieve existing data..else just load a blank form
 			print $this->m_zinc_ors_inventory->formRecords;
 		}
     }
+
+	
+	public function suggestFacilityName(){
+		$this->load->model('m_autocomplete');
+		$facilityName=$this->input->post('username',TRUE);
+		
+		//$facilityName='Afya';
+		
+		if (!strlen($facilityName)<2)
+		
+		//echo $facilityName; exit;
+		
+		try{
+		$this->rows=$this->m_autocomplete->getAutocomplete(array('keyword'=>$facilityName));
+		//die(var_dump($this->rows));
+		$json_names=array();
+		
+		foreach($this->rows as $key=>$value)
+			array_push($json_names,$value['facilityName']);
+			print json_encode($json_names);//die;
+		}catch(exception $ex){
+			//ignore
+			$ex->getMessage();
+		}
+		
+	}
+	
+	public function suggest(){
+		$this->load->model('m_autocomplete');
+		//$facilityName=$this->input->post('username',TRUE);
+		
+		//$facilityName='Afya';
+		
+		//if (!strlen($facilityName)<2)
+		
+		//echo $facilityName; exit;
+		
+		try{
+		$this->rows=$this->m_autocomplete->getAllFacilityNames();
+		//die(var_dump($this->rows));
+		$json_names=array();
+		
+		foreach($this->rows as $key=>$value)
+			array_push($json_names,$value['facilityName']);
+			print json_encode($json_names);die;
+		}catch(exception $ex){
+			//ignore
+			$ex->getMessage();
+		}
+		
+	}
+
 
 	public function form_zinc_ors_inventory(){
 		$form_zinc_ors='';
@@ -711,7 +766,7 @@ class C_Load extends MY_Controller {
 				</section>
 			</section>
 			<section class="row hide" style="display:none">
-					<label class="dcah-label"> If, YES, mention the various locations:</label>
+					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
 				</section>
 			<section class="row hide" style="display:none">
 				<section class="left" >
@@ -1569,7 +1624,12 @@ class C_Load extends MY_Controller {
 		$this -> load -> view('form', $data);
 	}
 
-	public function form_mnh_equipment_assessment() {
+					
+					
+					
+					
+					
+public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
 		$form_mnh_assessment.= '
 <form name="form_assessment_equiqment" id="form_assessment_equiqment" method="POST" action="' . base_url() . 'submit/c_form/form_assessment_equiqment' . '" >
@@ -1587,6 +1647,7 @@ class C_Load extends MY_Controller {
 				</section>
 			</section>
 			<section class="row2">
+<<<<<<< HEAD
 				<section class="left">
 					<label>Facility Name:</label>
 				</section>
@@ -1600,6 +1661,26 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 					<input type="text" name="facilityType" id="facilityType"/>
+=======
+				<section class="left">
+					<label>Facility Name:</label>
+				</section>
+				<section class="right">
+					<input type="text" name="facilityName" id="facilityName"/>
+>>>>>>> upstream/master
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+<<<<<<< HEAD
+					<label>Facility Level:</label>
+				</section>
+				<section class="right">
+=======
+					<label>Facility Type:</label>
+				</section>
+				<section class="right">
+					<input type="text" name="facilityType" id="facilityType"/>
 				</section>
 			</section>
 			<section class="row2">
@@ -1607,6 +1688,7 @@ class C_Load extends MY_Controller {
 					<label>Facility Level:</label>
 				</section>
 				<section class="right">
+>>>>>>> upstream/master
 					<input type="text" name="facilityLevel" id="facilityLevel"/>
 				</section>
 			</section>
@@ -1630,6 +1712,7 @@ class C_Load extends MY_Controller {
 				</section>
 			</section>
 			<section class="row2">
+<<<<<<< HEAD
 				<section class="left">
 					<label>District:</label>
 				</section>
@@ -1648,11 +1731,34 @@ class C_Load extends MY_Controller {
 					<select name="facilityCounty" id="facilityCounty">
 						<option value="" selected="selected">Select One</option>
 						' . $this -> selectCounties . '
+=======
+				<section class="left">
+					<label>District:</label>
+				</section>
+				<section class="right">
+					<select name="facilityDistrict" id="facilityDistrict">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectDistricts . '
+>>>>>>> upstream/master
 					</select>
 				</section>
 			</section>
 			<section class="row2">
 				<section class="left">
+<<<<<<< HEAD
+=======
+					<label>County:</label>
+				</section>
+				<section class="right">
+					<select name="facilityCounty" id="facilityCounty">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectCounties . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+>>>>>>> upstream/master
 					<label>Telephone Contact(s):</label>
 				</section>
 				<section class="right">
@@ -2487,6 +2593,8 @@ class C_Load extends MY_Controller {
 							Quantity:
 						<p/>
 						<input type="number" name="q11fNumber_1" id="q11fNumber_1"/>
+<<<<<<< HEAD
+=======
 					</section>
 					<section class="right">
 						<select name="q11fYAD_1" id="q11fYAD_1">
@@ -2498,6 +2606,7 @@ class C_Load extends MY_Controller {
 							Quantity:
 						<p/>
 						<input type="number" />
+>>>>>>> upstream/master
 					</section>
 
 				</section>
@@ -2516,7 +2625,11 @@ class C_Load extends MY_Controller {
 						<input type="number" name="q11gNumber_1" id="q11gNumber_1" />
 					</section>
 					<section class="right">
+<<<<<<< HEAD
+						<select name="q11fYAD_1" id="q11fYAD_1">
+=======
 						<select name="q11gYAD_1" id="q11gYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2528,9 +2641,24 @@ class C_Load extends MY_Controller {
 					</section>
 
 				</section>
-
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11g. Suction Machine
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11gSuctionMachine_1" id="q11gSuctionMachine_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11gNumber_1" id="q11gNumber_1" />
+					</section>
+					<section class="right">
+						<select name="q11gYAD_1" id="q11gYAD_1">
+=======
 						11h. Weighing Scale for babies
 					</section>
 					<section class="center">
@@ -2549,6 +2677,7 @@ class C_Load extends MY_Controller {
 					</section>
 					<section class="right">
 						<select name="q11hYAD_1" id="q11hYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2563,6 +2692,26 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11h. Weighing Scale for babies
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11hWeighingBabies_1" id="q11hWeighingBabies_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11hNumber_1" id="q11hNumber_1"/>
+						<select name="q11hScaleType_1" id="q11hScaleType_1">
+							<option>Digital</option>
+							<option>Graduated</option>
+						</select>
+					</section>
+					<section class="right">
+						<select name="q11hYAD_1" id="q11hYAD_1">
+=======
 						11i. Adult resuscitation tray
 					</section>
 					<section class="center">
@@ -2574,6 +2723,59 @@ class C_Load extends MY_Controller {
 							Quantity:
 						<p/>
 						<input type="number" name="q11iNumber_1" id="q11iNumber_1"/>
+					</section>
+					<section class="right">
+						<select name="q11iYAD_1" id="q11iYAD_1">
+>>>>>>> upstream/master
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" />
+					</section>
+
+				</section>
+
+				<section class="row">
+					<section class="left">
+<<<<<<< HEAD
+						11i. Adult resuscitation tray
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11iAdultResuscitation_1" id="q11iAdultResuscitation_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11iNumber_1" id="q11iNumber_1"/>
+=======
+						11j. Sterilization
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11jSterilization_1" id="q11jSterilization_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11jNumber_1" id="q11jNumber_1"/>
+						<p>
+							Sterilization Methods
+						</p>
+						<select>
+							<option>Autoclave</option>
+							<option>HLD</option>
+
+						</select>
+						Others(specify)
+						<input type="text" name="q11jOthers_1" id="q11jOthers_1"/>
+>>>>>>> upstream/master
 					</section>
 					<section class="right">
 						<select name="q11iYAD_1" id="q11iYAD_1">
@@ -2591,6 +2793,7 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						11j. Sterilization
 					</section>
 					<section class="center">
@@ -2615,20 +2818,7 @@ class C_Load extends MY_Controller {
 					</section>
 					<section class="right">
 						<select name="q11iYAD_1" id="q11iYAD_1">
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-						<p>
-							Quantity:
-						<p/>
-						<input type="number" />
-					</section>
-
-				</section>
-
-				<section class="row">
-					<section class="left">
+=======
 						11k. Manual Vacuum Aspiration kit (within facility)
 					</section>
 					<section class="center">
@@ -2643,6 +2833,7 @@ class C_Load extends MY_Controller {
 					</section>
 					<section class="right">
 						<select name="q11kYAD_1" id="q11kYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2657,20 +2848,34 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11k. Manual Vacuum Aspiration kit (within facility)
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11kManualVacuum_1" id="q11kManualVacuum_1">
+=======
 						11l. Ventouse
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q11lVentouse_1" id="q11lVentouse_1">
+>>>>>>> upstream/master
 							<option>Yes </option>
 							<option>No </option>
 						</select>
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" />
+					</section>
+					<section class="right">
+						<select name="q11kYAD_1" id="q11kYAD_1">
+=======
 						<input type="number" name="11lNumbera_1" id="11lNumbera_1"/>
 					</section>
 					<section class="right">
 						<select name="q11lYAD_1" id="q11lYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2678,27 +2883,45 @@ class C_Load extends MY_Controller {
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" />
+=======
 						<input type="number" name="11lNumberb_1" id="11lNumberb_1"/>
+>>>>>>> upstream/master
 					</section>
 
 				</section>
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11l. Ventouse
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11lVentouse_1" id="q11lVentouse_1">
+=======
 						11m. Kiwi Vacuum Extractor
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q11mKiwi_1" id="q11mKiwi_1">
+>>>>>>> upstream/master
 							<option>Yes </option>
 							<option>No </option>
 						</select>
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" name="11lNumbera_1" id="11lNumbera_1"/>
+					</section>
+					<section class="right">
+						<select name="q11lYAD_1" id="q11lYAD_1">
+=======
 						<input type="number" name="11mNumbera_1" id="11mNumbera_1"/>
 					</section>
 					<section class="right">
 						<select name="q11mYAD_1" id="q11mYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2706,27 +2929,45 @@ class C_Load extends MY_Controller {
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" name="11lNumberb_1" id="11lNumberb_1"/>
+=======
 						<input type="number" name="11mNumberb_1" id="11mNumberb_1"/>
+>>>>>>> upstream/master
 					</section>
 
 				</section>
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11m. Kiwi Vacuum Extractor
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11mKiwi_1" id="q11mKiwi_1">
+=======
 						11n. Dilatation and curretage kit
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q11nDilation_1" id="q11nDilation_1">
+>>>>>>> upstream/master
 							<option>Yes </option>
 							<option>No </option>
 						</select>
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" name="11mNumbera_1" id="11mNumbera_1"/>
+					</section>
+					<section class="right">
+						<select name="q11mYAD_1" id="q11mYAD_1">
+=======
 						<input type="number" name="q11nNumbera_1" id="q11nNumbera_1"/>
 					</section>
 					<section class="right">
 						<select name="q11nYAD_1" id="q11nYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2734,13 +2975,64 @@ class C_Load extends MY_Controller {
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" name="11mNumberb_1" id="11mNumberb_1"/>
+=======
 						<input type="number" name="q11nNumberb_1" id="q11nNumberb_1"/>
+>>>>>>> upstream/master
 					</section>
 
 				</section>
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11n. Dilatation and curretage kit
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11nDilation_1" id="q11nDilation_1">
+=======
+						11o. Sterile gauze
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11oSterileGauze_1" id="q11oSterileGauze_1">
+>>>>>>> upstream/master
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+<<<<<<< HEAD
+						<input type="number" name="q11nNumbera_1" id="q11nNumbera_1"/>
+					</section>
+					<section class="right">
+						<select name="q11nYAD_1" id="q11nYAD_1">
+=======
+						<input type="number" name="q11oNumbera_1" id="q11oNumbera_1"/>
+					</section>
+					<section class="right">
+						<select name="q11oYAD_1" id="q11oYAD_1">
+>>>>>>> upstream/master
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+<<<<<<< HEAD
+						<input type="number" name="q11nNumberb_1" id="q11nNumberb_1"/>
+=======
+						<input type="number" name="q11oNumberb_1" id="q11oNumberb_1"/>
+>>>>>>> upstream/master
+					</section>
+
+				</section>
+
+				<section class="row">
+					<section class="left">
+<<<<<<< HEAD
 						11o. Sterile gauze
 					</section>
 					<section class="center">
@@ -2755,20 +3047,7 @@ class C_Load extends MY_Controller {
 					</section>
 					<section class="right">
 						<select name="q11oYAD_1" id="q11oYAD_1">
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-						<p>
-							Quantity:
-						<p/>
-						<input type="number" name="q11oNumberb_1" id="q11oNumberb_1"/>
-					</section>
-
-				</section>
-
-				<section class="row">
-					<section class="left">
+=======
 						11p. Sanitary pads
 					</section>
 					<section class="center">
@@ -2797,6 +3076,7 @@ class C_Load extends MY_Controller {
 					</section>
 					<section class="right">
 						<select name="q11qYAD_1" id="q11qYAD_1">
+>>>>>>> upstream/master
 							<option> Yes </option>
 							<option> No </option>
 							<option> Do Not Know </option>
@@ -2804,13 +3084,77 @@ class C_Load extends MY_Controller {
 						<p>
 							Quantity:
 						<p/>
+<<<<<<< HEAD
+						<input type="number" name="q11oNumberb_1" id="q11oNumberb_1"/>
+=======
 						<input type="number" name="q11qNumberb_1" id="q11qNumberb_1"/>
+>>>>>>> upstream/master
 					</section>
 
 				</section>
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
+						11p. Sanitary pads
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11pSanitaryPads_1" id="q11pSanitaryPads_1">
+=======
+						11r. Patellar Hammer
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11rPatellarHammer_1" id="q11rPatellarHammer_1">
+>>>>>>> upstream/master
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+
+<<<<<<< HEAD
+					</section>
+
+				</section>
+
+				<section class="row">
+					<section class="left">
+						11q. Elbow length gloves
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11qElbowGloves_1" id="q11qElbowGloves_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11qNumbera_1" id="q11qNumbera_1"/>
+					</section>
+					<section class="right">
+						<select name="q11qYAD_1" id="q11qYAD_1">
+=======
+					</section>
+					<section class="right">
+						<select name="q11rYAD_1" id="q11rYAD_1">
+>>>>>>> upstream/master
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+<<<<<<< HEAD
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11qNumberb_1" id="q11qNumberb_1"/>
+=======
+
+>>>>>>> upstream/master
+					</section>
+
+				</section>
+
+				<section class="row">
+					<section class="left">
+<<<<<<< HEAD
 						11r. Patellar Hammer
 					</section>
 					<section class="center">
@@ -2849,6 +3193,24 @@ class C_Load extends MY_Controller {
 						</select>
 					</section>
 					<section class="right">
+=======
+						11s. Sutures
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q11qSutures_1" id="q11qSutures_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<p>
+							Quantity:
+						<p/>
+						<input type="number" name="q11sNumbera_1" id="q11sNumbera_1"/>
+						<select>
+							<option>Nylon</option>
+						</select>
+					</section>
+					<section class="right">
+>>>>>>> upstream/master
 						<select name="q11sYAD_1" id="q11sYAD_1">
 							<option> Yes </option>
 							<option> No </option>
@@ -2880,6 +3242,7 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						12a. Injectable
 					</section>
 					<section class="center">
@@ -2892,6 +3255,15 @@ class C_Load extends MY_Controller {
 							<option>Syntocin</option>
 						</select>
 
+=======
+						12a. Intravenous solutions: either Ringers lactate, D5NS, or NS infusion
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q12aIntravenousSolutions_1" id="q12aIntravenousSolutions_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+>>>>>>> upstream/master
 						<input type="number" name="q12aNumber_1" id="q12aNumber_1"/>
 					</section>
 					<section class="right">
@@ -2902,6 +3274,7 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						12b. Intravenous solutions
 					</section>
 					<section class="center">
@@ -2914,6 +3287,15 @@ class C_Load extends MY_Controller {
 							<option>D5NS</option>
 							<option>NS Infusion</option>
 						</select>
+=======
+						12b. Injectable ergometrine/ methergine
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q12bIntectableErgomtrine_1" id="q12bIntectableErgomtrine_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+>>>>>>> upstream/master
 						<input type="number" name="q12bNumber_1" id="q12bNumber_1"/>
 					</section>
 					<section class="right">
@@ -2924,10 +3306,17 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						12c. Injectable methergine
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q12cIntectableErgomtrine_1" id="q12cIntectableErgomtrine_1">
+=======
+						12c. Injectable oxytocin/ syntocin
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q12cInjectableOxytocin_1" id="q12cInjectableOxytocin_1">
+>>>>>>> upstream/master
 							<option>Yes </option>
 							<option>No </option>
 						</select>
@@ -2941,6 +3330,7 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						12d. Injectable
 					</section>
 					<section class="center">
@@ -2952,6 +3342,15 @@ class C_Load extends MY_Controller {
 							<option>Hydralazine</option>
 							<option>Apresoline</option>
 						</select>
+=======
+						12d. Injectable Hydralazine or Apresoline
+					</section>
+					<section class="center">
+						<select class="cloned left-combo" name="q12dInjectableHydralazine_1" id="q12dInjectableHydralazine_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+>>>>>>> upstream/master
 						<input type="number" name="q12dNumber_1" id="q12dNumber_1"/>
 					</section>
 					<section class="right">
@@ -2999,6 +3398,7 @@ class C_Load extends MY_Controller {
 						12g. Injectable amoxicillin or ampicillin
 					</section>
 					<section class="center">
+<<<<<<< HEAD
 						<select class="cloned left-combo" name="q12gInjectableAmoxicillina_1" id="q12gInjectableAmoxicillina_1">
 							<option>Yes </option>
 							<option>No </option>
@@ -3008,6 +3408,12 @@ class C_Load extends MY_Controller {
 							<option>Ampicillin</option>
 						</select>
 
+=======
+						<select class="cloned left-combo" name="q12gInjectableAmoxicillin_1" id="q12gInjectableAmoxicillin_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+>>>>>>> upstream/master
 						<input type="number" name="q12gNumber_1" id="q12gNumber_1" />
 					</section>
 					<section class="right">
@@ -3086,7 +3492,11 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
+<<<<<<< HEAD
 						12l. Nifedipine Tablets
+=======
+						12l. Nifedipine
+>>>>>>> upstream/master
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q12lNifedipine_1" id="q12lNifedipine_1">
@@ -3140,6 +3550,7 @@ class C_Load extends MY_Controller {
 						12o. Oxygen
 					</section>
 					<section class="center">
+<<<<<<< HEAD
 						<select class="cloned left-combo" name="q12oOxygena_1" id="q12oOxygena_1">
 							<option>Yes </option>
 							<option>No </option>
@@ -3148,6 +3559,12 @@ class C_Load extends MY_Controller {
 							<option>Cylinder</option>
 							<option>Concentrator</option>
 						</select>
+=======
+						<select class="cloned left-combo" name="q12oOxygen_1" id="q12oOxygen_1">
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+>>>>>>> upstream/master
 						<input type="number" name="q12oNumber_1" id="q12oNumber_1" />
 					</section>
 					<section class="right">
@@ -3155,6 +3572,34 @@ class C_Load extends MY_Controller {
 					</section>
 
 				</section>
+
+				<section class="row">
+<<<<<<< HEAD
+					<section class="row-title">
+						<section class="left">
+							<label class="dcah-label">QUESTION</label>
+						</section>
+						<section class="center">
+							<label class="dcah-label">ANSWER</label>
+						</section>
+=======
+					<section class="left">
+						12p. Other / specify
+					</section>
+					<section class="center">
+						<input type="text" name="q12pOther_1" id="q12pOther_1" />
+					</section>
+					<input type="number" name="q12pNumber_1" id="q12pNumber_1" />
+					<section class="right">
+						<input type="text" name="q12pComment_1" id="q12pComment_1" />
+>>>>>>> upstream/master
+					</section>
+				</section>
+<<<<<<< HEAD
+				<section class="left">
+					13a. Does this facility perform newborn resuscitation?
+				</section>
+=======
 
 				<section class="row">
 					<section class="row-title">
@@ -3169,6 +3614,7 @@ class C_Load extends MY_Controller {
 				<section class="left">
 					13a. Does this facility perform newborn resuscitation?
 				</section>
+>>>>>>> upstream/master
 				<section class="right">
 					<select name="q13aYA_1" id="q13aYA_1">
 						<option> Yes </option>
@@ -4068,4 +4514,5 @@ class C_Load extends MY_Controller {
 		$this -> load -> view('form', $data);
 
 	}
+
 }

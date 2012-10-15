@@ -907,7 +907,10 @@ div.slider-nav span.left {
 	overflow: auto;
 	padding: 5px 5px 5px 5px;
 	margin-left:2%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 	margin-top: 10px;
 	border: 2px solid #CCC;
 	-webkit-box-shadow: inset 0px 0px 6px 0px #000;
@@ -3051,6 +3054,7 @@ label.dcah-label{
 .ui-autocomplete {
 	position: absolute;
 	cursor: default;
+	
 }
 /* workarounds */
 * html .ui-autocomplete {

@@ -8,7 +8,9 @@ class C_Auth extends MY_Controller {
 	
 	public function index(){
 		$this->load->model('m_zinc_ors_inventory');
-		$this->m_zinc_ors_inventory->getFacilityCode();
+
+		$this->m_zinc_ors_inventory->verifyFacilityByName();
+
 	    if ($this->m_zinc_ors_inventory->isFacility=='true') {
 	    	
 			/*retrieve facility details*/
@@ -17,10 +19,15 @@ class C_Auth extends MY_Controller {
 			
 			/*create session data*/
 			$newdata = array('mfName' => $this->m_zinc_ors_inventory->facility->getFacilityName());
+
+			$mf_code=array('mfCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC());
             //var_dump($newdata); exit;
-			$this -> session -> set_userdata($newdata);
+			
 	
 			redirect(base_url() . 'c_front/inventory', 'refresh');
+			$this -> session -> set_userdata($newdata);
+			$this -> session -> set_userdata($mf_code);
+
 
 		} else {
 			#use an ajax request and not a whole refresh

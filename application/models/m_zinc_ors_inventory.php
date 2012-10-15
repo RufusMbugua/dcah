@@ -75,12 +75,37 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	    }
 		}catch(exception $ex){
 			//ignore
+<<<<<<< HEAD
 				die($ex->getMessage());
+=======
+				//die($ex->getMessage());
+>>>>>>> upstream/master
 		}
 		
 	}//close the this->input->post
 	}/*close getFacilityCode()*/
 	
+<<<<<<< HEAD
+=======
+	public function verifyFacilityByName(){
+		if ($this -> input -> post()) {//check if a post was made
+			
+       //Working with an object of the entity
+       try{
+		$this->facility = $this->em->getRepository('models\Entities\e_facility')->findOneBy(array('facilityName' => $this -> input -> post('username')));
+	    
+	    if($this->facility){
+			return $this->isFacility='true';
+	    }
+		}catch(exception $ex){
+			//ignore
+				//die($ex->getMessage());
+		}
+		
+	}//close the this->input->post
+	}/*close verifyFacilityByName*/
+	
+>>>>>>> upstream/master
 	//checks if commodity name exists
 	 public function commodityExists($cName){
 	     try{

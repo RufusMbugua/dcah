@@ -13,9 +13,53 @@ class M_Autocomplete extends MY_Model {
 		parent::__construct();
 	}
 	
+<<<<<<< HEAD
 	public function getAutocomplete()
 	{
 		
 	}
 	
+=======
+	public function getAutocomplete($options = array())
+	{
+		
+		$query = $this->em->createQuery('SELECT f FROM models\Entities\e_facility f WHERE f.facilityName LIKE :fname');
+		  $query->setParameter('fname','%'.$options['keyword'].'%');
+          
+          $this->formRecords = $query->getArrayResult();
+		  
+		  
+		//$this->db->select('facilityName');
+
+        
+        //$this->db->like('facilityName', $options['keyword'], 'after');
+
+       // $query = $this->db->get('facility');
+      // die(var_dump($this->formRecords));
+        return $this->formRecords;
+		
+		
+		
+	}
+	
+	public function getAllFacilityNames(){
+		$query = $this->em->createQuery('SELECT f.facilityName FROM models\Entities\e_facility f');
+		  //$query->setParameter('fname','%'.$options['keyword'].'%');
+          
+          $this->formRecords = $query->getArrayResult();
+		  
+		  
+		//$this->db->select('facilityName');
+
+        
+        //$this->db->like('facilityName', $options['keyword'], 'after');
+
+       // $query = $this->db->get('facility');
+      // die(var_dump($this->formRecords));
+        return $this->formRecords;
+	}
+	
+	
+	
+>>>>>>> upstream/master
 }//end of class M_Autocomplete 
