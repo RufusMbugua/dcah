@@ -2880,13 +2880,18 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						12a. Intravenous solutions: either Ringers lactate, D5NS, or NS infusion
+						12a. Injectable
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12aIntravenousSolutions_1" id="q12aIntravenousSolutions_1">
+						<select class="cloned left-combo" name="q12aInjectableOxytocina_1" id="q12aInjectableOxytocinb_1">
 							<option>Yes </option>
 							<option>No </option>
 						</select>
+						<select class="cloned left-combo" name="q12aInjectableOxytocinb_1" id="q12aInjectableOxytocinb_1">
+							<option>Oxytocin</option>
+							<option>Syntocin</option>
+						</select>
+
 						<input type="number" name="q12aNumber_1" id="q12aNumber_1"/>
 					</section>
 					<section class="right">
@@ -2897,12 +2902,17 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						12b. Injectable ergometrine/ methergine
+						12b. Intravenous solutions
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12bIntectableErgomtrine_1" id="q12bIntectableErgomtrine_1">
+						<select class="cloned left-combo" name="q12bIntravenousSolutionsa_1" id="q12bIntravenousSolutionsa_1">
 							<option>Yes </option>
 							<option>No </option>
+						</select>
+						<select class="cloned left-combo" name="q12bIntravenousSolutionsb_1" id="q12bIntravenousSolutionsb_1">
+							<option>Ringers Lactate</option>
+							<option>D5NS</option>
+							<option>NS Infusion</option>
 						</select>
 						<input type="number" name="q12bNumber_1" id="q12bNumber_1"/>
 					</section>
@@ -2914,10 +2924,10 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						12c. Injectable oxytocin/ syntocin
+						12c. Injectable methergine
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12cInjectableOxytocin_1" id="q12cInjectableOxytocin_1">
+						<select class="cloned left-combo" name="q12cIntectableErgomtrine_1" id="q12cIntectableErgomtrine_1">
 							<option>Yes </option>
 							<option>No </option>
 						</select>
@@ -2931,12 +2941,16 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						12d. Injectable Hydralazine or Apresoline
+						12d. Injectable
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12dInjectableHydralazine_1" id="q12dInjectableHydralazine_1">
+						<select class="cloned left-combo" name="q12dInjectableHydralazinea_1" id="q12dInjectableHydralazinea_1">
 							<option>Yes </option>
 							<option>No </option>
+						</select>
+						<select class="cloned left-combo" name="q12dInjectableHydralazineb_1" id="q12dInjectableHydralazineb_1">
+							<option>Hydralazine</option>
+							<option>Apresoline</option>
 						</select>
 						<input type="number" name="q12dNumber_1" id="q12dNumber_1"/>
 					</section>
@@ -2985,10 +2999,15 @@ class C_Load extends MY_Controller {
 						12g. Injectable amoxicillin or ampicillin
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12gInjectableAmoxicillin_1" id="q12gInjectableAmoxicillin_1">
+						<select class="cloned left-combo" name="q12gInjectableAmoxicillina_1" id="q12gInjectableAmoxicillina_1">
 							<option>Yes </option>
 							<option>No </option>
 						</select>
+						<select class="cloned left-combo" name="q12gInjectableAmoxicillinb_1" id="q12gInjectableAmoxicillinb_1">
+							<option>Amoxicillin </option>
+							<option>Ampicillin</option>
+						</select>
+
 						<input type="number" name="q12gNumber_1" id="q12gNumber_1" />
 					</section>
 					<section class="right">
@@ -3067,7 +3086,7 @@ class C_Load extends MY_Controller {
 
 				<section class="row">
 					<section class="left">
-						12l. Nifedipine
+						12l. Nifedipine Tablets
 					</section>
 					<section class="center">
 						<select class="cloned left-combo" name="q12lNifedipine_1" id="q12lNifedipine_1">
@@ -3121,28 +3140,18 @@ class C_Load extends MY_Controller {
 						12o. Oxygen
 					</section>
 					<section class="center">
-						<select class="cloned left-combo" name="q12oOxygen_1" id="q12oOxygen_1">
+						<select class="cloned left-combo" name="q12oOxygena_1" id="q12oOxygena_1">
 							<option>Yes </option>
 							<option>No </option>
+						</select>
+						<select class="cloned left-combo" name="q12oOxygenb_1" id="q12oOxygenb_1">
+							<option>Cylinder</option>
+							<option>Concentrator</option>
 						</select>
 						<input type="number" name="q12oNumber_1" id="q12oNumber_1" />
 					</section>
 					<section class="right">
 						<input type="text" name="q12oComment_1" id="q12oComment_1" />
-					</section>
-
-				</section>
-
-				<section class="row">
-					<section class="left">
-						12p. Other / specify
-					</section>
-					<section class="center">
-						<input type="text" name="q12pOther_1" id="q12pOther_1" />
-					</section>
-					<input type="number" name="q12pNumber_1" id="q12pNumber_1" />
-					<section class="right">
-						<input type="text" name="q12pComment_1" id="q12pComment_1" />
 					</section>
 
 				</section>

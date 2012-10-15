@@ -221,13 +221,13 @@ $sessionMFC = $this -> session -> userdata('mfc');
 				//switch(linkSub){
 				switch(link_id){
 					case "#mnh_inventory_li":
-
-					linkDomain='c_load';
+    				linkDomain='c_load';
 					linkIdUrl='form_assessment_equipment';
 					break;
+					
 					case "#zinc_inventory_li":
 					linkDomain='c_load';
-entory';
+                    linkURL='zinc_inventory';
 					break;
 				}/*close the case*/
 				if(linkDomain)
