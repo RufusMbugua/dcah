@@ -17,7 +17,7 @@ namespace models\Entities;
    /**
 	* @Column(name="facilityType", type="string",length=55, nullable=false)
 	* */
-	private $cfacilityType;
+	private $facilityType;
 	 
 	public function getfacilityTypeID() {
 			return $this -> facilityTypeID;
