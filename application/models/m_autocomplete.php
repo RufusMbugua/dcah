@@ -13,13 +13,6 @@ class M_Autocomplete extends MY_Model {
 		parent::__construct();
 	}
 	
-<<<<<<< HEAD
-	public function getAutocomplete()
-	{
-		
-	}
-	
-=======
 	public function getAutocomplete($options = array())
 	{
 		
@@ -61,5 +54,4 @@ class M_Autocomplete extends MY_Model {
 	
 	
 	
->>>>>>> upstream/master
 }//end of class M_Autocomplete 

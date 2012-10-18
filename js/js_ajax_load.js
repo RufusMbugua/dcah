@@ -85,9 +85,9 @@ $().ready(function(){
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
 			facilityEmail:{required: true,email:true},
-			ortQuestion1:{required:true},
-			ortQuestion2:{required:true},
-			ortDehydrationLocation:{required:true}
+			sterileGloveSizes[]:{required:true},
+			q6bSkilledProviders[]:{minlength:1},
+			ortDehydrationLocation:{minlength:1}
 		},
 		messages: {
 			facilityDateOfInventory:{required: "*Required"},
@@ -100,9 +100,9 @@ $().ready(function(){
 			facilityCounty: {required: "*Required"},
 			facilityTelephone:{required:"*Required"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
-			ortQuestion1:{required:"*Required"},
-			ortQuestion2:{required:"*Required"},
-			ortDehydrationLocation:{required:"*Required"}
+			sterileGloveSizes[]:{minlength:"*Required"},
+			q6bSkilledProviders[]:{minlength:"*Required"},
+			ortDehydrationLocation:{minlength:"*Required"}
 		}
 	}); /*end of form_mnh_assessment*/
 	
@@ -1249,40 +1249,7 @@ function log() {
 					       // $('.cloned').removeClass('error');
 						}
 					}
-							if(form_id="#form_mnh_assessment"){
 					
-				$(form_id).find('select').on("change",function() {
-					//if($(this).attr('class')=
-					if($(this).attr('class')=='cloned left-combo')
-					cb_id='#'+$(this).attr('id');
-					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
-						//alert(cb_id);
-					cb_no=cb_id.substr(cb_id.indexOf('_')+1,(cb_id.length))//for the numerical part of the id
-					
-					//substr(id.indexOf('_')+1,id.length)
-					//cb_id=cb_id.substr(cb_id.indexOf('#'),(cb_id.indexOf('_')))//for the trimmed id
-					//alert(cb_no);
-					
-					if($(cb_id).val() == 0) {
-						//alert(cb_no);
-						//$('#tr_'+cb_no+':input').attr('disabled', true);
-						//$('#tr_'+cb_no).hide();
-						$('#tr_'+cb_no).find('input,select').prop('disabled', true);
-						}else{
-							
-							//$('#tr_'+cb_no).find('input,select[class="cloned"]').removeClass('.label.error');
-							$('#tr_'+cb_no).find('input,select[class="cloned"]').prop('disabled', false);
-					       // $('.cloned').removeClass('error');
-						}
-					}
-					
-				
-				});
-				
-				$('#editEquipmentListTopButton').click(function(){
-				$('#tableEquipmentList').find('select[class="cloned left-combo"]').prop('disabled', false);
-				});
-				}
 				
 				});
 				

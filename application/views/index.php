@@ -10,8 +10,6 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/post.css"/>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/tabs.css"/>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/form-opt.css"/>
-<<<<<<< HEAD
-=======
 		
 		<style>
 		    .ui-autocomplete {
@@ -38,14 +36,11 @@
 		    }
      </style>
 		
->>>>>>> upstream/master
 		<!--link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css"/-->
 		<!-- Attach JavaScript files -->
 		<!--script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
 		<script src="js/jquery.orbit.js" type="text/javascript"></script-->
 		<script src="js/js_libraries.js" type="text/javascript"></script>
-<<<<<<< HEAD
-=======
 		<script>
 			$().ready(function(){
 				var foundNames;
@@ -70,7 +65,6 @@
 			});
 		
 		</script>
->>>>>>> upstream/master
 	</head>
 	<body>
 		<?php $this->load->view('banner');?>

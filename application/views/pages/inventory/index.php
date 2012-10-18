@@ -1,16 +1,7 @@
 <?php
-<<<<<<< HEAD
-//ob_start();
-$sessionMFC = $this -> session -> userdata('mfc');
-<<<<<<< HEAD
-=======
-$sessionMFCode=$this -> session -> userdata('mfCode');
->>>>>>> upstream/master
-=======
 ob_start();
 $mfName = $this -> session -> userdata('fName');
 $mfCode=$this -> session -> userdata('fCode');
->>>>>>> upstream/master
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -42,68 +33,7 @@ $mfCode=$this -> session -> userdata('fCode');
 					$("#profile-fancy").removeClass("show");
 					return false;
 				});
-				
-				
-				('.tab-title a .MCH').click(function() {
-					('.tab .MCH').show();
-					('.tab .PEDS').hide();
-					('.tab .OPD').hide();
-					('.tab .Pharmacy').hide();
-					('.tab .Stores').hide();
-					('.tab .Others').hide();
-					
-				});
-				
-				('.tab-title a .PEDS').click(function() {
-					('.tab .MCH').hide();
-					('.tab .PEDS').show();
-					('.tab .OPD').hide();
-					('.tab .Pharmacy').hide();
-					('.tab .Stores').hide();
-					('.tab .Others').hide();
-					
-				});
-				
-				('.tab-title a .OPD').click(function() {
-					('.tab .MCH').hide();
-					('.tab .PEDS').hide();
-					('.tab .OPD').show();
-					('.tab .Pharmacy').hide();
-					('.tab .Stores').hide();
-					('.tab .Others').hide();
-					
-				});
-				
-				('.tab-title a .Pharmacy').click(function() {
-					('.tab .MCH').hide();
-					('.tab .PEDS').hide();
-					('.tab .OPD').hide();
-					('.tab .Pharmacy').show();
-					('.tab .Stores').hide();
-					('.tab .Others').hide();
-					
-				});
-				('.tab-title a .Stores').click(function() {
-					('.tab .MCH').hide();
-					('.tab .PEDS').hide();
-					('.tab .OPD').hide();
-					('.tab .Pharmacy').hide();
-					('.tab .Stores').show();
-					('.tab .Others').hide();
-					
-				});
-				('.tab-title a .Others').click(function() {
-					('.tab .MCH').show();
-					('.tab .PEDS').hide();
-					('.tab .OPD').hide();
-					('.tab .Pharmacy').hide();
-					('.tab .Stores').hide();
-					('.tab .Others').show();
-					
-				});
-				
 			});/*end of doc ready*/
-			
 
 		</script>
 	
@@ -231,25 +161,17 @@ $mfCode=$this -> session -> userdata('fCode');
 				//switch(linkSub){
 				switch(link_id){
 					case "#mnh_inventory_li":
-    				linkDomain='c_load';
-					linkIdUrl='form_assessment_equipment';
+					linkDomain='c_load';
+					linkIdUrl='form_mnh_equipment_assessment';
 					break;
-					
 					case "#zinc_inventory_li":
 					linkDomain='c_load';
-                    linkURL='zinc_inventory';
+					linkIdUrl='form_zinc_ors_inventory';
 					break;
 				}/*close the case*/
 				if(linkDomain)
 				//+linkDomain+'/'+linkIdUrl
-<<<<<<< HEAD
-
-
-				$(".form-container").load('<?php echo base_url();?>c_load/'+linkIdUrl,function(){
-
-=======
 				$(".form-container").load('<?php echo base_url();?>'+linkDomain+'/'+linkIdUrl,function(){
->>>>>>> upstream/master
 				//delegate events
 				
 				//if(loaded==false)
@@ -361,29 +283,6 @@ $mfCode=$this -> session -> userdata('fCode');
 				</section--><!-- End of Menu-Container -->
 									
 									
-<<<<<<< HEAD
-							<section class="form-container-menu">
-								<ul>
-<<<<<<< HEAD
-
-									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal & New-born Health Assessment</a></li>
-
-=======
-									<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
-									<li><a id="mnh_inventory_li" class="awesome blue large">Maternal and New-born Health Assessment</a></li>
->>>>>>> upstream/master
-								</ul>
-							</section>					
-							<section class="form-container ui-widget">
-								<?php
-								//echo 'facility '.$sessionMFC;
-								echo $form;
-								?>
-							</section><!-- End of Form-Container Section-->							
-							
-						
-=======
 				<section class="form-container-menu">
 					<ul>
 						<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
@@ -392,7 +291,6 @@ $mfCode=$this -> session -> userdata('fCode');
 				</section>					
 				<section class="form-container ui-widget">
 					<?php
->>>>>>> upstream/master
 					
 					echo $form;
 					?>

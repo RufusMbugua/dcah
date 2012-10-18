@@ -75,18 +75,12 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	    }
 		}catch(exception $ex){
 			//ignore
-<<<<<<< HEAD
-				die($ex->getMessage());
-=======
 				//die($ex->getMessage());
->>>>>>> upstream/master
 		}
 		
 	}//close the this->input->post
 	}/*close getFacilityCode()*/
 	
-<<<<<<< HEAD
-=======
 	public function verifyFacilityByName(){
 		if ($this -> input -> post()) {//check if a post was made
 			
@@ -105,7 +99,6 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	}//close the this->input->post
 	}/*close verifyFacilityByName*/
 	
->>>>>>> upstream/master
 	//checks if commodity name exists
 	 public function commodityExists($cName){
 	     try{

@@ -8,29 +8,28 @@ class C_Auth extends MY_Controller {
 	
 	public function go(){
 		$this->load->model('m_zinc_ors_inventory');
-
 		$this->m_zinc_ors_inventory->verifyFacilityByName();
-
 	    if ($this->m_zinc_ors_inventory->isFacility=='true') {
-	    	
+	    	$this->m_zinc_ors_inventory->retrieveMFLInformation();
+			 
+			 
+			$fType_array=array();
 			/*retrieve facility details*/
 			
 			/*create session data*/
-<<<<<<< HEAD
-			$newdata = array('mfName' => $this->m_zinc_ors_inventory->facility->getFacilityName());
-
-			$mf_code=array('mfCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC());
-            //var_dump($newdata); exit;
-=======
-			$newdata = array('fName' => $this->m_zinc_ors_inventory->facility->getFacilityName(),'fCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC());
+			$newdata = array('fName' => $this->m_zinc_ors_inventory->facility->getFacilityName(),
+							 'fCode'=>$this->m_zinc_ors_inventory->facility->getFacilityMFC(),
+							 'allDistricts'=>$this->m_zinc_ors_inventory->dbSessionValues[0],
+							 'allCounties'=>$this->m_zinc_ors_inventory->dbSessionValues[1],
+							 'allFacilityTypes'=>$this->m_zinc_ors_inventory->dbSessionValues[2],
+							 'allFacilityLevels'=>$this->m_zinc_ors_inventory->dbSessionValues[3]
+							 );
            // var_dump($newdata); exit;
->>>>>>> upstream/master
 			
 			$this -> session -> set_userdata($newdata);
 	
 			
 			redirect(base_url() . 'c_front/inventory', 'refresh');
-
 
 		} else {
 			#use an ajax request and not a whole refresh
@@ -51,8 +50,6 @@ class C_Auth extends MY_Controller {
 			return false;
 		 
 		}
-		
-		
 	}
    
    private function requestMFC(){

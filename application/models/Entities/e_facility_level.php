@@ -17,7 +17,7 @@ namespace models\Entities;
    /**
 	* @Column(name="facilityLevel", type="string",length=45, nullable=false)
 	* */
-	private $cfacilityLevel;
+	private $facilityLevel;
 	 
 	public function getfacilityLevelID() {
 			return $this -> facilityLevelID;
