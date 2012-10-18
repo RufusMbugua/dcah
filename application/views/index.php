@@ -64,9 +64,7 @@
 				       			 });
 							}
 					});
-				
-				
-					
+		
 				});
 				
 			});
@@ -92,7 +90,7 @@
 					<input  name="username" id="username" type="text" placeholder="Your MFL Name" required/>
 				</div>
 				<p></p>
-				<button type="submit" class="awesome myblue large" formaction="<?php echo base_url().'c_auth/index'?>" />
+				<button type="submit" class="awesome myblue large" formaction="<?php echo base_url().'c_auth/go'?>" />
 				Continue</button>
 			</form>
 		</section>

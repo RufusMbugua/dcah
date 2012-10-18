@@ -10,12 +10,13 @@ class C_Front extends CI_Controller {
 	}
 
 	public function index() {
-		//if($this -> session -> userdata('mfc')){
-		$data['form'] = '<p>Your MFL Code is required.<p>';
+		if(!$this -> session -> userdata('fCode')){
+			
+		$data['form'] = '<p>Your MFL Name/Code is required.<p>';
 		$this -> load -> view('index', $data); //landing page
-	//	}else{
-		//	$this->inventory();
-		//}
+	    }else{
+			$this->inventory();
+		}
 		//dashboard
 		
 		//$this->inventory();
@@ -25,13 +26,16 @@ class C_Front extends CI_Controller {
 	
 
 	public function inventory() {
-		
+		//print 'sess val: '.var_dump($this->session->all_userdata()); die;
+		if($this -> session -> userdata('fCode')){
 		$data['status']="";
 		$data['response']="";
 		$data['form'] = '<p class="error"><br/><br/>No form has been chosen<br/><br/><p>';
 		$data['form_id']='';
 		$this -> load -> view('pages/inventory/index', $data);
-		
+		}else{
+			redirect(base_url() . 'c_front', 'refresh');
+		}
 		//echo 'inventory';
 	}
 
@@ -49,4 +53,4 @@ class C_Front extends CI_Controller {
 		//echo 'Vehicles';
 	}
 	
-}?>
+}

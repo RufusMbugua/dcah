@@ -30,6 +30,18 @@ namespace models\Entities;
 	* */
 	private $facilityDistrict;
 	
+	/**
+	* @ManyToOne(targetEntity="facility_type", inversedBy="facilityType")
+    * @Column(name="facilityType", type="string", length=55, nullable=true)
+	* */
+	private $facilityType;
+	
+	/**
+	* @ManyToOne(targetEntity="facility_level", inversedBy="facilityLevel")
+    * @Column(name="facilityLevel", type="string", length=45, nullable=true)
+	* */
+	private $facilityLevel;
+	
 	 
    /**
 	* @ManyToOne(targetEntity="county", inversedBy="countyName")
@@ -85,12 +97,27 @@ namespace models\Entities;
 	
 	public function setFacilityName($facilityName) { $this -> facilityName = $facilityName;
 	}
+	
 	public function getFacilityDistrict() {
 			return $this -> facilityDistrict;
 	}
 	
 	public function setFacilityDistrict($facilityDistrict) { $this -> facilityDistrict = $facilityDistrict;
 	}
+	
+	public function setFacilityType($facilityType) { $this -> facilityType = $facilityType;
+	}
+	public function getFacilityType() {
+			return $this -> facilityType;
+	}
+	
+	public function setFacilityLevel($facilityLevel) { $this -> facilityLevel = $facilityLevel;
+	}
+	public function getFacilityLevel() {
+			return $this -> facilityLevel;
+	}
+	
+
 	public function getFacilityCounty() {
 			return $this -> facilityCounty;
 	}

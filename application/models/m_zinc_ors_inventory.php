@@ -9,7 +9,7 @@ use application\models\Entities\E_OrtC_Assessment;
 use application\models\Entities\E_Stock;
 
 class M_Zinc_Ors_Inventory  extends MY_Model {
-	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$districtList,$mfcCode,$dbSessionValues,
+	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$districtList,$fTypeList,$fLevelList,$mfcCode,$dbSessionValues,
 	$facility,$commodity,$ortAssessCode, $isFacility;
 
 	function __construct() {
@@ -523,22 +523,17 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 					 } //end of innner loop	
 	}// addORSCommoditiesInfo();
 	
-	public function retrieveCountyAndDistrictNames(){
+	//fetch prexisting data about the facilities
+	public function retrieveMFLInformation(){
 		$this->countyList=$this->getAllCountyNames();
 		$this->districtList=$this->getAllDistrictNames();
-		$this->dbSessionValues=array($this->district,$this->county);
-		//var_dump($this->county);exit;
+		$this->fTypeList=$this->getAllFacilityTypes();
+		$this->fLevelList=$this->getAllFacilityLevels();
+		$this->dbSessionValues=array($this->district,$this->county,$this->fTypeList,$this->fLevelList);
+		//var_dump($this->dbSessionValues[3]);exit;
 		return $this->dbSessionValues;
 	}
 
-	public function getMFCEntered()
-	{
-		if($this->input->post()){
-			$this->mfcCode=$this -> input -> post('username');
-		//print $this->mfcCode; exit;
-			return $this->mfcCode;
-		}
-	}
 	
 	/*retrieve form files by factory*/
 	function retrieveFacilityInfo($mfc){

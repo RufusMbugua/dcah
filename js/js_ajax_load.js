@@ -72,6 +72,40 @@ $().ready(function(){
 		}
 	}); /*end of zinc_ors_inventory*/
 	
+	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
+	$("#form_mnh_assessment").validate({/*inventory module*/
+		rules: {
+			facilityDateOfInventory:{required: true},
+			facilityName:{required: true},
+			facilityType:{required:true},
+			facilityLevel:{required:true},
+			facilityContactPerson:{required: true},
+			facilityZincOrsDispensedFrom:{required: false},
+			facilityDistrict: {required: true},
+			facilityCounty: {required: true},
+			facilityTelephone:{required:true},
+			facilityEmail:{required: true,email:true},
+			ortQuestion1:{required:true},
+			ortQuestion2:{required:true},
+			ortDehydrationLocation:{required:true}
+		},
+		messages: {
+			facilityDateOfInventory:{required: "*Required"},
+			facilityName:{required: "*Required"},
+			facilityType:{required:"*Required"},
+			facilityLevel:{required:"*Required"},
+			facilityContactPerson:{required: "*Required"},
+			facilityZincOrsDispensedFrom:{required: "*Required"},
+			facilityDistrict: {required:"*Required"},
+			facilityCounty: {required: "*Required"},
+			facilityTelephone:{required:"*Required"},
+			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
+			ortQuestion1:{required:"*Required"},
+			ortQuestion2:{required:"*Required"},
+			ortDehydrationLocation:{required:"*Required"}
+		}
+	}); /*end of form_mnh_assessment*/
+	
 	});
 /*---------------------------end of validation.js------------------------------------------------------------------------------------------------------------------*/
 
@@ -1157,15 +1191,15 @@ function log() {
 
 
 /*---------------------------start of global_functions.js------------------------------------------------------------------------------------------------------------------*/
-/*all jquery custom functions are loaded from here*/
-$(document).ready(function() {
-	/**
-	 * variables
-	 */
-	var nthChild=''; //to get the vaue of the last cloned row
-	var form_id = '';
-	var lastRowId=1;	
-	var timeDiff='';	
+			/*all jquery custom functions are loaded from here*/
+			$(document).ready(function() {
+				/**
+				 * variables
+				 */
+				var nthChild=''; //to get the vaue of the last cloned row
+				var form_id = '';
+				var lastRowId=1;	
+				var timeDiff='';	
 	            
 		        /*start of form calculations on key up*/
 				/*----------------------------------------------------------------------------------------------------------------*/
@@ -1419,12 +1453,7 @@ $(document).ready(function() {
 				
 				/*start of datetime functions*/
 				$(function() {
-				var dates= ['#date','#inputDate','.autoDate','.futureDate',
-				'#reportingDate','#fortifiedDate','#checkupDate','#dateC1','#visitDate',
-				'#inspection_date','#supervision_date','#inspector_date','#inspectionsDate',
-				'#signatureDate','#supervisorDate','#controlDate','#premixDate',
-				'#inspections_date','#inspectionDate','#roSignature','#ho_signature_date',
-				'#s_signature_date','#externalIodB1_date_rep_signed'];
+				var dates= ['#date','#inputDate','.autoDate','.futureDate'];
 				
 				
 				//initialize all datepickers
@@ -1463,180 +1492,6 @@ $(document).ready(function() {
 				});/*end of mobiscroller time picker function*/
 				
 				/*----------------------------------------------------------------------------------------------------------------*/
-				/*computeSaltDailies*/
-				function computeSaltDailies(){
-					sp=0;pu=0;sf=0;
-				      //if(no!=1)
-				      for(i=1;i<=lastRowId;++i){
-				      $("#saltFortified_"+i).val((($('#saltProduced_'+i).val()*1000)/$('#premixUsed_'+i).val()).toFixed(2));
-					  sp=sp+parseFloat($('#saltProduced_'+i).val());
-					  pu=pu+parseFloat($('#premixUsed_'+i).val());
-					  sf=sf+parseFloat($("#saltFortified_"+i).val());
-					  
-					 //alert(sp+' '+pu+' '+sf);
-					  }
-					 // alert(sf);
-					   $('#saltProduced2').val(sp.toFixed(2));
-					  $('#premixUsed2').val(pu.toFixed(2));
-					  $('#saltFortified2').val(sf.toFixed(2));
-					 
-					  $('#saltProduced3').val($('#saltProduced2').val());
-					  $('#premixUsed3').val($('#premixUsed2').val());
-					  $('#saltFortified3').val($('#saltFortified2').val());
-				}
-				
-				/*----------------------------------------------------------------------------------------------------------------*/
-				
-				/*computeOilDailies*/
-				function computeOilDailies(){
-					sp=0;pu=0;sf=0;
-					for(i=1;i<=lastRowId;++i){
-						$("#oilFortified_"+i).val((($('#oilProduced_'+i).val()*1000)/$('#premixUsed_'+i).val()).toFixed(2));
-					  sp=sp+parseFloat($('#oilProduced_'+i).val());
-					  pu=pu+parseFloat($('#premixUsed_'+i).val());
-					  sf=sf+parseFloat($("#oilFortified_"+i).val());
-					  }
-					  
-					  $('#oilProduced2').val(sp.toFixed(2));
-					  $('#premixUsed2').val(pu.toFixed(2));
-					  $('#oilFortified2').val(sf.toFixed(2));
-					  
-					  $('#oilProduced3').val($('#oilProduced2').val());
-					  $('#premixUsed3').val($('#premixUsed2').val());
-					  $('#oilFortified3').val($('#oilFortified2').val());
-				}
-				
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*computeMaizeDailies*/
-				function computeMaizeDailies(){
-					sp=0;pu=0;sf=0;
-					for(i=1;i<=lastRowId;++i){
-						$("#ratioMaizeFlour_"+i).val((($('#maizeProduced_'+i).val()*1000)/$('#premixUsed_'+i).val()).toFixed(2));
-					  sp=sp+parseFloat($('#maizeProduced_'+i).val());
-					  pu=pu+parseFloat($('#premixUsed_'+i).val());
-					  sf=sf+parseFloat($("#ratioMaizeFlour_"+i).val());
-					  }
-					  
-					  $('#maizeProduced2').val(sp.toFixed(2));
-					  $('#premixUsed2').val(pu.toFixed(2));
-					  $('#maizeFortified2').val(sf.toFixed(2));
-					  
-					  $('#maizeProduced3').val($('#maizeProduced2').val());
-					  $('#premixUsed3').val($('#premixUsed2').val());
-					  $('#maizeFortified3').val($('#maizeFortified2').val());
-				}
-				
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*computeOilDailies*/
-				function computeWheatDailies(){
-					sp=0;pu=0;sf=0;
-					for(i=1;i<=lastRowId;++i){
-						$("#wheatFlour_"+i).val((($('#wheatFlourProduced_'+i).val()*1000)/$('#premixUsed_'+i).val()).toFixed(2));
-					  sp=sp+parseFloat($('#wheatFlourProduced_'+i).val());
-					  pu=pu+parseFloat($('#premixUsed_'+i).val());
-					  sf=sf+parseFloat($("#wheatFlour_"+i).val());
-					  }
-					  
-					  $('#wheatFlourProduced2').val(sp.toFixed(2));
-					  $('#premixUsed2').val(pu.toFixed(2));
-					  $('#wheatFlour2').val(sf.toFixed(2));
-					  
-					  $('#wheatFlourProduced3').val($('#wheatFlourProduced2').val());
-					  $('#premixUsed3').val($('#premixUsed2').val());
-					  $('#wheatFlour3').val($('#wheatFlour2').val());
-				}
-				
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*theoreticFeederFlow*/
-				function computeFeederFlow(no){
-				  $("#productionRate_"+no).on('focusout',function(){
-				     $('#theoreticFeeder_'+no).val(($('#productionRate_'+no).val()*(100/6)).toFixed(2));
-				    });
-				   
-				   $("#feederFlow1_"+no+",#feederFlow2_"+no+",#feederFlow3_"+no).on('keyup',function(){
-				  $('#feederFlowAverage_'+no).val(((parseFloat($("#feederFlow1_"+no).val())+
-				                                  parseFloat($("#feederFlow2_"+no).val())+
-				                                  parseFloat($("#feederFlow3_"+no).val()))/3).toFixed(2));
-				  });	
-				}
-				
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*premixToProductionRatio*/
-				function computePremixToProduceRatio(no){
-					$("#flourMT_"+no+", #premixUsed_"+no).on('keyup',function(){
-				     $('#flourPremixRatio_'+no).val((($('#flourMT_'+no).val()*1000)/$('#premixUsed_'+no).val()).toFixed(2));
-				   });
-				}
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*dispatchComputation*/
-				function computeDispatches(n){
-		                $('#balance_'+n).val($('#quantity_'+n).val()- $('#dispatchedQuantity_'+n).val());
-				}
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				
-				/*computeTimeDifference*/
-				/*referenced from stack overflow*/
-				function computeTimeDifference(start,end){
-				//var start = '8:00';
-			    //var end = '23:30';
-			    var diff;
-			    start=convertTimeTo24HourSystem(start);
-			    end=convertTimeTo24HourSystem(end);
-			
-			    s = start.split(':');
-			    e = end.split(':');
-			  //  alert("End: "+e);
-			   // alert("Start: "+s);
-			    min = parseInt(e[1])-parseInt(s[1]);
-			    hour_carry = 0;
-			    if(min < 0){
-			        min += 60;
-			        hour_carry += 1;
-			    }
-			    //alert("Start H: "+parseInt(s[0]));
-			    hour = parseInt(e[0])-parseInt(s[0])-hour_carry;
-			    diff = hour + "Hrs " + min+" min";
-			    //alert("Time diff is: "+diff);
-			    
-			    return diff;
-				}
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-				/*mini-method to check for 12 and convert subsequenlty to the 24hour system*/
-				function convertTimeTo24HourSystem(h){
-				if(h.indexOf('12') !=-1 && h.indexOf('A') !=-1){
-					
-					h=h.replace('12','00');
-					h=h.substr(0,h.indexOf("A")-1);
-					//alert("24H Clock: "+h);
-				}
-				
-				if(h.indexOf('12')==-1 && h.indexOf('P') !=-1){
-					t=h.substr(0,h.indexOf("P"));
-					
-					t1=t.split(':');
-					hh=parseInt(t1[0])+(12);
-					h=h.replace(t,hh+":"+t1[1]);
-					h=h.substr(0,h.indexOf("P")-1);
-					//alert("Time (24H) is: "+h);
-				}
-				
-				if(h.substr(0,1)=="0" && h.substr(1,1)!="0" ){//eliminate the leading zero
-						t=h.split(":");
-						t1=t[0];
-						t1=t1.replace("0","");
-						h=t1+":"+t[1];
-						//alert("New time "+h);
-					}
-				return h;
-				}
-				/*-----------------------------------------------------------------------------------------------------------------*/
 				
 				
 });/*end of parent document ready function*/
