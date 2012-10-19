@@ -1,8 +1,8 @@
-<h3>Instructions</h3>
+<h3>Form Guide</h3>
 
 <ol start="1" type="1|a|A|i|I">
 	<li>
-		Please select one of the two forms
+		Please click on one of the two forms below for instructions
 	</li>
 	<ol start="a">
 		<li class="form-link c">
