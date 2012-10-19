@@ -1,7 +1,7 @@
 <?php
 ob_start();
 $mfName = $this -> session -> userdata('fName');
-$mfCode=$this -> session -> userdata('fCode');
+$mfCode = $this -> session -> userdata('fCode');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -11,7 +11,7 @@ $mfCode=$this -> session -> userdata('fCode');
 		<!-- -->
 		<!-- Attach CSS files -->
 		<link rel="stylesheet" href="<?php echo base_url()?>css/styles.css"/>
-		
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<!-- Attach JavaScript files -->
 
 		<!--script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script-->
@@ -33,16 +33,33 @@ $mfCode=$this -> session -> userdata('fCode');
 					$("#profile-fancy").removeClass("show");
 					return false;
 				});
-			});/*end of doc ready*/
+				$('.form-instructions.c').hide();
+				$('.form-instructions.m').hide();
+				$('.form-link.c').click(function() {
+
+					$('.form-instructions.c').show();
+					$('.form-instructions.m').hide();
+
+				});
+
+				$('.form-link.m').click(function() {
+
+					$('.form-instructions.m').show();
+					$('.form-instructions.c').hide();
+
+				});
+
+			});
+			/*end of doc ready*/
 
 		</script>
 	
 		<!--initialize all date pickers-->
 		<script>
-		
-	    $().ready(function() {	
-	
-	    });/*close ready doc*/
+			$().ready(function() {
+
+			});
+			/*close ready doc*/
 		</script>
 		<script type="text/javascript">
 			$(function() {
@@ -56,7 +73,7 @@ $mfCode=$this -> session -> userdata('fCode');
 
 		</script>
 		<script>
-		$().ready(function(){
+					$().ready(function(){
 			/**
 			 * variables
 			 */
@@ -71,107 +88,112 @@ $mfCode=$this -> session -> userdata('fCode');
 				
 			    //start of close_opened_form click event
 				$("#close_opened_form").click(function() {
-				$(".form-container").load('<?php echo base_url().'c_front/formviewer';?>',function(){
-				//delegate events
-				loadGlobalScript();
-				
-				 });
-				});/*end of close_opened_form click event
-				
-				/*----------------------------------------------------------------------------------------------------------------*/
-			
-		      /*start of loadGlobalJS*/
-				var onload_queue = [];
-				var dom_loaded = false;
-				
-				function loadGlobalJS(src, callback) {
-				  var script = document.createElement('script'); 
-				  script.type = "text/javascript";
-				  script.async = true;
-				  script.src = src;
-				  script.onload = script.onreadystatechange = function() {
-				    if (dom_loaded) 
-				      callback();
-				    else 
-				      onload_queue.push(callback);
-				    // clean up for IE and Opera
-				    script.onload = null;
-				    script.onreadystatechange = null;
-				  };
-				  var head = document.getElementsByTagName('head')[0];
-				  head.appendChild(script);
-				}/*end of loadGlobalJS*/
-				
-				function domLoaded() {
-				   dom_loaded = true;
-				   var len = onload_queue.length;
-				   for (var i = 0; i < len; i++) {
-				     onload_queue[i]();
-				   }
-				   onload_queue = null;
-				};/*end of domLoaded*/
-				
-				/*-----------------------------------------------------------------------------------------------------------*/
-				
-				//check box/checked radio function was here
-				
-				
-				 domLoaded();
-				
-				/*----------------------------------------------------------------------------------------------------------------*/
-				
-				/*submit form event*/
-				/*start of submit_form_data click event*/
-				//function triggerFormSubmit(){
-				$("#submit_form_data").click(function() {
-				$("#facilityMFC").val('<?php echo $mfCode; ?>');
-				$(form_id).submit();
-			
-				});//}/*end of submit_form_data click event*/
-				
-				/*----------------------------------------------------------------------------------------------------------------*/
-				
-				/*reset form event*/
-				/*start of reset_current_form click event*/
-				$("#reset_current_form").click(function() {
+				$(".form-container").load('<?php echo base_url() . 'c_front/formviewer'; ?>
+					',function(){
+					//delegate events
+					loadGlobalScript();
+
+					});
+					});/*end of close_opened_form click event
+
+					/*----------------------------------------------------------------------------------------------------------------*/
+
+					/*start of loadGlobalJS*/
+					var onload_queue = [];
+					var dom_loaded = false;
+
+					function loadGlobalJS(src, callback) {
+					var script = document.createElement('script');
+					script.type = "text/javascript";
+					script.async = true;
+					script.src = src;
+					script.onload = script.onreadystatechange = function() {
+					if (dom_loaded)
+					callback();
+					else
+					onload_queue.push(callback);
+					// clean up for IE and Opera
+					script.onload = null;
+					script.onreadystatechange = null;
+					};
+					var head = document.getElementsByTagName('head')[0];
+					head.appendChild(script);
+					}/*end of loadGlobalJS*/
+
+					function domLoaded() {
+					dom_loaded = true;
+					var len = onload_queue.length;
+					for (var i = 0; i < len; i++) {
+					onload_queue[i]();
+					}
+					onload_queue = null;
+					};/*end of domLoaded*/
+
+					/*-----------------------------------------------------------------------------------------------------------*/
+
+					//check box/checked radio function was here
+
+					domLoaded();
+
+					/*----------------------------------------------------------------------------------------------------------------*/
+
+					/*submit form event*/
+					/*start of submit_form_data click event*/
+					//function triggerFormSubmit(){
+					$("#submit_form_data").click(function() {
+					$("#facilityMFC").val('
+<?php echo $mfCode; ?>
+					');
+					$(form_id).submit();
+
+					});//}/*end of submit_form_data click event*/
+
+					/*----------------------------------------------------------------------------------------------------------------*/
+
+					/*reset form event*/
+					/*start of reset_current_form click event*/
+					$("#reset_current_form").click(function() {
 					$(form_id).resetForm();
 
-				});/*end of reset_current_form click event*/
-				
-				/*----------------------------------------------------------------------------------------------------------------*/
-				var loaded=false;
-				function loadGlobalScript(){
+					});/*end of reset_current_form click event*/
+
+					/*----------------------------------------------------------------------------------------------------------------*/
+					var loaded=false;
+					function loadGlobalScript(){
 					loaded=true;
-					var scripts=['<?php echo base_url().'js/js_ajax_load.js';?>'];
-					for(i=0;i<scripts.length;i++){
+					var scripts=['
+<?php echo base_url() . 'js/js_ajax_load.js'; ?>
+						'];
+						for(i=0;i<scripts.length;i++){
 						loadGlobalJS(scripts[i],function(){});
-					}
-					form_id='#'+$(".form-container").find('form').attr('id');
-					
-				}
-				/*----------------------------------------------------------------------------------------------------------------*/
-				
-				//so which link was clicked?
-			  $('.form-container-menu').find('ul li').on('click',function(){
-				link_id='#'+$(this).find('a').attr('id');
-				linkSub=$(link_id).attr('class');
-				//alert(linkSub);
-				linkIdUrl=link_id.substr(link_id.indexOf('#')+1,(link_id.indexOf('_li')-1));
-				//load url based on the class and id returned
-				//switch(linkSub){
-				switch(link_id){
-					case "#mnh_inventory_li":
-					linkDomain='c_load';
-					linkIdUrl='form_mnh_equipment_assessment';
-					break;
-					case "#zinc_inventory_li":
-					linkDomain='c_load';
-					linkIdUrl='form_zinc_ors_inventory';
-					break;
-				}/*close the case*/
-				if(linkDomain)
-				//+linkDomain+'/'+linkIdUrl
-				$(".form-container").load('<?php echo base_url();?>'+linkDomain+'/'+linkIdUrl,function(){
+						}
+						form_id='#'+$(".form-container").find('form').attr('id');
+
+						}
+						/*----------------------------------------------------------------------------------------------------------------*/
+
+						//so which link was clicked?
+						$('.form-container-menu').find('ul li').on('click',function(){
+						link_id='#'+$(this).find('a').attr('id');
+						linkSub=$(link_id).attr('class');
+						//alert(linkSub);
+						linkIdUrl=link_id.substr(link_id.indexOf('#')+1,(link_id.indexOf('_li')-1));
+						//load url based on the class and id returned
+						//switch(linkSub){
+						switch(link_id){
+						case "#mnh_inventory_li":
+						linkDomain='c_load';
+						linkIdUrl='form_mnh_equipment_assessment';
+						break;
+						case "#zinc_inventory_li":
+						linkDomain='c_load';
+						linkIdUrl='form_zinc_ors_inventory';
+						break;
+						}/*close the case*/
+						if(linkDomain)
+						//+linkDomain+'/'+linkIdUrl
+						$(".form-container").load('
+<?php echo base_url(); ?>'+linkDomain+'/'+linkIdUrl,function(){
 				//delegate events
 				
 				//if(loaded==false)
@@ -191,59 +213,47 @@ $mfCode=$this -> session -> userdata('fCode');
 				function renderFacilityInfo(){
     			 $.ajax({
 		            type: "GET",
-		            url: "<?php echo base_url()?>c_load/getFacilityDetails",
-		            dataType:"json",
-		            cache:"true",
-		            data:"",
-		            success: function(data){
-		            	var info = data.rData;
-				    $.each(info , function(i,facility) {
-		            	//alert("Name: "+facility.facilityMFC);//render found data
-                   	$("#facilityName").val(facility.facilityName);
-                   	$("#facilityContactPerson").val(facility.facilityContactPerson);
-                   	//$("#facilityDistrict").val(facility.facilityDistrict);
-                   	
-                   	$("#facilityDistrict option:text=" + facility.facilityDistrict +"").attr("selected", "selected"); 
-                   	
-                   	//$("#facilityCounty").val(facility.facilityCounty);
-                   	$("#facilityCounty option:text=" + facility.facilityCounty +"").attr("selected", "selected"); 
-                   	$("#facilityEmail").val(facility.facilityEmail);
-                   	$("#facilityTelephone").val(facility.facilityTelephone);
-                  });
-		         
-		            	//return false;
-		            },
-		            beforeSend:function(){},
-		            afterSend:function(){}
-		        });
-         		return false;
-    		}
-				/*end of ajax data requests*/
-				/*-----------------------------------------------------------------------------------------------------------------*/
-				
-		
-		}); /*close document ready*/
+		            url: "<?php echo base_url()?>
+						c_load / getFacilityDetails",
+						dataType:"json",
+						cache:"true",
+						data:"",
+						success: function(data){
+						var info = data.rData;
+						$.each(info , function(i,facility) {
+						//alert("Name: "+facility.facilityMFC);//render found data
+						$("#facilityName").val(facility.facilityName);
+						$("#facilityContactPerson").val(facility.facilityContactPerson);
+						//$("#facilityDistrict").val(facility.facilityDistrict);
+
+						$("#facilityDistrict option:text=" + facility.facilityDistrict +"").attr("selected", "selected");
+
+						//$("#facilityCounty").val(facility.facilityCounty);
+						$("#facilityCounty option:text=" + facility.facilityCounty +"").attr("selected", "selected");
+						$("#facilityEmail").val(facility.facilityEmail);
+						$("#facilityTelephone").val(facility.facilityTelephone);
+						});
+
+						//return false;
+						},
+						beforeSend:function(){},
+						afterSend:function(){}
+						});
+						return false;
+						}
+						/*end of ajax data requests*/
+						/*-----------------------------------------------------------------------------------------------------------------*/
+
+						}); /*close document ready*/
 		</script>
 	</head>
 	<body>
 		
 		<!--header banner --->   
-		<?php $this->load->view('banner'); ?>
+		<?php $this -> load -> view('banner'); ?>
 		<!--profile data here -->
-		<section class="left-side">
-		<section id="profile-before">
-			
-		<section class="title"><?php  echo 'Karibu, '. $mfName;?>
-			
-		</section>
-		<section class="other">
-			<ul>
-				<li>
-					<?php echo anchor(base_url().'c_auth/logout','Exit', array('class' => 'awesome small'))
-					?>
-				</li>
-			</ul></section>
-		</section>
+		
+	
 		
 		<section class="form-sidebar">
 				<h3>Actions</h3>
@@ -252,7 +262,7 @@ $mfCode=$this -> session -> userdata('fCode');
 				<a title="To clear entire form" id="reset_current_form" class="awesome magenta medium">Reset</a>
 				<a title="To close the form." id="close_opened_form" class="awesome red medium">Close</a></section>
 		</section><!-- End of Form-SideBar -->
-		</section>
+		
 		<section class="current-body">
 			<nav id="pageheader" >
 				<section class="search">
@@ -266,32 +276,25 @@ $mfCode=$this -> session -> userdata('fCode');
 						<a id="inventory_report_li" href="<?php echo base_url().'c_front/reports' ?>">Reports</a>
 					</ul>
 				</section>
+				<section class="right-side-nav">
+					<section class="sessionUser"><?php echo 'Welcome  '.$mfName ?></section>
+		            <section style="float:right;margin-right:5%"><?php echo anchor(base_url().'c_auth/logout','Logout') ?></section>
+	
+				</section>
 			</nav>
 			
-						
-			<!--section class="menu-container"> 
-				<section class="menu salt">
-							<h2>Post</h2>
-							<div title="click to expand" class="max salt">+</div>
-								<div title="click to minimize" class="min salt" style="display:none">-</div>
-							<ul>						
-								<li>
-									<a id = "internalFort_A1_li" class="salt-url">Fortified Salt-Table A-1</a>
-								</li>
-							</ul>
-						</section><!-- End of Menu: Post Data Forms -->
-				</section--><!-- End of Menu-Container -->
+			
 									
 									
 				<section class="form-container-menu">
 					<ul>
-						<li><a id="zinc_inventory_li" class="awesome blue large">Child Health Assessment</a></li>
-						<li><a id="mnh_inventory_li" class="awesome blue large">Maternal and New-born Health Assessment</a></li>
+						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1.4em">Child Health Assessment</a></li>
+						<li><a id="mnh_inventory_li" class="awesome blue large" style="font-size:1.4em">Maternal and New-born Health Assessment</a></li>
 					</ul>
 				</section>					
 				<section class="form-container ui-widget">
 					<?php
-					
+
 					echo $form;
 					?>
 				</section><!-- End of Form-Container Section-->							
@@ -304,4 +307,4 @@ $mfCode=$this -> session -> userdata('fCode');
 			</div>
 		</body>
 		</html>
-        <?php ob_end_flush();?>
+        <?php ob_end_flush(); ?>
