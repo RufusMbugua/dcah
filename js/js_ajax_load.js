@@ -85,8 +85,8 @@ $().ready(function(){
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
 			facilityEmail:{required: true,email:true},
-			sterileGloveSizes[]:{required:true},
-			q6bSkilledProviders[]:{minlength:1},
+			'sterileGloveSizes[]':{required:true},
+			'q6bSkilledProviders[]':{minlength:1},
 			ortDehydrationLocation:{minlength:1}
 		},
 		messages: {
@@ -100,8 +100,8 @@ $().ready(function(){
 			facilityCounty: {required: "*Required"},
 			facilityTelephone:{required:"*Required"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
-			sterileGloveSizes[]:{minlength:"*Required"},
-			q6bSkilledProviders[]:{minlength:"*Required"},
+			'sterileGloveSizes[]':{minlength:"*Required"},
+			'q6bSkilledProviders[]':{minlength:"*Required"},
 			ortDehydrationLocation:{minlength:"*Required"}
 		}
 	}); /*end of form_mnh_assessment*/

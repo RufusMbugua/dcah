@@ -3,13 +3,8 @@
 		<link href="<?php echo base_url(); ?>css/layout.css" rel="stylesheet" type="text/css" />
 		<!-- -->
 		<!-- Attach CSS files -->
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/layout-opt.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/awesomebuttons.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/buttons.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/orbit.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/post.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/tabs.css"/>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>css/form-opt.css"/>
+	
+		<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css"/>
 		
 		<style>
 		    .ui-autocomplete {
@@ -84,6 +79,9 @@
 					<input  name="username" id="username" type="text" placeholder="Your MFL Name" required/>
 				</div>
 				<p></p>
+				<section class="confirm">
+					MFL Code
+				</section>
 				<button type="submit" class="awesome myblue large" formaction="<?php echo base_url().'c_auth/go'?>" />
 				Continue</button>
 			</form>
