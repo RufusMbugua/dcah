@@ -106,6 +106,16 @@ $().ready(function(){
 		}
 	}); /*end of form_mnh_assessment*/
 	
+	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
+	$("#form-verify").validate({/*inventory module*/
+		rules: {
+			username:{required:true}
+		},
+		messages:{
+			username:{required:"Facility Name Required"}
+		}
+	});/*end of form-verify validation rules*/
+	
 	});
 /*---------------------------end of validation.js------------------------------------------------------------------------------------------------------------------*/
 
