@@ -3763,9 +3763,6 @@ class C_Load extends MY_Controller {
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
-										<p>
-											Quantity:
-										</p>
 										<input type="number" class="cloned fromZero" name="q14gNumberb_1" id="q14gNumberb_1" min="0" />
 
 									</section>

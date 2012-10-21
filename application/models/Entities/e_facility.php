@@ -49,6 +49,18 @@ namespace models\Entities;
 	* */
 	private $facilityCounty;
 	
+	/**
+	* @ManyToOne(targetEntity="province", inversedBy="provinceName")
+    * @Column(name="facilityProvince", type="string",length=45, nullable=true)
+	* */
+	private $facilityProvince;
+	
+	/**
+	* @ManyToOne(targetEntity="facility_owner", inversedBy="facilityOwner")
+    * @Column(name="facilityOwnedBy", type="string",length=255, nullable=true)
+	* */
+	private $facilityOwnedBy;
+	
    /**
 	* @Column(name="facilityContactPerson", type="string", length=45, nullable=true)
 	* */
@@ -65,7 +77,7 @@ namespace models\Entities;
 	private $facilityEmail;
 	
 	/**
-	* @Column(name="facilityTelephone", type="string", length=15, nullable=true)
+	* @Column(name="facilityTelephone", type="string", length=55, nullable=true)
 	* */
 	private $facilityTelephone;
 	
@@ -124,6 +136,21 @@ namespace models\Entities;
 	
 	public function setFacilityCounty($facilityCounty) { $this -> facilityCounty = $facilityCounty;
 	}
+	
+	public function getFacilityProvince() {
+			return $this -> facilityProvince;
+	}
+	
+	public function setFacilityProvince($facilityProvince) { $this -> facilityProvince = $facilityProvince;
+	}
+	
+	public function getFacilityOwnedBy() {
+			return $this -> facilityOwnedBy;
+	}
+	
+	public function setFacilityOwnedBy($facilityOwnedBy) { $this -> facilityOwnedBy = $facilityOwnedBy;
+	}
+	
 	
 	public function getFacilityContactPerson() {
 			return $this -> facilityContactPerson;}
