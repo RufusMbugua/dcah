@@ -2246,12 +2246,11 @@ class C_Load extends MY_Controller {
 
 					<label>1:</label>
 					<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14"/>
-				</section>
-				<section class="right">
+				
 					<label>2:</label>
 					<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14"/>
 				</section>
->>>>>>> upstream/master
+
 			</section>
 			<section class="row2">
 				<section class="left">
@@ -3654,6 +3653,12 @@ class C_Load extends MY_Controller {
 								<section class="row" id="tr_46">
 									<section class="left">
 										12g. Injectable amoxicillin or ampicillin
+										<select class="cloned left-combo" name="q12gInjectableAmoxicillinb_1" id="q12gInjectableAmoxicillinb_1" style="display:block">
+
+											<option value="Injectable amoxicillin">Amoxicillin </option>
+											<option value="Injectable ampicillin">Ampicillin</option>
+
+										</select>
 									</section>
 									<input type="hidden"  name="mnhCommodityName_9" id="mnhCommodityName_9"/>
 
@@ -3663,13 +3668,8 @@ class C_Load extends MY_Controller {
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<p></p>
-										<select class="cloned left-combo" name="q12gInjectableAmoxicillinb_1" id="q12gInjectableAmoxicillinb_1">
-
-											<option value="Injectable amoxicillin">Amoxicillin </option>
-											<option value="Injectable ampicillin">Ampicillin</option>
-
-										</select>
+										
+										
 
 										<input type="number" class="cloned fromZero" name="q12gNumber_1" id="q12gNumber_1" min="0" />
 									</section>

@@ -1243,24 +1243,42 @@ function log() {
 				/*-----------------------------------start of hide/display  stock item if not available---------------------------------------*/
 				if(form_id="#zinc_ors_inventory"){
 					
+				/*
+				 * Checking for all SELECT inputs
+				 */
 				$(form_id).find('select').on("change",function() {
-					//if($(this).attr('class')=
+					
+					/*
+					 * Identify the class of the SELECT input
+					 * 
+					 * IF(class matches 'cloned left-combo')
+					 * Then
+					 *  ->Get the SELECT's ID
+					 * 
+					 */
 					if($(this).attr('class')=='cloned left-combo')
 					cb_id='#'+$(this).attr('id');
 					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
+						
 						//alert(cb_id);
 					cb_no=cb_id.substr(cb_id.indexOf('_')+1,(cb_id.length))//for the numerical part of the id
 					
 					//substr(id.indexOf('_')+1,id.length)
 					//cb_id=cb_id.substr(cb_id.indexOf('#'),(cb_id.indexOf('_')))//for the trimmed id
 					//alert(cb_no);
-					
-					if($(cb_id).val() == 0) {
+					/*
+					 * Checking if the user selected 'No'
+					 */
+					if(($(cb_id).val() == 0)||($(cb_id).val() == "No")) {
 						//alert(cb_no);
 						//$('#tr_'+cb_no+':input').attr('disabled', true);
 						//$('#tr_'+cb_no).hide();
 						$('#tr_'+cb_no).find('input,select').prop('disabled', true);
-						}else{
+						}
+						/*
+						 * Else leave activated
+						 */
+						else{
 							
 							//$('#tr_'+cb_no).find('input,select[class="cloned"]').removeClass('.label.error');
 							$('#tr_'+cb_no).find('input,select[class="cloned"]').prop('disabled', false);
@@ -1274,6 +1292,63 @@ function log() {
 				$('#editEquipmentListTopButton').click(function(){
 				$('#tableEquipmentList').find('select[class="cloned left-combo"]').prop('disabled', false);
 				});
+				}
+				
+				if(form_id="#form_mnh_assessment"){
+					
+				/*
+				 * Checking for all SELECT inputs
+				 */
+				$(form_id).find('select').on("change",function() {
+					
+					/*
+					 * Identify the class of the SELECT input
+					 * 
+					 * IF(class matches 'cloned left-combo')
+					 * Then
+					 *  ->Get the SELECT's ID
+					 * 
+					 */
+					if($(this).attr('class')=='cloned left-combo')
+					cb_id='#'+$(this).attr('id');
+					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
+						
+						//alert(cb_id);
+					cb_no=cb_id.substr(cb_id.indexOf('_')+1,(cb_id.length))//for the numerical part of the id
+					
+					//substr(id.indexOf('_')+1,id.length)
+					//cb_id=cb_id.substr(cb_id.indexOf('#'),(cb_id.indexOf('_')))//for the trimmed id
+					//alert(cb_no);
+					/*
+					 * Checking if the user selected 'No'
+					 */
+					if(($(cb_id).val() == 0)||($(cb_id).val() == "No")) {
+						//alert(cb_no);
+						//$('#tr_'+cb_no+':input').attr('disabled', true);
+						//$('#tr_'+cb_no).hide();
+						$('#tr_'+cb_no).find('input,select').prop('disabled', true);
+						}
+						/*
+						 * Else leave activated
+						 */
+						else{
+							
+							//$('#tr_'+cb_no).find('input,select[class="cloned"]').removeClass('.label.error');
+							$('#tr_'+cb_no).find('input,select[class="cloned"]').prop('disabled', false);
+					       // $('.cloned').removeClass('error');
+						}
+					}
+					
+				
+				});
+				
+				$('#editEquipmentListTopButton').click(function(){
+				$('#tableEquipmentList').find('select[class="cloned left-combo"]').prop('disabled', false);
+				});
+				}
+				
+				else{
+					
 				}
 				/*-----------------------------------end of of hide/display  stock item if not available--------------------------*/
 				
