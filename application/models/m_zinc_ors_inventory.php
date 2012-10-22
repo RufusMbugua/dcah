@@ -176,7 +176,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	private function addORTInfo(){
 		
 		    foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		    if(substr($key,0,3)=="ort"){//select data for facilities
+		    if(substr($key,0,3)=="ort"){//select data for ort
 			     $this->attr = $key;//the attribute name
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
