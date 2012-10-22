@@ -9,28 +9,81 @@ namespace models\Entities;
  	
    /**
 	* @Id
-	* @Column(name="countyID", type="integer", length=11, nullable=false)
+	* @Column(name="smAssessmentID", type="integer", length=11, nullable=false)
 	* @GeneratedValue(strategy="AUTO")
 	* */
-	private $countyID;
+	private $smAssessmentID;
 	
    /**
-	* @Column(name="countyName", type="string",length=45, nullable=false)
+	* @Column(name="facilityCode", type="string",length=45, nullable=false)
 	* */
-	private $countyName;
-	 
-	public function getCountyID() {
-			return $this -> countyID;
+	private $facilityCode;
+	
+	  /**
+	* @Column(name="sterilizationMethod", type="string",length=255, nullable=false)
+	* */
+	private $sterilizationMethod;
+	
+	  /**
+	* @Column(name="other", type="string",length=255, nullable=false)
+	* */
+	private $other;
+	
+	  /**
+	* @Column(name="createdAt", type="datetime",length=45, nullable=false)
+	* */
+	private $createdAt;
+	
+	  /**
+	* @Column(name="dateOfAssessment", type="date",length=45, nullable=false)
+	* */
+	private $dateOfAssessment;
+	
+	
+	
+	public function getSmAssessmentID() {
+			return $this -> smAssessmentID;
 	}
 	
-	public function setCountyID($countyID) { $this -> countyID = $countyID;
-	}
-	 
-	public function getCountyName() {
-			return $this -> countyName;
+	public function setSmAssessmentID($smAssessmentID) { $this -> smAssessmentID = $smAssessmentID;
 	}
 	
-	public function setCountyName($countyName) { $this -> countyName = $countyName;
+ 
+	public function getFacilityCode() {
+		return $this -> facilityCode;
+	}
+
+	public function setFacilityCode($facilityCode) { $this -> facilityCode = $facilityCode;
+	}
+
+	
+	public function getSterilizationMethod() {
+			return $this -> sterilizationMethod;
+	}
+	
+	public function setSterilizationMethod($sterilizationMethod) { $this -> sterilizationMethod = $sterilizationMethod;
+	}
+	
+		
+	public function getOther() {
+			return $this -> other;
+	}
+	
+	public function setOther($other) { $this -> other = $other;
+	}
+	
+	public function getCreatedAt() {
+		return $this -> createdAt;
+	}
+
+	public function setCreatedAt($createdAt) { $this -> createdAt = $createdAt;
+	}
+
+	public function getDateOfAssessment() {
+		return $this -> dateOfAssessment;
+	}
+
+	public function setDateOfAssessment($dateOfAssessment) { $this -> dateOfAssessment = $dateOfAssessment;
 	}
 }
 ?>
