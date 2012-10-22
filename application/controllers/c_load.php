@@ -66,7 +66,9 @@ class C_Load extends MY_Controller {
 		$form_zinc_ors='';
 		$form_zinc_ors.='<form name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
 	<!-- form for collecting inventory status information -->
-	<h3 align="center"> ZINC &amp; ORS INVENTORY STATUS</h3>
+
+	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+
 	
 	<section class="block">
 		<section class="column">
@@ -169,9 +171,11 @@ class C_Load extends MY_Controller {
 		</section>
 	</section>
 	
-	<h3 align="center"> Zinc Sulphate 20mg Assessment</h3>
-		<p style="text-align: center" style="color:#872300">
-			Indicate the quantities of the Zinc &ORS available in this facility at the following units
+
+	<h3 align="center"> Commodities Assessment </h3>
+		<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the following units
+
 		</p>
 	  <div id="tabs">
 	<ul>
@@ -184,7 +188,7 @@ class C_Load extends MY_Controller {
 	</ul>
 	<div id="tabs-1" class="tab MCH">
 		
-
+        <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
 				<tr>
@@ -231,9 +235,6 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
-				</tr>
-				<tr>
 
 					<!--td width="144">Batch No</td-->
 					<td width="144">Quantities at Hand (Sachets)</td>
@@ -272,14 +273,99 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
-	<div id="tabs-2" class="tab PEDS">
 		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300">Zinc Sulphate 20mg</td>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-1-->
+	
+	<div id="tabs-2" class="tab PEDS">
+	     <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				
 				<tr>
 
 					<!--td width="144">Batch No</td-->
@@ -322,8 +408,48 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
 				<tr>
 
 					<!--td width="144">Batch No</td-->
@@ -363,15 +489,55 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-2-->
 	
 	<div id="tabs-3" class="tab OPD">
-		
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
-				<tr>
-					<td style="color:#872300">Zinc Sulphate 20mg</td>
-				</tr>
 				<tr>
 
 					<!--td width="144">Batch No</td-->
@@ -414,8 +580,48 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
 				<tr>
 
 					<!--td width="144">Batch No</td-->
@@ -455,15 +661,56 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-3-->
 	
 	
 	<div id="tabs-4" class="tab Pharmacy">
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
-				<tr>
-					<td style="color:#872300">Zinc Sulphate 20mg</td>
-				</tr>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -506,8 +753,47 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -546,14 +832,56 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+
+
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-4-->
 	
 	<div id="tabs-5" class="tab Stores">
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
-				<tr>
-					<td style="color:#872300">Zinc Sulphate 20mg</td>
-				</tr>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -596,8 +924,47 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -636,14 +1003,55 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+	</div> <!--close tabs-5-->
 	
 	<div id="tabs-6" class="tab Others">
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
-				<tr>
-					<td style="color:#872300">Zinc Sulphate 20mg</td>
-				</tr>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -686,8 +1094,47 @@ class C_Load extends MY_Controller {
 		<table>
 			<thead>
 				<tr>
-					<td style="color:#872300;font-weight:bold">Oral Rehydration Salts (ORS)</td>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
 				<tr>
 
 					<td width="144">Batch No</td>
@@ -726,7 +1173,49 @@ class C_Load extends MY_Controller {
 				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
-	</div>
+		
+		<h3 align="center"> Metronidazole (Flagyl)</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--end of tabs-6-->
 </div><!--end of div tabs-->
 	  
 	<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
@@ -834,6 +1323,7 @@ class C_Load extends MY_Controller {
 				<td width="144"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility? (respond by item)</label></td>
 				<td width="144"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing, stolen or Broken ORT Corner equipment in the Current *AOP/QIP?</label></td>
 			</thead>
+>>>>>>> upstream/master
 	   </tr>
 	   
 	   <tr class="row2" id="tr_1">
@@ -1643,14 +2133,20 @@ class C_Load extends MY_Controller {
 			<section class="row-title">
 				Facility Information
 			</section>
-			<section class="row2">
+
+
+			<!--section class="row2">
+
+
 				<section class="left">
 					<label>Date:</label>
 				</section>
 				<section class="right">
 					<input type="date" name="facilityDateOfInventory" id="facilityDateOfInventory" readonly="readonly" class="autoDate" placeholder="click for date"/>
 				</section>
-			</section>
+
+			</section-->
+
 			<section class="row2">
 				<section class="left">
 					<label>Facility Name:</label>
@@ -1683,6 +2179,29 @@ class C_Load extends MY_Controller {
 			</section>
 			<section class="row2">
 				<section class="left">
+		<label>Owned By:</label>
+				</section>
+				<section class="right">
+					<select name="facilityOwner" id="facilityOwner">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectFacilityOwner . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+					<label>Province:</label>
+				</section>
+				<section class="right">
+					<select name="facilityProvince" id="facilityProvince">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectProvince . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+
 					<label>District:</label>
 				</section>
 				<section class="right">
@@ -1724,8 +2243,15 @@ class C_Load extends MY_Controller {
 					<label>Telephone Contact(s):</label>
 				</section>
 				<section class="right">
+
+					<label>1:</label>
 					<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14"/>
 				</section>
+				<section class="right">
+					<label>2:</label>
+					<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14"/>
+				</section>
+>>>>>>> upstream/master
 			</section>
 			<section class="row2">
 				<section class="left">
@@ -1759,15 +2285,17 @@ class C_Load extends MY_Controller {
 					5. Does the facility provide 24 hour coverage for delivery services?
 				</section>
 				<section class="center cloned" >
-					<select name="q5FacilityDelivery" id="q5FacilityDelivery" class="cloned left-combo">
+
+					<select name="lndq5FacilityDelivery" id="lndq5FacilityDelivery" class="cloned left-combo">
 						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 				</section>
 
-				<section class="right q5 hide cloned">
-					<input type="text" name="q5Comment" id="q5Comment"/>
+				<section class="right q5 hide cloned" style="display: none">
+					<input type="text" name="lndq5Comment" id="lndq5Comment"/>
+
 				</section>
 
 			</section>
@@ -1777,27 +2305,33 @@ class C_Load extends MY_Controller {
 					including weekends, to provide delivery care?
 				</section>
 				<section class="center cloned">
-					<select name="q6aConductingDelivery" id="q6aConductingDelivery">
+
+					<select name="lndq6aConductingDelivery" id="lndq6aConductingDelivery">
 						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 				</section>
 			</section>
-			<section class="row">
+			<section class="row q6 hide" style="display: none">
 				<section class="left">
 					6b. Who conducts deliveries in this facility?
 				</section>
-				<section class="center q6 hide cloned" style="display: true">
-					<select name="q6bSkilledProviders[]" multiple="multiple" id="q6bSkilledProviders">
+				<section class="center cloned" >
+					<select name="lndq6bSkilledProviders[]" multiple="multiple" id="lndq6bSkilledProviders">
+
 						<option>Mid-wife</option>
 						<option>Trained Medical Officer</option>
 						<option>Clinicial Officer</option>
 						<option>Nursing Officer</option>
 						<option>Doctor</option>
 						<option>Community Health Worker</option>
-						<option>Others(Specify)</option>
+
+						
 					</select>
+					<label for="otherProvider">Others(Specify)</label>
+					<input type="text" id="lndotherProvider" name="lndotherProvider" maxlength="55" placeholder="provider1,provider2,...,"/>
+
 				</section>
 			</section>
 			<section class="row">
@@ -1805,7 +2339,9 @@ class C_Load extends MY_Controller {
 					7. Indicate the total number of beds in the maternity ward / unit in this facility*
 				</section>
 				<section class="right">
-					<input type="number" name="q7TotalBeds" id="q7TotalBeds" class="cloned fromZero" min="0"/>
+
+					<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned fromZero" min="0"/>
+
 				</section>
 
 			</section>
@@ -1819,7 +2355,9 @@ class C_Load extends MY_Controller {
 					8. What is the setting of the Delivery Room?
 				</section>
 				<section class="right">
-					<select name="q8DeliveryRoom" id="q8DeliveryRoom">
+
+					<select name="lndq8DeliveryRoom" id="lndq8DeliveryRoom" class="cloned">
+
 						<option value="" selected="selected">Select One</option>
 						<option>private room, visual &amp; auditory privacy</option>
 						<option>non-private room, visual &amp; auditory privacy</option>
@@ -1856,6 +2394,9 @@ class C_Load extends MY_Controller {
 				<section class="left">
 					9a. Examination light
 				</section>
+
+				<input type="hidden"  name="q9equipCode_31" id="q9equipCode_31" value="EQP31" />
+
 				<section class="center">
 					<select class="cloned left-combo" name="q9aExamninatioLightAvailability_1" id="q9aExamninatioLightAvailability_1">
 						<option value="" selected="selected">Select One</option>
@@ -1882,6 +2423,9 @@ class C_Load extends MY_Controller {
 				<section class="left">
 					9b. Delivery bed/ couch
 				</section>
+
+				<input type="hidden"  name="q9equipCode_32" id="q9equipCode_32" value="EQP32" />
+
 				<section class="center">
 					<select class="cloned left-combo" name="q9bDeliveryBedAvailability_2" id="q9bDeliveryBedAvailability_2">
 						<option>Yes </option>
@@ -1903,19 +2447,24 @@ class C_Load extends MY_Controller {
 
 			</section>
 
-			<section class="row">
+
+			<section class="row" id="tr_3">
 				<section class="left">
 					9c. Drip stand
 				</section>
+				<input type="hidden"  name="q9equipCode_33" id="q9equipCode_33" value="EQP33" />
 				<section class="center">
-					<select class="cloned left-combo" name="q9nDripStand_1" id="q9nDripStand_1">
+					<select class="cloned left-combo" name="q9cDripStand_3" id="q9cDripStand_3">
+
 						<option>Yes </option>
 						<option>No </option>
 					</select>
 
 					<input type="number" class="cloned fromZero" min="0"/>
 				</section>
-				<section class="right" name="q9nFunctioning_1" id="q9nFunctioning_1">
+
+				<section class="right" name="q9cFunctioning_3" id="q9cFunctioning_3" class="cloned">
+
 					<select>
 						<option value="" selected="selected">Select One</option>
 						<option> Yes </option>
@@ -1928,115 +2477,145 @@ class C_Load extends MY_Controller {
 
 			</section>
 
-			<section class="row" id="tr_3">
-				<section class="left">
-					9d.Mackintosh (On the Delivery Couch)
-				</section>
-				<section class="center">
-					<select class="cloned left-combo" name="qc9dMackintoshAvailability_3" id="qc9dMackintoshAvailability_3" class="cloned">
-						<option value="" selected="selected">Select One</option>
-						<option>Yes </option>
-						<option>No </option>
-					</select>
-
-					<input type="number" name="qc9dMackintoshAQty_3" class="cloned fromZero" min="0"/>
-				</section>
-				<section class="right">
-					<select name="q9dFunctioning_3" id="q9dFunctioning_3" class="cloned">
-						<option value="" selected="selected">Select One</option>
-						<option> Yes </option>
-						<option> No </option>
-						<option> Do Not Know </option>
-					</select>
-
-					<input name="qc9dMackintoshFQty_3" type="number" class="cloned fromZero" min="0"/>
-				</section>
-
-			</section>
 
 			<section class="row" id="tr_4">
 				<section class="left">
+					9d.Mackintosh (On the Delivery Couch)
+				</section>
+				<input type="hidden"  name="q9equipCode_34" id="q9equipCode_34" value="EQP34" />
+				<section class="center">
+					<select class="cloned left-combo" name="qc9dMackintoshAvailability_4" id="qc9dMackintoshAvailability_4" class="cloned">
+
+						<option value="" selected="selected">Select One</option>
+						<option>Yes </option>
+						<option>No </option>
+					</select>
+
+
+					<input type="number" name="qc9dMackintoshAQty_4" class="cloned fromZero" min="0"/>
+				</section>
+				<section class="right">
+					<select name="q9dFunctioning_4" id="q9dFunctioning_4" class="cloned">
+
+						<option value="" selected="selected">Select One</option>
+						<option> Yes </option>
+						<option> No </option>
+						<option> Do Not Know </option>
+					</select>
+
+
+					<input name="qc9dMackintoshFQty_4" type="number" class="cloned fromZero" min="0"/>
+
+				</section>
+
+			</section>
+
+
+			<section class="row" id="tr_5">
+				<section class="left">
 					9e. Linen(Draping)
 				</section>
+				<input type="hidden"  name="q9equipCode_35" id="q9equipCode_35" value="EQP35" />
 				<section class="center">
-					<select class="cloned left-combo" name="q9dLinenDrapingAvailability_4" id="q9dLinenDrapingAvailability_4">
+					<select class="cloned left-combo" name="q9eLinenDrapingAvailability_5" id="q9eLinenDrapingAvailability_5">
+
 						<option>Yes </option>
 						<option>No </option>
 					</select>
 
-					<input name="q9dLinenDrapingAQty_4" type="number" class="cloned fromZero" />
-				</section>
-				<section class="right">
-					<select name="q9dFunctioning_4" name="q9dFunctioning_4" class="cloned">
-						<option value="" selected="selected">Select One</option>
-						<option> Yes </option>
-						<option> No </option>
-						<option> Do Not Know </option>
-					</select>
 
-					<input name="q9dLinenDrapingFQty_4" type="number" class="cloned fromZero" min="0"/>
-				</section>
-
-			</section>
-
-			<section class="row" id="tr_5">
-				<section class="left">
-					9f.i. Linen(Delivery Couch)
-				</section>
-				<section class="center">
-					<select class="cloned left-combo" name="q9eLinenBedAvailability_5" id="q9eLinenBedAvailability_5">
-						<option value="" selected="selected">Select One</option>
-						<option>Yes </option>
-						<option>No </option>
-					</select>
-
-					<input name="q9eLinenBedAQty_5" type="number" class="cloned fromZero" />
+					<input name="q9eLinenDrapingAQty_5" type="number" class="cloned fromZero" />
 				</section>
 				<section class="right">
 					<select name="q9eFunctioning_5" name="q9eFunctioning_5" class="cloned">
+
 						<option value="" selected="selected">Select One</option>
 						<option> Yes </option>
 						<option> No </option>
 						<option> Do Not Know </option>
 					</select>
 
-					<input name="q9eLinenBedFQty_5" type="number" class="cloned fromZero" min="0"/>
+
+					<input name="q9eLinenDrapingFQty_5" type="number" class="cloned fromZero" min="0"/>
+
 				</section>
 
 			</section>
 
-			<section class="row" id="tr_5">
-				<section class="left">
-					9f.ii. Linen(Green Towels)
-				</section>
-				<section class="center">
-					<select class="cloned left-combo" name="q9eLinenBedAvailability_5" id="q9eLinenBedAvailability_5">
-						<option value="" selected="selected">Select One</option>
-						<option>Yes </option>
-						<option>No </option>
-					</select>
-
-					<input name="q9eLinenBedAQty_5" type="number" class="cloned fromZero" />
-				</section>
-				<section class="right">
-					<select name="q9eFunctioning_5" name="q9eFunctioning_5" class="cloned">
-						<option value="" selected="selected">Select One</option>
-						<option> Yes </option>
-						<option> No </option>
-						<option> Do Not Know </option>
-					</select>
-
-					<input name="q9eLinenBedFQty_5" type="number" class="cloned fromZero" min="0"/>
-				</section>
-
-			</section>
 
 			<section class="row" id="tr_6">
 				<section class="left">
+					9f.i. Linen(Delivery Couch)
+				</section>
+				<input type="hidden"  name="q9equipCode_36" id="q9equipCode_36" value="EQP36" />
+				<section class="center">
+					<select class="cloned left-combo" name="q9eLinenBedAvailability_6" id="q9eLinenBedAvailability_6">
+
+						<option value="" selected="selected">Select One</option>
+						<option>Yes </option>
+						<option>No </option>
+					</select>
+
+
+					<input name="q9eLinenBedAQty_6" type="number" class="cloned fromZero" />
+				</section>
+				<section class="right">
+					<select name="q9eFunctioning_6" name="q9eFunctioning_6" class="cloned">
+
+						<option value="" selected="selected">Select One</option>
+						<option> Yes </option>
+						<option> No </option>
+						<option> Do Not Know </option>
+					</select>
+
+
+					<input name="q9eLinenBedFQty_6" type="number" class="cloned fromZero" min="0"/>
+
+				</section>
+
+			</section>
+
+
+			<section class="row" id="tr_7">
+				<section class="left">
+					9f.ii. Linen(Green Towels)
+				</section>
+				<input type="hidden"  name="q9equipCode_37" id="q9equipCode_37" value="EQP37" />
+				<section class="center">
+					<select class="cloned left-combo" name="q9eLinenBedAvailability_7" id="q9eLinenBedAvailability_7">
+
+						<option value="" selected="selected">Select One</option>
+						<option>Yes </option>
+						<option>No </option>
+					</select>
+
+
+					<input name="q9eLinenBedAQty_7" type="number" class="cloned fromZero" />
+				</section>
+				<section class="right">
+					<select name="q9eFunctioning_7" name="q9eFunctioning_7" class="cloned">
+
+						<option value="" selected="selected">Select One</option>
+						<option> Yes </option>
+						<option> No </option>
+						<option> Do Not Know </option>
+					</select>
+
+
+					<input name="q9eLinenBedFQty_7" type="number" class="cloned fromZero" min="0"/>
+
+				</section>
+
+			</section>
+
+	<section class="row" id="tr_8">
+				<section class="left">
 					9g. Sharps container
 				</section>
+				<input type="hidden"  name="q9equipCode_38" id="q9equipCode_38" value="EQP38" />
 				<section class="center">
-					<select class="cloned left-combo" name="q9gSharpsContainer_1" id="q9gSharpsContainer_1">
+					<select class="cloned left-combo" name="q9gSharpsContainer_8" id="q9gSharpsContainer_8">
+
 						<option>Yes </option>
 						<option>No </option>
 					</select>
@@ -2044,7 +2623,9 @@ class C_Load extends MY_Controller {
 					<input type="number" class="cloned fromZero" min="0"/>
 				</section>
 				<section class="right">
-					<select name="q9gFunctioning_1" id="q9gFunctioning_1" class="cloned">
+
+					<select name="q9gFunctioning_8" id="q9gFunctioning_8" class="cloned">
+
 						<option value="" selected="selected">Select One</option>
 						<option> Yes </option>
 						<option> No </option>
@@ -2056,22 +2637,29 @@ class C_Load extends MY_Controller {
 
 			</section>
 
-			<section class="row">
+
+			<section class="row" id="tr_9">
 				<section class="left">
 					9h. At least five or more 2-ml or 5-ml disposable syringes
 				</section>
+				<input type="hidden"  name="q9equipCode_39" id="q9equipCode_39" value="EQP39" />
 				<section class="center">
-					<select class="cloned left-combo" name="q9hDisposableSyringes_1" id="q9hDisposableSyringes_1">
+					<select class="cloned left-combo" name="q9hDisposableSyringes_9" id="q9hDisposableSyringes_9">
+
 						<option>Yes </option>
 						<option>No </option>
 					</select>
 
 				</section>
 
-				<section class="row">
+				</section>
+
+				<section class="row" id="tr_10">
 					<section class="left">
 						9i. Three properly labeled or colour coded IP buckets
 					</section>
+					<input type="hidden"  name="q9equipCode_40" id="q9equipCode_40" value="EQP40" />
+
 					<section class="center">
 						<select class="cloned left-combo" name="q9iIPBuckets_1" id="q9iIPBuckets_1">
 							<option>Yes </option>
@@ -2082,10 +2670,12 @@ class C_Load extends MY_Controller {
 
 				</section>
 
-				<section class="row">
+				<section class="row" id="tr_11">
 					<section class="left">
 						9j. High Level Chemical Disinfectant (Jik, Cidex)
 					</section>
+					<input type="hidden"  name="q9equipCode_41" id="q9equipCode_41" value="EQP41" />
+
 					<section class="center">
 						<select class="cloned left-combo" name="q9jJik_1" id="q9jJik_1">
 							<option>Always </option>
@@ -2095,10 +2685,14 @@ class C_Load extends MY_Controller {
 
 					</section>
 
-					<section class="row">
+					</section>
+
+					<section class="row" id="tr_12">
 						<section class="left">
 							9k. Soap for washing instruments (constantly available)
 						</section>
+						<input type="hidden"  name="q9equipCode_42" id="q9equipCode_42" value="EQP42" />
+
 						<section class="center">
 							<select class="cloned left-combo" name="q9kWashingInstruments_1" id="q9kWashingInstruments_1">
 								<option>Always Available</option>
@@ -2119,10 +2713,12 @@ class C_Load extends MY_Controller {
 
 					</section>
 
-					<section class="row">
+					<section class="row" id="tr_13">
 						<section class="left">
 							9l.Soap for handwashing (constantly available)
 						</section>
+						<input type="hidden"  name="q9equipCode_43" id="q9equipCode_43" value="EQP43" />
+
 						<section class="center">
 							<select class="cloned left-combo" name="q9lSoapHandwashing_1" id="q9lSoapHandwashing_1">
 								<option>Always Available</option>
@@ -2143,10 +2739,13 @@ class C_Load extends MY_Controller {
 
 					</section>
 
-					<section class="row">
+
+					<section class="row" id="tr_14">
 						<section class="left">
 							9m.Properly Labelled or colour coded waste segragation bins
 						</section>
+						<input type="hidden"  name="q9equipCode_44" id="q9equipCode_44" value="EQP44" />
+
 						<section class="center">
 							<select class="cloned left-combo" name="q9mLabelledColor_1" id="q9mLabelledColor_1">
 								<option>Yes </option>
@@ -2157,10 +2756,12 @@ class C_Load extends MY_Controller {
 						</section>
 					
 
-						<section class="row">
+						<section class="row" id="tr_15">
 							<section class="left">
 								9o. Single-use hand-drying towels (constantly available)
 							</section>
+							<input type="hidden"  name="q9equipCode_45" id="q9equipCode_45" value="EQP45" />
+
 							<section class="center">
 								<select class="cloned left-combo" name="q9oSingleTowels_1" id="q9oSingleTowels_1">
 									<option>Always Available</option>
@@ -2180,11 +2781,12 @@ class C_Load extends MY_Controller {
 							</section>
 
 						</section>
-
-						<section class="row">
+						<section class="row" id="tr_16">
 							<section class="left">
 								9p. Running  Water for handwashing (constantly available)
 							</section>
+							<input type="hidden"  name="q9equipCode_46" id="q9equipCode_46" value="EQP46" />
+
 							<section class="center">
 								<select class="cloned left-combo" name="q9pRunningWater_1" id="q9pRunningWater_1">
 									<option>Always Available</option>
@@ -2219,10 +2821,16 @@ class C_Load extends MY_Controller {
 
 							</section>
 
+							</section>
+
+
 							<section class="row">
 								<section class="left">
 									10a. Cord scissors
 								</section>
+
+									<input type="hidden"  name="q9equipCode_47" id="q9equipCode_47" value="EQP47" />	
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10aCordScissors_1" id="q10aCordScissors_1" min="0"/>
 								</section>
@@ -2234,6 +2842,8 @@ class C_Load extends MY_Controller {
 									10b. Long artery Forceps (straight, lockable)
 								</section>
 
+								<input type="hidden"  name="q9equipCode_48" id="q9equipCode_48" value="EQP48" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10bLongArtery_1" id="q10bLongArtery_1" min="0"/>
 								</section>
@@ -2244,6 +2854,9 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10c. Episiotomy scissors
 								</section>
+
+								<input type="hidden"  name="q9equipCode_49" id="q9equipCode_49" value="EQP49" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10cEpisotomy_1" id="q10cEpisotomy_1" min="0"/>
 								</section>
@@ -2254,6 +2867,9 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10d. Kidney dishes
 								</section>
+
+								<input type="hidden"  name="q9equipCode_50" id="q9equipCode_50" value="EQP50" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10dKidneyDishes_1" id="q10dKidneyDishes_1" min="0"/>
 								</section>
@@ -2264,6 +2880,9 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10e. Gallipots
 								</section>
+
+								<input type="hidden"  name="q9equipCode_51" id="q9equipCode_51" value="EQP51" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10eGallipots_1" id="q10eGallipots_1" min="0"/>
 								</section>
@@ -2274,6 +2893,8 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10f. Sponge-holding forceps
 								</section>
+
+								<input type="hidden"  name="q9equipCode_52" id="q9equipCode_52" value="EQP52" />
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10fSpongeForceps_1" id="q10fSpongeForceps_1" min="0"/>
 								</section>
@@ -2284,6 +2905,9 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10g. Needle holder
 								</section>
+
+								<input type="hidden"  name="q9equipCode_53" id="q9equipCode_53" value="EQP53" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10gNeedleHolder_1" id="q10gNeedleHolder_1" min="0"/>
 								</section>
@@ -2294,6 +2918,9 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10h. Dissecting forceps -toothed
 								</section>
+
+								<input type="hidden"  name="q9equipCode_54" id="q9equipCode_54" value="EQP54" />
+
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10hDissectingForceps_1" id="q10hDissectingForceps_1" min="0"/>
 								</section>
@@ -2304,6 +2931,8 @@ class C_Load extends MY_Controller {
 								<section class="left">
 									10i. Instrument tray
 								</section>
+
+								<input type="hidden"  name="q9equipCode_55" id="q9equipCode_55" value="EQP55" />
 								<section class="center">
 									<input type="number" class="cloned fromZero" name="q10iInstrumentTray_1" id="q10iInstrumentTray_1" min="0"/>
 								</section>
@@ -2325,10 +2954,13 @@ class C_Load extends MY_Controller {
 								</section>
 							</section>
 
-							<section class="row">
+
+							<section class="row" id="tr_17">
 								<section class="left">
 									11a. Stethoscopes (Adult)
 								</section>
+								<input type="hidden"  name="q9equipCode_56" id="q9equipCode_56" value="EQP56" />
+
 								<section class="center">
 									<select class="cloned left-combo" name="q11aStethoscopesAdult_1" id="q11aStethoscopesAdult_1">
 										<option>Yes </option>
@@ -2350,10 +2982,13 @@ class C_Load extends MY_Controller {
 
 							</section>
 
-							<section class="row">
+
+							<section class="row" id="tr_18">
 								<section class="left">
 									11b. Stethoscopes (Paediatric)
 								</section>
+								<input type="hidden"  name="q9equipCode_57" id="q9equipCode_57" value="EQP57" />
+
 								<section class="center">
 									<select class="cloned left-combo" name="q11bStethoscopesNeonatal_1" id="q11bStethoscopesNeonatal_1">
 										<option>Yes </option>
@@ -2363,7 +2998,8 @@ class C_Load extends MY_Controller {
 									<input type="number" class="cloned fromZero" name="q11bNumber_1" id="q11bNumber_1" min="0"/>
 								</section>
 								<section class="right">
-									<select name="q11aFunctioning_1" id="q11aFunctioning_1">
+
+
 										<option value="" selected="selected">Select One</option>
 										<option> Yes </option>
 										<option> No </option>
@@ -2375,10 +3011,13 @@ class C_Load extends MY_Controller {
 
 							</section>
 
-							<section class="row">
+
+							<section class="row" id="tr_19">
 								<section class="left">
 									11c. BP machine
 								</section>
+								<input type="hidden"  name="q9equipCode_58" id="q9equipCode_58" value="EQP58" />
+
 								<section class="center">
 									<select class="cloned left-combo" name="q11cBPMachine_1" id="q11cBPMachine_1">
 										<option>Yes </option>
@@ -2397,10 +3036,13 @@ class C_Load extends MY_Controller {
 								</section>
 
 							</section>
-							<section class="row">
+
+							<section class="row" id="tr_20">
 								<section class="left">
 									11d.i. Clinical Thermometer
 								</section>
+								<input type="hidden"  name="q9equipCode_59" id="q9equipCode_59" value="EQP59" />
+
 								<section class="center">
 									<select class="cloned left-combo" name="q11dClinicalThermometer_1" id="q11dClinicalThermometer_1">
 										<option>Yes </option>
@@ -2420,21 +3062,25 @@ class C_Load extends MY_Controller {
 									<input type="number" class="cloned fromZero" />
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_21">
 									<section class="left">
 										11d.ii. Room Thermometer
 									</section>
+									<input type="hidden"  name="q9equipCode_60" id="q9equipCode_60" value="EQP60" />
 									<section class="center">
-										<select class="cloned left-combo" name="q11dClinicalThermometer_1" id="q11dClinicalThermometer_1">
+										<select class="cloned left-combo" name="q11d2ClinicalThermometer_1" id="q11d2ClinicalThermometer_1">
+
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q11dNumber_1" id="q11dNumber_1" min="0"/>
+
+										<input type="number" class="cloned fromZero" name="q11d2Number_1" id="q11d2Number_1" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q11dFunctioning_1" id="q11dFunctioning_1">
-											<option value="" selected="selected">Select One</option>
+										<select name="q11d2Functioning_1" id="q11d2Functioning_1">
+					<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
@@ -2444,10 +3090,13 @@ class C_Load extends MY_Controller {
 									</section>
 
 								</section>
-								<section class="row">
+
+								<section class="row" id="tr_22">
 									<section class="left">
 										11e. Fetoscope
 									</section>
+									<input type="hidden"  name="q9equipCode_61" id="q9equipCode_61" value="EQP61" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q11eFetoscope_1" id="q11eFetoscope_1">
 											<option>Yes </option>
@@ -2468,10 +3117,13 @@ class C_Load extends MY_Controller {
 									</section>
 
 								</section>
-								<section class="row">
+
+								<section class="row" id="tr_23">
 									<section class="left">
 										11f. Sonicaid
 									</section>
+									<input type="hidden"  name="q9equipCode_62" id="q9equipCode_62" value="EQP62" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q11fFetoscope_1" id="q11fFetoscope_1">
 											<option>Yes </option>
@@ -2492,10 +3144,13 @@ class C_Load extends MY_Controller {
 									</section>
 
 								</section>
-								<section class="row">
+
+								<section class="row" id="tr_24">
 									<section class="left">
 										11g. Suction Machine
 									</section>
+									<input type="hidden"  name="q9equipCode_63" id="q9equipCode_63" value="EQP63" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q11gSuctionMachine_1" id="q11gSuctionMachine_1">
 											<option>Yes </option>
@@ -2517,10 +3172,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_25">
 									<section class="left">
 										11h. Weighing Scale for babies
 									</section>
+									<input type="hidden"  name="q9equipCode_64" id="q9equipCode_64" value="EQP64" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q11hWeighingBabies_1" id="q11hWeighingBabies_1">
 											<option>Yes </option>
@@ -2546,10 +3204,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_26">
 									<section class="left">
 										11i. Adult resuscitation tray
 									</section>
+									<input type="hidden"  name="q9equipCode_65" id="q9equipCode_65" value="EQP65" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q11iAdultResuscitation_1" id="q11iAdultResuscitation_1">
 											<option>Yes </option>
@@ -2571,29 +3232,36 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_27">
 									<section class="left">
 										11j. Indicate the Sterilization Method(s) used or avaialable in this facility
 									</section>
+									
 									<section class="center">
 										Sterilization Methods
-										</p>
-										<select>
+										<select name="sterilizationMethod" id="sterilizationMethod" class="cloned">
+
 											<option selected="selected" value="">Select One</option>
 											<option>Autoclave</option>
 											<option>HLD</option>
 
 										</select>
 										Others(specify)
-										<input type="text" name="q11jOthers_1" id="q11jOthers_1"/>
+
+										<input type="text" name="q11jOthers_27" id="q11jOthers_27"/>
+
 									</section>
 								</section>
 							</section>
 
-							<section class="row">
+
+							<section class="row" id="tr_28">
 								<section class="left">
 									11k. Indicate if a Manual Vacuum Aspiration kit is available in this unit or else where in the facility
 								</section>
+								<input type="hidden"  name="q11equipCode_66" id="q11equipCode_66" value="EQP66" />
+
 								<section class="center">
 									<select class="cloned left-combo" name="q11kManualVacuum_1" id="q11kManualVacuum_1">
 										<option>Yes </option>
@@ -2611,19 +3279,20 @@ class C_Load extends MY_Controller {
 									</select>
 
 									<input type="number" class="cloned fromZero" min="0" />
+
 								</section>
 
 							</section>
 
-							<section class="row">
+							<section class="row" id="tr_29">
 								<section class="left">
 									11l. Indicate the Vacuum Extractors available in this unit/facility
 								</section>
 								<section class="center">
-									<select class="cloned left-combo" name="q11lVentouse_1" id="q11lVentouse_1">
-										<option>Select One</option>
-										<option>Ventouse </option>
-										<option>Kiwi Vacuum Extractor </option>
+									<select class="cloned left-combo" name="q11equipCode_67" id="q11equipCode_67">
+										<option value="">Select One</option>
+										<option value="EQP67">Ventouse </option>
+										<option value="EQP68">Kiwi Vacuum Extractor </option>
 									</select>
 
 									<input type="number" class="cloned fromZero" name="11lNumbera_1" id="11lNumbera_1" min="0"/>
@@ -2641,10 +3310,11 @@ class C_Load extends MY_Controller {
 
 							</section>
 
-							<section class="row">
+							<section class="row" id="tr_30">
 								<section class="left">
 									11n. Dilatation and curretage kit
 								</section>
+								<input type="hidden"  name="q11equipCode_68" id="q11equipCode_68" value="EQP69" />
 								<section class="center">
 									<select class="cloned left-combo" name="q11nDilation_1" id="q11nDilation_1">
 										<option>Yes </option>
@@ -2666,10 +3336,11 @@ class C_Load extends MY_Controller {
 
 							</section>
 
-							<section class="row">
+							<section class="row" id="tr_31">
 								<section class="left">
 									11o. Sterile gauze
 								</section>
+								<input type="hidden"  name="q11equipCode_69" id="q11equipCode_69" value="EQP70" />
 								<section class="center">
 									<select class="cloned left-combo" name="q11oSterileGauze_1" id="q11oSterileGauze_1">
 										<option>Always Available</option>
@@ -2678,11 +3349,14 @@ class C_Load extends MY_Controller {
 									</select>
 
 								</section>
+								
+								</section>
 
-								<section class="row">
+								<section class="row" id="tr_32">
 									<section class="left">
 										11p. Sanitary pads
 									</section>
+									<input type="hidden"  name="q11equipCode_70" id="q11equipCode_70" value="EQP71" />
 									<section class="center">
 										<select class="cloned left-combo" name="q11pSanitaryPads_1" id="q11pSanitaryPads_1">
 											<option>Always Available</option>
@@ -2694,10 +3368,11 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_33">
 									<section class="left">
 										11q. Elbow length gloves
 									</section>
+									<input type="hidden"  name="q11equipCode_71" id="q11equipCode_71" value="EQP72" />
 									<section class="center">
 										<select class="cloned left-combo" name="q11qElbowGloves_1" id="q11qElbowGloves_1">
 											<option>Yes </option>
@@ -2719,10 +3394,11 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_34">
 									<section class="left">
 										11r. Patellar Hammer
 									</section>
+									<input type="hidden"  name="q11equipCode_72" id="q11equipCode_72" value="EQP73" />
 									<section class="center">
 										<select class="cloned left-combo" name="q11rPatellarHammer_1" id="q11rPatellarHammer_1">
 											<option>Always Available</option>
@@ -2743,10 +3419,11 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_35">
 									<section class="left">
 										11s. Sutures
 									</section>
+									<input type="hidden"  name="q11equipCode_73" id="q11equipCode_73" value="EQP74" />
 									<section class="center">
 										<select class="cloned left-combo" name="q11qSutures_1" id="q11qSutures_1">
 											<option>Yes </option>
@@ -2754,9 +3431,9 @@ class C_Load extends MY_Controller {
 										</select>
 
 										<input type="number" class="cloned fromZero" name="q11sNumbera_1" id="q11sNumbera_1" min="0"/>
-										<select>
+										<!--select>
 											<option>Nylon</option>
-										</select>
+										</select-->
 									</section>
 									<section class="right">
 										<select name="q11sFunctioning_1" id="q11sFunctioning_1">
@@ -2771,40 +3448,41 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_36">
 									<section class="left">
 										11s.i. Oxygen-Cylinder
 									</section>
+									<input type="hidden"  name="q11equipCode_74" id="q11equipCode_74" value="EQP75" />
 									<section class="center">
-										<select class="cloned left-combo" name="q12oOxygena_1" id="q12oOxygena_1">
+										<select class="cloned left-combo" name="q11sOxygena_1" id="q11sOxygena_1">
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q12oNumber_1" id="q12oNumber_1" min="0"/>
+										<input type="number" class="cloned fromZero" name="q12sNumber_1" id="q12sNumber_1" min="0"/>
 									</section>
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_37">
 									<section class="left">
 										11s.ii. Oxygen-Concentrator
 									</section>
+									<input type="hidden"  name="q11equipCode_75" id="q11equipCode_75" value="EQP76" />
 									<section class="center">
-										<select class="cloned left-combo" name="q12oOxygena_1" id="q12oOxygena_1">
+										<select class="cloned left-combo" name="q11s2Oxygena_1" id="q11s2Oxygena_1">
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q12oNumber_1" id="q12oNumber_1" min="0"/>
+										<input type="number" class="cloned fromZero" name="q11s2Number_1" id="q11s2Number_1" min="0"/>
 									</section>
 
 								</section>
 
 							</section>
-
 							<section class="column-wide">
 
 								<section class="row-title">
@@ -2818,10 +3496,12 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+								<section class="row" id="tr_38">
 									<section class="left">
 										12a.i. Injectable-Oxytocin
 									</section>
+									<input type="hidden"  name="mnhCommodityName_1" id="mnhCommodityName_1" value="Injectable-Oxytocin" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12aInjectableOxytocina_1" id="q12aInjectableOxytocinb_1">
 											<option>Always Available</option>
@@ -2834,56 +3514,71 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_39">
 									<section class="left">
 										12a.ii. Injectable-Syntocin
 									</section>
+									<input type="hidden"  name="mnhCommodityName_2" id="mnhCommodityName_2" value="Injectable-Syntocin" />
 									<section class="center">
-										<select class="cloned left-combo" name="q12aInjectableOxytocina_1" id="q12aInjectableOxytocinb_1">
+										<select class="cloned left-combo" name="q12a2InjectableOxytocina_1" id="q12a2InjectableOxytocinb_1">
+
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q12aNumber_1" id="q12aNumber_1" min="0"/>
+
+										<input type="number" class="cloned fromZero" name="q12a2Number_1" id="q12a2Number_1" min="0"/>
+
 									</section>
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_40">
 									<section class="left">
 										12b.i. Indicate the available Intravenous solutions
 									</section>
+									<input type="hidden"  name="mnhCommodityName_3" id="mnhCommodityName_3" />
 									<section class="center">
 										<select class="cloned left-combo" name="q12bIntravenousSolutionsb_1" id="q12bIntravenousSolutionsb_1">
-											<option>Ringers Lactate</option>
-											<option>D5NS</option>
-											<option>NS Infusion</option>
+											<option value="Intravenous solution-Ringers Lactate">Ringers Lactate</option>
+											<option value="Intravenous solution-D5NS">D5NS</option>
+											<option value="Intravenous solution-NS Infusion">NS Infusion</option>
+
 										</select>
 										<input type="number" class="cloned fromZero" name="q12bNumber_1" id="q12bNumber_1" min="0"/>
 									</section>
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_41">
 									<section class="left">
 										12b.ii. Intravenous Metronidazole
 									</section>
+									<input type="hidden"  name="mnhCommodityName_4" id="mnhCommodityName_4" value="Intravenous Metronidazole"/>
 									<section class="center">
-										<select class="cloned left-combo" name="q12bIntravenousSolutionsb_1" id="q12bIntravenousSolutionsb_1">
+										<select class="cloned left-combo" name="q12b2IntravenousSolutionsb_1" id="q12b2IntravenousSolutionsb_1">
+
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12bNumber_1" id="q12bNumber_1" min="0"/>
-									</section>
+
+										<input type="number" class="cloned fromZero" name="q12b2Number_1" id="q12b2Number_1" min="0"/>
+			</section>
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_42">
 									<section class="left">
 										12c. Injectable methergine
 									</section>
+									<input type="hidden"  name="mnhCommodityName_5" id="mnhCommodityName_5" value="Injectable methergine"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12cIntectableErgomtrine_1" id="q12cIntectableErgomtrine_1">
 											<option>Always Available</option>
@@ -2895,10 +3590,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_43">
 									<section class="left">
 										12d. Injectable
 									</section>
+									<input type="hidden"  name="mnhCommodityName_6" id="mnhCommodityName_6"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12dInjectableHydralazinea_1" id="q12dInjectableHydralazinea_1">
 											<option>Always Available</option>
@@ -2906,18 +3604,23 @@ class C_Load extends MY_Controller {
 											<option>Never Available</option>
 										</select>
 										<select class="cloned left-combo" name="q12dInjectableHydralazineb_1" id="q12dInjectableHydralazineb_1">
-											<option>Hydralazine</option>
-											<option>Apresoline</option>
+
+											<option value="Injectable Hydralazine">Hydralazine</option>
+											<option value="Injectable Apresoline">Apresoline</option>
+
 										</select>
 										<input type="number" class="cloned fromZero" name="q12dNumber_1" id="q12dNumber_1" min="0"/>
 									</section>
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_44">
 									<section class="left">
 										12e. Injectable diazepam
 									</section>
+									<input type="hidden"  name="mnhCommodityName_7" id="mnhCommodityName_7" value="Injectable diazepam"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12eInjectableDiazepam_1" id="q12eInjectableDiazepam_1">
 											<option>Always Available</option>
@@ -2929,10 +3632,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_45">
 									<section class="left">
 										12f. Injectable magnesium sulfate
 									</section>
+									<input type="hidden"  name="mnhCommodityName_8" id="mnhCommodityName_8" value="Injectable magnesium sulfate"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12fInjectableMagnesium_1" id="q12fInjectableMagnesium_1">
 											<option>Always Available</option>
@@ -2944,10 +3650,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_46">
 									<section class="left">
 										12g. Injectable amoxicillin or ampicillin
 									</section>
+									<input type="hidden"  name="mnhCommodityName_9" id="mnhCommodityName_9"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12gInjectableAmoxicillina_1" id="q12gInjectableAmoxicillina_1">
 											<option>Always Available</option>
@@ -2956,8 +3665,10 @@ class C_Load extends MY_Controller {
 										</select>
 										<p></p>
 										<select class="cloned left-combo" name="q12gInjectableAmoxicillinb_1" id="q12gInjectableAmoxicillinb_1">
-											<option>Amoxicillin </option>
-											<option>Ampicillin</option>
+
+											<option value="Injectable amoxicillin">Amoxicillin </option>
+											<option value="Injectable ampicillin">Ampicillin</option>
+
 										</select>
 
 										<input type="number" class="cloned fromZero" name="q12gNumber_1" id="q12gNumber_1" min="0" />
@@ -2965,10 +3676,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_47">
 									<section class="left">
 										12h. Injectable gentamicin
 									</section>
+									<input type="hidden"  name="mnhCommodityName_10" id="mnhCommodityName_10" value="Injectable gentamicin"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12hInjectableGentamicin_1" id="q12hInjectableGentamicin_1">
 											<option>Always Available</option>
@@ -2980,10 +3694,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_48">
 									<section class="left">
 										12i. Calcium gluconate
 									</section>
+									<input type="hidden"  name="mnhCommodityName_11" id="mnhCommodityName_11" value="Calcium gluconate"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12iCalciumGluconate_1" id="q12iCalciumGluconate_1">
 											<option>Always Available</option>
@@ -2995,10 +3712,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_49">
 									<section class="left">
 										12j. Methyldopa/Aldomet
 									</section>
+									<input type="hidden"  name="mnhCommodityName_12" id="mnhCommodityName_12" value="Methyldopa/Aldomet"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12jMethyldopa_1" id="q12jMethyldopa_1">
 											<option>Always Available</option>
@@ -3010,10 +3730,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_50">
 									<section class="left">
 										12k. Lidocaine (lignocaine) or other local anesthetic
 									</section>
+									<input type="hidden"  name="mnhCommodityName_13" id="mnhCommodityName_13" value="Lidocaine(lignocaine)/other local anesthetic"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12kLidocaine_1" id="q12kLidocaine_1">
 											<option>Always Available</option>
@@ -3025,10 +3748,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_51">
 									<section class="left">
 										12l. Nifedipine Tablets
 									</section>
+									<input type="hidden"  name="mnhCommodityName_14" id="mnhCommodityName_14" value="Nifedipine Tablets"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12lNifedipine_1" id="q12lNifedipine_1">
 											<option>Always Available</option>
@@ -3040,10 +3766,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_52">
 									<section class="left">
 										12m. Vitamin A
 									</section>
+									<input type="hidden"  name="mnhCommodityName_15" id="mnhCommodityName_15" value="Vitamin A"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12mVitaminA_1" id="q12mVitaminA_1">
 											<option>Always Available</option>
@@ -3055,10 +3784,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_53">
 									<section class="left">
 										12n. Vitamin K
 									</section>
+									<input type="hidden"  name="mnhCommodityName_16" id="mnhCommodityName_16" value="Vitamin K"/>
+
 									<section class="center">
 										<select class="cloned left-combo" name="q12nVitaminK_1" id="q12nVitaminK_1">
 											<option>Always Available</option>
@@ -3085,7 +3817,9 @@ class C_Load extends MY_Controller {
 									13. Does this facility perform newborn resuscitation?
 								</section>
 								<section class="right">
-									<select name="q13aYA_1" id="q13aYA_1">
+
+									<select name="nbcgqnewBornResuscitated" id="nbcgqnewBornResuscitated" class="cloned">
+
 										<option value="" selected="selected">Select One</option>
 										<option> Yes </option>
 										<option> No </option>
@@ -3109,10 +3843,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_54">
 									<section class="left">
 										14a. Self inflating Neonatal Ambu bag ( 500 mls)
 									</section>
+									<input type="hidden"  name="q11equipCode_76" id="q11equipCode_76" value="EQP78" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14aYA_1" id="q14aYA_1">
 											<option>Yes </option>
@@ -3134,10 +3871,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_55">
 									<section class="left">
 										14b.i. Infant masks-Size 0
 									</section>
+									<input type="hidden"  name="q11equipCode_77" id="q11equipCode_77" value="EQP79" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14bYA_1" id="q14bYA_1">
 											<option>Always Available</option>
@@ -3151,35 +3891,45 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_56">
 									<section class="left">
 										14b.ii. Infant masks-Size 1
 									</section>
+									<input type="hidden"  name="q11equipCode_78" id="q11equipCode_78" value="EQP80" />
 									<section class="center">
-										<select class="cloned left-combo" name="q14bYA_1" id="q14bYA_1">
+										<select class="cloned left-combo" name="q14b2YA_1" id="q14b2YA_1">
+
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14bNumber_1" id="q14bNumber_1" min="0"/>
+
+										<input type="number" class="cloned fromZero" name="q14b2Number_1" id="q14b2Number_1" min="0"/>
+
 
 									</section>
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_57">
 									<section class="left">
 										14b.iii. Infant masks-Size 2
 									</section>
+									<input type="hidden"  name="q11equipCode_79" id="q11equipCode_79" value="EQP81" />
 									<section class="center">
-										<select class="cloned left-combo" name="q14bYA_1" id="q14bYA_1">
+										<select class="cloned left-combo" name="q14b3YA_1" id="q14b3YA_1">
+
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14bNumber_1" id="q14bNumber_1" min="0"/>
+
+										<input type="number" class="cloned fromZero" name="q14b3Number_1" id="q14b3Number_1" min="0"/>
+
 
 									</section>
 
@@ -3187,10 +3937,13 @@ class C_Load extends MY_Controller {
 								<section class="row">
 									<h3> Neonatal Unit</h3>
 								</section>
-								<section class="row">
+
+								<section class="row" id="tr_58">
 									<section class="left">
 										14c. Clock  with seconds arm
 									</section>
+									<input type="hidden"  name="q11equipCode_80" id="q11equipCode_80" value="EQP82" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14cYA_1" id="q14cYA_1">
 											<option>Yes </option>
@@ -3201,10 +3954,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_59">
 									<section class="left">
 										14d. Neonatal Incubator
 									</section>
+									<input type="hidden"  name="q14equipCode_81" id="q14equipCode_81" value="EQP83" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14dYA_1" id="q14dYA_1">
 											<option>Yes </option>
@@ -3224,10 +3980,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_60">
 									<section class="left">
 										14e. A Radiant Heater
 									</section>
+									<input type="hidden"  name="q14equipCode_82" id="q14equipCode_82" value="EQP84" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14eYA_1" id="q14eYA_1">
 											<option>Yes </option>
@@ -3247,10 +4006,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_61">
 									<section class="left">
 										14f. Infant Scale
 									</section>
+									<input type="hidden"  name="q14equipCode_83" id="q14equipCode_83" value="EQP85" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14fYA_1" id="q14fYA_1">
 											<option>Yes </option>
@@ -3271,10 +4033,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_62">
 									<section class="left">
 										14g. Suction bulb for mucus extraction
 									</section>
+									<input type="hidden"  name="q14equipCode_84" id="q14equipCode_84" value="EQP86" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14gYA_1" id="q14gYA_1">
 											<option>Yes </option>
@@ -3291,18 +4056,19 @@ class C_Load extends MY_Controller {
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
-										<p>
-											Quantity:
-										</p>
+
+
 										<input type="number" class="cloned fromZero" name="q14gNumberb_1" id="q14gNumberb_1" min="0" />
 
 									</section>
 								</section>
 
-								<section class="row">
+						<section class="row" id="tr_63">
 									<section class="left">
 										14h. Suction apparatus for use with catheter
 									</section>
+									<input type="hidden"  name="q14equipCode_85" id="q14equipCode_85" value="EQP87" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14jYA_1" id="q14jYA_1">
 											<option>Yes </option>
@@ -3323,10 +4089,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_64">
 									<section class="left">
 										14i. A flat, clean, dry and warm newborn resuscitation surface
 									</section>
+									<input type="hidden"  name="q14equipCode_86" id="q14equipCode_86" value="EQP88" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14iYA_1" id="q14iYA_1">
 											<option>Yes </option>
@@ -3337,10 +4106,13 @@ class C_Load extends MY_Controller {
 
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_65">
 									<section class="left">
 										14j. Disposable cord ties or clamps
 									</section>
+									<input type="hidden"  name="q14equipCode_87" id="q14equipCode_87" value="EQP89" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14jDisposableCord_1" id="q14jDisposableCord_1">
 											<option>Select One</option>
@@ -3359,10 +4131,13 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 
-								<section class="row">
+
+								<section class="row" id="tr_66">
 									<section class="left">
 										14k. Clean and warm towels/cloths for drying / warming / wrapping baby
 									</section>
+									<input type="hidden"  name="q14equipCode_88" id="q14equipCode_88" value="EQP90" />
+
 									<section class="center">
 										<select class="cloned left-combo" name="q14kCleanTowels_1" id="q14kCleanTowels_1">
 											<option>Select One</option>
@@ -3396,15 +4171,19 @@ class C_Load extends MY_Controller {
 										15. Does this facility perform blood transfusions?
 									</section>
 									<section class="center">
-										<select name="q15BloodTransfusions_1">
+
+										<select name="nbcgqBloodTransfusionsDone" class="cloned">
+
 											<option>Yes</option>
 											<option>No</option>
 										</select>
 									</section>
 									<section class="right">
 										<label for="q15BloodTransfusions_2">Specify:</label>
-										<select name="q15BloodTransfusions_1">
-											<option>Select One</option>
+
+										<select name="nbcgqBloodBank" class="cloned">
+											<option selected="selected" value="">Select One</option>
+
 											<option>Blood Bank available</option>
 											<option>Transfusions done but no blood bank</option>
 										</select>
@@ -3416,7 +4195,10 @@ class C_Load extends MY_Controller {
 										17. Does this facility ever perform caesarean sections?
 									</section>
 									<section class="center">
-										<select>
+
+										<select name="nbcgqCSDone" class="cloned">
+											<option selected="selected" value="">Select One</option>
+
 											<option> Yes</option>
 											<option> No</option>
 										</select>
@@ -3427,7 +4209,9 @@ class C_Load extends MY_Controller {
 										</section>
 										<section class="right">
 											<section class="col">
-												<input type="number" class="cloned fromZero" name="ortDehydrationLocation" id="ortDehydrationLocation"  value=""/>
+
+												<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
+
 											</section>
 										</section>
 									</section>
@@ -3452,9 +4236,13 @@ class C_Load extends MY_Controller {
 											</section>
 										</section>
 
+
+										<section class="row" id="tr_67">
 										<section class="left">
 											18a. Operating Table
 										</section>
+										<input type="hidden"  name="q18equipCode_89" id="q18equipCode_89" value="EQP91" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3476,11 +4264,16 @@ class C_Load extends MY_Controller {
 
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_68">
+
 
 										<section class="left">
 											18b. Operating Light
 										</section>
+
+										<input type="hidden"  name="q18equipCode_90" id="q18equipCode_90" value="EQP92" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3501,10 +4294,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_69">
 										<section class="left">
 											18c. Anaesthetic machine
 										</section>
+										<input type="hidden"  name="q18equipCode_91" id="q18equipCode_91" value="EQP93" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3525,10 +4321,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_70">
 										<section class="left">
 											18d. Laryngoscopes
 										</section>
+										<input type="hidden"  name="q18equipCode_92" id="q18equipCode_92" value="EQP94" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3549,10 +4348,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_71">
 										<section class="left">
 											18e. Endotracheal tubes
 										</section>
+										<input type="hidden"  name="q18equipCode_93" id="q18equipCode_93" value="EQP95" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3573,10 +4375,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_72">
 										<section class="left">
 											18f. Anaesthetic drugs e.g ketamine
 										</section>
+										<input type="hidden"  name="q18equipCode_94" id="q18equipCode_94" value="EQP96" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3597,10 +4402,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_73">
 										<section class="left">
 											18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)
 										</section>
+										<input type="hidden"  name="q18equipCode_95" id="q18equipCode_95" value="EQP97" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3621,10 +4429,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_74">
 										<section class="left">
 											18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)
 										</section>
+										<input type="hidden"  name="q18equipCode_96" id="q18equipCode_96" value="EQP98" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3645,10 +4456,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_75">
 										<section class="left">
 											18i. Scrub area adjacent to or in the operating room
 										</section>
+										<input type="hidden"  name="q18equipCode_97" id="q18equipCode_97" value="EQP99" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3669,10 +4483,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_76">
 										<section class="left">
 											18j. Running Water
 										</section>
+										<input type="hidden"  name="q18equipCode_98" id="q18equipCode_98" value="EQP100" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3693,10 +4510,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_77">
 										<section class="left">
 											18k. Suction Machine
 										</section>
+										<input type="hidden"  name="q18equipCode_99" id="q18equipCode_99" value="EQP101" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3717,10 +4537,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_78">
 										<section class="left">
 											18l. Standard Cesaerian section kit
 										</section>
+										<input type="hidden"  name="q18equipCode_100" id="q18equipCode_100" value="EQP102" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3741,10 +4564,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_79">
 										<section class="left">
 											18m. Sterile operation gowns
 										</section>
+										<input type="hidden"  name="q18equipCode_101" id="q18equipCode_101" value="EQP103" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3765,10 +4591,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_80">
 										<section class="left">
 											18n. Sterile Drapes
 										</section>
+										<input type="hidden"  name="q18equipCode_102" id="q18equipCode_102" value="EQP104" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3789,10 +4618,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_81">
 										<section class="left">
 											18o. Sterile gloves in various sizes
 										</section>
+										<input type="hidden"  name="q18equipCode_103" id="q18equipCode_103" value="EQP105" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3800,7 +4632,9 @@ class C_Load extends MY_Controller {
 											</select>
 											<label>Sizes (Hold down Ctrl and click to select many)</label>
 											<select multiple="multiple" name="sterileGloveSizes[]">
-												<option value="1>Size 1</option>
+
+												<option value="1">Size 1</option>
+
 												<option value="2">Size 2</option>
 												<option value="3">Size 3</option>
 												<option value="4">Size 4</option>
@@ -3808,7 +4642,9 @@ class C_Load extends MY_Controller {
 												<option value="6">Size 6</option>
 												<option value="6.5">Size 6.5</option>
 												<option value="7">Size 7</option>
-												<option value="7.5>Size 7.5 </option>
+
+												<option value="7.5">Size 7.5 </option>
+
 												<option value="8">Size 8</option>
 												<option value="8.5">Size 8.5</option>
 												<option value="9">Size 9</option>
@@ -3828,10 +4664,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_82">
 										<section class="left">
 											18p. IV canulas
 										</section>
+										<input type="hidden"  name="q18equipCode_104" id="q18equipCode_104" value="EQP106" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3852,10 +4691,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_83">
 										<section class="left">
 											18q. Drip Stand
 										</section>
+										<input type="hidden"  name="q18equipCode_105" id="q18equipCode_105" value="EQP107" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3876,10 +4718,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_84">
 										<section class="left">
 											18r. Blood transfusion set
 										</section>
+										<input type="hidden"  name="q18equipCode_106" id="q18equipCode_106" value="EQP108" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3900,10 +4745,13 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 
-									<section class="row">
+
+									<section class="row" id="tr_85">
 										<section class="left">
 											18s. Recovery room/ recovery area
 										</section>
+										<input type="hidden"  name="q18equipCode_107" id="q18equipCode_107" value="EQP109" />
+
 										<section class="center">
 											<select class="cloned left-combo" name="" id="">
 												<option>Yes </option>
@@ -3926,9 +4774,10 @@ class C_Load extends MY_Controller {
 									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 								</section>
 
-							</section>
-</form>';
 
+
+							</section>
+						</form>';
 		$data['form'] = $form_mnh_assessment;
 		$data['form_id'] = 'form_mnh_assessment';
 

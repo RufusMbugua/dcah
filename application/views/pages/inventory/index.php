@@ -15,7 +15,7 @@ $mfCode = $this -> session -> userdata('fCode');
 		<!-- Attach JavaScript files -->
 
 		<!--script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script-->
-		<script src="<?php echo base_url()?>js/jquery-1.7.2.min.js" charset="utf-8"></script>
+		<script src="<?php echo base_url()?>js/jquery-1.8.2.min.js" charset="utf-8"></script>
 
 		<script src="<?php echo base_url()?>js/js_libraries.js"></script>
 		<!--script to form client side validation functions-->
@@ -88,8 +88,9 @@ $mfCode = $this -> session -> userdata('fCode');
 				
 			    //start of close_opened_form click event
 				$("#close_opened_form").click(function() {
-				$(".form-container").load('<?php echo base_url() . 'c_front/formviewer'; ?>
-					',function(){
+
+				$(".form-container").load('<?php echo base_url() . 'c_front/formviewer'; ?>',function(){
+
 					//delegate events
 					loadGlobalScript();
 
@@ -141,9 +142,9 @@ $mfCode = $this -> session -> userdata('fCode');
 					/*start of submit_form_data click event*/
 					//function triggerFormSubmit(){
 					$("#submit_form_data").click(function() {
-					$("#facilityMFC").val('
-<?php echo $mfCode; ?>
-					');
+
+					$("#facilityMFC").val('<?php echo $mfCode; ?>');
+
 					$(form_id).submit();
 
 					});//}/*end of submit_form_data click event*/
@@ -161,9 +162,9 @@ $mfCode = $this -> session -> userdata('fCode');
 					var loaded=false;
 					function loadGlobalScript(){
 					loaded=true;
-					var scripts=['
-<?php echo base_url() . 'js/js_ajax_load.js'; ?>
-						'];
+
+					var scripts=['<?php echo base_url();?>js/js_ajax_load.js'];
+
 						for(i=0;i<scripts.length;i++){
 						loadGlobalJS(scripts[i],function(){});
 						}
@@ -192,8 +193,9 @@ $mfCode = $this -> session -> userdata('fCode');
 						}/*close the case*/
 						if(linkDomain)
 						//+linkDomain+'/'+linkIdUrl
-						$(".form-container").load('
-<?php echo base_url(); ?>'+linkDomain+'/'+linkIdUrl,function(){
+
+						$(".form-container").load('<?php echo base_url(); ?>'+linkDomain+'/'+linkIdUrl,function(){
+
 				//delegate events
 				
 				//if(loaded==false)
@@ -213,8 +215,9 @@ $mfCode = $this -> session -> userdata('fCode');
 				function renderFacilityInfo(){
     			 $.ajax({
 		            type: "GET",
-		            url: "<?php echo base_url()?>
-						c_load / getFacilityDetails",
+
+		            url: "<?php echo base_url()?>c_load/getFacilityDetails",
+
 						dataType:"json",
 						cache:"true",
 						data:"",
@@ -224,12 +227,10 @@ $mfCode = $this -> session -> userdata('fCode');
 						//alert("Name: "+facility.facilityMFC);//render found data
 						$("#facilityName").val(facility.facilityName);
 						$("#facilityContactPerson").val(facility.facilityContactPerson);
-						//$("#facilityDistrict").val(facility.facilityDistrict);
 
-						$("#facilityDistrict option:text=" + facility.facilityDistrict +"").attr("selected", "selected");
+						$("#facilityDistrict option").filter(function() {return $(this).text() == facility.facilityDistrict;}).first().prop("selected", true);
+						$("#facilityCounty option").filter(function() {return $(this).text() == facility.facilityCounty;}).first().prop("selected", true);
 
-						//$("#facilityCounty").val(facility.facilityCounty);
-						$("#facilityCounty option:text=" + facility.facilityCounty +"").attr("selected", "selected");
 						$("#facilityEmail").val(facility.facilityEmail);
 						$("#facilityTelephone").val(facility.facilityTelephone);
 						});
@@ -273,11 +274,13 @@ $mfCode = $this -> session -> userdata('fCode');
 				<section class="links">
 					<ul>
 						<a id="instructions_li" class="current">Instructions</a>
-						<a id="inventory_report_li" href="<?php echo base_url().'c_front/reports' ?>">Reports</a>
+						<!--a id="inventory_report_li" href="<?php echo base_url().'c_front/reports' ?>">Reports</a-->
 					</ul>
 				</section>
 				<section class="right-side-nav">
-					<section class="sessionUser"><?php echo 'Welcome  '.$mfName ?></section>
+
+					<section class="sessionUser"><?php echo 'Facility:	'.$mfName ?></section>
+
 		            <section style="float:right;margin-right:5%"><?php echo anchor(base_url().'c_auth/logout','Logout') ?></section>
 	
 				</section>
@@ -288,7 +291,9 @@ $mfCode = $this -> session -> userdata('fCode');
 									
 				<section class="form-container-menu">
 					<ul>
-						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1.4em">Child Health Assessment</a></li>
+
+						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1.4em">Child Commodity Health Assessment</a></li>
+
 						<li><a id="mnh_inventory_li" class="awesome blue large" style="font-size:1.4em">Maternal and New-born Health Assessment</a></li>
 					</ul>
 				</section>					

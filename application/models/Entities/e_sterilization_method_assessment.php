@@ -3,7 +3,7 @@ namespace models\Entities;
 
 	/**
 	 * @Entity
-	 * @Table(name="county")
+	 * @Table(name="serilization_method_assessment")
 	 */
  class E_sterilization_method_assessment{
  	

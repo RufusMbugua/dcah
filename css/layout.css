@@ -7,8 +7,6 @@ body {
 .current-body {
 	background-color: #CCC;
 	margin: auto;
-	height: 1000px;
-	font-family: Linux Libertine-DR;
 }
 .container {
 	margin-top: -1%;
@@ -57,22 +55,13 @@ h3 {
 }
 nav {
 	width: 100%;
+	height: 50px;
 	margin-bottom: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 20px;
+	padding-bottom: 15px;
 	background-size: 100%;
-	background: #5180ba; /* Old browsers */
-	background: #336eb7; /* Old browsers */
-	background: -moz-linear-gradient(top, #336eb7 0%, #004089 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#336eb7), color-stop(100%,#004089)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #336eb7 0%,#004089 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #336eb7 0%,#004089 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #336eb7 0%,#004089 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #336eb7 0%,#004089 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#336eb7', endColorstr='#004089',GradientType=0 ); /* IE6-9 */ 
-	-webkit-box-shadow: 0px 2px 5px 0.4px #333;
-	box-shadow: 0px 2px 5px 0.4px #333;
-	-moz-box-shadow: 0px 2px 5px 0.4px #333;
+	background: url('../images/banner.jpg');
+	border-top:1px solid black;
 }
 .credentials {
 	margin-top: 10px;
@@ -87,70 +76,62 @@ nav {
 	font: Arial, "Helvetica", sans-serif;
 	font-size: 15px;
 }
-.links {
-	width: 60%;
-	margin: auto;
-}
-.links a {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding: 10px 10px 10px 10px;
-	margin: 0;
-	text-shadow: 0px -0.7px 0.9px #333333;
-	filter: dropshadow(color=#333333, offx=0.9, offy=0.2);
-}
 nav a {
-	font-size: 20px;
+	font-size: 24px;
+	font-family: "Times New Roman", Times, serif;
 	text-decoration: none;
+	margin-top:10px;
 	color: #FFF;
-	width: 100px;
+	margin-right: 10px;
+	-webkit-transition-property: color, background, border-bottom;
+	-webkit-transition-duration: 0.75s, 1s, 0.25s;
+	-webkit-transition-timing-function: linear, ease-in, ease-in;
+	-moz-transition-property: color, background, border-bottom;
+	-moz-transition-duration: 0.75s, 1s, 0.25s;
+	-moz-transition-timing-function: linear, ease-in, ease-in;
+	-o-transition-property: color, background, border-bottom;
+	-o-transition-duration: 0.75s, 1s, 0.25s;
+	-o-transition-timing-function: linear, ease-in, ease-in;
+	transition-property: color, background, border-bottom;
+	transition-duration: 0.75s, 1s, 0.25s;
+	transition-timing-function: linear, ease-in, ease-in;
 }
 nav a:hover, a.current {
-	background: url('../images/nav.jpg');
-	-webkit-box-shadow: inset 0px 0px 4px 0.1px #000;
-	box-shadow: inset 0px 0px 4px 0.1px #000;
+	border-bottom: dotted 2px #FFFFFF;
 }
 ul, li {
-	list-style: none;
-	margin: 0;
-	padding: 0 0 0 0;
-}
+ list-style: none;
+ margin: 0;
+ padding: 0 0 0 10px ;
+ }
 
-ul {
-	text-align: left;
-}
+  ul {
+ text-align: left;
+ }
 
-ul li {
-	display: block;
-}
+  ul li {
+ display: block;
+ margin-right: .75em;
+ }
 
-ul li.last {
-	margin-right: 0;
+  ul li.last {
+ margin-right: 0;
+ }
+ 
+#search {
+	margin-top: 10px;
 }
-
-.search {
-	position: absolute;
-	top: 110px;
-	left: 2%;
-	height: 40px;
-	width: 15%;
-	display: block;
-}
-input[type=search] {
-	width: 100%;
-}
-
 .articles {
 	width: 100%;
 	margin-top: 30px;
 }
 /*
 
- * {
- margin: 0;
- padding: 0;
- }
- /* must declare 0 margins on everything, also for main layout components use padding, not
+* {
+	margin: 0;
+	padding: 0;
+}
+/* must declare 0 margins on everything, also for main layout components use padding, not
  vertical margins (top and bottom) to add spacing, else those margins get added to total height
  and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
 
@@ -192,18 +173,17 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 /* Track */
 .form-container::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	width: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	background-color: FFF;
 }
-
-
 /* Handle */
 .form-container::-webkit-scrollbar-thumb {
 	-webkit-border-radius: 10px;
-	border-radius: 2px;
+	border-radius: 10px;
 	background: #666;
 	-webkit-box-shadow: inset 0 0 6px #000;
 }
 .form-container::-webkit-scrollbar-thumb:window-inactive {
-	background: #333;
+	background: #999;
 }

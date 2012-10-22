@@ -52,6 +52,7 @@ $().ready(function(){
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
+			facilityAltTelephone:{required:true},
 			facilityEmail:{required: true,email:true},
 			ortQuestion1:{required:true},
 			ortQuestion2:{required:true},
@@ -65,6 +66,7 @@ $().ready(function(){
 			facilityDistrict: {required:"*Required"},
 			facilityCounty: {required: "*Required"},
 			facilityTelephone:{required:"*Required"},
+			facilityAltTelephone:{required:"*Required"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
 			ortQuestion1:{required:"*Required"},
 			ortQuestion2:{required:"*Required"},
@@ -84,9 +86,12 @@ $().ready(function(){
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
+			facilityAltTelephone:{required:true},
 			facilityEmail:{required: true,email:true},
-			sterileGloveSizes[]:{required:true},
-			q6bSkilledProviders[]:{minlength:1},
+
+			'sterileGloveSizes[]':{required:true},
+			'q6bSkilledProviders[]':{required:true,},
+
 			ortDehydrationLocation:{minlength:1}
 		},
 		messages: {
@@ -99,12 +104,25 @@ $().ready(function(){
 			facilityDistrict: {required:"*Required"},
 			facilityCounty: {required: "*Required"},
 			facilityTelephone:{required:"*Required"},
+			facilityAltTelephone:{required:"*Required"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
-			sterileGloveSizes[]:{minlength:"*Required"},
-			q6bSkilledProviders[]:{minlength:"*Required"},
+
+			'sterileGloveSizes[]':{required:"Select at least 1 type of size"},
+			'q6bSkilledProviders[]':{required:"Select at least 1 skilled provider"},
+
 			ortDehydrationLocation:{minlength:"*Required"}
 		}
 	}); /*end of form_mnh_assessment*/
+	
+	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
+	$("#form-verify").validate({/*inventory module*/
+		rules: {
+			username:{required:true}
+		},
+		messages:{
+			username:{required:"Facility Name Required"}
+		}
+	});/*end of form-verify validation rules*/
 	
 	});
 /*---------------------------end of validation.js------------------------------------------------------------------------------------------------------------------*/
@@ -1299,8 +1317,8 @@ function log() {
 					$('.cloned').removeClass('error');
 					$('.autoDate').removeClass('hasDatepicker error');
 					$('.futureDate').removeClass('hasDatepicker error');
-		            $('.autoDate').datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
-		            $('.futureDate').datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
+		            $('.autoDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
+		            $('.futureDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
 		          
 		            /*reinitialize timepicker options on the cloned item*/
 		            $('.mobiscroll').removeClass('scroller');
@@ -1387,8 +1405,8 @@ function log() {
 					$('.cloned').removeClass('error');
 					$('.autoDate').removeClass('hasDatepicker error');
 					$('.futureDate').removeClass('hasDatepicker error');
-		            $('.autoDate').datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
-		            $('.futureDate').datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
+		            $('.autoDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
+		            $('.futureDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
 		          
 		            /*reinitialize timepicker options on the cloned item*/
 		            $('.mobiscroll').removeClass('scroller');
@@ -1420,16 +1438,16 @@ function log() {
 				
 				/*start of datetime functions*/
 				$(function() {
-				var dates= ['#date','#inputDate','.autoDate','.futureDate'];
+				var dates= ['.autoDate','.futureDate'];
 				
 				
 				//initialize all datepickers
 				for ( var i=0, iLen=dates.length ; i<iLen ; i++){
 					if(dates[i]=='.futureDate'){
-				$(dates[i]).datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
+				$(dates[i]).datepicker({defaultDate:new Date(), changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
 				}else{
 					
-					$(dates[i]).datepicker({changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
+					$(dates[i]).datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
 				}
 				}
 				
