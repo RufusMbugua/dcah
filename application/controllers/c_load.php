@@ -75,14 +75,14 @@ class C_Load extends MY_Controller {
 			<section class="row-title">
 				Facility Information
 			</section>
-			<section class="row2">
+			<!--section class="row2">
 				<section class="left">
 					<label>Date:</label>
 				</section>
 				<section class="right">
 					<input type="date" name="facilityDateOfInventory" id="facilityDateOfInventory" readonly="readonly" class="autoDate" placeholder="click for date"/>
 				</section>
-			</section>
+			</section -->
 			<section class="row2">
 				<section class="left">
 					<label>Facility Name:</label>
@@ -96,7 +96,7 @@ class C_Load extends MY_Controller {
 					<label>Facility Type:</label>
 				</section>
 				<section class="right">
-					<select name="facilityType" id="facilityType">
+					<select name="facilityType" id="facilityType" class="cloned">
 						<option value="" selected="selected">Select One</option>
 						' . $this -> selectFacilityType . '
 					</select>
@@ -107,9 +107,31 @@ class C_Load extends MY_Controller {
 					<label>Facility Level:</label>
 				</section>
 				<section class="right">
-					<select name="facilityLevel" id="facilityLevel">
+					<select name="facilityLevel" id="facilityLevel" class="cloned">
 						<option value="" selected="selected">Select One</option>
 						' . $this -> selectFacilityLevel . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+		 <label>Owned By:</label>
+				</section>
+				<section class="right">
+					<select name="facilityOwner" id="facilityOwner" class="cloned">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectFacilityOwner . '
+					</select>
+				</section>
+			</section>
+			<section class="row2">
+				<section class="left">
+					<label>Province:</label>
+				</section>
+				<section class="right">
+					<select name="facilityProvince" id="facilityProvince" class="cloned">
+						<option value="" selected="selected">Select One</option>
+						' . $this -> selectProvince . '
 					</select>
 				</section>
 			</section>
@@ -156,7 +178,12 @@ class C_Load extends MY_Controller {
 					<label>Telephone Contact(s):</label>
 				</section>
 				<section class="right">
+
+					<label>Cell 1:</label>
 					<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14"/>
+				
+					<label>Cell 2:</label>
+					<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14"/>
 				</section>
 			</section>
 			<section class="row2">
@@ -1323,7 +1350,7 @@ class C_Load extends MY_Controller {
 				<td width="144"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility? (respond by item)</label></td>
 				<td width="144"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing, stolen or Broken ORT Corner equipment in the Current *AOP/QIP?</label></td>
 			</thead>
->>>>>>> upstream/master
+
 	   </tr>
 	   
 	   <tr class="row2" id="tr_1">
@@ -2133,12 +2160,8 @@ class C_Load extends MY_Controller {
 			<section class="row-title">
 				Facility Information
 			</section>
-
-
 			<!--section class="row2">
-
-
-				<section class="left">
+			<section class="left">
 					<label>Date:</label>
 				</section>
 				<section class="right">
@@ -2244,14 +2267,12 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 
-					<label>1:</label>
+					<label>Cell 1:</label>
 					<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14"/>
-				</section>
-				<section class="right">
-					<label>2:</label>
+				
+					<label>Cell 2:</label>
 					<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14"/>
 				</section>
->>>>>>> upstream/master
 			</section>
 			<section class="row2">
 				<section class="left">
@@ -2306,7 +2327,7 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="center cloned">
 
-					<select name="lndq6aConductingDelivery" id="lndq6aConductingDelivery">
+					<select name="lndq6aConductingDelivery" id="lndq6aConductingDelivery" class="cloned">
 						<option value="" selected="selected">Select One</option>
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
@@ -2340,7 +2361,7 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 
-					<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned fromZero" min="0"/>
+					<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned fromZero" min="0" style="float:left"/>
 
 				</section>
 
@@ -4773,9 +4794,6 @@ class C_Load extends MY_Controller {
 									</section>
 									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 								</section>
-
-
-
 							</section>
 						</form>';
 		$data['form'] = $form_mnh_assessment;

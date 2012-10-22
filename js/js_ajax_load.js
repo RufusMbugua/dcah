@@ -83,6 +83,8 @@ $().ready(function(){
 			facilityLevel:{required:true},
 			facilityContactPerson:{required: true},
 			facilityZincOrsDispensedFrom:{required: false},
+			facilityProvince: {required: true},
+			facilityOwner: {required: true},
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
@@ -100,7 +102,8 @@ $().ready(function(){
 			facilityType:{required:"*Required"},
 			facilityLevel:{required:"*Required"},
 			facilityContactPerson:{required: "*Required"},
-			facilityZincOrsDispensedFrom:{required: "*Required"},
+			facilityProvince: {required: "*Required"},
+			facilityOwner: {required: "*Required"},
 			facilityDistrict: {required:"*Required"},
 			facilityCounty: {required: "*Required"},
 			facilityTelephone:{required:"*Required"},
@@ -1255,7 +1258,7 @@ function log() {
 					//cb_id=cb_id.substr(cb_id.indexOf('#'),(cb_id.indexOf('_')))//for the trimmed id
 					//alert(cb_no);
 					
-					if($(cb_id).val() == 0) {
+					if($(cb_id).val() == 0 || $(cb_id).val() == 'No') {
 						//alert(cb_no);
 						//$('#tr_'+cb_no+':input').attr('disabled', true);
 						//$('#tr_'+cb_no).hide();

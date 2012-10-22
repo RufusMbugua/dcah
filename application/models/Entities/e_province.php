@@ -5,7 +5,7 @@ namespace models\Entities;
 	 * @Entity
 	 * @Table(name="province")
 	 */
- class E_province{
+ class E_Province{
  	
    /**
 	* @Id

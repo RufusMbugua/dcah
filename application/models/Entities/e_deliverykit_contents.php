@@ -5,7 +5,7 @@ namespace models\Entities;
  * @Entity
  * @Table(name="deliverykit_contents")
  */
-class E_deliverykit_contents {
+class E_Deliverykit_Contents {
 
 	/**
 	 * @Id
@@ -30,17 +30,17 @@ class E_deliverykit_contents {
 	private $quantity;
 
 	/**
-	 * @Column(name="dateOfAssessment", type="date",length=45, nullable=false)
+	 * @Column(name="dateOfAssessment", type="date",nullable=false)
 	 * */
 	private $dateOfAssessment;
 
 	/**
-	 * @Column(name="createdAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="createdAt", type="datetime",nullable=false)
 	 * */
 	private $createdAt;
 
 	/**
-	 * @Column(name="updatedAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="updatedAt", type="datetime",nullable=true)
 	 * */
 	private $updatedAt;
 
