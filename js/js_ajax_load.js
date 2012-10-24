@@ -1244,13 +1244,13 @@ function log() {
 				/*-----------------------------------end of hide/display OTR location field---------------------------------------------------*/
 				
 				/*-----------------------------------start of hide/display  stock item if not available---------------------------------------*/
-				if(form_id=="#zinc_ors_inventory" || form_id=="#form_mnh_assessment"){
+				if(form_id=="#zinc_ors_inventory"){
 					
 				/*
 				 * Checking for all SELECT inputs
 				 */
 				$(form_id).find('select').on("change",function() {
-<<<<<<< HEAD
+
 					
 					/*
 					 * Identify the class of the SELECT input
@@ -1261,10 +1261,7 @@ function log() {
 					 * 
 					 */
 					if($(this).attr('class')=='cloned left-combo')
-=======
-					//if($(this).attr('class')=
-					if($(this).attr('class')=='cloned left-combo'){
->>>>>>> upstream/master
+
 					cb_id='#'+$(this).attr('id');
 					//alert(cb_id);
 					
@@ -1335,7 +1332,7 @@ function log() {
 				 */
 				$(form_id).find('select').on("change",function() {
 					
-<<<<<<< HEAD
+
 					/*
 					 * Identify the class of the SELECT input
 					 * 
@@ -1358,9 +1355,7 @@ function log() {
 					 * Checking if the user selected 'No'
 					 */
 					if(($(cb_id).val() == 0)||($(cb_id).val() == "No")||($(cb_id).val() == "Never Available")) {
-=======
-					if($(cb_id).val() == 0 || $(cb_id).val() == 'No') {
->>>>>>> upstream/master
+
 						//alert(cb_no);
 						//$('#tr_'+cb_no+':input').attr('disabled', true);
 						//$('#tr_'+cb_no).hide();
