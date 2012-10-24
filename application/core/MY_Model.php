@@ -3,7 +3,7 @@
 
 class  MY_Model  extends  CI_Model{
 
-public $em, $response, $theForm,$district,$county,$level,$type,$formRecords,$facilityExists;
+public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityExists;
 
 function __construct() {
 		parent::__construct();
@@ -52,7 +52,33 @@ function __construct() {
           	
           }
 		return $this->county;
-	}/*end of getDistrictNames*/
+	}/*end of getAllCountyNames*/
+	
+	function getAllProvinceNames(){
+		 /*using DQL*/
+		 try{
+	      $query = $this->em->createQuery('SELECT p.provinceID, p.provinceName FROM models\Entities\e_province p ORDER BY p.provinceName ASC');
+          $this->province = $query->getResult();
+		  //die(var_dump($this->level));
+		 }catch(exception $ex){
+		 	//ignore
+		 	//$ex->getMessage();//exit;
+		 }
+		return $this->province;
+	}/*end of getAllProvinceNames*/
+	
+	function getAllFacilityOwnerNames(){
+		 /*using DQL*/
+		 try{
+	      $query = $this->em->createQuery('SELECT o.facilityOwnerID, o.facilityOwner FROM models\Entities\e_facility_owner o ORDER BY o.facilityOwner ASC');
+          $this->owner = $query->getResult();
+		  //die(var_dump($this->level));
+		 }catch(exception $ex){
+		 	//ignore
+		 	//$ex->getMessage();//exit;
+		 }
+		return $this->owner;
+	}/*end of getAllFacilityOwnerNames*/
 	
 	function getAllFacilityTypes(){
 		 /*using DQL*/
@@ -80,6 +106,7 @@ function __construct() {
 		return $this->level;
 	}/*end of getAllFacilityLevels*/
 	
+	
 	/*utilized in several models*/
 	public function getDistrictName($id){
 		try{
@@ -90,6 +117,7 @@ function __construct() {
 				//die($ex->getMessage());
 			}
 	}//end of getDistrictName
+	
 	
 	/*utilized in several models*/
 	public function getCountyName($id){

@@ -9,7 +9,7 @@ use application\models\Entities\E_OrtC_Assessment;
 use application\models\Entities\E_Stock;
 
 class M_Zinc_Ors_Inventory  extends MY_Model {
-	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$districtList,$fTypeList,$fLevelList,$mfcCode,$dbSessionValues,
+	var $id, $attr, $frags, $elements, $noOfInserts, $batchSize,$countyList,$provinceList,$districtList,$fTypeList,$fOwnerList,$fLevelList,$mfcCode,$dbSessionValues,
 	$facility,$commodity,$ortAssessCode, $isFacility;
 
 	function __construct() {
@@ -176,7 +176,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	private function addORTInfo(){
 		
 		    foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		    if(substr($key,0,3)=="ort"){//select data for facilities
+		    if(substr($key,0,3)=="ort"){//select data for ort
 			     $this->attr = $key;//the attribute name
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
@@ -522,7 +522,9 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		$this->districtList=$this->getAllDistrictNames();
 		$this->fTypeList=$this->getAllFacilityTypes();
 		$this->fLevelList=$this->getAllFacilityLevels();
-		$this->dbSessionValues=array($this->district,$this->county,$this->fTypeList,$this->fLevelList);
+		$this->fOwnerList=$this->getAllFacilityOwnerNames();
+		$this->provinceList=$this->getAllProvinceNames();
+		$this->dbSessionValues=array($this->district,$this->county,$this->fTypeList,$this->fLevelList,$this->fOwnerList,$this->provinceList);
 		//var_dump($this->dbSessionValues[3]);exit;
 		return $this->dbSessionValues;
 	}
@@ -533,7 +535,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	      /*using DQL*/
 	      try{
 	      //geting server side param: $store=$this->uri->segment(param_position_from_base_url);
-	      $query = $this->em->createQuery('SELECT f FROM models\Entities\e_facility f WHERE f.facilityMFC= :fcode');
+	      $query = $this->em->createQuery('SELECT f FROM models\Entities\e_facility f WHERE f.facilityMFC = :fcode');
 		  $query->setParameter('fcode',$mfc);
           
           $this->formRecords = $query->getArrayResult();

@@ -5,7 +5,7 @@ namespace models\Entities;
 	 * @Entity
 	 * @Table(name="facility_owner")
 	 */
- class E_facility_owner{
+ class E_Facility_Owner{
  	
    /**
 	* @Id
@@ -19,8 +19,8 @@ namespace models\Entities;
 	* */
 	private $facilityOwner;
 	
-	 /**
-	* @Column(name="createdAt", type="datetime",length=255, nullable=false)
+	/**
+	* @Column(name="createdAt", type="datetime",nullable=false)
 	* */
 	private $createdAt;
 	 

@@ -22,7 +22,9 @@ class C_Auth extends MY_Controller {
 							 'allDistricts'=>$this->m_zinc_ors_inventory->dbSessionValues[0],
 							 'allCounties'=>$this->m_zinc_ors_inventory->dbSessionValues[1],
 							 'allFacilityTypes'=>$this->m_zinc_ors_inventory->dbSessionValues[2],
-							 'allFacilityLevels'=>$this->m_zinc_ors_inventory->dbSessionValues[3]
+							 'allFacilityLevels'=>$this->m_zinc_ors_inventory->dbSessionValues[3],
+							 'allFacilityOwners'=>$this->m_zinc_ors_inventory->dbSessionValues[4],
+							 'allProvinces'=>$this->m_zinc_ors_inventory->dbSessionValues[5]
 							 );
            // var_dump($newdata); exit;
 			

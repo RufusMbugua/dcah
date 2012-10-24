@@ -228,6 +228,10 @@ $mfCode = $this -> session -> userdata('fCode');
 						$("#facilityName").val(facility.facilityName);
 						$("#facilityContactPerson").val(facility.facilityContactPerson);
 
+  						$("#facilityType option").filter(function() {return $(this).text() == facility.facilityType;}).first().prop("selected", true);
+  						$("#facilityLevel option").filter(function() {return $(this).text() == facility.facilityLevel;}).first().prop("selected", true);
+  						$("#facilityOwner option").filter(function() {return $(this).text() == facility.facilityOwnedBy;}).first().prop("selected", true);
+  						$("#facilityProvince option").filter(function() {return $(this).text() == facility.facilityProvince;}).first().prop("selected", true);
 						$("#facilityDistrict option").filter(function() {return $(this).text() == facility.facilityDistrict;}).first().prop("selected", true);
 						$("#facilityCounty option").filter(function() {return $(this).text() == facility.facilityCounty;}).first().prop("selected", true);
 

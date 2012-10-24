@@ -3,12 +3,15 @@
 
 class  MY_Controller  extends  CI_Controller {
 
-	public $em, $response, $theForm, $rowsInserted, $executionTime, $data, $selectCommodityType, $facilities, $selectCounties, $selectDistricts, $selectFacilityType, $selectFacilityLevel;
+	public $em, $response, $theForm, $rowsInserted, $executionTime, $data, 
+	$selectCommodityType, $facilities, $selectCounties, 
+	$selectDistricts, $selectFacilityType, $selectFacilityLevel,$selectFacilityOwner,$selectProvince;
 
 	function __construct() {
 		parent::__construct();
 
 		/* Instantiate Doctrine's Entity manage so we don't have
+<<<<<<< HEAD
 
 		   to everytime we want to use Doctrine */
 		   
@@ -18,6 +21,15 @@ class  MY_Controller  extends  CI_Controller {
 		$this->data='';
 		$this->selectCounties=$this->selectDistricts=$selectFacilityType=$selectFacilityLevel='';
 		$this->getCountyNames();$this->getDisctrictNames();$this->getFacilityLevels();$this->getFacilityTypes();
+=======
+		   to everytime we want to use Doctrine */
+		   
+		$this->em = $this->doctrine->em;
+		$this->response=$this->theForm=$this->data='';
+		$this->selectCounties=$this->selectDistricts=$selectFacilityType=$selectFacilityLevel=$selectProvince=$selectFacilityOwner='';
+		$this->getCountyNames();$this->getDisctrictNames();$this->getFacilityLevels();
+		$this->getFacilityTypes();$this->getFacilityOwners();$this->getProvinceNames();
+>>>>>>> upstream/master
 
 	}
 
@@ -25,7 +37,22 @@ class  MY_Controller  extends  CI_Controller {
 		$this -> the_form = $this -> em -> getRepository($form);
 		return $this -> theForm;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public function getProvinceNames(){/*obtained from the session data*/
+			  if($this -> session -> userdata('allProvinces') )
+			//  print var_dump($this -> session -> userdata('allProvinces'));exit;
+				foreach($this -> session -> userdata('allProvinces') as $key=>$value){
+				 $this->selectProvince.= '<option value="'.$value['provinceID'].'">'.$value['provinceName'].'</option>'.'<br />';
+				}
+				
+				//var_dump($this -> session -> userdata('allProvinces')); exit;
+				return $this->selectProvince;
+			
+		}
+>>>>>>> upstream/master
 	
 	public function getDisctrictNames(){/*obtained from the session data*/
 			  if($this -> session -> userdata('allDistricts') )
@@ -65,13 +92,29 @@ class  MY_Controller  extends  CI_Controller {
 
 	public function getFacilityLevels(){/*obtained from the session data*/
 			  if($this -> session -> userdata('allFacilityLevels'))
+<<<<<<< HEAD
 			// print var_dump($this -> session -> userdata('allCounties'));exit;
+=======
+			// print var_dump($this -> session -> userdata('allFacilityLevels'));exit;
+>>>>>>> upstream/master
 			foreach ($this -> session -> userdata('allFacilityLevels') as $key => $value) {
 				$this -> selectFacilityLevel .= '<option value="' . $value['facilityLevelID'] . '">' . $value['facilityLevel'] . '</option>' . '<br />';
 			}
 
 		//var_dump($this -> session -> userdata('allFacilityLevels')); exit;
 		return $this -> selectFacilityLevel;
+
+	}
+
+	public function getFacilityOwners(){/*obtained from the session data*/
+			  if($this -> session -> userdata('allFacilityOwners'))
+			// print var_dump($this -> session -> userdata('allFacilityOwners'));exit;
+			foreach ($this -> session -> userdata('allFacilityOwners') as $key => $value) {
+				$this -> selectFacilityOwner .= '<option value="' . $value['facilityOwnerID'] . '">' . $value['facilityOwner'] . '</option>' . '<br />';
+			}
+
+		//var_dump($this -> session -> userdata('allFacilityOwners')); exit;
+		return $this -> selectFacilityOwner;
 
 	}
 
