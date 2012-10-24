@@ -3,7 +3,7 @@
 
 class  MY_Model  extends  CI_Model{
 
-public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityExists;
+public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityExists,$commodity,$facility;
 
 function __construct() {
 		parent::__construct();
@@ -129,6 +129,144 @@ function __construct() {
 				//die($ex->getMessage());
 			}
 	}
+	
+	/*utilized in several models*/
+	public function getLevelName($id){
+		try{
+			$this->level=$this->em->getRepository('models\Entities\e_facility_level')
+			                       ->findOneBy( array('facilityLevelID'=>$id));
+			}catch(exception $ex){
+				//ignore
+				//die($ex->getMessage());
+			}
+	}
+	
+	/*utilized in several models*/
+	public function getProvinceName($id){
+		try{
+			$this->province=$this->em->getRepository('models\Entities\e_province')
+			                       ->findOneBy( array('provinceID'=>$id));
+			}catch(exception $ex){
+				//ignore
+				//die($ex->getMessage());
+			}
+	}
+	
+	//check if facility name exists
+   public function facilityExists($mfc){
+	     try{
+			$this->facility=$this->em->getRepository('models\Entities\E_Facility')
+			                       ->findOneBy( array('facilityName'=>$mfc));
+			$this->facilityExists=true;
+			}catch(exception $ex){
+				//ignore
+				//die($ex->getMessage());
+			}
+			return $this->facility;
+		
+	}/*close facilityExists($mfc)*/
+	
+	//checks if commodity name exists
+	 public function commodityExists($cName){
+	     try{
+			$this->commodity=$this->em->getRepository('models\Entities\E_Commodity')
+			                       ->findOneBy( array('commodityName'=>$cName));
+			}catch(exception $ex){
+				//ignore
+				//die($ex->getMessage());
+			}
+			return $this->commodity;
+		
+	}/*close commodityExists($cName)*/
+	
+	/*used in m_mnh_assessment & m_zinc_ors_inventory*/
+	protected function updateFacilityInfo(){
+			foreach ($this -> input -> post() as $key => $val) {//For every posted values
+		   
+		  
+		    if(substr($key,0,3)=="fac"){//select data for facilities
+			     $this->attr = $key;//the attribute name
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					// $this->elements[$this->id][$this->attr]=htmlentities($val);
+					$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+				   
+			 }
+			
+			// print $key.' val='.$val.' <br />';
+			
+			 }//close foreach ($this -> input -> post() as $key => $val)
+			 
+			// exit;
+			
+			//check if facility exists
+			$this->facility=$this->facilityExists($this -> session -> userdata('fName'));
+			
+		   //get county name,district name,level name by id
+			$this->getCountyName($this->input->post('facilityCounty'));/*method defined in MY_Model*/
+			$this->getDistrictName($this->input->post('facilityDistrict'));/*method defined in MY_Model*/
+			$this->getLevelName($this->input->post('facilityLevel'));/*method defined in MY_Model*/
+			$this->getProvinceName($this->input->post('facilityProvince'));/*method defined in MY_Model*/
+			
+		    //get the highest value of the array that will control the number of inserts to be done
+						$this->noOfInsertsBatch=1; /*only 1 facility record is expected*/
+						 
+						// print "max rows: ".$this->noOfInsertsBatch; exit;
+						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+			 	
+				//insert facility if new, else update the existing one
+				if($this->facilityExists!=true){
+					//die('New entry, enter new one');
+			   $this -> theForm = new \models\Entities\E_Facility(); //create an object of the model
+			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
+			   $this -> theForm -> setFacilityName($this->input->post('facilityName'));
+			   $this -> theForm -> setFacilityMFC($this -> session -> userdata('fCode'));//obtain facility code from current session
+				}else{
+				//$this -> theForm = new \models\Entities\E_Facility(); //create an object of the model
+				//die('Duplicate entry, so update');
+				try{
+					$this -> theForm=$this->em->getRepository('models\Entities\E_Facility')
+					                       ->findOneBy( array('facilityName'=>$this -> session -> userdata('fName')));
+					}catch(exception $ex){
+						//ignore
+						die($ex->getMessage());
+					}	
+				}
+		      
+			 	
+				$this -> theForm -> setUpdatedAt(new DateTime()); /*timestamp option*/
+				
+				$this -> theForm -> setFacilityDistrict($this->district->getDistrictName());
+				$this -> theForm -> setFacilityLevel($this->level->getFacilityLevel());
+				$this -> theForm -> setFacilityProvince($this->province->getProvinceName());
+				$this -> theForm -> setFacilityCounty($this->county->getCountyName());
+				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson'));
+				if($this->input->post('facilityAltTelephone') !=''){
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone').'/'.$this->input->post('facilityAltTelephone'));
+				}else{
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone'));	
+				}
+				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail'));
+				$this -> em -> persist($this -> theForm);
+                
+				try{
+					
+				$this -> em -> flush();
+				$this->em->clear(); //detaches all objects from doctrine
+				}catch(Exception $ex){
+				    die($ex->getMessage());
+					/*display user friendly message*/
+					
+				}//end of catch
+
+        	
+				
+					 } //end of innner loop
+					 
+	} //close updateFacilityInfo
 	
 	
 }

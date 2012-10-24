@@ -3,7 +3,7 @@ namespace models\Entities;
 
 /**
  * @Entity
- * @Table(name="equipment_assesstment")
+ * @Table(name="equipment_assessment")
  */
  class E_Equipment_Assessment {  
   

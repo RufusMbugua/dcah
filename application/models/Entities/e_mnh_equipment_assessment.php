@@ -5,7 +5,7 @@ namespace models\Entities;
  * @Entity
  * @Table(name="mnh_equipment_assessment")
  */
-class E_mnh_equipment_assessment {
+class E_MNH_Equipment_Assessment {
 
 	/**
 	 * @Id
@@ -15,57 +15,59 @@ class E_mnh_equipment_assessment {
 	private $assessmentID;
 
 	/**
+	 * @ManyToOne(targetEntity="facility", inversedBy="facilityMFC")
 	 * @Column(name="facilityCode", type="string",length=45, nullable=false)
 	 * */
 	private $facilityCode;
 
 	/**
+	 * @ManyToOne(targetEntity="equipment", inversedBy="equipmentCode")
 	 * @Column(name="equipmentCode", type="string",length=45, nullable=false)
 	 * */
 	private $equipmentCode;
 
 	/**
-	 * @Column(name="available", type="string",length=45, nullable=false)
+	 * @Column(name="available", type="string",length=45, nullable=true)
 	 * */
 	private $available;
 
 	/**
-	 * @Column(name="quantityAvailable", type="integer",length=11, nullable=false)
+	 * @Column(name="quantityAvailable", type="integer", nullable=true)
 	 * */
 	private $quantityAvailable;
 
 	/**
-	 * @Column(name="functioning", type="string",length=45, nullable=false)
+	 * @Column(name="functioning", type="string",length=45, nullable=true)
 	 * */
 	private $functioning;
 
 	/**
-	 * @Column(name="quantityFunctioning", type="string",length=45, nullable=false)
+	 * @Column(name="quantityFunctioning", type="integer", nullable=true)
 	 * */
 	private $quantityFunctioning;
 
 	/**
-	 * @Column(name="equipmentType", type="string",length=45, nullable=false)
+	 * @Column(name="equipmentType", type="string",length=45, nullable=true)
 	 * */
 	private $equipmentType;
 
 	/**
-	 * @Column(name="questionSection", type="string",length=45, nullable=false)
+	 * @Column(name="questionSection", type="string",length=45, nullable=true)
 	 * */
 	private $questionSection;
 
 	/**
-	 * @Column(name="dateOfAssessment", type="date",length=45, nullable=false)
+	 * @Column(name="dateOfAssessment", type="date",nullable=false)
 	 * */
 	private $dateOfAssessment;
 
 	/**
-	 * @Column(name="createdAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="createdAt", type="datetime",nullable=false)
 	 * */
 	private $createdAt;
 
 	/**
-	 * @Column(name="updatedAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="updatedAt", type="datetime",nullable=true)
 	 * */
 	private $updatedAt;
 

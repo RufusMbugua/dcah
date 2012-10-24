@@ -144,6 +144,10 @@ $mfCode = $this -> session -> userdata('fCode');
 					$("#submit_form_data").click(function() {
 
 					$("#facilityMFC").val('<?php echo $mfCode; ?>');
+					
+					if(form_id=="#form_mnh_assessment"){
+						$("#q11equipCode_28").val($("#q1_1_equipCode_28").val());
+					}
 
 					$(form_id).submit();
 
@@ -236,7 +240,18 @@ $mfCode = $this -> session -> userdata('fCode');
 						$("#facilityCounty option").filter(function() {return $(this).text() == facility.facilityCounty;}).first().prop("selected", true);
 
 						$("#facilityEmail").val(facility.facilityEmail);
+						
+						/*check if there is more than 1 cell phone no.*/
+						if(facility.facilityTelephone !=''){
+						if(facility.facilityTelephone.indexOf('/')>0){
+							//if tel no >1, split them for display seperately
+							altTel=facility.facilityTelephone.split('/');
+							$("#facilityTelephone").val(altTel[0]);
+							$("#facilityAltTelephone").val(altTel[1]);
+						}else{
 						$("#facilityTelephone").val(facility.facilityTelephone);
+						}
+						}
 						});
 
 						//return false;
@@ -296,7 +311,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				<section class="form-container-menu">
 					<ul>
 
-						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1.4em">Child Commodity Health Assessment</a></li>
+						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1.4em">Child Health Commodity Assessment</a></li>
 
 						<li><a id="mnh_inventory_li" class="awesome blue large" style="font-size:1.4em">Maternal and New-born Health Assessment</a></li>
 					</ul>

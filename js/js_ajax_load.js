@@ -75,7 +75,7 @@ $().ready(function(){
 	}); /*end of zinc_ors_inventory*/
 	
 	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
-	$("#form_mnh_assessment").validate({/*inventory module*/
+	$("#form_mnh_assessment1").validate({/*inventory module*/
 		rules: {
 			facilityDateOfInventory:{required: true},
 			facilityName:{required: true},
@@ -88,7 +88,7 @@ $().ready(function(){
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
 			facilityTelephone:{required:true},
-			facilityAltTelephone:{required:true},
+			facilityAltTelephone:{required:false},
 			facilityEmail:{required: true,email:true},
 
 			'sterileGloveSizes[]':{required:true},
@@ -1244,12 +1244,37 @@ function log() {
 				/*-----------------------------------end of hide/display OTR location field---------------------------------------------------*/
 				
 				/*-----------------------------------start of hide/display  stock item if not available---------------------------------------*/
-				if(form_id="#zinc_ors_inventory"){
+				if(form_id=="#zinc_ors_inventory" || form_id=="#form_mnh_assessment"){
 					
 				$(form_id).find('select').on("change",function() {
 					//if($(this).attr('class')=
-					if($(this).attr('class')=='cloned left-combo')
+					if($(this).attr('class')=='cloned left-combo'){
 					cb_id='#'+$(this).attr('id');
+					//alert(cb_id);
+					
+					/*
+					 * display q5 comment on NO option
+					 */
+					if(cb_id=='#lndq5FacilityDelivery'){
+						//alert(cb_id);
+						if($(cb_id).val() == 'No'){
+						$("#q5comm").show();
+						}else{
+							$("#q5comm").hide();
+						}
+					}
+					
+					/*
+					 * display q6b on q6a YES option
+					 */
+					if(cb_id=='#lndq6aConductingDelivery'){
+						if($(cb_id).val() == 'Yes'){
+						$("#q6ay").show();
+						}else{
+							$("#q6ay").hide();
+						}
+					}
+					
 					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
 						//alert(cb_id);
 					cb_no=cb_id.substr(cb_id.indexOf('_')+1,(cb_id.length))//for the numerical part of the id
@@ -1271,11 +1296,11 @@ function log() {
 						}
 					}
 					
-				
+					}//for enabling/disabling rows
 				});
 				
-				$('#editEquipmentListTopButton').click(function(){
-				$('#tableEquipmentList').find('select[class="cloned left-combo"]').prop('disabled', false);
+				$('#editEquipmentListTopButton,#editEquipmentListTopButton_2').click(function(){
+				$('#tableEquipmentList,#tableEquipmentList_2').find('select[class="cloned left-combo"]').prop('disabled', false);
 				});
 				}
 				/*-----------------------------------end of of hide/display  stock item if not available--------------------------*/

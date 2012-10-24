@@ -20,12 +20,13 @@ class E_Deliverykit_Contents {
 	private $facilityCode;
 
 	/**
+	 * @ManyToOne(targetEntity="equipment", inversedBy="equipmentCode")
 	 * @Column(name="equipmentID", type="string",length=8, nullable=false)
 	 * */
 	private $equipmentID;
 
 	/**
-	 * @Column(name="quentity", type="string",length=11, nullable=false)
+	 * @Column(name="quantity", type="integer", nullable=false)
 	 * */
 	private $quantity;
 

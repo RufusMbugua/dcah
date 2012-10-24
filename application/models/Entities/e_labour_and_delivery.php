@@ -5,7 +5,7 @@ namespace models\Entities;
  * @Entity
  * @Table(name="labour_and_delivery")
  */
-class E_labour_and_delivery {
+class E_Labour_And_Delivery {
 
 	/**
 	 * @Id
@@ -15,47 +15,48 @@ class E_labour_and_delivery {
 	private $ldAssessmentID;
 
 	/**
+	 * @ManyToOne(targetEntity="facility", inversedBy="facilityMFC")
 	 * @Column(name="facilityCode", type="string",length=45, nullable=false)
 	 * */
 	private $facilityCode;
 
 	/**
-	 * @Column(name="deliveryService24Hours", type="string",length=45, nullable=false)
+	 * @Column(name="deliveryService24Hours", type="string",length=45, nullable=true)
 	 * */
 	private $deliveryService24Hours;
 
 	/**
-	 * @Column(name="deliveryService24HoursComments", type="string",length=45, nullable=false)
+	 * @Column(name="deliveryService24HoursComments", type="string",length=45, nullable=true)
 	 * */
 	private $deliveryService24HoursComments;
 
 	/**
-	 * @Column(name="deliverySkilledPersonelAvailable", type="string",length=45, nullable=false)
+	 * @Column(name="deliverySkilledPersonnelAvailable", type="string",length=45, nullable=true)
 	 * */
-	private $deliverySkilledPersonelAvailable;
+	private $deliverySkilledPersonnelAvailable;
 
 	/**
-	 * @Column(name="deliveryServiceProviders", type="string",length=255, nullable=false)
+	 * @Column(name="deliveryServiceProviders", type="string",length=255, nullable=true)
 	 * */
 	private $deliveryServiceProviders;
 
 	/**
-	 * @Column(name="numberOfBedsInMaternity", type="integer",length=11, nullable=false)
+	 * @Column(name="numberOfBedsInMaternity", type="integer",length=11, nullable=true)
 	 * */
 	private $numberOfBedsInMaternity;
 
 	/**
-	 * @Column(name="deliveryRoomDescription", type="string",length=45, nullable=false)
+	 * @Column(name="deliveryRoomDescription", type="string",length=45, nullable=true)
 	 * */
 	private $deliveryRoomDescription;
 
 	/**
-	 * @Column(name="createdAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="createdAt", type="datetime",length=45, nullable=true)
 	 * */
 	private $createdAt;
 
 	/**
-	 * @Column(name="dateOfAssessment", type="date",length=45, nullable=false)
+	 * @Column(name="dateOfAssessment", type="date",nullable=false)
 	 * */
 	private $dateOfAssessment;
 
@@ -87,11 +88,11 @@ class E_labour_and_delivery {
 	public function setDeliveryService24HoursComments($deliveryService24HoursComments) { $this -> deliveryService24HoursComments = $deliveryService24HoursComments;
 	}
 
-	public function getDeliverySkilledPersonelAvailable() {
-		return $this -> deliverySkilledPersonelAvailable;
+	public function getDeliverySkilledPersonnelAvailable() {
+		return $this -> deliverySkilledPersonnelAvailable;
 	}
 
-	public function setDeliverySkilledPersonelAvailable($deliverySkilledPersonelAvailable) { $this -> deliverySkilledPersonelAvailable = $deliverySkilledPersonelAvailable;
+	public function setDeliverySkilledPersonnelAvailable($deliverySkilledPersonnelAvailable) { $this -> deliverySkilledPersonnelAvailable = $deliverySkilledPersonnelAvailable;
 	}
 
 	public function getDeliveryServiceProviders() {
