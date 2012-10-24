@@ -11,17 +11,7 @@ class  MY_Controller  extends  CI_Controller {
 		parent::__construct();
 
 		/* Instantiate Doctrine's Entity manage so we don't have
-<<<<<<< HEAD
 
-		   to everytime we want to use Doctrine */
-		   
-		$this->em = $this->doctrine->em;
-		$this->response='';
-		$this->theForm='';
-		$this->data='';
-		$this->selectCounties=$this->selectDistricts=$selectFacilityType=$selectFacilityLevel='';
-		$this->getCountyNames();$this->getDisctrictNames();$this->getFacilityLevels();$this->getFacilityTypes();
-=======
 		   to everytime we want to use Doctrine */
 		   
 		$this->em = $this->doctrine->em;
@@ -29,7 +19,7 @@ class  MY_Controller  extends  CI_Controller {
 		$this->selectCounties=$this->selectDistricts=$selectFacilityType=$selectFacilityLevel=$selectProvince=$selectFacilityOwner='';
 		$this->getCountyNames();$this->getDisctrictNames();$this->getFacilityLevels();
 		$this->getFacilityTypes();$this->getFacilityOwners();$this->getProvinceNames();
->>>>>>> upstream/master
+
 
 	}
 
@@ -37,9 +27,7 @@ class  MY_Controller  extends  CI_Controller {
 		$this -> the_form = $this -> em -> getRepository($form);
 		return $this -> theForm;
 	}
-<<<<<<< HEAD
 
-=======
 	
 	public function getProvinceNames(){/*obtained from the session data*/
 			  if($this -> session -> userdata('allProvinces') )
@@ -52,7 +40,7 @@ class  MY_Controller  extends  CI_Controller {
 				return $this->selectProvince;
 			
 		}
->>>>>>> upstream/master
+
 	
 	public function getDisctrictNames(){/*obtained from the session data*/
 			  if($this -> session -> userdata('allDistricts') )
@@ -92,11 +80,9 @@ class  MY_Controller  extends  CI_Controller {
 
 	public function getFacilityLevels(){/*obtained from the session data*/
 			  if($this -> session -> userdata('allFacilityLevels'))
-<<<<<<< HEAD
-			// print var_dump($this -> session -> userdata('allCounties'));exit;
-=======
+
 			// print var_dump($this -> session -> userdata('allFacilityLevels'));exit;
->>>>>>> upstream/master
+
 			foreach ($this -> session -> userdata('allFacilityLevels') as $key => $value) {
 				$this -> selectFacilityLevel .= '<option value="' . $value['facilityLevelID'] . '">' . $value['facilityLevel'] . '</option>' . '<br />';
 			}

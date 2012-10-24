@@ -26,14 +26,14 @@ class C_Form extends MY_Controller{
 	}//close form_zinc_ors_inventory()
 	
 	public function form_mnh_equipment_assessment(){
-		$this->load->model('M_Zinc_Ors_Inventory');
-		$this->M_Zinc_Ors_Inventory->addRecord();
+		$this->load->model('m_mnh_assessment');
+		$this->m_mnh_assessment->addRecord();
 		
-		if($this->M_Zinc_Ors_Inventory->response='ok'){
+		if($this->m_mnh_assessment->response='ok'){
 			//notify user of success
 			$data['form_id']="";
-			$data['form']='<p><b>Zinc Sulphate and ORS </b> data submitted successfully in 
-			approximately <b>'.$this->M_Zinc_Ors_Inventory->executionTime.'</b> seconds.</p>';
+			$data['form']='<p><b>Maternal & Newborn Health Assessment</b> data submitted successfully in 
+			approximately <b>'.$this->m_mnh_assessment->executionTime.'</b> seconds.</p>';
 			//redirect(base_url() . 'c_front/vehicles/index', 'location');
 			$this -> load -> view('pages/inventory/index', $data);
 			

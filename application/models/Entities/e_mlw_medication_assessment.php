@@ -5,7 +5,7 @@ namespace models\Entities;
  * @Entity
  * @Table(name="mlw_medication_assessment")
  */
-class E_mlw_medication_assessment {
+class E_MLW_Medication_Assessment {
 
 	/**
 	 * @Id
@@ -25,32 +25,32 @@ class E_mlw_medication_assessment {
 	private $medicationID;
 
 	/**
-	 * @Column(name="available", type="string",length=45, nullable=false)
+	 * @Column(name="available", type="string",length=45, nullable=true)
 	 * */
 	private $available;
 
 	/**
-	 * @Column(name="quantityAvailable", type="integer",length=11, nullable=false)
+	 * @Column(name="quantityAvailable", type="integer",length=11, nullable=true)
 	 * */
 	private $quantityAvailable;
 
 	/**
-	 * @Column(name="medicationType", type="string",length=45, nullable=false)
+	 * @Column(name="medicationType", type="string",length=45, nullable=true)
 	 * */
 	private $medicationType;
 
 	/**
-	 * @Column(name="placeFound", type="string",length=45, nullable=false)
+	 * @Column(name="placeFound", type="string",length=45, nullable=true)
 	 * */
 	private $placeFound;
 
 	/**
-	 * @Column(name="dateOfAssessment", type="date",length=45, nullable=false)
+	 * @Column(name="dateOfAssessment", type="date",nullable=false)
 	 * */
 	private $dateOfAssessment;
 
 	/**
-	 * @Column(name="createdAt", type="datetime",length=45, nullable=false)
+	 * @Column(name="createdAt", type="datetime",nullable=false)
 	 * */
 	private $createdAt;
 

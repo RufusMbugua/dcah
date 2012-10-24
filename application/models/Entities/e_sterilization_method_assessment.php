@@ -5,7 +5,7 @@ namespace models\Entities;
 	 * @Entity
 	 * @Table(name="serilization_method_assessment")
 	 */
- class E_sterilization_method_assessment{
+ class E_Sterilization_Method_Assessment{
  	
    /**
 	* @Id

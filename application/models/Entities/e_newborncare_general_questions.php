@@ -3,9 +3,9 @@ namespace models\Entities;
 
 	/**
 	 * @Entity
-	 * @Table(name="county")
+	 * @Table(name="newborncare_general_questions")
 	 */
- class E_county{
+ class E_NewBornCare_General_Questions{
  	
    /**
 	* @Id
