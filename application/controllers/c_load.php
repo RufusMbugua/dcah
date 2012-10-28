@@ -3656,9 +3656,26 @@ class C_Load extends MY_Controller {
 								</section>
 
 
-								<section class="row" id="tr_43">
+								<section class="row" id="tr_43i">
 									<section class="left">
-										12d. Injectable
+										12di. Injectable Hydralazine
+									</section>
+									<input type="hidden"  name="mnhCommodityName_6" id="mnhCommodityName_6"/>
+
+									<section class="center">
+										<select class="cloned left-combo" name="q12dInjectableHydralazinea_43" id="q12dInjectableHydralazinea_43">
+											<option>Always Available</option>
+											<option>Sometimes Available</option>
+											<option>Never Available</option>
+										</select>
+									
+										<input type="number" class="cloned fromZero" name="q12dNumber_43" id="q12dNumber_43" min="0"/>
+									</section>
+
+								</section>
+								<section class="row" id="tr_43ii">
+									<section class="left">
+										12dii. Injectable Apresoline
 									</section>
 									<input type="hidden"  name="mnhCommodityName_6" id="mnhCommodityName_6"/>
 
@@ -3719,12 +3736,7 @@ class C_Load extends MY_Controller {
 								<section class="row" id="tr_46">
 									<section class="left">
 										12g. Injectable amoxicillin or ampicillin
-										<select class="cloned left-combo" name="q12gInjectableAmoxicillinb_46" id="q12gInjectableAmoxicillinb_46" style="display:block">
-
-											<option value="Injectable amoxicillin">Amoxicillin </option>
-											<option value="Injectable ampicillin">Ampicillin</option>
-
-										</select>
+										
 									</section>
 									<input type="hidden"  name="mnhCommodityName_9" id="mnhCommodityName_9"/>
 
@@ -4297,7 +4309,7 @@ class C_Load extends MY_Controller {
 												<label class="dcah-label" style="float:right;width:45%">Quantity</label>
 											</section>
 											<section class="right">
-												<label class="dcah-label" style="width:45%">Functioning/Status (b)</label>
+												<label class="dcah-label" style="width:45%">Functioning(b)</label>
 												<label class="dcah-label" style="float:right;width:45%">Quantity</label>
 											</section>
 										</section>
