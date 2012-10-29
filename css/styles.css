@@ -1441,8 +1441,6 @@ form input, form textarea {
 }
 .row, .row2 {
 	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
 }
 .row-title {
 	width: 100%;
@@ -1489,7 +1487,7 @@ form input, form textarea {
 }
 .column-wide .center {
 	width: 30%;
-	border-right:1px solid gray;
+	border-right:2px solid gray;
 	padding:1%;
 }
 
