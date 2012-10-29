@@ -1345,7 +1345,7 @@ function log() {
 					cb_id='#'+$(this).attr('id');
 					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
 						
-						alert(cb_id);
+						//alert(cb_id);
 					cb_no=cb_id.substr(cb_id.indexOf('_')+1,(cb_id.length))//for the numerical part of the id
 					
 					//substr(id.indexOf('_')+1,id.length)
@@ -1370,8 +1370,6 @@ function log() {
 							$('#tr_'+cb_no).find('input,select[class="cloned"]').prop('disabled', false);
 					       // $('.cloned').removeClass('error');
 						}
-					}
-					
 					}//for enabling/disabling rows
 				});
 				

@@ -20,25 +20,30 @@ class C_Load extends MY_Controller {
 	
 	public function suggestFacilityName(){
 		$this->load->model('m_autocomplete');
-		$facilityName=$this->input->post('username',TRUE);
-		
-		//$facilityName='Afya';
-		
-		if (!strlen($facilityName)<2)
+		$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
 		
 		//echo $facilityName; exit;
 		
+		//$facilityName='Di';
+		
+		if (!strlen($facilityName)<2)
+		
+		//echo $facilityName; 
+		
 		try{
 		$this->rows=$this->m_autocomplete->getAutocomplete(array('keyword'=>$facilityName));
-		//die(var_dump($this->rows));
+		//die (var_dump($this->rows));
 		$json_names=array();
 		
-		foreach($this->rows as $key=>$value)
-			array_push($json_names,$value['facilityName']);
+		//foreach($this->rows as $key=>$value)
+		//array_push($json_names,$value['facilityName']);
+		foreach($this->rows as $value)
+			array_push($json_names,$value->facilityName);
+			
 			print json_encode($json_names);//die;
 		}catch(exception $ex){
 			//ignore
-			$ex->getMessage();
+			//$ex->getMessage();
 		}
 		
 	}
@@ -1979,7 +1984,7 @@ class C_Load extends MY_Controller {
 	 </tr>
 	 <tr class="row2" id="tr_25">
 			<td width="144">
-				<label> Locally available measuring containers â€“ e.g. cooking fat Tins. </label>
+				<label> Locally available measuring containers e.g. cooking fat Tins. </label>
 				<input type="hidden"  name="equipCode_25" id="equipCode_25" value="EQP25" />
 			</td>
 			<td width="144">

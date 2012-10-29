@@ -29,6 +29,9 @@
 		    html .ui-autocomplete {
 		        height: 100px;
 		    }
+		    .ui-autocomplete-loading {
+        		background: white url('<?php echo base_url(); ?>images/ui-anim_basic_16x16.gif') right center no-repeat;
+    		}
      </style>
 		
 		<!--link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css"/-->
@@ -42,26 +45,25 @@
 				var foundNames;
 				$(function(){
 					//load json data
-					$.ajax({
-							url:"<?php echo base_url();?>c_load/suggest",
-							data:'',
-							dataType:"json",
-							type:"POST",
-							success:function(data){
-								//foundNames=data;
-								//alert(response(data));
-								$( "#username" ).autocomplete({
-				            		source: data
-				       			 });
-							}
-					});
+					 var cache = {},lastXhr;
+				    $( "#username" ).autocomplete({
+				    	 	minLength: 2,
+				            source: function( request, response ) {
+				                var term = request.term;
+				                if ( term in cache ) {
+				                    response( cache[ term ] );
+				                    return;
+				                }
+				 
+				                $.getJSON( '<?php echo base_url();?>c_load/suggestFacilityName', request, function( data, status, xhr ) {
+				                    cache[ term ] = data;
+				                    response( data );
+				                });
+				            }
+				    });
 		
-				});
+				});//end of $(function(){
 				
-				$('a').mouseup(function (){
-					alert ('changed');
-					
-				});
 				
 			});
 		
