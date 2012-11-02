@@ -47,6 +47,7 @@
 					//load json data
 					 var cache = {},lastXhr;
 				    $( "#username" ).autocomplete({
+				    	 	delay: 500,
 				    	 	minLength: 2,
 				            source: function( request, response ) {
 				                var term = request.term;
@@ -56,8 +57,8 @@
 				                }
 				 
 				                $.getJSON( '<?php echo base_url();?>c_load/suggestFacilityName', request, function( data, status, xhr ) {
-				                    cache[ term ] = data;
-				                    response( data );
+				                    cache[ term ] = data.name;
+				                    response( data.name );
 				                });
 				            }
 				    });

@@ -24,7 +24,7 @@ class M_Autocomplete extends MY_Model {
 		 
       
       /*Using CI's database library--doctrine doesn't allow the use of 'REGEXP'*/
-       $this->db->select('facilityName');
+       $this->db->select('facilityName,facilityMFC');
       $this->db->where("facilityName REGEXP '^".$options['keyword']."'"); //retrieve all names beginning with
        // $this->db->like('facilityName', $options['keyword'], 'after');
        $this->formRecords = $this->db->get('facility');

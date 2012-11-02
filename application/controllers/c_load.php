@@ -20,11 +20,11 @@ class C_Load extends MY_Controller {
 	
 	public function suggestFacilityName(){
 		$this->load->model('m_autocomplete');
-		$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
+		//$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
 		
 		//echo $facilityName; exit;
 		
-		//$facilityName='Di';
+		$facilityName='Keri';
 		
 		if (!strlen($facilityName)<2)
 		
@@ -37,10 +37,14 @@ class C_Load extends MY_Controller {
 		
 		//foreach($this->rows as $key=>$value)
 		//array_push($json_names,$value['facilityName']);
-		foreach($this->rows as $value)
-			array_push($json_names,$value->facilityName);
-			
-			print json_encode($json_names);//die;
+		foreach($this->rows as $value){
+			//array_push($json_data,$value->facilityName);
+		  
+			//print $key.' '.$value.'<br />';
+			$json_data=array('code'=>$value->facilityMFC,'name'=>$value->facilityName);
+		}
+			print json_encode($json_data);//die;
+		
 		}catch(exception $ex){
 			//ignore
 			//$ex->getMessage();
@@ -55,11 +59,12 @@ class C_Load extends MY_Controller {
 		try{
 		$this->rows=$this->m_autocomplete->getAllFacilityNames();
 		//die(var_dump($this->rows));
-		$json_names=array();
+		$json_data=array();
 		
 		foreach($this->rows as $key=>$value)
-			array_push($json_names,$value['facilityName']);
-			print json_encode($json_names);
+			//array_push($json_names,$value['facilityName']);
+			$json_data=array('code'=>$value['facilityMFC'],'name'=>$value['facilityName']);
+			print json_encode($json_data);
 		}catch(exception $ex){
 			//ignore
 			$ex->getMessage();

@@ -222,8 +222,7 @@ $mfCode = $this -> session -> userdata('fCode');
     			 $.ajax({
 		            type: "GET",
 
-		            url: "<?php echo base_url()?>c_load/getFacilityDetails",
-
+		            	url: "<?php echo base_url()?>c_load/getFacilityDetails",
 						dataType:"json",
 						cache:"true",
 						data:"",
