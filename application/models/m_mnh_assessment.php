@@ -31,9 +31,9 @@ class M_MNH_Assessment  extends MY_Model {
 		
 	    //$this->updateFacilityInfo();
 		//$this->addLabourAndDeliveryInfo();
-		$this->add_Q9_MNH_EquipmentAssessmentInfo();
+		//$this->add_Q9_MNH_EquipmentAssessmentInfo();
 	    //$this->add_Q10_DeliveryKit_Contents_AssessmentInfo();
-		//$this->add_Q11_MNH_EquipmentAssessmentInfo();
+		$this->add_Q11_MNH_EquipmentAssessmentInfo();
 			
 			//exit;
 			
@@ -88,7 +88,7 @@ class M_MNH_Assessment  extends MY_Model {
 		      
 			 	
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setFacilityCode($this->input->post('facilityMFC'));
+				$this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));
 				$this -> theForm -> setDeliveryService24Hours($this->elements['lndq5FacilityDelivery']);
 				/*if no comment set, then set to N/A*/
 				($this->elements['lndq5Comment']=='')?$this -> theForm -> setDeliveryService24HoursComments('N/A'):$this -> theForm -> setDeliveryService24HoursComments($this->elements['lndq5Comment']); 
@@ -180,7 +180,7 @@ class M_MNH_Assessment  extends MY_Model {
 			 	
 				
 				$this -> theForm -> setEquipmentCode($this->elements[$i]['q9equipCode']);
-				$this -> theForm -> setFacilityCode($this->input->post('facilityMFC'));
+				$this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));
 				
 				//check if that key exists, else set it to some default value
 				(isset($this->elements[$i]['q9equipAvailability']))?$this -> theForm -> setAvailable($this->elements[$i]['q9equipAvailability']):$this -> theForm -> setAvailable("N/A");
@@ -285,7 +285,7 @@ class M_MNH_Assessment  extends MY_Model {
 			   
 				
 				
-				$this -> theForm -> setFacilityCode($this->input->post('facilityMFC'));
+				$this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));
 				
 				//check if that key exists, else set it to some default value
 				
@@ -375,6 +375,10 @@ class M_MNH_Assessment  extends MY_Model {
 			 }//close foreach ($this -> input -> post() as $key => $val)
 			//print var_dump($this->elements);
 			
+			//foreach($this->elements as $key=>$value){
+				//print 'element name:'.$value['q11equipCode'].'<br />';
+			//}
+			
 			//exit;
 		    
 		          //get the highest value of the array that will control the number of inserts to be done
@@ -390,7 +394,7 @@ class M_MNH_Assessment  extends MY_Model {
 			 	
 				
 				$this -> theForm -> setEquipmentCode($this->elements[$i]['q11equipCode']);
-				$this -> theForm -> setFacilityCode($this->input->post('facilityMFC'));
+				$this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));
 				
 				//check if that key exists, else set it to some default value
 				(isset($this->elements[$i]['q11equipAvailability']))?$this -> theForm -> setAvailable($this->elements[$i]['q11equipAvailability']):$this -> theForm -> setAvailable('N/A');

@@ -20,11 +20,11 @@ class C_Load extends MY_Controller {
 	
 	public function suggestFacilityName(){
 		$this->load->model('m_autocomplete');
-		//$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
+		$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
 		
 		//echo $facilityName; exit;
 		
-		$facilityName='Keri';
+		//$facilityName='Keri';
 		
 		if (!strlen($facilityName)<2)
 		
@@ -33,15 +33,15 @@ class C_Load extends MY_Controller {
 		try{
 		$this->rows=$this->m_autocomplete->getAutocomplete(array('keyword'=>$facilityName));
 		//die (var_dump($this->rows));
-		$json_names=array();
+		$json_data=array();
 		
 		//foreach($this->rows as $key=>$value)
-		//array_push($json_names,$value['facilityName']);
+		//array_push($json_data,$value['facilityName']);
 		foreach($this->rows as $value){
-			//array_push($json_data,$value->facilityName);
+			array_push($json_data,$value->facilityName);
 		  
 			//print $key.' '.$value.'<br />';
-			$json_data=array('code'=>$value->facilityMFC,'name'=>$value->facilityName);
+			//$json_data=array('code'=>$value->facilityMFC,'name'=>$value->facilityName);
 		}
 			print json_encode($json_data);//die;
 		
@@ -3178,7 +3178,7 @@ class C_Load extends MY_Controller {
 									</select>
 
 								</section>
-								<input type="hidden"  name="q11equipCode30" id="q11equipCode_30" value="EQP70" />
+								<input type="hidden"  name="q11equipCode_30" id="q11equipCode_30" value="EQP70" />
 								</section>
 
 								<section class="row" id="tr_31">
@@ -3312,10 +3312,8 @@ class C_Load extends MY_Controller {
 
 										<input name="q11equipAQty_36" type="number" class="cloned fromZero" min="0"/>
 									</section>
-
+										<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
 								</section>
-							<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
-							</section>
 							
 							</section> <!--close editList_2-->
 							<section class="column-wide">

@@ -57,8 +57,8 @@
 				                }
 				 
 				                $.getJSON( '<?php echo base_url();?>c_load/suggestFacilityName', request, function( data, status, xhr ) {
-				                    cache[ term ] = data.name;
-				                    response( data.name );
+				                    cache[ term ] = data;
+				                    response( data );
 				                });
 				            }
 				    });

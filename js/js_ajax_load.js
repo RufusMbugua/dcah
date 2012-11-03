@@ -1272,13 +1272,18 @@ function log() {
 
 				});
 				
+				/*
+				 * display input field if "Other(specifiy) is selected"
+				 */
 				var method;
 				
 				$('#sterilizationMethod').change(function(){
-					alert('Fire');
+					//alert('Fire');
 					method=$('#sterilizationMethod').val();
 					if(method="Other(specify)"){
 						$("#sterilizationMethodOther").show();
+					}else{
+						$("#sterilizationMethodOther").hide();
 					}
 					
 				});
