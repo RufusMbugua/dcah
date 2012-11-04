@@ -15,11 +15,13 @@ class E_MLW_Medication_Assessment {
 	private $mlwAssessmentID;
 
 	/**
+	 * @ManyToOne(targetEntity="facility", inversedBy="facilityMFC")
 	 * @Column(name="facilityID", type="string",length=45, nullable=false)
 	 * */
 	private $facilityID;
 
 	/**
+	 * @ManyToOne(targetEntity="mnh_medication", inversedBy="medicationName")
 	 * @Column(name="medicationID", type="string",length=45, nullable=false)
 	 * */
 	private $medicationID;

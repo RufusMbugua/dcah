@@ -19,7 +19,8 @@ namespace models\Entities;
 	* */
 	private $facilityCode;
 	
-	  /**
+   /**
+	* @ManyToOne(targetEntity="facility", inversedBy="facilityMFC")
 	* @Column(name="newbornResuscitated", type="string",length=45, nullable=false)
 	* */
 	private $newbornResuscitated;
@@ -72,7 +73,7 @@ namespace models\Entities;
 			return $this -> newbornResuscitated;
 	}
 	
-	public function setNewbornResuscitated($countyName) { $this -> countyName = $countyName;
+	public function setNewbornResuscitated($newbornResuscitated) { $this -> newbornResuscitated = $newbornResuscitated;
 	}
 	
 	public function getBloodTransfusionDone() {

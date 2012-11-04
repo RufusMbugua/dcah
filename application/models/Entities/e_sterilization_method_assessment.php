@@ -3,7 +3,7 @@ namespace models\Entities;
 
 	/**
 	 * @Entity
-	 * @Table(name="serilization_method_assessment")
+	 * @Table(name="sterilization_method_assessment")
 	 */
  class E_Sterilization_Method_Assessment{
  	
@@ -15,17 +15,18 @@ namespace models\Entities;
 	private $smAssessmentID;
 	
    /**
-	* @Column(name="facilityCode", type="string",length=45, nullable=false)
+	* @ManyToOne(targetEntity="facility", inversedBy="facilityMFC")
+    * @Column(name="facilityCode", type="string",length=45, nullable=false)
 	* */
 	private $facilityCode;
 	
 	  /**
-	* @Column(name="sterilizationMethod", type="string",length=255, nullable=false)
+	* @Column(name="sterilizationMethod", type="string",length=255, nullable=true)
 	* */
 	private $sterilizationMethod;
 	
 	  /**
-	* @Column(name="other", type="string",length=255, nullable=false)
+	* @Column(name="other", type="string",length=255, nullable=true)
 	* */
 	private $other;
 	

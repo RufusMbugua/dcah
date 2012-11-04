@@ -1272,21 +1272,25 @@ function log() {
 
 				});
 				
-				/*
-				 * display input field if "Other(specifiy) is selected"
-				 */
-				var method;
 				
+				//hide/show  input field on Specify(other) selected
+				if(form_id='#form_mnh_assessment'){
+				
+				var method='';
 				$('#sterilizationMethod').change(function(){
-					//alert('Fire');
+						//alert('yes');
 					method=$('#sterilizationMethod').val();
-					if(method="Other(specify)"){
+					if(method=="other"){
+						//alert('fire');
 						$("#sterilizationMethodOther").show();
 					}else{
 						$("#sterilizationMethodOther").hide();
 					}
 					
 				});
+				}
+				
+				
 				
 				/*-----------------------------------start of hide/display  stock item if not available---------------------------------------*/
 				if(form_id=="#zinc_ors_inventory"){
@@ -1386,7 +1390,7 @@ function log() {
 					 *  ->Get the SELECT's ID
 					 * 
 					 */
-					if($(this).attr('class')=='cloned left-combo')
+					if($(this).attr('class')=='cloned left-combo'){
 					cb_id='#'+$(this).attr('id');
 					if(cb_id.indexOf('_')>0 && $(cb_id).val() !=""){
 						
@@ -1416,16 +1420,23 @@ function log() {
 					       // $('.cloned').removeClass('error');
 						}
 					}//for enabling/disabling rows
-				});
-				
-				$('#editEquipmentListTopButton,#editEquipmentListTopButton_2').click(function(){
-				$('#tableEquipmentList,#tableEquipmentList_2').find('select[class="cloned left-combo"]').prop('disabled', false);
-				});
-				}
-				
-				else{
+					} //close if($(this).attr('class')=='cloned left-combo')
 					
+					
+					
+				
+				});
+				
+				//to review equipment assessment--enables the disabled select options
+				$('#editEquipmentListTopButton,#editEquipmentListTopButton_2,#editEquipmentListTopButton_3,#editEquipmentListTopButton_4').click(function(){
+				$('#tableEquipmentList,#tableEquipmentList_2,#tableEquipmentList_3,#tableEquipmentList_4').find('select[class="cloned left-combo"]').prop('disabled', false);
+				});
 				}
+				
+				
+				
+				
+				
 				/*-----------------------------------end of of hide/display  stock item if not available--------------------------*/
 				
 				

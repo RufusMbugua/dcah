@@ -3071,7 +3071,7 @@ class C_Load extends MY_Controller {
 											<option selected="selected" value="">Select One</option>
 											<option>Autoclave</option>
 											<option>HLD</option>
-											<option>Other(specify)</option>
+											<option value="other">Other(specify)</option>
 
 										</select>
 										
@@ -3318,7 +3318,7 @@ class C_Load extends MY_Controller {
 							</section> <!--close editList_2-->
 							<section class="column-wide">
 
-								<section class="row-title">
+																<section class="row-title">
 									<section class="left">
 										<label class="dcah-label">12. Medications in the Maternity/Labour ward</label>
 									</section>
@@ -3333,36 +3333,36 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12a.i. Injectable-Oxytocin
 									</section>
-									<input type="hidden"  name="mnhCommodityName_38" id="mnhCommodityName_38" value="Injectable-Oxytocin" />
+									<input type="hidden"  name="q12mnhCommodityName_1" id="q12mnhCommodityName_1" value="Injectable-Oxytocin" />
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12aInjectableOxytocina_38" id="q12aInjectableOxytocinb_38">
+										<select class="cloned left-combo" name="q12equipAvailability_1" id="q12equipAvailability_1">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q12aNumber_38" id="q12aNumber_38" min="0"/>
+										<input name="q12equipAQty_1" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
-
 
 								<section class="row" id="tr_39">
 									<section class="left">
 										12a.ii. Injectable-Syntocin
 									</section>
-									<input type="hidden"  name="mnhCommodityName_2" id="mnhCommodityName_2" value="Injectable-Syntocin" />
+									<input type="hidden"  name="q12mnhCommodityName_2" id="q12mnhCommodityName_2" value="Injectable-Syntocin" />
 									<section class="center">
-										<select class="cloned left-combo" name="q12a2InjectableOxytocina_39" id="q12a2InjectableOxytocinb_39">
-
+										<select class="cloned left-combo" name="q12equipAvailability_2" id="q12equipAvailability_2">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
 
-										<input type="number" class="cloned fromZero" name="q12a2Number_39" id="q12a2Number_39" min="0"/>
+										<input name="q12equipAQty_2" type="number" class="cloned fromZero" min="0"/>
 
 									</section>
 
@@ -3373,15 +3373,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12b.i. Indicate the available Intravenous solutions
 									</section>
-									<input type="hidden"  name="mnhCommodityName_3" id="mnhCommodityName_3" />
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q12bIntravenousSolutionsb_40" id="q12bIntravenousSolutionsb_40">
+										<select class="cloned left-combo" name="q12mnhCommodityName_3" id="q12mnhCommodityName_3">
+											<option value="" selected="selected">Select Type</option>
 											<option value="Intravenous solution-Ringers Lactate">Ringers Lactate</option>
 											<option value="Intravenous solution-D5NS">D5NS</option>
 											<option value="Intravenous solution-NS Infusion">NS Infusion</option>
 
 										</select>
-										<input type="number" class="cloned fromZero" name="q12bNumber_40" id="q12bNumber_40" min="0"/>
+										<input name="q12equipAQty_3" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3391,17 +3392,17 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12b.ii. Intravenous Metronidazole
 									</section>
-									<input type="hidden"  name="mnhCommodityName_4" id="mnhCommodityName_4" value="Intravenous Metronidazole"/>
+									<input type="hidden"  name="q12mnhCommodityName_4" id="q12mnhCommodityName_4" value="Intravenous Metronidazole"/>
 									<section class="center">
-										<select class="cloned left-combo" name="q12b2IntravenousSolutionsb_41" id="q12b2IntravenousSolutionsb_41">
-
+										<select class="cloned left-combo" name="q12equipAvailability_4" id="q12equipAvailability_4">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q12b2Number_41" id="q12b2Number_41" min="0"/>
-			</section>
+										<input name="q12equipAQty_4" type="number" class="cloned fromZero" min="0"/>
+								</section>
 
 								</section>
 
@@ -3410,15 +3411,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12c. Injectable methergine
 									</section>
-									<input type="hidden"  name="mnhCommodityName_5" id="mnhCommodityName_5" value="Injectable methergine"/>
+									<input type="hidden"  name="q12mnhCommodityName_5" id="q12mnhCommodityName_5" value="Injectable methergine"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12cIntectableErgomtrine_42" id="q12cIntectableErgomtrine_42">
+										<select class="cloned left-combo" name="q12equipAvailability_5" id="q12equipAvailability_5">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12cNumber_42" id="q12cNumber_42" min="0"/>
+										<input name="q12equipAQty_5" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3428,16 +3430,17 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12di. Injectable Hydralazine
 									</section>
-									<input type="hidden"  name="mnhCommodityName_6" id="mnhCommodityName_6"/>
+									<input type="hidden"  name="q12mnhCommodityName_6" id="q12mnhCommodityName_6" value="Injectable Hydralazine"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12dInjectableHydralazinea_43" id="q12dInjectableHydralazinea_43">
+										<select class="cloned left-combo" name="q12equipAvailability_6" id="q12equipAvailability_6">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 									
-										<input type="number" class="cloned fromZero" name="q12dNumber_43" id="q12dNumber_43" min="0"/>
+										<input name="q12equipAQty_6" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3445,16 +3448,17 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12dii. Injectable Apresoline
 									</section>
-									<input type="hidden"  name="mnhCommodityName_6" id="mnhCommodityName_6"/>
+									<input type="hidden"  name="q12mnhCommodityName_7" id="q12mnhCommodityName_7" value="Injectable Apresoline"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12dInjectableHydralazinea_43" id="q12dInjectableHydralazinea_43">
+										<select class="cloned left-combo" name="q12equipAvailability_7" id="q12equipAvailability_7">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 										
-										<input type="number" class="cloned fromZero" name="q12dNumber_43" id="q12dNumber_43" min="0"/>
+										<input name="q12equipAQty_7" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3464,15 +3468,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12e. Injectable diazepam
 									</section>
-									<input type="hidden"  name="mnhCommodityName_7" id="mnhCommodityName_7" value="Injectable diazepam"/>
+									<input type="hidden"  name="q12mnhCommodityName_8" id="q12mnhCommodityName_8" value="Injectable diazepam"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12eInjectableDiazepam_44" id="q12eInjectableDiazepam_44">
+										<select class="cloned left-combo" name="q12equipAvailability_8" id="q12equipAvailability_8">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12eNumber_44" id="q12eNumber_44" min="0"/>
+										<input name="q12equipAQty_8" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3482,15 +3487,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12f. Injectable magnesium sulfate
 									</section>
-									<input type="hidden"  name="mnhCommodityName_8" id="mnhCommodityName_8" value="Injectable magnesium sulfate"/>
+									<input type="hidden"  name="q12mnhCommodityName_9" id="q12mnhCommodityName_9" value="Injectable magnesium sulfate"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12fInjectableMagnesium_45" id="q12fInjectableMagnesium_45">
+										<select class="cloned left-combo" name="q12equipAvailability_9" id="q12equipAvailability_9">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12fNumber_45" id="q12fNumber_45" min="0"/>
+										<input name="q12equipAQty_9" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3501,18 +3507,17 @@ class C_Load extends MY_Controller {
 										12g. Injectable amoxicillin or ampicillin
 										
 									</section>
-									<input type="hidden"  name="mnhCommodityName_9" id="mnhCommodityName_9"/>
+									<input type="hidden"  name="q12mnhCommodityName_10" id="q12mnhCommodityName_10" value="Injectable amoxicillin/ampicillin"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12gInjectableAmoxicillina_46" id="q12gInjectableAmoxicillina_46">
+										<select class="cloned left-combo" name="q12equipAvailability_10" id="q12equipAvailability_10">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										
-										
-
-										<input type="number" class="cloned fromZero" name="q12gNumber_46" id="q12gNumber_46" min="0" />
+									
+										<input name="q12equipAQty_10" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3522,15 +3527,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12h. Injectable gentamicin
 									</section>
-									<input type="hidden"  name="mnhCommodityName_10" id="mnhCommodityName_10" value="Injectable gentamicin"/>
+									<input type="hidden"  name="q12mnhCommodityName_11" id="q12mnhCommodityName_11" value="Injectable gentamicin"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12hInjectableGentamicin_47" id="q12hInjectableGentamicin_47">
+										<select class="cloned left-combo" name="q12equipAvailability_11" id="q12equipAvailability_11">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12hNumber_47" id="q12hNumber_47" min="0"/>
+										<input name="q12equipAQty_11" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3540,15 +3546,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12i. Calcium gluconate
 									</section>
-									<input type="hidden"  name="mnhCommodityName_11" id="mnhCommodityName_11" value="Calcium gluconate"/>
+									<input type="hidden"  name="q12mnhCommodityName_12" id="q12mnhCommodityName_12" value="Calcium gluconate"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12iCalciumGluconate_48" id="q12iCalciumGluconate_48">
+										<select class="cloned left-combo" name="q12equipAvailability_12" id="q12equipAvailability_12">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12iNumber_48" id="q12iNumber_48" min="0"/>
+										<input name="q12equipAQty_12" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3558,15 +3565,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12j. Methyldopa/Aldomet
 									</section>
-									<input type="hidden"  name="mnhCommodityName_12" id="mnhCommodityName_12" value="Methyldopa/Aldomet"/>
+									<input type="hidden"  name="q12mnhCommodityName_13" id="q12mnhCommodityName_13" value="Methyldopa/Aldomet"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12jMethyldopa_49" id="q12jMethyldopa_49">
+										<select class="cloned left-combo" name="q12equipAvailability_13" id="q12equipAvailability_13">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12jNumber_49" id="q12jNumber_49" min="0"/>
+										<input name="q12equipAQty_13" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3576,15 +3584,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12k. Lidocaine (lignocaine) or other local anesthetic
 									</section>
-									<input type="hidden"  name="mnhCommodityName_13" id="mnhCommodityName_13" value="Lidocaine(lignocaine)/other local anesthetic"/>
+									<input type="hidden"  name="q12mnhCommodityName_14" id="q12mnhCommodityName_14" value="Lidocaine(lignocaine)/other local anesthetic"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12kLidocaine_50" id="q12kLidocaine_50">
+										<select class="cloned left-combo" name="q12equipAvailability_14" id="q12equipAvailability_14">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12kNumber_50" id="q12kNumber_50" min="0"/>
+										<input name="q12equipAQty_14" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3594,15 +3603,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12l. Nifedipine Tablets
 									</section>
-									<input type="hidden"  name="mnhCommodityName_14" id="mnhCommodityName_14" value="Nifedipine Tablets"/>
+									<input type="hidden"  name="q12mnhCommodityName_15" id="q12mnhCommodityName_15" value="Nifedipine Tablets"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12lNifedipine_51" id="q12lNifedipine_51">
+										<select class="cloned left-combo" name="q12equipAvailability_15" id="q12equipAvailability_15">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12lNumber_51" id="q12lNumber_51" min="0"/>
+										<input name="q12equipAQty_15" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3612,15 +3622,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12m. Vitamin A
 									</section>
-									<input type="hidden"  name="mnhCommodityName_15" id="mnhCommodityName_15" value="Vitamin A"/>
+									<input type="hidden"  name="q12mnhCommodityName_16" id="q12mnhCommodityName_16" value="Vitamin A"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12mVitaminA_52" id="q12mVitaminA_52">
+										<select class="cloned left-combo" name="q12equipAvailability_16" id="q12equipAvailability_16">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12mNumber_52" id="q12mNumber_52" min="0"/>
+										<input name="q12equipAQty_16" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3630,15 +3641,16 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										12n. Vitamin K
 									</section>
-									<input type="hidden"  name="mnhCommodityName_16" id="mnhCommodityName_16" value="Vitamin K"/>
+									<input type="hidden"  name="q12mnhCommodityName_17" id="q12mnhCommodityName_17" value="Vitamin K"/>
 
 									<section class="center">
-										<select class="cloned left-combo" name="q12nVitaminK_53" id="q12nVitaminK_53">
+										<select class="cloned left-combo" name="q12equipAvailability_17" id="q12equipAvailability_17">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q12nNumber_53" id="q12nNumber_53" min="0"/>
+										<input name="q12equipAQty_17" type="number" class="cloned fromZero" min="0"/>
 									</section>
 
 								</section>
@@ -3685,96 +3697,93 @@ class C_Load extends MY_Controller {
 								</section>
 
 
+							<section id="tableEquipmentList_3">
+					    	<section class="row2">
+					    	<input type="button" id="editEquipmentListTopButton_3" name="editEquipmentListTopButton_3" class="awesome myblue medium" value="Edit List"/>
+					    	</section>
 								<section class="row" id="tr_54">
 									<section class="left">
 										14a. Self inflating Neonatal Ambu bag ( 500 mls)
 									</section>
-									<input type="hidden"  name="q14equipCode_76" id="q14equipCode_76" value="EQP78" />
-
 									<section class="center">
-										<select class="cloned left-combo" name="q14aYA_54" id="q14aYA_54">
+										<select class="cloned left-combo" name="q14equipAvailability_54" id="q12equipAvailability_54">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14aNumber_54" id="q14aNumber_54" min="0"/>
+										<input name="q14equipAQty_54" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q14aFunctioning_54" id="q14aFunctioning_54">
+										<select name="q14equipFunctioning_54" id="q14equipFunctioning_54" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" />
+										<input name="q14equipFQty_54" type="number" class="cloned fromZero" min="0"/>
+										
 									</section>
-
+										<input type="hidden"  name="q14equipCode_54" id="q14equipCode_54" value="EQP78" />
 								</section>
-
 
 								<section class="row" id="tr_55">
 									<section class="left">
 										14b.i. Infant masks-Size 0
 									</section>
-									<input type="hidden"  name="q14equipCode_77" id="q14equipCode_77" value="EQP79" />
-
 									<section class="center">
-										<select class="cloned left-combo" name="q14bYA_55" id="q14bYA_55">
+										<select class="cloned left-combo" name="q14equipAvailability_55" id="q12equipAvailability_55">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14bNumber_55" id="q14bNumber_55" min="0"/>
-
+										<input name="q14equipAQty_55" type="number" class="cloned fromZero" min="0"/>
+										
 									</section>
-
+										<input type="hidden"  name="q14equipCode_55" id="q14equipCode_55" value="EQP79" />
 								</section>
-
 
 								<section class="row" id="tr_56">
 									<section class="left">
 										14b.ii. Infant masks-Size 1
 									</section>
-									<input type="hidden"  name="q14equipCode_78" id="q14equipCode_78" value="EQP80" />
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14b2YA_56" id="q14b2YA_56">
-
+										<select class="cloned left-combo" name="q14equipAvailability_56" id="q12equipAvailability_56">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
 
-										<input type="number" class="cloned fromZero" name="q14b2Number_56" id="q14b2Number_56" min="0"/>
-
-
+										<input name="q14equipAQty_56" type="number" class="cloned fromZero" min="0"/>
 									</section>
-
+										<input type="hidden"  name="q14equipCode_56" id="q14equipCode_56" value="EQP80" />
 								</section>
-
 
 								<section class="row" id="tr_57">
 									<section class="left">
 										14b.iii. Infant masks-Size 2
 									</section>
-									<input type="hidden"  name="q14equipCode_79" id="q14equipCode_79" value="EQP81" />
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14b3YA_57" id="q14b3YA_57">
-
+										<select class="cloned left-combo" name="q14equipAvailability_57" id="q12equipAvailability_57">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
-
-										<input type="number" class="cloned fromZero" name="q14b3Number_57" id="q14b3Number_57" min="0"/>
-
+										<input name="q14equipAQty_57" type="number" class="cloned fromZero" min="0"/>
 
 									</section>
-
+									<input type="hidden"  name="q14equipCode_57" id="q14equipCode_57" value="EQP81" />
 								</section>
+								
 								<section class="row">
 									<h3> Neonatal Unit</h3>
 								</section>
@@ -3783,168 +3792,167 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										14c. Clock  with seconds arm
 									</section>
-									<input type="hidden"  name="q14equipCode_80" id="q14equipCode_80" value="EQP82" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14cYA_58" id="q14cYA_58">
+										<select class="cloned left-combo" name="q14equipAvailability_58" id="q14equipAvailability_58">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
 									</section>
-
+									<input type="hidden"  name="q14equipCode_58" id="q14equipCode_58" value="EQP82" />
 								</section>
-
 
 								<section class="row" id="tr_59">
 									<section class="left">
 										14d. Neonatal Incubator
 									</section>
-									<input type="hidden"  name="q14equipCode_81" id="q14equipCode_81" value="EQP83" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14dYA_59" id="q14dYA_59">
+										<select class="cloned left-combo" name="q14equipAvailability_59" id="q14equipAvailability_59">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q14dNumber_59" id="q14dNumber_59" min="0"/>
+										<input name="q14equipAQty_59" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q14dFunctioning_59" id="q14dFunctioning_59">
+										<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" />
+										<input name="q14equipFQty_59" type="number" class="cloned fromZero" min="0"/>
 									</section>
+									<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
 								</section>
-
 
 								<section class="row" id="tr_60">
 									<section class="left">
 										14e. A Radiant Heater
 									</section>
-									<input type="hidden"  name="q14equipCode_82" id="q14equipCode_82" value="EQP84" />
 
 									<section class="center">
-										<select class="cloned left-combo" name="q14eYA_60" id="q14eYA_60">
+										<select class="cloned left-combo" name="q14equipAvailability_60" id="q14equipAvailability_60">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
-
+										<input name="q14equipAQty_60" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q14eFunctioning_60" id="q14eFunctioning_60">
+										<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" min="0" />
+										<input name="q14equipFQty_60" type="number" class="cloned fromZero" min="0"/>
 									</section>
+									<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
 								</section>
-
 
 								<section class="row" id="tr_61">
 									<section class="left">
 										14f. Infant Scale
 									</section>
-									<input type="hidden"  name="q14equipCode_83" id="q14equipCode_83" value="EQP85" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14fYA_61" id="q14fYA_61">
+										<select class="cloned left-combo" name="q14equipAvailability_61" id="q14equipAvailability_61">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
-										<input type="number" class="cloned fromZero" name="q14fNumbera_61" id="q14fNumbera_61" min="0" />
+										<input name="q14equipAQty_61" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q14fFunctioning_61" id="q14fFunctioning_61">
+										<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-										<input type="number" class="cloned fromZero"  name="q14fNumberb_61" id="q14fNumberb_61" min="0" />
+										<input name="q14equipFQty_61" type="number" class="cloned fromZero" min="0"/>
 
 									</section>
+									<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
 								</section>
-
 
 								<section class="row" id="tr_62">
 									<section class="left">
 										14g. Suction bulb for mucus extraction
 									</section>
-									<input type="hidden"  name="q14equipCode_84" id="q14equipCode_84" value="EQP86" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14gYA_62" id="q14gYA_62">
+										<select class="cloned left-combo" name="q14equipAvailability_62" id="q14equipAvailability_62">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14gNumbera_62" id="q14gNumbera_62" min="0" />
+										<input name="q14equipAQty_62" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
 
-										<select name="q14gFunctioning_62" id="q14gFunctioning_62">
+										<select name="q14equipFunctioning_62" id="q14equipFunctioning_62" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-
-										<input type="number" class="cloned fromZero" name="q14gNumberb_62" id="q14gNumberb_62" min="0" />
+										<input name="q14equipFQty_62" type="number" class="cloned fromZero" min="0"/>
 
 									</section>
+									<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
 								</section>
 
 						<section class="row" id="tr_63">
 									<section class="left">
 										14h. Suction apparatus for use with catheter
 									</section>
-									<input type="hidden"  name="q14equipCode_85" id="q14equipCode_85" value="EQP87" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14jYA_63" id="q14jYA_63">
+										<select class="cloned left-combo" name="q14equipAvailability_63" id="q14equipAvailability_63">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14hNumbera_63" id="q14hNumbera_63" min="0" />
+										<input name="q14equipAQty_63" type="number" class="cloned fromZero" min="0"/>
 									</section>
 									<section class="right">
-										<select name="q14jFunctioning_63" id="q14jFunctioning_63">
+										<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
 											<option value="" selected="selected">Select One</option>
 											<option> Yes </option>
 											<option> No </option>
 											<option> Do Not Know </option>
 										</select>
 
-										<input type="number" class="cloned fromZero" name="q14hNumberb_1" id="q14hNumberb_1" min="0" />
+										<input name="q14equipFQty_63" type="number" class="cloned fromZero" min="0"/>
 									</section>
+									<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
 								</section>
-
 
 								<section class="row" id="tr_64">
 									<section class="left">
 										14i. A flat, clean, dry and warm newborn resuscitation surface
 									</section>
-									<input type="hidden"  name="q14equipCode_86" id="q14equipCode_86" value="EQP88" />
 
 									<section class="center">
-										<select class="cloned left-combo" name="q14iYA_64" id="q14iYA_64">
+										<select class="cloned left-combo" name="q14equipAvailability_64" id="q14equipAvailability_64">
+											<option value="" selected="selected">Select One</option>
 											<option>Yes </option>
 											<option>No </option>
 										</select>
 
 									</section>
-
+									<input type="hidden"  name="q14equipCode_64" id="q14equipCode_64" value="EQP88" />
 								</section>
 
 
@@ -3952,10 +3960,9 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										14j. Disposable cord ties or clamps
 									</section>
-									<input type="hidden"  name="q14equipCode_87" id="q14equipCode_87" value="EQP89" />
-
+									
 									<section class="center">
-										<select class="cloned left-combo" name="q14jDisposableCord_65" id="q14jDisposableCord_65">
+										<select class="cloned left-combo" name="q14equipAvailability_65" id="q14equipAvailability_65">
 											<option>Select One</option>
 											<option>Yes</option>
 											<option>No</option>
@@ -3963,13 +3970,15 @@ class C_Load extends MY_Controller {
 
 									</section>
 									<section class="right">
-										<select name="q14jNumber_65" id="q14jFunctioning_65" min="0" >
+										<select name="q14equipFunctioning_65" id="q14equipFunctioning_65" class="cloned">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
 									</section>
+									<input type="hidden"  name="q14equipCode_65" id="q14equipCode_65" value="EQP89" />
 								</section>
 
 
@@ -3977,10 +3986,11 @@ class C_Load extends MY_Controller {
 									<section class="left">
 										14k. Clean and warm towels/cloths for drying / warming / wrapping baby
 									</section>
-									<input type="hidden"  name="q14equipCode_88" id="q14equipCode_88" value="EQP90" />
+									
 
 									<section class="center">
-										<select class="cloned left-combo" name="q14kCleanTowels_66" id="q14kCleanTowels_66">
+										<select class="cloned left-combo" name="q14equipAvailability_66" id="q14equipAvailability_66">
+											<option value="" selected="selected">Select One</option>
 											<option>Select One</option>
 											<option>Yes</option>
 											<option>No</option>
@@ -3989,14 +3999,17 @@ class C_Load extends MY_Controller {
 
 									</section>
 									<section class="right">
-										<select name="q14kFunctioning_66" id="q14kFunctioning_66">
+										<select name="q14equipFunctioning_66" id="q14equipFunctioning_66" class="cloned">
+											<option value="" selected="selected">Select One</option>
 											<option>Always Available</option>
 											<option>Sometimes Available</option>
 											<option>Never Available</option>
 										</select>
 
 									</section>
+									<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
 								</section>
+								</section> <!--close section tableEquipmentList_3-->
 
 								<section class="row-title">
 									<section class="left">
@@ -4077,7 +4090,10 @@ class C_Load extends MY_Controller {
 											</section>
 										</section>
 
-
+									<section id="tableEquipmentList_4">
+							    	<section class="row2">
+							    	<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
+							    	</section>
 										<section class="row" id="tr_67">
 										<section class="left">
 											18a. Operating Table
@@ -4611,7 +4627,9 @@ class C_Load extends MY_Controller {
 											
 											<input type="number" class="cloned fromZero" />
 										</section>
+										</section> <!--close section tableEquipmentList_4-->
 									</section>
+									
 									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 								</section>
 							</section>

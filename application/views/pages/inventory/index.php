@@ -150,6 +150,7 @@ $mfCode = $this -> session -> userdata('fCode');
 					
 					if(form_id=="#form_mnh_assessment"){
 						$("#q11equipCode_28").val($("#q1_1_equipCode_28").val());
+				
 					}
 
 					$(form_id).submit();
