@@ -817,7 +817,7 @@ class M_MNH_Assessment  extends MY_Model {
 				   $this->attr = $this->frags[0];//the attribute name
 				 
 				
-				print $key.' ='.$val.' <br />';
+				//print $key.' ='.$val.' <br />';
 				
 				
 				     //mark the end of 1 row...for record count
@@ -827,12 +827,17 @@ class M_MNH_Assessment  extends MY_Model {
 					$finalCount=$count;
 					 $count++;
 					//print 'count at:'.$count.'<br />';
-					// print 'final count at:'.$finalCount.'<br />';
+					//print 'final count at:'.$finalCount.'<br />';
 					//print 'DOM: '.$key.' Attr: '.$this->attr.' val='.$val.' id='.$this->id.' <br />';
 				}
 				  
 				  //collect key and value to an array
 				 if (!empty($val)) {
+				 	/*the glove sizes are posted as an array, so implode to convert to a coma separated string*/
+					if(is_array($val)){
+						//$val=$this -> input -> post('lndq6bSkilledProviders',TRUE);
+			     	    $val=implode(',',$val);
+					}
 					//We then store the value of this attribute for this element.
 					 $this->elements[$this->id][$this->attr]=htmlentities($val);
 					
@@ -851,7 +856,7 @@ class M_MNH_Assessment  extends MY_Model {
 				//print 'element name:'.$value['q11equipCode'].'<br />';
 			//}
 			
-			exit;
+			//exit;
 		    
 		          //get the highest value of the array that will control the number of inserts to be done
 				  $this->noOfInsertsBatch=$finalCount;
@@ -863,7 +868,7 @@ class M_MNH_Assessment  extends MY_Model {
 			   $this -> theForm = new \models\Entities\E_MNH_Equipment_Assessment(); //create an object of the model
 			 
 				
-				$this -> theForm -> setEquipmentCode($this->elements[$i]['q14equipCode']);
+				$this -> theForm -> setEquipmentCode($this->elements[$i]['q18equipCode']);
 				$this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));
 				
 				//check if that key exists, else set it to some default value
@@ -871,8 +876,8 @@ class M_MNH_Assessment  extends MY_Model {
 				(isset($this->elements[$i]['q18equipAQty']))?$this -> theForm -> setQuantityAvailable($this->elements[$i]['q18equipAQty']):$this -> theForm -> setQuantityAvailable(-1);;
 				(isset($this->elements[$i]['q18equipFunctioning']))?$this -> theForm -> setFunctioning($this->elements[$i]['q18equipFunctioning']):$this -> theForm -> setFunctioning('N/A');
 				(isset($this->elements[$i]['q18equipFQty']))?$this -> theForm -> setQuantityFunctioning($this->elements[$i]['q18equipFQty']):$this -> theForm -> setQuantityFunctioning(-1);
-				//(isset($this->elements[$i]['q14equipAType']))?$this -> theForm -> setEquipmentType($this->elements[$i]['q14equipAType']):$this -> theForm -> setEquipmentType('N/A');
-				$this -> theForm -> setEquipmentType('N/A');
+				(isset($this->elements[$i]['q18equipAType']))?$this -> theForm -> setEquipmentType($this->elements[$i]['q18equipAType']):$this -> theForm -> setEquipmentType('N/A');
+				//$this -> theForm -> setEquipmentType('N/A');
 				$this -> theForm -> setQuestionSection('Qn-18');
 				$this -> theForm -> setDateOfAssessment(new DateTime());
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/

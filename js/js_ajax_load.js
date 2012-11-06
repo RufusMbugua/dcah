@@ -75,7 +75,7 @@ $().ready(function(){
 	}); /*end of zinc_ors_inventory*/
 	
 	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
-	$("#form_mnh_assessment1").validate({/*inventory module*/
+	$("#form_mnh_assessment").validate({/*inventory module*/
 		rules: {
 			facilityDateOfInventory:{required: true},
 			facilityName:{required: true},
@@ -91,7 +91,7 @@ $().ready(function(){
 			facilityAltTelephone:{required:false},
 			facilityEmail:{required: true,email:true},
 
-			'sterileGloveSizes[]':{required:true},
+			'q18equipAType_81[]':{required:true},
 			'q6bSkilledProviders[]':{required:true,},
 
 			ortDehydrationLocation:{minlength:1}
@@ -110,7 +110,7 @@ $().ready(function(){
 			facilityAltTelephone:{required:"*Required"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
 
-			'sterileGloveSizes[]':{required:"Select at least 1 type of size"},
+			'q18equipAType_81[]':{required:"Select at least 1 type of size"},
 			'q6bSkilledProviders[]':{required:"Select at least 1 skilled provider"},
 
 			ortDehydrationLocation:{minlength:"*Required"}
@@ -1421,6 +1421,17 @@ function log() {
 						}
 					}//for enabling/disabling rows
 					} //close if($(this).attr('class')=='cloned left-combo')
+					
+					//hide or show qn18 on facility's level
+					$('#facilityLevel').change(function(){
+						if($(this).val()<3){
+						$('hide-level').find('input,select[class="cloned"]').prop('disabled', true);
+						$('hide-level').hide();
+						}else{
+						$('hide-level').show();	
+						$('hide-level').find('input,select[class="cloned"]').prop('disabled', false);
+						}
+					});
 					
 					
 					
