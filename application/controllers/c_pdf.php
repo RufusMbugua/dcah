@@ -7,23 +7,23 @@ class C_Pdf extends MY_Controller {
 		$this -> mpdf -> Output();
 	}
 
+	public function generatePDF() {
+
+	}
+
 	public function child_health_assessment() {
-		$stylesheet = file_get_contents(base_url().'css/styles.css');
+		//$stylesheet = file_get_contents(base_url().'css/styles.css');
 		//$html= $this->load->view('form_child_health');
+		$html = $this ->load->view('form_child_health');
 		$this -> load -> library('mpdf');
-		
-		$this -> mpdf -> WriteHTML($stylesheet,1);
-		$this -> mpdf -> WriteHTML('
-			<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-
-	<h3 align="center"> Commodities Assessment </h3>
-	<p style="text-align: center;color:#872300">
-		Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the following units
-
-	</p>
-		
-		',2);
-		$this -> mpdf -> Output();
+		$this -> mpdf = new mPDF('', 'A4-L', 0, '', 15, 15, 16, 16, 9, 9, '');
+		$this -> mpdf -> SetTitle('Test');
+		$this -> mpdf -> WriteHTML('Test PDF');
+		$this -> mpdf -> simpleTables = true;
+		$this -> mpdf -> WriteHTML('<br/>');
+		$this -> mpdf -> WriteHTML($html);
+		$report_name = 'Test' . ".pdf";
+		$this -> mpdf -> Output($report_name, 'D');
 
 	}
 
