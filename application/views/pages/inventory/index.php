@@ -13,7 +13,7 @@ $mfCode = $this -> session -> userdata('fCode');
 		<!-- Attach CSS files -->
 		<link rel="stylesheet" href="<?php echo base_url()?>css/styles.css"/>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="<?php echo base_url()?>js/modernizr-latest.js"></script>
+		
 		
 		
 		<!-- Attach JavaScript files -->
@@ -209,7 +209,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				//delegate events
 				
 				//if(loaded==false)
-				loadGlobalScript();renderFacilityInfo();
+				loadGlobalScript();renderFacilityInfo();break_form_to_steps(form_id);
 				$( "#tabs" ).tabs();
 				//alert('done');
 				
@@ -268,8 +268,35 @@ $mfCode = $this -> session -> userdata('fCode');
 						}
 						/*end of ajax data requests*/
 						/*-----------------------------------------------------------------------------------------------------------------*/
+						
+						
+						
+						
 
 						}); /*close document ready*/
+						
+					
+						function break_form_to_steps(form_id){
+							//form_id='#zinc_ors_inventory';
+						   //alert(form_id);	
+								$(form_id).formwizard({ 
+								 	formPluginEnabled: true,
+								 	validationEnabled: true,
+								 	focusFirstInput : true,
+								 	formOptions :{
+										success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("You are now registered!").fadeTo(5000, 0); })},
+										beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data));},
+										dataType: 'json',
+										resetForm: true
+								 	}
+								 });
+							
+							var remoteAjax = {}; // empty options object*/
+				
+						
+				  	}
+						/*---------------------end form wizard functions----------------------------------------------------------------*/
+						
 		</script>
 	</head>
 	<body>
@@ -280,13 +307,14 @@ $mfCode = $this -> session -> userdata('fCode');
 		
 	
 		
-		<section class="form-sidebar">
+		<!--section class="form-sidebar">
 				<h3>Actions</h3>
 				<section class="buttons">					
 				<a title="To clear entire form" id="reset_current_form" class="awesome magenta medium">Save</a>
 				<a title="To Save entered info" id="submit_form_data" class="awesome blue medium">Submit</a>
-				<a title="To close the form." id="close_opened_form" class="awesome red medium">Close</a></section>
-		</section><!-- End of Form-SideBar -->
+				<a title="To close the form." id="close_opened_form" class="awesome red medium">Close</a>
+				</section>
+		</section--><!-- End of Form-SideBar -->
 		
 		<section class="current-body">
 			<nav id="pageheader" >
@@ -318,13 +346,13 @@ $mfCode = $this -> session -> userdata('fCode');
 						
 						<li><a id="instructions_li" class="awesome blue large" style="font-size:1em;display:inline-block">Instructions</a></li>
 						
-						<li><a id="facility_registration_li" class="awesome blue large" style="font-size:1em;display:inline-block">Facility Registration</a></li>
+						<!--li><a id="facility_registration_li" class="awesome blue large" style="font-size:1em;display:inline-block">Facility Registration</a></li-->
 
 						<li><a id="zinc_inventory_li" class="awesome blue large" style="font-size:1em;display:inline-block">Child Health Commodity Assessment</a></li>
 
 						<li><a id="mnh_inventory_li" class="awesome blue large" style="font-size:1em;display:inline-block">Maternal and New-born Health Assessment</a></li>
 						
-						<li><a id="ort_li" class="awesome blue large" style="font-size:1em;display:inline-block">ORT Corner Assessment</a></li>
+						<!--li><a id="ort_li" class="awesome blue large" style="font-size:1em;display:inline-block">ORT Corner Assessment</a></li-->
 					</ul>
 				</section>					
 				<section class="form-container ui-widget">
@@ -340,6 +368,8 @@ $mfCode = $this -> session -> userdata('fCode');
 				</div>
 				<a class="close-reveal-modal">&#215;</a>
 			</div>
+			<!--begin form wizard functions-->
+						
 		</body>
 		</html>
         <?php ob_end_flush(); ?>
