@@ -1,5 +1,8 @@
-<html>
+<html class="no-js">
 	<head>
+
+		<script href="<?php echo base_url(); ?>js/html5shiv.js"></script>
+		<script href="<?php echo base_url(); ?>js/modernizr-latest.js"></script>
 		<link href="<?php echo base_url(); ?>css/layout.css" rel="stylesheet" type="text/css" />
 		<!-- -->
 		<!-- Attach CSS files -->

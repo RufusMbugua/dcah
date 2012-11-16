@@ -9,6 +9,7 @@ $mfCode = $this -> session -> userdata('fCode');
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>DCAH::Inventory</title>
 		<!-- -->
+		<script href="<?php echo base_url(); ?>js/modernizr-latest.js"></script>
 		<!-- Attach CSS files -->
 		<link rel="stylesheet" href="<?php echo base_url()?>css/styles.css"/>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
