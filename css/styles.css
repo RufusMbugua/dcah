@@ -1519,7 +1519,8 @@ form input, form textarea {
 }
 input[type=radio] {
 	display: inline-block;
-	width: 10%;
+	float:right;
+
 }
 input[type=number], select{
 	display:inline-block;
