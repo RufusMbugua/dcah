@@ -3233,6 +3233,8 @@ function log() {
 				/*----------------------------------------------------------------------------------------------------------------*/
 				
 				
+				
+				
 });/*end of parent document ready function*/
 /*---------------------------end of global_functions.js------------------------------------------------------------------------------------------------------------------*/
 
@@ -3253,7 +3255,7 @@ $().ready(function(){
 			    //start of close_opened_form click event
 				$("#close_opened_form").click(function() {
 
-				$(".form-container").load('<?php echo base_url() . 'c_front/formviewer'; ?>',function(){
+				$(".form-container").load('<?php echo base_url() . 'c_front/formviewer',function(){
 
 					//delegate events
 					loadGlobalScript();
