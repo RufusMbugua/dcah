@@ -1,21 +1,21 @@
-<section class="banner">
-			<section class="logo">
+<div class="banner">
+			<div class="logo">
 				<img src="<?php echo base_url(); ?>images/coat_of_arms-resized.png" />
 
-			</section>
-			<section class="credentials">
-				<section class="title">
+			</div>
+			<div class="credentials">
+				<div class="title">
 					Ministry Of Public Health and Sanitation
-				</section>
-				<section class="subtitle">
+				</div>
+				<div class="subtitle">
 					Department of Family Health<p></p>
-				</section>
-				<section class="division">
+				</div>
+				<div class="division">
 					Division of Child and Adolescent Health (DCAH)<p></p><p></p>
-				</section>
-			</section>
-			<section class="date">
+				</div>
+			</div>
+			<div class="date">
 				
 				 <?php echo date("l F d, Y"); ?>
-			</section>
-		</section>
+			</div>
+		</div>
