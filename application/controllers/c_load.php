@@ -2180,11 +2180,8 @@ class C_Load extends MY_Controller {
 	
 	public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
-		$form_mnh_assessment.= '<h5 id="status"></h5>
-		<form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment' . '" >
-		
-		
-		<form name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
+		$form_mnh_assessment.= '
+     <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment11' . '" >
 	<!-- form for collecting inventory status information -->
 
     <!-- begin facility  section --->
@@ -2398,7 +2395,7 @@ class C_Load extends MY_Controller {
 	<h3 align="center">Diarrhoea Morbidity Data </h3>
 	<section class="row2">
 	<section class="left">
-	<lable>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
+	<label>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
 	</section>
 	<section class="center">
 	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
@@ -2511,7 +2508,8 @@ class C_Load extends MY_Controller {
 				</section>
 
 			</section>
-			
+			</section>
+			</section>
 	       </div>
            <!--end emonc section-->
            
@@ -2977,7 +2975,7 @@ class C_Load extends MY_Controller {
 							<section class="center">
 
 								<select class="cloned left-combo" name="q9equipAvailability_16" id="q9equipAvailability_16">
-									<option value="" selected="Selected">Select One</option>
+									<option value="" selected="selected">Select One</option>
 
 									<option>Always Available</option>
 									<option>Sometimes Available</option>
@@ -2999,6 +2997,7 @@ class C_Load extends MY_Controller {
 						</section>
 					
 					</section> <!--close editTable-->
+					</section>
 					
 		   			</div>
 		   			<!--end delivery place description section-->
@@ -3123,12 +3122,14 @@ class C_Load extends MY_Controller {
 								<input type="hidden"  name="q10equipCode_9" id="q10equipCode_9" value="EQP55" />
 
 							</section>
+							</section>
 							</div>
 							<!--end delivery kit contents section-->
 					
 							
 							<!--begin other equipments section-->
-							<div id="other_equip_sec class="step">
+							<div id="other_equip_sec" class="step">
+							<section class="column-wide">
 							<section class="row-title">
 								<section class="left">
 									<label class="dcah-label">11. Other Equipment and supplies</label>
@@ -3710,6 +3711,7 @@ class C_Load extends MY_Controller {
 								</section>
 							
 							</section> <!--close editList_2-->
+							</section> <!--close section wide-->
 							
 							</div><!--end other equipments section-->
 							
@@ -4054,11 +4056,12 @@ class C_Load extends MY_Controller {
 									</section>
 
 								</section>
+								</section>
 								 
 							   </div><!--end medications in the maternity/labour ward section -->
 
 								<!--begin newborn care section-->
-								<div id="nbc_section" class="step">
+								<div id="nbc_section_1" class="step">
 								<h3>New-Born Care</h3>
 								<section class="row">
 									<section class="row-title">
@@ -4082,6 +4085,12 @@ class C_Load extends MY_Controller {
 										<option> No </option>
 									</select>
 								</section>
+								
+								</div> <!--end of new born care section 1-->
+								
+								<!--begin new born care section 2-->
+								<div id="nbc_section_2" class="step">
+								<section class="column-wide">
 
 								<section class="row-title">
 									<section class="left">
@@ -4101,9 +4110,9 @@ class C_Load extends MY_Controller {
 								</section>
 
 
-							<section id="tableEquipmentList_3">
+							<section id="tableEquipmentList_3a">
 					    	<section class="row2">
-					    	<input type="button" id="editEquipmentListTopButton_3" name="editEquipmentListTopButton_3" class="awesome myblue medium" value="Edit List"/>
+					    	<input type="button" id="editEquipmentListTopButton_3a" name="editEquipmentListTopButton_3a" class="awesome myblue medium" value="Edit List"/>
 					    	</section>
 								<section class="row" id="tr_54">
 									<section class="left">
@@ -4187,14 +4196,40 @@ class C_Load extends MY_Controller {
 									</section>
 									<input type="hidden"  name="q14equipCode_57" id="q14equipCode_57" value="EQP81" />
 								</section>
-								
-								</div><!--end newborn care section-->
+							</section><!--close the tableEquipmentList_3a section -->
+							</section> <!--end section column-wide -->
+								</div><!--end new born care section 2-->
 								
 								<!--begin neonatal unit section-->
 								<div id="neonatal_unit" class="step">
+								<section class="column-wide">
+								
+								
 								<section class="row">
 									<h3> Neonatal Unit</h3>
 								</section>
+								
+								<section class="row-title">
+									<section class="left">
+										<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
+									</section>
+									<section class="center">
+										<label class="dcah-label" style="width:45%">Availability (A)</label>
+										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+									</section>
+									<section class="center">
+										<label class="dcah-label" style="width:45%">Functioning (b)</label>
+										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+									</section>
+									<section class="center">
+
+									</section>
+								</section>
+								
+								<section id="tableEquipmentList_3b">
+						    	<section class="row2">
+						    	<input type="button" id="editEquipmentListTopButton_3b" class="awesome myblue medium" value="Edit List"/>
+						    	</section>
 
 								<section class="row" id="tr_58">
 									<section class="left">
@@ -4417,8 +4452,17 @@ class C_Load extends MY_Controller {
 									</section>
 									<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
 								</section>
-								</section> <!--close section tableEquipmentList_3-->
+								</section> <!--close section tableEquipmentList_3b-->
 
+								</section> <!--close section column-wide -->
+								</div>
+								<!--end neonatal unit section-->
+
+								<!--begin blood transfusion section-->
+								<div id="blood_transfusion" class="step">
+								<section class="column-wide">
+								<h3>Blood Transfusion Services Assessment</h3>
+								
 								<section class="row-title">
 									<section class="left">
 										<label class="dcah-label">QUESTION</label>
@@ -4428,11 +4472,6 @@ class C_Load extends MY_Controller {
 									</section>
 								</section>
 								
-								</div>
-								<!--end neonatal unit section-->
-
-								<!--begin blood transfusion section-->
-								<div id="blood_transfusion" class="step">
 								<section class="row">
 									<section class="left">
 										15. Does this facility perform blood transfusions?
@@ -4483,13 +4522,14 @@ class C_Load extends MY_Controller {
 										</section>
 									</section>
 								</section>
-								
+								</section> <!--close section column-wide -->
 								</div>
 								<!--end blood transfusion section-->
 								
 								<!--begin level-4-and-above-->
-								<div id="level_4_above class="submit">
-								<section class="hide-level" style="display: true">
+								<div id="level_4_above" class="step">
+								<section class="column-wide">
+								<section class="hide-level">
 									<section class="row">
 										<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
 									</section>
@@ -5065,6 +5105,7 @@ class C_Load extends MY_Controller {
 									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 								</section>
 							</section><!--close section level-hide-->
+							</section><!--close section column-wide-->
 						</div>
 						<!--end level-4-and-above-->
 						 <section class="buttons">					
