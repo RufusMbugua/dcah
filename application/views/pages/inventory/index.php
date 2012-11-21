@@ -290,6 +290,11 @@ $mfCode = $this -> session -> userdata('fCode');
 										resetForm: true
 								 	}
 								 });
+								 
+								 //try remove this class as it makes the ui look nasty
+								//alert(form_id);
+								//'#facility_section'
+								$(form_id).find('input,select,radio,label[class="dcah-label"]').removeClass('ui-helper-reset ui-formwizard-content ui-wizard-content ui-state-default');
 							
 							var remoteAjax = {}; // empty options object*/
 				

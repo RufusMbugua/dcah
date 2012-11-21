@@ -1425,7 +1425,7 @@ form input:not([type=submit]), form textarea {
 .column, .column-wide {
 	position: relative;
 	padding: 0 20px 10px 10px;
-	display: inline-block;
+	display: block;
 	float: left;
 	height: auto;
 	margin-bottom: 5px;
@@ -1435,8 +1435,11 @@ form input:not([type=submit]), form textarea {
 	display: inline-block;
 }
 .block {
-	border-bottom: 2px solid #999999;
+	
 	margin-bottom: 5px;
+	width:95%;
+	margin:auto;
+	display:block;
 }
 .block .column:first-child {
 	border-right: 2px solid #999999;
@@ -1445,7 +1448,7 @@ form input:not([type=submit]), form textarea {
 	width: 24%;
 }
 .column {
-	width: 45%;
+	width: 47%;
 }
 .column-wide {
 	width: 99%;

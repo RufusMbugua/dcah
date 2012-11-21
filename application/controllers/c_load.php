@@ -2180,11 +2180,8 @@ class C_Load extends MY_Controller {
 	
 	public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
-		$form_mnh_assessment.= '<h5 id="status"></h5>
-		<form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment' . '" >
-		
-		
-		<form name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
+		$form_mnh_assessment.= '
+     <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment11' . '" >
 	<!-- form for collecting inventory status information -->
 
     <!-- begin facility  div --->
@@ -2396,11 +2393,13 @@ class C_Load extends MY_Controller {
 	<!--begin diarrhoiea morbidity factor div-->
 	<div id="diarrhoea_cases" class="step">
 	<h3 align="center">Diarrhoea Morbidity Data </h3>
+
 	<div class="row2">
 	<div class="left">
-	<lable>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
+	<label>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
 	</div>
 	<div class="center">
+
 	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
 	</div>
 	</div>
@@ -2510,8 +2509,11 @@ class C_Load extends MY_Controller {
 
 				</div>
 
+
 			</div>
-			
+			</div>
+			</div>
+
 	       </div>
            <!--end emonc div-->
            
@@ -2977,7 +2979,7 @@ class C_Load extends MY_Controller {
 							<div class="center">
 
 								<select class="cloned left-combo" name="q9equipAvailability_16" id="q9equipAvailability_16">
-									<option value="" selected="Selected">Select One</option>
+									<option value="" selected="selected">Select One</option>
 
 									<option>Always Available</option>
 									<option>Sometimes Available</option>
@@ -2998,7 +3000,10 @@ class C_Load extends MY_Controller {
 						<input type="hidden"  name="q9equipCode_16" id="q9equipCode_16" value="EQP46" />
 						</div>
 					
+
 					</div> <!--close editTable-->
+					</div>
+
 					
 		   			</div>
 		   			<!--end delivery place description div-->
@@ -3122,15 +3127,22 @@ class C_Load extends MY_Controller {
 								</div>
 								<input type="hidden"  name="q10equipCode_9" id="q10equipCode_9" value="EQP55" />
 
+
+							</div>
+							</div>
+
 							</div>
 							</div>
 							<!--end delivery kit contents div-->
 					
 							
+
 							<!--begin other equipments div-->
-							<div id="other_equip_sec class="step">
+							<div id="other_equip_sec" class="step">
+							<div class="column-wide">
 							<div class="row-title">
 								<div class="left">
+
 									<label class="dcah-label">11. Other Equipment and supplies</label>
 								</div>
 								<div class="center">
@@ -3709,7 +3721,10 @@ class C_Load extends MY_Controller {
 										<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
 								</div>
 							
+
 							</div> <!--close editList_2-->
+							</div> <!--close div wide-->
+
 							
 							</div><!--end other equipments div-->
 							
@@ -4053,12 +4068,17 @@ class C_Load extends MY_Controller {
 										<input name="q12equipAQty_17" type="number" class="cloned fromZero" min="0"/>
 									</div>
 
+
 								</div>
+								</div>
+
 								 
 							   </div><!--end medications in the maternity/labour ward div -->
 
+
 								<!--begin newborn care div-->
-								<div id="nbc_div" class="step">
+								<div id="nbc_div_1" class="step">
+
 								<h3>New-Born Care</h3>
 								<div class="row">
 									<div class="row-title">
@@ -4081,7 +4101,15 @@ class C_Load extends MY_Controller {
 										<option> Yes </option>
 										<option> No </option>
 									</select>
+
 								</div>
+								
+								</div> <!--end of new born care div 1-->
+								
+								<!--begin new born care div 2-->
+								<div id="nbc_div_2" class="step">
+								<div class="column-wide">
+
 
 								<div class="row-title">
 									<div class="left">
@@ -4101,12 +4129,14 @@ class C_Load extends MY_Controller {
 								</div>
 
 
-							<div id="tableEquipmentList_3">
+
+							<div id="tableEquipmentList_3a">
 					    	<div class="row2">
-					    	<input type="button" id="editEquipmentListTopButton_3" name="editEquipmentListTopButton_3" class="awesome myblue medium" value="Edit List"/>
+					    	<input type="button" id="editEquipmentListTopButton_3a" name="editEquipmentListTopButton_3a" class="awesome myblue medium" value="Edit List"/>
 					    	</div>
 								<div class="row" id="tr_54">
 									<div class="left">
+
 										14a. Self inflating Neonatal Ambu bag ( 500 mls)
 									</div>
 									<div class="center">
@@ -4186,15 +4216,45 @@ class C_Load extends MY_Controller {
 
 									</div>
 									<input type="hidden"  name="q14equipCode_57" id="q14equipCode_57" value="EQP81" />
+
 								</div>
-								
-								</div><!--end newborn care div-->
+							</div><!--close the tableEquipmentList_3a div -->
+							</div> <!--end div column-wide -->
+								</div><!--end new born care div 2-->
+
 								
 								<!--begin neonatal unit div-->
 								<div id="neonatal_unit" class="step">
+
+								<div class="column-wide">
+								
+								
 								<div class="row">
 									<h3> Neonatal Unit</h3>
 								</div>
+								
+								<div class="row-title">
+									<div class="left">
+										<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
+									</div>
+									<div class="center">
+										<label class="dcah-label" style="width:45%">Availability (A)</label>
+										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+									</div>
+									<div class="center">
+										<label class="dcah-label" style="width:45%">Functioning (b)</label>
+										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+									</div>
+									<div class="center">
+
+									</div>
+								</div>
+								
+								<div id="tableEquipmentList_3b">
+						    	<div class="row2">
+						    	<input type="button" id="editEquipmentListTopButton_3b" class="awesome myblue medium" value="Edit List"/>
+						    	</div>
+
 
 								<div class="row" id="tr_58">
 									<div class="left">
@@ -4416,11 +4476,22 @@ class C_Load extends MY_Controller {
 
 									</div>
 									<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
-								</div>
-								</div> <!--close div tableEquipmentList_3-->
 
+								</div>
+								</div> <!--close div tableEquipmentList_3b-->
+
+								</div> <!--close div column-wide -->
+								</div>
+								<!--end neonatal unit div-->
+
+								<!--begin blood transfusion div-->
+								<div id="blood_transfusion" class="step">
+								<div class="column-wide">
+								<h3>Blood Transfusion Services Assessment</h3>
+								
 								<div class="row-title">
 									<div class="left">
+
 										<label class="dcah-label">QUESTION</label>
 									</div>
 									<div class="center">
@@ -4428,13 +4499,10 @@ class C_Load extends MY_Controller {
 									</div>
 								</div>
 								
-								</div>
-								<!--end neonatal unit div-->
 
-								<!--begin blood transfusion div-->
-								<div id="blood_transfusion" class="step">
 								<div class="row">
 									<div class="left">
+
 										15. Does this facility perform blood transfusions?
 									</div>
 									<div class="center">
@@ -4479,17 +4547,21 @@ class C_Load extends MY_Controller {
 
 												<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
 
+
 											</div>
 										</div>
 									</div>
 								</div>
-								
+								</div> <!--close div column-wide -->
+
 								</div>
 								<!--end blood transfusion div-->
 								
 								<!--begin level-4-and-above-->
-								<div id="level_4_above class="submit">
-								<div class="hide-level" style="display: true">
+
+								<div id="level_4_above" class="step">
+								<div class="column-wide">
+								<div class="hide-level">
 									<div class="row">
 										<h3>Complete this div for Level 4, 5 and 6 Facilities</h3>
 									</div>
@@ -4497,6 +4569,7 @@ class C_Load extends MY_Controller {
 									<div class="row">
 										<div class="row-title">
 											<div class="left">
+
 												<label class="dcah-label">Supply/Equipment</label>
 											</div>
 											<div class="center">
@@ -5063,8 +5136,11 @@ class C_Load extends MY_Controller {
 									</div>
 									
 									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+
 								</div>
 							</div><!--close div level-hide-->
+							</div><!--close div column-wide-->
+
 						</div>
 						<!--end level-4-and-above-->
 						 <div class="buttons">					
