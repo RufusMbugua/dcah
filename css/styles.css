@@ -1434,8 +1434,7 @@ form input:not([type=submit]), form textarea {
 	width: 33%;
 	display: inline-block;
 }
-.block {
-	
+.block {	
 	margin-bottom: 5px;
 	width:95%;
 	margin:auto;
