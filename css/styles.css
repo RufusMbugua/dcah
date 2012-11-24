@@ -1423,9 +1423,8 @@ form input:not([type=submit]), form textarea {
 @import url('fonts.css');
 /* Columns*/
 .column, .column-wide {
-	position: relative;
 	padding: 0 20px 10px 10px;
-	display: block;
+	
 	float: left;
 	height: auto;
 	margin-bottom: 5px;
@@ -1448,6 +1447,9 @@ form input:not([type=submit]), form textarea {
 }
 .column {
 	width: 47%;
+	margin-bottom:2%;
+	display:inline-block;
+	
 }
 .column-wide {
 	width: 99%;
@@ -1494,7 +1496,6 @@ form input:not([type=submit]), form textarea {
 	clear: all;
 	width: 50%;
 	height: 100%;
-	float: right;
 }
 .left-wide {
 	width: 45%;
@@ -1545,7 +1546,10 @@ input[type=number], select{
 }
 select{
 	float:left;
-	
+	padding:1px;	
+}
+option{
+	width:100%;
 }
 input[type=number]{
 	float:right;

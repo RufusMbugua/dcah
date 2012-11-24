@@ -173,7 +173,7 @@ class C_Load extends MY_Controller {
 			</div>
 
 		</div>
-		<div class="column" style="margin-bottom:30px">
+		<div class="column">
 			<div class="row-title">
 				In Charge Contact Information
 			</div>
@@ -2532,10 +2532,9 @@ class C_Load extends MY_Controller {
 					<select name="lndq8DeliveryRoom" id="lndq8DeliveryRoom" class="cloned">
 
 						<option value="" selected="selected">Select One</option>
-						<option>private room, visual &amp; auditory privacy</option>
-						<option>non-private room, visual &amp; auditory privacy</option>
-						<option>visual privacy only</option>
-						<option>no privacy</option>
+						<option>Private Room (accomodates one client)</option>
+						<option>Partitioned Shared Room</option>
+						<option>Non-Partitioned Shared Room</option>
 					</select>
 				</div>
 
@@ -3016,7 +3015,7 @@ class C_Load extends MY_Controller {
 
 							<div class="row-title">
 								<div class="left">
-									<label class="dcah-label">10. Indicate the quantities of the contents of the Delivery Kits available in this facility</label>
+									<label class="dcah-label">10. Indicate the quantities available of the following delivery instruments</label>
 								</div>
 								<div class="center">
 									<label class="dcah-label" style="float:right;width:45%">Quantity</label>
@@ -3746,7 +3745,7 @@ class C_Load extends MY_Controller {
 
 								<div class="row" id="tr_37">
 									<div class="left">
-										12a.i. Injectable-Oxytocin
+										12a.i. Injectable-Oxytocin(or Injectable-Syntocin)
 									</div>
 									<input type="hidden"  name="q12mnhCommodityName_1" id="q12mnhCommodityName_1" value="Injectable-Oxytocin" />
 
@@ -3763,7 +3762,7 @@ class C_Load extends MY_Controller {
 
 								</div>
 
-								<div class="row" id="tr_39">
+								<!--div class="row" id="tr_39">
 									<div class="left">
 										12a.ii. Injectable-Syntocin
 									</div>
@@ -3781,12 +3780,12 @@ class C_Load extends MY_Controller {
 
 									</div>
 
-								</div>
+								</div-->
 
 
 								<div class="row" id="tr_40">
 									<div class="left">
-										12b.i. Indicate the available Intravenous solutions
+										12b.i. Indicate the available Intravenous fluids
 									</div>
 									
 									<div class="center">
@@ -3822,7 +3821,7 @@ class C_Load extends MY_Controller {
 								</div>
 
 
-								<div class="row" id="tr_42">
+								<!--div class="row" id="tr_42">
 									<div class="left">
 										12c. Injectable methergine
 									</div>
@@ -3838,12 +3837,12 @@ class C_Load extends MY_Controller {
 										<input name="q12equipAQty_5" type="number" class="cloned fromZero" min="0"/>
 									</div>
 
-								</div>
+								</div-->
 
 
 								<div class="row" id="tr_43i">
 									<div class="left">
-										12di. Injectable Hydralazine
+										12di. Injectable Hydralazine/Apresoline
 									</div>
 									<input type="hidden"  name="q12mnhCommodityName_6" id="q12mnhCommodityName_6" value="Injectable Hydralazine"/>
 
@@ -3859,7 +3858,7 @@ class C_Load extends MY_Controller {
 									</div>
 
 								</div>
-								<div class="row" id="tr_43ii">
+								<!--div class="row" id="tr_43ii">
 									<div class="left">
 										12dii. Injectable Apresoline
 									</div>
@@ -3876,7 +3875,7 @@ class C_Load extends MY_Controller {
 										<input name="q12equipAQty_7" type="number" class="cloned fromZero" min="0"/>
 									</div>
 
-								</div>
+								</div-->
 
 
 								<div class="row" id="tr_44">
@@ -3919,7 +3918,7 @@ class C_Load extends MY_Controller {
 
 								<div class="row" id="tr_46">
 									<div class="left">
-										12g. Injectable amoxicillin or ampicillin
+										12g. Injectable penicillin
 										
 									</div>
 									<input type="hidden"  name="q12mnhCommodityName_10" id="q12mnhCommodityName_10" value="Injectable amoxicillin/ampicillin"/>
@@ -4525,9 +4524,9 @@ class C_Load extends MY_Controller {
 									</div>
 								</div>
 
-								<div class="row">
+								<!--div class="row">
 									<div class="left">
-										16. Does this facility ever perform caesarean divs?
+										16. Does this facility ever perform caesarean section?
 									</div>
 									<div class="center">
 
@@ -4540,7 +4539,7 @@ class C_Load extends MY_Controller {
 									</div>
 									<div class="row hide" style="display:true">
 										<div class="left" >
-											<label class="dcah-label"> If Yes, how many caesarean divs were performed in September 2012</label>
+											<label class="dcah-label"> If Yes, how many caesarean sections were performed in September 2012</label>
 										</div>
 										<div class="right">
 											<div class="col">
@@ -4551,7 +4550,7 @@ class C_Load extends MY_Controller {
 											</div>
 										</div>
 									</div>
-								</div>
+								</div-->
 								</div> <!--close div column-wide -->
 
 								</div>
@@ -4563,7 +4562,7 @@ class C_Load extends MY_Controller {
 								<div class="column-wide">
 								<div class="hide-level">
 									<div class="row">
-										<h3>Complete this div for Level 4, 5 and 6 Facilities</h3>
+										<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
 									</div>
 
 									<div class="row">
@@ -4896,7 +4895,7 @@ class C_Load extends MY_Controller {
 
 									<div class="row" id="tr_78">
 										<div class="left">
-											18l. Standard Cesaerian div kit
+											18l. Standard Cesaerian Section kit
 										</div>
 
 										<div class="center">
