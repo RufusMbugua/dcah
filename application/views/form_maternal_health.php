@@ -859,38 +859,38 @@
 
 			<div class="row">
 				<div class="left">
-					<label10e. Gallipots
-					</div>
-					<div class="center">
+					<label>10e. Gallipots</label>
+				</div>
+				<div class="center">
 					<input type="number" class="cloned fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
-					</div>
-					<input type="hidden"  name="q10equipCode_5" id="q10equipCode_5" value="EQP51" />
-					</div>
+				</div>
+				<input type="hidden"  name="q10equipCode_5" id="q10equipCode_5" value="EQP51" />
+			</div>
 
-					<div class="row">
-					<div class="left">
+			<div class="row">
+				<div class="left">
 					<label>10f. Sponge-holding forceps</label>
-					</div>
+				</div>
 
-					<div class="center">
+				<div class="center">
 					<input type="number" class="cloned fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
-					</div>
-					<input type="hidden"  name="q10equipCode_6" id="q10equipCode_6" value="EQP52" />
-					</div>
+				</div>
+				<input type="hidden"  name="q10equipCode_6" id="q10equipCode_6" value="EQP52" />
+			</div>
 
-					<div class="row">
-					<div class="left">
+			<div class="row">
+				<div class="left">
 					<label>10g. Needle holder</label>
-					</div>
+				</div>
 
-					<div class="center">
+				<div class="center">
 					<input type="number" class="cloned fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
-					</div>
-					<input type="hidden"  name="q10equipCode_7" id="q10equipCode_7" value="EQP53" />
-					</div>
+				</div>
+				<input type="hidden"  name="q10equipCode_7" id="q10equipCode_7" value="EQP53" />
+			</div>
 
-					<div class="row">
-					<div class="left">
+			<div class="row">
+				<div class="left">
 					<label>>
 						10h. Dissecting forceps -toothed</label
 				</div>
@@ -1309,7 +1309,7 @@
 
 				<div class="row" id="tr_29">
 					<div class="left">
-						11n. Dilatation and curretage kit
+						<label>11n. Dilatation and curretage kit</label>
 					</div>
 
 					<div class="center">
@@ -1336,7 +1336,7 @@
 
 				<div class="row" id="tr_30">
 					<div class="left">
-						11o. Sterile gauze
+						<label>11o. Sterile gauze</label>
 					</div>
 
 					<div class="center">
@@ -1353,7 +1353,7 @@
 
 				<div class="row" id="tr_31">
 					<div class="left">
-						11p. Sanitary pads
+						<label>11p. Sanitary pads</label>
 					</div>
 
 					<div class="center">
@@ -1370,7 +1370,7 @@
 
 				<div class="row" id="tr_32">
 					<div class="left">
-						11q. Elbow length gloves
+						<label>11q. Elbow length gloves</label>
 					</div>
 
 					<div class="center">
@@ -1397,7 +1397,7 @@
 
 				<div class="row" id="tr_33">
 					<div class="left">
-						11r. Patellar Hammer
+						<label>11r. Patellar Hammer</label>
 					</div>
 
 					<div class="center">
@@ -1423,7 +1423,9 @@
 
 				<div class="row" id="tr_34">
 					<div class="left">
-						11s. Sutures
+						<lable>
+							11s. Sutures
+						</lable>
 					</div>
 
 					<div class="center">
@@ -1451,7 +1453,7 @@
 
 				<div class="row" id="tr_35">
 					<div class="left">
-						11s.i. Oxygen-Cylinder
+						<label>11s.i. Oxygen-Cylinder</label>
 					</div>
 
 					<div class="center">
@@ -1469,7 +1471,7 @@
 
 				<div class="row" id="tr_36">
 					<div class="left">
-						11s.ii. Oxygen-Concentrator
+						<label>11s.ii. Oxygen-Concentrator</label>
 					</div>
 
 					<div class="center">
@@ -1509,7 +1511,7 @@
 
 			<div class="row" id="tr_37">
 				<div class="left">
-					12a.i. Injectable-Oxytocin(or Injectable-Syntocin)
+					<label>12a.i. Injectable-Oxytocin(or Injectable-Syntocin)</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_1" id="q12mnhCommodityName_1" value="Injectable-Oxytocin" />
 
@@ -1547,7 +1549,7 @@
 
 			<div class="row" id="tr_40">
 				<div class="left">
-					12b.i. Indicate the available Intravenous fluids
+					<label>12b.i. Indicate the available Intravenous fluids</label>
 				</div>
 
 				<div class="center">
@@ -1565,7 +1567,7 @@
 
 			<div class="row" id="tr_41">
 				<div class="left">
-					12b.ii. Intravenous Metronidazole
+					<label>12b.ii. Intravenous Metronidazole</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_4" id="q12mnhCommodityName_4" value="Intravenous Metronidazole"/>
 				<div class="center">
@@ -1601,7 +1603,7 @@
 
 			<div class="row" id="tr_43i">
 				<div class="left">
-					12di. Injectable Hydralazine/Apresoline
+					<label>12di. Injectable Hydralazine/Apresoline</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_6" id="q12mnhCommodityName_6" value="Injectable Hydralazine"/>
 
@@ -1638,7 +1640,7 @@
 
 			<div class="row" id="tr_44">
 				<div class="left">
-					12e. Injectable diazepam
+					<label>12e. Injectable diazepam</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_8" id="q12mnhCommodityName_8" value="Injectable diazepam"/>
 
@@ -1656,7 +1658,7 @@
 
 			<div class="row" id="tr_45">
 				<div class="left">
-					12f. Injectable magnesium sulfate
+					<label>12f. Injectable magnesium sulfate</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_9" id="q12mnhCommodityName_9" value="Injectable magnesium sulfate"/>
 
@@ -1674,7 +1676,7 @@
 
 			<div class="row" id="tr_46">
 				<div class="left">
-					12g. Injectable penicillin
+					<label>12g. Injectable penicillin</label>
 
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_10" id="q12mnhCommodityName_10" value="Injectable amoxicillin/ampicillin"/>
@@ -1694,7 +1696,7 @@
 
 			<div class="row" id="tr_47">
 				<div class="left">
-					12h. Injectable gentamicin
+					<label>12h. Injectable gentamicin</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_11" id="q12mnhCommodityName_11" value="Injectable gentamicin"/>
 
@@ -1712,7 +1714,7 @@
 
 			<div class="row" id="tr_48">
 				<div class="left">
-					12i. Calcium gluconate
+					<label>12i. Calcium gluconate</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_12" id="q12mnhCommodityName_12" value="Calcium gluconate"/>
 
@@ -1730,7 +1732,7 @@
 
 			<div class="row" id="tr_49">
 				<div class="left">
-					12j. Methyldopa/Aldomet
+					<label>12j. Methyldopa/Aldomet</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_13" id="q12mnhCommodityName_13" value="Methyldopa/Aldomet"/>
 
@@ -1748,7 +1750,7 @@
 
 			<div class="row" id="tr_50">
 				<div class="left">
-					12k. Lidocaine (lignocaine) or other local anesthetic
+					<label>12k. Lidocaine (lignocaine) or other local anesthetic</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_14" id="q12mnhCommodityName_14" value="Lidocaine(lignocaine)/other local anesthetic"/>
 
@@ -1766,7 +1768,7 @@
 
 			<div class="row" id="tr_51">
 				<div class="left">
-					12l. Nifedipine Tablets
+					<label>12l. Nifedipine Tablets</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_15" id="q12mnhCommodityName_15" value="Nifedipine Tablets"/>
 
@@ -1784,7 +1786,7 @@
 
 			<div class="row" id="tr_52">
 				<div class="left">
-					12m. Vitamin A
+					<label>12m. Vitamin A</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_16" id="q12mnhCommodityName_16" value="Vitamin A"/>
 
@@ -1802,7 +1804,7 @@
 
 			<div class="row" id="tr_53">
 				<div class="left">
-					12n. Vitamin K
+					<label>12n. Vitamin K</label>
 				</div>
 				<input type="hidden"  name="q12mnhCommodityName_17" id="q12mnhCommodityName_17" value="Vitamin K"/>
 
