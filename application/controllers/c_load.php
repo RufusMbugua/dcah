@@ -3864,7 +3864,7 @@ class C_Load extends MY_Controller {
 									</div>
 								</div>
 								<div class="left">
-									13. Does this facility perform newborn resuscitation?
+									<label>13. Does this facility perform newborn resuscitation?</label>
 								</div>
 								<div class="right">
 
@@ -3879,1043 +3879,906 @@ class C_Load extends MY_Controller {
 								
 								</div> <!--end of new born care div 1-->
 								
-								<!--begin new born care div 2-->
-								<div id="nbc_div_2" class="step">
-								<div class="column-wide">
-
-
-								<div class="row-title">
-									<div class="left">
-										<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
-									</div>
-									<div class="center">
-										<label class="dcah-label" style="width:45%">Availability (A)</label>
-										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-									</div>
-									<div class="center">
-										<label class="dcah-label" style="width:45%">Functioning (b)</label>
-										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-									</div>
-									<div class="center">
-
-									</div>
-								</div>
-
-
-
-							<div id="tableEquipmentList_3a">
-					    	<div class="row2">
-					    	<input type="button" id="editEquipmentListTopButton_3a" name="editEquipmentListTopButton_3a" class="awesome myblue medium" value="Edit List"/>
-					    	</div>
-								<div class="row" id="tr_54">
-									<div class="left">
-
-										14a. Self inflating Neonatal Ambu bag ( 500 mls)
-									</div>
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_54" id="q12equipAvailability_54">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-
-										<input name="q14equipAQty_54" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_54" id="q14equipFunctioning_54" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_54" type="number" class="cloned fromZero" min="0"/>
-										
-									</div>
-										<input type="hidden"  name="q14equipCode_54" id="q14equipCode_54" value="EQP78" />
-								</div>
-
-								<div class="row" id="tr_55">
-									<div class="left">
-										14b.i. Infant masks-Size 0
-									</div>
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_55" id="q12equipAvailability_55">
-											<option value="" selected="selected">Select One</option>
-											<option>Always Available</option>
-											<option>Sometimes Available</option>
-											<option>Never Available</option>
-										</select>
-
-										<input name="q14equipAQty_55" type="number" class="cloned fromZero" min="0"/>
-										
-									</div>
-										<input type="hidden"  name="q14equipCode_55" id="q14equipCode_55" value="EQP79" />
-								</div>
-
-								<div class="row" id="tr_56">
-									<div class="left">
-										14b.ii. Infant masks-Size 1
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_56" id="q12equipAvailability_56">
-											<option value="" selected="selected">Select One</option>
-											<option>Always Available</option>
-											<option>Sometimes Available</option>
-											<option>Never Available</option>
-										</select>
-
-
-										<input name="q14equipAQty_56" type="number" class="cloned fromZero" min="0"/>
-									</div>
-										<input type="hidden"  name="q14equipCode_56" id="q14equipCode_56" value="EQP80" />
-								</div>
-
-								<div class="row" id="tr_57">
-									<div class="left">
-										14b.iii. Infant masks-Size 2
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_57" id="q12equipAvailability_57">
-											<option value="" selected="selected">Select One</option>
-											<option>Always Available</option>
-											<option>Sometimes Available</option>
-											<option>Never Available</option>
-										</select>
-
-										<input name="q14equipAQty_57" type="number" class="cloned fromZero" min="0"/>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_57" id="q14equipCode_57" value="EQP81" />
-
-								</div>
-							</div><!--close the tableEquipmentList_3a div -->
-							</div> <!--end div column-wide -->
-								</div><!--end new born care div 2-->
-
-								
-								<!--begin neonatal unit div-->
-								<div id="neonatal_unit" class="step">
-
-								<div class="column-wide">
-								
-								
-								<div class="row">
-									<h3> Neonatal Unit</h3>
-								</div>
-								
-								<div class="row-title">
-									<div class="left">
-										<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
-									</div>
-									<div class="center">
-										<label class="dcah-label" style="width:45%">Availability (A)</label>
-										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-									</div>
-									<div class="center">
-										<label class="dcah-label" style="width:45%">Functioning (b)</label>
-										<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-									</div>
-									<div class="center">
-
-									</div>
-								</div>
-								
-								<div id="tableEquipmentList_3b">
-						    	<div class="row2">
-						    	<input type="button" id="editEquipmentListTopButton_3b" class="awesome myblue medium" value="Edit List"/>
-						    	</div>
-
-
-								<div class="row" id="tr_58">
-									<div class="left">
-										14c. Clock  with seconds arm
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_58" id="q14equipAvailability_58">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_58" id="q14equipCode_58" value="EQP82" />
-								</div>
-
-								<div class="row" id="tr_59">
-									<div class="left">
-										14d. Neonatal Incubator
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_59" id="q14equipAvailability_59">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-										<input name="q14equipAQty_59" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_59" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
-								</div>
-
-								<div class="row" id="tr_60">
-									<div class="left">
-										14e. A Radiant Heater
-									</div>
-
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_60" id="q14equipAvailability_60">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-										<input name="q14equipAQty_60" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_60" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
-								</div>
-
-								<div class="row" id="tr_61">
-									<div class="left">
-										14f. Infant Scale
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_61" id="q14equipAvailability_61">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-										<input name="q14equipAQty_61" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_61" type="number" class="cloned fromZero" min="0"/>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
-								</div>
-
-								<div class="row" id="tr_62">
-									<div class="left">
-										14g. Suction bulb for mucus extraction
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_62" id="q14equipAvailability_62">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-
-										<input name="q14equipAQty_62" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-
-										<select name="q14equipFunctioning_62" id="q14equipFunctioning_62" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_62" type="number" class="cloned fromZero" min="0"/>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
-								</div>
-
-						<div class="row" id="tr_63">
-									<div class="left">
-										14h. Suction apparatus for use with catheter
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_63" id="q14equipAvailability_63">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-
-										<input name="q14equipAQty_63" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option> Yes </option>
-											<option> No </option>
-											<option> Do Not Know </option>
-										</select>
-
-										<input name="q14equipFQty_63" type="number" class="cloned fromZero" min="0"/>
-									</div>
-									<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
-								</div>
-
-								<div class="row" id="tr_64">
-									<div class="left">
-										14i. A flat, clean, dry and warm newborn resuscitation surface
-									</div>
-
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_64" id="q14equipAvailability_64">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes </option>
-											<option>No </option>
-										</select>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_64" id="q14equipCode_64" value="EQP88" />
-								</div>
-
-
-								<div class="row" id="tr_65">
-									<div class="left">
-										14j. Disposable cord ties or clamps
-									</div>
-									
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_65" id="q14equipAvailability_65">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes</option>
-											<option>No</option>
-										</select>
-
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_65" id="q14equipFunctioning_65" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option>Always Available</option>
-											<option>Sometimes Available</option>
-											<option>Never Available</option>
-										</select>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_65" id="q14equipCode_65" value="EQP89" />
-								</div>
-
-
-								<div class="row" id="tr_66">
-									<div class="left">
-										14k. Clean and warm towels/cloths for drying / warming / wrapping baby
-									</div>
-									
-
-									<div class="center">
-										<select class="cloned left-combo" name="q14equipAvailability_66" id="q14equipAvailability_66">
-											<option value="" selected="selected">Select One</option>
-											<option>Select One</option>
-											<option>Yes</option>
-											<option>No</option>
-
-										</select>
-
-									</div>
-									<div class="right">
-										<select name="q14equipFunctioning_66" id="q14equipFunctioning_66" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option>Always Available</option>
-											<option>Sometimes Available</option>
-											<option>Never Available</option>
-										</select>
-
-									</div>
-									<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
-
-								</div>
-								</div> <!--close div tableEquipmentList_3b-->
-
-								</div> <!--close div column-wide -->
-								</div>
-								<!--end neonatal unit div-->
-
-								<!--begin blood transfusion div-->
-								<div id="blood_transfusion" class="step">
-								<div class="column-wide">
-								<h3>Blood Transfusion Services Assessment</h3>
-								
-								<div class="row-title">
-									<div class="left">
-
-										<label class="dcah-label">QUESTION</label>
-									</div>
-									<div class="center">
-										<label class="dcah-label">ANSWER</label>
-									</div>
-								</div>
-								
-
-								<div class="row">
-									<div class="left">
-
-										15. Does this facility perform blood transfusions?
-									</div>
-									<div class="center">
-
-										<select name="nbcgqBloodTransfusionsDone" class="cloned">
-											<option value="" selected="selected">Select One</option>
-											<option>Yes</option>
-											<option>No</option>
-										</select>
-									</div>
-									<div class="right">
-										<label for="q15BloodTransfusions_2">Specify:</label>
-
-										<select name="nbcgqBloodBank" class="cloned">
-											<option selected="selected" value="">Select One</option>
-
-											<option>Blood Bank available</option>
-											<option>Transfusions done but no blood bank</option>
-										</select>
-									</div>
-								</div>
-
-								<!--div class="row">
-									<div class="left">
-										16. Does this facility ever perform caesarean section?
-									</div>
-									<div class="center">
-
-										<select name="nbcgqCSDone" class="cloned">
-											<option selected="selected" value="">Select One</option>
-
-											<option> Yes</option>
-											<option> No</option>
-										</select>
-									</div>
-									<div class="row hide" style="display:true">
-										<div class="left" >
-											<label class="dcah-label"> If Yes, how many caesarean sections were performed in September 2012</label>
-										</div>
-										<div class="right">
-											<div class="col">
-
-												<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
-
-
-											</div>
-										</div>
-									</div>
-								</div-->
-								</div> <!--close div column-wide -->
-
-								</div>
-								<!--end blood transfusion div-->
-								
-								<!--begin level-4-and-above-->
-
-								<div id="level_4_above" class="step">
-								<div class="column-wide">
-								<div class="hide-level">
-									<div class="row">
-										<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
-									</div>
-
-									<div class="row">
-										<div class="row-title">
-											<div class="left">
-
-												<label class="dcah-label">Supply/Equipment</label>
-											</div>
-											<div class="center">
-												<label class="dcah-label" style="width:45%">Availability (A)</label>
-												<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-											</div>
-											<div class="right">
-												<label class="dcah-label" style="width:45%">Functioning(b)</label>
-												<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-											</div>
-										</div>
-
-									<div id="tableEquipmentList_4">
-							    	<div class="row2">
-							    	<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
-							    	</div>
-										<div class="row" id="tr_67">
-										<div class="left">
-											18a. Operating Table
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_67" id="q18equipAvailability_67">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_67" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_67" id="q18equipFunctioning_67" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_67" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_67" id="q18equipCode_67" value="EQP91" />
-									</div>
-
-									<div class="row" id="tr_68">
-										<div class="left">
-											18b. Operating Light
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_68" id="q18equipAvailability_68">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_68" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_68" id="q18equipFunctioning_68" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input type="number" class="cloned fromZero" />
-										</div>
-										<input type="hidden"  name="q18equipCode_68" id="q18equipCode_68" value="EQP92" />
-									</div>
-
-									<div class="row" id="tr_69">
-										<div class="left">
-											18c. Anaesthetic machine
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_69" id="q18equipAvailability_69">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_69" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_69" id="q18equipFunctioning_69" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_69" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_69" id="q18equipCode_69" value="EQP93" />
-									</div>
-
-									<div class="row" id="tr_70">
-										<div class="left">
-											18d. Laryngoscopes
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_70" id="q18equipAvailability_70">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_70" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_70" id="q18equipFunctioning_70" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_70" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_70" id="q18equipCode_70" value="EQP94" />
-									</div>
-
-
-									<div class="row" id="tr_71">
-										<div class="left">
-											18e. Endotracheal tubes
-										</div>
-										
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_71" id="q18equipAvailability_71">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_71" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_71" id="q18equipFunctioning_71" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_71" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_71" id="q18equipCode_71" value="EQP95" />
-									</div>
-
-
-									<div class="row" id="tr_72">
-										<div class="left">
-											18f. Anaesthetic drugs e.g ketamine
-										</div>
-										
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_72" id="q18equipAvailability_72">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_72" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_72" id="q18equipFunctioning_72" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option>Always Available</option>
-												<option>Sometimes Available</option>
-												<option>Never Available</option>
-											</select>
-
-											<input name="q18equipFQty_72" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_72" id="q18equipCode_72" value="EQP96" />
-									</div>
-
-
-									<div class="row" id="tr_73">
-										<div class="left">
-											18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)
-										</div>
-										
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_73" id="q18equipAvailability_73">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_73" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_73" id="q18equipFunctioning_73" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option>Always Available</option>
-												<option>Sometimes Available</option>
-												<option>Never Available</option>
-											</select>
-
-											<input name="q18equipFQty_73" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_73" id="q18equipCode_73" value="EQP97" />
-									</div>
-
-
-									<div class="row" id="tr_74">
-										<div class="left">
-											18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)
-										</div>
-										
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_74" id="q18equipAvailability_74">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_74" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_74" id="q18equipFunctioning_74" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option>Always Available</option>
-												<option>Sometimes Available</option>
-												<option>Never Available</option>
-											</select>
-
-											<input name="q18equipFQty_74" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_74" id="q18equipCode_74" value="EQP98" />
-									</div>
-
-
-									<div class="row" id="tr_75">
-										<div class="left">
-											18i. Scrub area adjacent to or in the operating room
-										</div>
-							
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_75" id="q18equipAvailability_75">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_75" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_75" id="q18equipFunctioning_75" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_75" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_75" id="q18equipCode_75" value="EQP99" />
-									</div>
-
-
-									<div class="row" id="tr_76">
-										<div class="left">
-											18j. Running Water
-										</div>
-									
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_76" id="q18equipAvailability_76">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_76" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_76" id="q18equipFunctioning_76" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_76" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_76" id="q18equipCode_76" value="EQP100" />
-									</div>
-
-
-									<div class="row" id="tr_77">
-										<div class="left">
-											18k. Suction Machine
-										</div>
-										
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_77" id="q18equipAvailability_77">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_77" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_77" id="q18equipFunctioning_77" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_77" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_77" id="q18equipCode_77" value="EQP101" />
-									</div>
-
-
-									<div class="row" id="tr_78">
-										<div class="left">
-											18l. Standard Cesaerian Section kit
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_78" id="q18equipAvailability_78">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_78" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_78" id="q18equipFunctioning_78" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_78" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_78" id="q18equipCode_78" value="EQP102" />
-									</div>
-
-
-									<div class="row" id="tr_79">
-										<div class="left">
-											18m. Sterile operation gowns
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_79" id="q18equipAvailability_79">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_79" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_79" id="q18equipFunctioning_79" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_79" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_79" id="q18equipCode_79" value="EQP103" />
-									</div>
-
-
-									<div class="row" id="tr_80">
-										<div class="left">
-											18n. Sterile Drapes
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_80" id="q18equipAvailability_80">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_80" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_80" id="q18equipFunctioning_80" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_80" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_80" id="q18equipCode_80" value="EQP104" />
-									</div>
-
-
-									<div class="row" id="tr_81">
-										<div class="left">
-											18o. Sterile gloves in various sizes
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_81" id="q18equipAvailability_81">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-											<label>Sizes (Hold down Ctrl and click to select many)</label>
-										    <select multiple="multiple" name="q18equipAType_81[]" id="q18equipAType_81" class="cloned">
-
-												<option value="1">Size 1</option>
-
-												<option value="2">Size 2</option>
-												<option value="3">Size 3</option>
-												<option value="4">Size 4</option>
-												<option value="5">Size 5</option>
-												<option value="6">Size 6</option>
-												<option value="6.5">Size 6.5</option>
-												<option value="7">Size 7</option>
-
-												<option value="7.5">Size 7.5 </option>
-
-												<option value="8">Size 8</option>
-												<option value="8.5">Size 8.5</option>
-												<option value="9">Size 9</option>
-											</select>
-
-											<input name="q18equipAQty_81" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_81" id="q18equipFunctioning_81" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_81" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_81" id="q18equipCode_81" value="EQP105" />
-									</div>
-
-
-									<div class="row" id="tr_82">
-										<div class="left">
-											18p. IV canulas
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_82" id="q18equipAvailability_82">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_82" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_82" id="q18equipFunctioning_82" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_82" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_82" id="q18equipCode_82" value="EQP106" />
-									</div>
-
-									<div class="row" id="tr_83">
-										<div class="left">
-											18q. Drip Stand
-										</div>
-										<input type="hidden"  name="q18equipCode_105" id="q18equipCode_105" value="EQP107" />
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_83" id="q18equipAvailability_83">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_83" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_83" id="q18equipFunctioning_83" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-											<input name="q18equipFQty_83" type="number" class="cloned fromZero" min="0"/>
-										</div>
-									</div>
-
-
-									<div class="row" id="tr_84">
-										<div class="left">
-											18r. Blood transfusion set
-										</div>
-										
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_84" id="q18equipAvailability_4">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_84" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_84" id="q18equipFunctioning_84" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-
-											<input name="q18equipFQty_84" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_84" id="q18equipCode_84" value="EQP108" />
-									</div>
-
-
-									<div class="row" id="tr_85">
-										<div class="left">
-											18s. Recovery room/ recovery area
-										</div>
-
-										<div class="center">
-											<select class="cloned left-combo" name="q18equipAvailability_85" id="q18equipAvailability_85">
-												<option value="" selected="selected">Select One</option>
-												<option>Yes </option>
-												<option>No </option>
-											</select>
-
-											<input name="q18equipAQty_85" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<div class="center">
-											<select name="q18equipFunctioning_85" id="q18equipFunctioning_85" class="cloned">
-												<option value="" selected="selected">Select One</option>
-												<option> Yes </option>
-												<option> No </option>
-												<option> Dont Know </option>
-											</select>
-											
-											<input name="q18equipFQty_85" type="number" class="cloned fromZero" min="0"/>
-										</div>
-										<input type="hidden"  name="q18equipCode_85" id="q18equipCode_85" value="EQP109" />
-										</div> <!--close div tableEquipmentList_4-->
-									</div>
-									
-									<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
-
-								</div>
-							</div><!--close div level-hide-->
-							</div><!--close div column-wide-->
-
+	<!--begin neonatal unit div-->
+	<div id="neonatal_unit" class="step">
+
+		<div class="column-wide">
+
+			<div class="row">
+				<h3> Neonatal Unit</h3>
+			</div>
+
+			<div class="row-title">
+				<div class="left">
+					<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
+				</div>
+				<div class="center">
+					<label class="dcah-label" style="width:45%">Availability (A)</label>
+					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+				</div>
+				<div class="center">
+					<label class="dcah-label" style="width:45%">Functioning (b)</label>
+					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+				</div>
+				<div class="center">
+
+				</div>
+			</div>
+
+			<div id="tableEquipmentList_3b">
+				<div class="row2">
+					<input type="button" id="editEquipmentListTopButton_3b" class="awesome myblue medium" value="Edit List"/>
+				</div>
+
+				<div class="row" id="tr_58">
+					<div class="left">
+						<label>14c. Clock  with seconds arm</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_58" id="q14equipAvailability_58">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_58" id="q14equipCode_58" value="EQP82" />
+				</div>
+
+				<div class="row" id="tr_59">
+					<div class="left">
+						<label>14d. Neonatal Incubator</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_59" id="q14equipAvailability_59">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<input name="q14equipAQty_59" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+
+						<input name="q14equipFQty_59" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
+				</div>
+
+				<div class="row" id="tr_60">
+					<div class="left">
+						<label>14e. A Radiant Heater</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_60" id="q14equipAvailability_60">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<input name="q14equipAQty_60" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+
+						<input name="q14equipFQty_60" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
+				</div>
+
+				<div class="row" id="tr_61">
+					<div class="left">
+						<label>14f. Infant Scale</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_61" id="q14equipAvailability_61">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+						<input name="q14equipAQty_61" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+
+						<input name="q14equipFQty_61" type="number" class="cloned fromZero" min="0"/>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
+				</div>
+
+				<div class="row" id="tr_62">
+					<div class="left">
+						<label>14g. Suction bulb for mucus extraction</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_62" id="q14equipAvailability_62">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+
+						<input name="q14equipAQty_62" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<div class="right">
+
+						<select name="q14equipFunctioning_62" id="q14equipFunctioning_62" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+
+						<input name="q14equipFQty_62" type="number" class="cloned fromZero" min="0"/>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
+				</div>
+
+				<div class="row" id="tr_63">
+					<div class="left">
+						<label>14h. Suction apparatus for use with catheter</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_63" id="q14equipAvailability_63">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+
+						<input name="q14equipAQty_63" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option> Yes </option>
+							<option> No </option>
+							<option> Do Not Know </option>
+						</select>
+
+						<input name="q14equipFQty_63" type="number" class="cloned fromZero" min="0"/>
+					</div>
+					<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
+				</div>
+
+				<div class="row" id="tr_64">
+					<div class="left">
+						<label>14i. A flat, clean, dry and warm newborn resuscitation surface</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_64" id="q14equipAvailability_64">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes </option>
+							<option>No </option>
+						</select>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_64" id="q14equipCode_64" value="EQP88" />
+				</div>
+
+				<div class="row" id="tr_65">
+					<div class="left">
+						<label>14j. Disposable cord ties or clamps</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_65" id="q14equipAvailability_65">
+							<option value="" selected="selected">Select One</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_65" id="q14equipFunctioning_65" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option>Always Available</option>
+							<option>Sometimes Available</option>
+							<option>Never Available</option>
+						</select>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_65" id="q14equipCode_65" value="EQP89" />
+				</div>
+
+				<div class="row" id="tr_66">
+					<div class="left">
+						<label>14k. Clean and warm towels/cloths for drying / warming / wrapping baby</label>
+					</div>
+
+					<div class="center">
+						<select class="cloned left-combo" name="q14equipAvailability_66" id="q14equipAvailability_66">
+							<option value="" selected="selected">Select One</option>
+							<option>Select One</option>
+							<option>Yes</option>
+							<option>No</option>
+
+						</select>
+
+					</div>
+					<div class="right">
+						<select name="q14equipFunctioning_66" id="q14equipFunctioning_66" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							<option>Always Available</option>
+							<option>Sometimes Available</option>
+							<option>Never Available</option>
+						</select>
+
+					</div>
+					<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
+
+				</div>
+			</div>
+			<!--close div tableEquipmentList_3b-->
+
+		</div>
+		<!--close div column-wide -->
+	</div>
+	<!--end neonatal unit div-->
+
+	<!--begin blood transfusion div-->
+	<div id="blood_transfusion" class="step">
+		<div class="column-wide">
+			<h3>Blood Transfusion Services Assessment</h3>
+
+			<div class="row-title">
+				<div class="left">
+
+					<label class="dcah-label">QUESTION</label>
+				</div>
+				<div class="center">
+					<label class="dcah-label">ANSWER</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="left">
+
+					<label>15. Does this facility perform blood transfusions?</label>
+				</div>
+				<div class="center">
+
+					<select name="nbcgqBloodTransfusionsDone" class="cloned">
+						<option value="" selected="selected">Select One</option>
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</div>
+				<div class="right">
+					<label for="q15BloodTransfusions_2">Specify:</label>
+
+					<select name="nbcgqBloodBank" class="cloned">
+						<option selected="selected" value="">Select One</option>
+
+						<option>Blood Bank available</option>
+						<option>Transfusions done but no blood bank</option>
+					</select>
+				</div>
+			</div>
+
+			<!--div class="row">
+			<div class="left">
+			16. Does this facility ever perform caesarean section?
+			</div>
+			<div class="center">
+
+			<select name="nbcgqCSDone" class="cloned">
+			<option selected="selected" value="">Select One</option>
+
+			<option> Yes</option>
+			<option> No</option>
+			</select>
+			</div>
+			<div class="row hide" style="display:true">
+			<div class="left" >
+			<label class="dcah-label"> If Yes, how many caesarean sections were performed in September 2012</label>
+			</div>
+			<div class="right">
+			<div class="col">
+
+			<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
+
+			</div>
+			</div>
+			</div>
+			</div-->
+		</div>
+		<!--close div column-wide -->
+
+	</div>
+	<!--end blood transfusion div-->
+
+	<!--begin level-4-and-above-->
+
+	<div id="level_4_above" class="step">
+		<div class="column-wide">
+			<div class="hide-level">
+				<div class="row">
+					<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
+				</div>
+
+				<div class="row">
+					<div class="row-title">
+						<div class="left">
+
+							<label class="dcah-label">Supply/Equipment</label>
 						</div>
-						<!--end level-4-and-above-->
+						<div class="center">
+							<label class="dcah-label" style="width:45%">Availability (A)</label>
+							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+						</div>
+						<div class="right">
+							<label class="dcah-label" style="width:45%">Functioning(b)</label>
+							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+						</div>
+					</div>
+
+					<div id="tableEquipmentList_4">
+						<div class="row2">
+							<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
+						</div>
+						<div class="row" id="tr_67">
+							<div class="left">
+								<label>18a. Operating Table</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_67" id="q18equipAvailability_67">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_67" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_67" id="q18equipFunctioning_67" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_67" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_67" id="q18equipCode_67" value="EQP91" />
+						</div>
+
+						<div class="row" id="tr_68">
+							<div class="left">
+								<label>18b. Operating Light</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_68" id="q18equipAvailability_68">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_68" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_68" id="q18equipFunctioning_68" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input type="number" class="cloned fromZero" />
+							</div>
+							<input type="hidden"  name="q18equipCode_68" id="q18equipCode_68" value="EQP92" />
+						</div>
+
+						<div class="row" id="tr_69">
+							<div class="left">
+								<label>18c. Anaesthetic machine</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_69" id="q18equipAvailability_69">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_69" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_69" id="q18equipFunctioning_69" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_69" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_69" id="q18equipCode_69" value="EQP93" />
+						</div>
+
+						<div class="row" id="tr_70">
+							<div class="left">
+								<label>18d. Laryngoscopes</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_70" id="q18equipAvailability_70">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_70" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_70" id="q18equipFunctioning_70" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_70" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_70" id="q18equipCode_70" value="EQP94" />
+						</div>
+
+						<div class="row" id="tr_71">
+							<div class="left">
+								<label>18e. Endotracheal tubes</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_71" id="q18equipAvailability_71">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_71" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_71" id="q18equipFunctioning_71" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_71" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_71" id="q18equipCode_71" value="EQP95" />
+						</div>
+
+						<div class="row" id="tr_72">
+							<div class="left">
+								<label>18f. Anaesthetic drugs e.g ketamine</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_72" id="q18equipAvailability_72">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_72" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_72" id="q18equipFunctioning_72" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option>Always Available</option>
+									<option>Sometimes Available</option>
+									<option>Never Available</option>
+								</select>
+
+								<input name="q18equipFQty_72" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_72" id="q18equipCode_72" value="EQP96" />
+						</div>
+
+						<div class="row" id="tr_73">
+							<div class="left">
+								<label>18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_73" id="q18equipAvailability_73">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_73" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_73" id="q18equipFunctioning_73" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option>Always Available</option>
+									<option>Sometimes Available</option>
+									<option>Never Available</option>
+								</select>
+
+								<input name="q18equipFQty_73" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_73" id="q18equipCode_73" value="EQP97" />
+						</div>
+
+						<div class="row" id="tr_74">
+							<div class="left">
+								<label>18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_74" id="q18equipAvailability_74">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_74" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_74" id="q18equipFunctioning_74" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option>Always Available</option>
+									<option>Sometimes Available</option>
+									<option>Never Available</option>
+								</select>
+
+								<input name="q18equipFQty_74" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_74" id="q18equipCode_74" value="EQP98" />
+						</div>
+
+						<div class="row" id="tr_75">
+							<div class="left">
+								<label>18i. Scrub area adjacent to or in the operating room</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_75" id="q18equipAvailability_75">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_75" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_75" id="q18equipFunctioning_75" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_75" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_75" id="q18equipCode_75" value="EQP99" />
+						</div>
+
+						<div class="row" id="tr_76">
+							<div class="left">
+								<label>18j. Running Water</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_76" id="q18equipAvailability_76">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_76" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_76" id="q18equipFunctioning_76" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_76" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_76" id="q18equipCode_76" value="EQP100" />
+						</div>
+
+						<div class="row" id="tr_77">
+							<div class="left">
+								<label>18k. Suction Machine</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_77" id="q18equipAvailability_77">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_77" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_77" id="q18equipFunctioning_77" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_77" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_77" id="q18equipCode_77" value="EQP101" />
+						</div>
+
+						<div class="row" id="tr_78">
+							<div class="left">
+								<label>18l. Standard Cesaerian Section kit</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_78" id="q18equipAvailability_78">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_78" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_78" id="q18equipFunctioning_78" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_78" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_78" id="q18equipCode_78" value="EQP102" />
+						</div>
+
+						<div class="row" id="tr_79">
+							<div class="left">
+								<label>18m. Sterile operation gowns</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_79" id="q18equipAvailability_79">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_79" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_79" id="q18equipFunctioning_79" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_79" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_79" id="q18equipCode_79" value="EQP103" />
+						</div>
+
+						<div class="row" id="tr_80">
+							<div class="left">
+								<label>18n. Sterile Drapes</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_80" id="q18equipAvailability_80">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_80" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_80" id="q18equipFunctioning_80" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_80" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_80" id="q18equipCode_80" value="EQP104" />
+						</div>
+
+						<div class="row" id="tr_81">
+							<div class="left">
+								<label>18o. Sterile gloves in various sizes</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_81" id="q18equipAvailability_81">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+								<label>Sizes (Hold down Ctrl and click to select many)</label>
+								<select multiple="multiple" name="q18equipAType_81[]" id="q18equipAType_81" class="cloned">
+
+									<option value="1">Size 1</option>
+
+									<option value="2">Size 2</option>
+									<option value="3">Size 3</option>
+									<option value="4">Size 4</option>
+									<option value="5">Size 5</option>
+									<option value="6">Size 6</option>
+									<option value="6.5">Size 6.5</option>
+									<option value="7">Size 7</option>
+
+									<option value="7.5">Size 7.5 </option>
+
+									<option value="8">Size 8</option>
+									<option value="8.5">Size 8.5</option>
+									<option value="9">Size 9</option>
+								</select>
+
+								<input name="q18equipAQty_81" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_81" id="q18equipFunctioning_81" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_81" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_81" id="q18equipCode_81" value="EQP105" />
+						</div>
+
+						<div class="row" id="tr_82">
+							<div class="left">
+								<label>18p. IV canulas</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_82" id="q18equipAvailability_82">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_82" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_82" id="q18equipFunctioning_82" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_82" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_82" id="q18equipCode_82" value="EQP106" />
+						</div>
+
+						<div class="row" id="tr_83">
+							<div class="left">
+								<label>18q. Drip Stand</label>
+							</div>
+							<input type="hidden"  name="q18equipCode_105" id="q18equipCode_105" value="EQP107" />
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_83" id="q18equipAvailability_83">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_83" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_83" id="q18equipFunctioning_83" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+								<input name="q18equipFQty_83" type="number" class="cloned fromZero" min="0"/>
+							</div>
+						</div>
+
+						<div class="row" id="tr_84">
+							<div class="left">
+								<label>18r. Blood transfusion set</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_84" id="q18equipAvailability_4">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_84" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_84" id="q18equipFunctioning_84" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_84" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_84" id="q18equipCode_84" value="EQP108" />
+						</div>
+
+						<div class="row" id="tr_85">
+							<div class="left">
+								<label>18s. Recovery room/ recovery area</label>
+							</div>
+
+							<div class="center">
+								<select class="cloned left-combo" name="q18equipAvailability_85" id="q18equipAvailability_85">
+									<option value="" selected="selected">Select One</option>
+									<option>Yes </option>
+									<option>No </option>
+								</select>
+
+								<input name="q18equipAQty_85" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<div class="center">
+								<select name="q18equipFunctioning_85" id="q18equipFunctioning_85" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q18equipFQty_85" type="number" class="cloned fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q18equipCode_85" id="q18equipCode_85" value="EQP109" />
+						</div>
+						<!--close div tableEquipmentList_4-->
+					</div>
+
+					<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+
+				</div>
+			</div><!--close div level-hide-->
+		</div><!--close div column-wide-->
+
+	</div>
+	<!--end level-4-and-above-->
 						 <div class="buttons">					
 						<input title="To move to the previous step" id="back" class="awesome magenta medium" type="reset"/>
 						<input title="To move to the next step" id="next" class="awesome blue medium"  type="submit"/>
