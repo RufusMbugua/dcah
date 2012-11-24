@@ -288,35 +288,23 @@ class C_Load extends MY_Controller {
 	<h3 align="center">Diarrhoea Morbidity Data </h3>
 	<section class="row2">
 	<section class="left">
-	<lable>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
+	<label>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
 	</section>
 	<section class="center">
-	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
+	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned fromZero"/>
 	</section>
 	</section>
-	</div>
-	
-	<!--end diarrhoiea morbidity factor section-->
+	</div><!--end diarrhoiea morbidity factor section-->
 
     <!--begin child health drug section -->
-    <div id="childhealth_drugs" class="step">
-	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-
-	<h3 align="center"> Commodities Assessment </h3>
-		<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the following units
-
-		</p>
-	  <div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">MCH</a></li>
-		<li><a href="#tabs-2">PEDS WARD</a></li>
-		<li><a href="#tabs-3">OPD</a></li>
-		<li><a href="#tabs-4">PHARMACY</a></li>
-		<li><a href="#tabs-5">STORES</a></li>
-		<li><a href="#tabs-6">Others*</a></li>
-	</ul>
-	<div id="tabs-1" class="tab MCH">
+     <div id="tabs-1" class="tab MCH step">
+   	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: MCH</section>
+	
 		
         <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
@@ -324,14 +312,12 @@ class C_Load extends MY_Controller {
 				<tr>
 				</tr>
 				<tr>
-
 					<!--td width="144">Batch No</td-->
 					<td width="144">Quantities at Hand (Tablets)</td>
 					<!--td width="144">Date Supplied to Facility</td-->
 					<!--td width="144">Supplier</td-->
 					<td width="144">Expiry Date</td>
 					<!--td width="144">Comments</td-->
-
 				</tr>
 			</thead>
 			<tr class="clonable zinc">
@@ -339,8 +325,9 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znMCHCommodityName_1" id="znMCHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znMCHUnit_1" id="znMCHUnit_1" value="MCH" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -349,7 +336,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znMCHStockExpiryDate_1" id="znMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
@@ -382,8 +369,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsMCHCommodityName_1" id="orsMCHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsMCHUnit_1" id="orsMCHUnit_1" value="MCH" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -392,7 +380,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsMCHStockExpiryDate_1" id="orsMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
@@ -425,8 +413,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipCommodityName_1" id="cipCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipMCHUnit_1" id="cipMCHUnit_1" value="MCH" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -435,15 +424,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipStockExpiryDate_1" id="cipStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_3">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_3" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_3" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -468,8 +457,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metCommodityName_1" id="metCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metMCHUnit_1" id="metMCHUnit_1" value="MCH" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -478,20 +468,26 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metStockExpiryDate_1" id="metStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_4">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_4" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_4" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 	</div> <!--close tabs-1-->
 	
-	<div id="tabs-2" class="tab PEDS">
+	<div id="tabs-2" class="tab PEDS step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: PEDS</section>
 	     <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
@@ -512,8 +508,9 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znPEDCommodityName_1" id="znPEDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znPEDUnit_1" id="znPEDUnit_1" value="PED" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -522,15 +519,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znPEDStockExpiryDate_1" id="znPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			<tr id="formbuttons_5">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_5" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_5" value="Remove Batch" width="auto"/>
 			</tr>
 		</table>
 
@@ -555,8 +552,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsPEDCommodityName_1" id="orsPEDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsPEDUnit_1" id="orsPEDUnit_1" value="PED" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -565,15 +563,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsPEDStockExpiryDate_1" id="orsPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_6">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_6" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_6" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -598,8 +596,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipPEDCommodityName_1" id="cipPEDCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipPEDUnit_1" id="cipPEDUnit_1" value="PED" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -608,15 +607,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipPEDStockExpiryDate_1" id="cipPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_7">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_7" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_7" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -641,8 +640,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metPEDCommodityName_1" id="metPEDCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metPEDUnit_1" id="metPEDUnit_1" value="PED" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -651,20 +651,26 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metPEDStockExpiryDate_1" id="metPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_8">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_8" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_8" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 	</div> <!--close tabs-2-->
 	
-	<div id="tabs-3" class="tab OPD">
+	<div id="tabs-3" class="tab OPD step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: OPD</section>
 		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
@@ -684,8 +690,9 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znOPDCommodityName_1" id="znOPDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znOPDUnit_1" id="znOPDUnit_1" value="OPD" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -694,15 +701,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znOPDStockExpiryDate_1" id="znOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			<tr id="formbuttons_9">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_9" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_9" value="Remove Batch" width="auto"/>
 			</tr>
 		</table>
 
@@ -727,8 +734,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsOPDCommodityName_1" id="orsOPDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsOPDUnit_1" id="orsOPDUnit_1" value="OPD" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -737,15 +745,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsOPDStockExpiryDate_1" id="orsOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_10">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_10" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_10" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -770,8 +778,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipOPDCommodityName_1" id="cipOPDCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipOPDUnit_1" id="cipOPDUnit_1" value="OPD" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -780,15 +789,15 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipOPDStockExpiryDate_1" id="cipOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_11">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_11" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_11" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -813,8 +822,9 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metOPDCommodityName_1" id="metOPDCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metOPDUnit_1" id="metOPDUnit_1" value="OPD" />
 				</td>
 				<!--td width="144">
 				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -823,21 +833,26 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
 				</td-->
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metOPDStockExpiryDate_1" id="metOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
 				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_12">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_12" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_12" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 	</div> <!--close tabs-3-->
 	
 	
-	<div id="tabs-4" class="tab Pharmacy">
+	<div id="tabs-4" class="tab Pharmacy step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>	<section align="center" class="row-title"> Unit: Pharmacy</section>
 		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
@@ -856,26 +871,27 @@ class C_Load extends MY_Controller {
 				<td width="144">
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znPHAUnit_1" id="znPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="znPHAStockDispensedDate_1" id="znPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="znPHAStockSupplier_1" id="znPHAStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znPHAStockExpiryDate_1" id="znPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="znPHAStockComments_1" id="znPHAStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			<tr id="formbuttons_13">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_13" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_13" value="Remove Batch" width="auto"/>
 			</tr>
 		</table>
 
@@ -896,28 +912,29 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="orsPHAStockBatchNo_1" id="orsPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsPHACommodityName_1" id="orsPHACommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsPHAUnit_1" id="orsPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="orsPHAStockDispensedDate_1" id="orsPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="orsPHAStockSupplier_1" id="orsPHAStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsPHAStockExpiryDate_1" id="orsPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="orsPHAStockComments_1" id="orsPHAStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_14">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_14" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_14" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -938,28 +955,29 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="cipPHAStockBatchNo_1" id="cipPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipPHACommodityName_1" id="cipPHACommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipPHAUnit_1" id="cipPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="cipPHAStockDispensedDate_1" id="cipPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="cipPHAStockSupplier_1" id="cipPHAStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipPHAStockExpiryDate_1" id="cipPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="cipPHAStockComments_1" id="cipPHAStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_15">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_15" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_15" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -982,33 +1000,40 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="metPHAStockBatchNo_1" id="metPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metPHACommodityName_1" id="metPHACommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metPHAUnit_1" id="metPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="metPHAStockDispensedDate_1" id="metPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="metPHAStockSupplier_1" id="metPHAStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metPHAStockExpiryDate_1" id="metPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="metPHAStockComments_1" id="metPHAStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_16">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_16" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_16" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 	</div> <!--close tabs-4-->
 	
-	<div id="tabs-5" class="tab Stores">
+	<div id="tabs-5" class="tab Stores step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: Stores</section>
 		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
@@ -1025,28 +1050,29 @@ class C_Load extends MY_Controller {
 			</thead>
 			<tr class="clonable zinc">
 				<td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="text"    name="znSTOBatchNo_1" id="znSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znSTOCommodityName_1" id="znSTOCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znSTOUnit_1" id="znSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="znSTOStockDispensedDate_1" id="znSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="znSTOStockSupplier_1" id="znSTOStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znSTOStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="znSTOStockComments_1" id="znSTOStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			<tr id="formbuttons_17">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_17" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_17" value="Remove Batch" width="auto"/>
 			</tr>
 		</table>
 
@@ -1067,28 +1093,29 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="orsSTOStockBatchNo_1" id="orsSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsSTOCommodityName_1" id="orsSTOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsSTOUnit_1" id="orsSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="orsSTOStockDispensedDate_1" id="orsSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="orsSTOStockSupplier_1" id="orsSTOStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsSTOStockExpiryDate_1" id="orsSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="orsSTOStockComments_1" id="orsSTOStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_18">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_18" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_18" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -1109,28 +1136,29 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="cipSTOStockBatchNo_1" id="cipSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipSTOCommodityName_1" id="cipSTOCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipSTOUnit_1" id="cipSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="cipSTOStockDispensedDate_1" id="cipSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="cipSTOStockSupplier_1" id="cipSTOStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipSTOStockExpiryDate_1" id="cipSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="cipSTOStockComments_1" id="cipSTOStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_19">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_19" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_19" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -1151,34 +1179,41 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="metSTOStockBatchNo_1" id="metSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metSTOCommodityName_1" id="metSTOCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metSTOUnit_1" id="metSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="metSTOStockDispensedDate_1" id="metSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="metSTOStockSupplier_1" id="metSTOStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metSTOStockExpiryDate_1" id="metSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="metSTOStockComments_1" id="metSTOStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_20">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_20" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_20" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
 	</div> <!--close tabs-5-->
 	
-	<div id="tabs-6" class="tab Others">
+	<div id="tabs-6" class="tab Others step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: Others</section>
 		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
 		<table>
 			<thead>
@@ -1193,30 +1228,34 @@ class C_Load extends MY_Controller {
 
 				</tr>
 			</thead>
+			<div class="row2"> 
+				<label>Unit Name</label>
+				<input type="text"  name="otherUnit_1" id="otherUnit_1" class="cloned" maxlength="45"/>
+				</div>
 			<tr class="clonable zinc">
 				<td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="text"  name="znOTHStockBatchNo_1" id="znOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znOTHCommodityName_1" id="znOTHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="znOTHStockDispensedDate_1" id="znOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="znOTHStockSupplier_1" id="znOTHStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="znOTHStockExpiryDate_1" id="znOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
-				<td width="144">
+				<!--td width="144">
 				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-				</td>
+				</td-->
 			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			<tr id="formbuttons_21">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_21" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_21" value="Remove Batch" width="auto"/>
 			</tr>
 		</table>
 
@@ -1237,28 +1276,28 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="orsOTHStockBatchNo_1" id="orsOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsOTHCommodityName_1" id="orsOTHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="orsOTHStockDispensedDate_1" id="orsOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="orsOTHStockSupplier_1" id="orsOTHStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="orsOTHStockExpiryDate_1" id="orsOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
-				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td>
+				<!--td width="144">
+				<input type="text"  name="orsOTHStockComments_1" id="orsOTHStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_22">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_22" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_22" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -1279,28 +1318,28 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="cipOTHStockBatchNo_1" id="cipOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipOTHCommodityName_1" id="cipOTHCommodityName_1" value="Ciprofloxacin" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="cipOTHStockDispensedDate_1" id="cipOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="cipOTHStockSupplier_1" id="cipOTHStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="cipOTHStockExpiryDate_1" id="cipOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
-				<td width="144">
+				<!--td width="144">
 				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td>
+				</td-->
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_23">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_23" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_23" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 		
@@ -1321,33 +1360,31 @@ class C_Load extends MY_Controller {
 			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
 			<tr class="clonable ors">
 				<td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="text"  name="metOTHStockBatchNo_1" id="metOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metOTHCommodityName_1" id="metOTHCommodityName_1" value="Metronidazole" />
 				</td>
 				<!--td width="144">
 				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="date"  name="metOTHStockDispensedDate_1" id="metOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				<input type="text"  name="metOTHStockSupplier_1" id="metOTHStockSupplier_1" class="cloned" maxlength="45"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				<input type="text"  name="metOTHStockExpiryDate_1" id="metOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
 				</td>
 				<td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				<input type="text"  name="metOTHStockComments_1" id="metOTHStockComments_1" class="cloned" maxlength="255"/>
 				</td>
 			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			<tr id="formbuttons_24">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_24" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_24" value="Remove Batch" width="12"/>
 			</tr>
 		</table>
 	</div> <!--end of tabs-6-->
-</div><!--end of div tabs-->
-</div>
 <!--end child health drug section -->	
 
 <!--begin ort corner section-->
@@ -1413,7 +1450,7 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 					<section class="col">
-						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+						<input type="checkbox" name="ortDehydrationLocationOPD" id="ortDehydrationLocationOPD"  value="" maxlength="50"/>
 					</section>
 				</section>
 			</section>
@@ -1423,7 +1460,7 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 					<section class="col">
-						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+						<input type="checkbox" name="ortDehydrationLocationWard" id="ortDehydrationLocationWard"  value="" maxlength="50"/>
 					</section>
 				</section>
 			</section>
@@ -1433,7 +1470,7 @@ class C_Load extends MY_Controller {
 				</section>
 				<section class="right">
 					<section class="col">
-						<input type="text" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+						<input type="text" name="ortDehydrationLocationOther" id="ortDehydrationLocationOther"  value="" maxlength="50"/>
 					</section>
 				</section>
 			</section>
@@ -2152,9 +2189,6 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 			</tr>
-			<!--tr class="row2">
-			<input type="button" id="editEquipmentListBottomButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/-->
-			</tr>
 		</table>
 	</div>
 	</div> <!--end of ort corner part 2 -->
@@ -2167,7 +2201,6 @@ class C_Load extends MY_Controller {
 	<!--a title="To close the form." id="close_opened_form" class="awesome red medium">Close</a-->
 	</section>
 	</form>
-	<hr />
     <p id="data"></p>'
 	;
 
@@ -2180,8 +2213,8 @@ class C_Load extends MY_Controller {
 	
 	public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
-		$form_mnh_assessment.= '
-     <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment11' . '" >
+		$form_mnh_assessment.='
+     <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment' . '" >
 	<!-- form for collecting inventory status information -->
 
     <!-- begin facility  section --->
@@ -2398,7 +2431,7 @@ class C_Load extends MY_Controller {
 	<label>Indicate number of diarrhoea cases seen in this facility in the month of August 2012</label>
 	</section>
 	<section class="center">
-	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
+	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned fromZero"/>
 	</section>
 	</section>
 	</div>

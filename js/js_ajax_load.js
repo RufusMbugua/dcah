@@ -27,13 +27,13 @@ $().ready(function(){
     
     //class specific validation rules
      $.validator.addClassRules({
-        cloned:{
+        cloned1:{
         required: true
     },
     positive:{
     	positiveNumber:true
     	},
-    fromZero:{
+    fromZero1:{
     	zeroAndAbove:true
     	}
     });
@@ -43,7 +43,7 @@ $().ready(function(){
     //var form_id='#'+$(".form-container").find('form').attr('id');
    // alert('Found: '+form_id);
 	/*---------------------------------------start of validation to zinc_ors_inventory form------------------------------------------------------------*/
-	$("#zinc_ors_inventory").validate({/*inventory module*/
+	$("#zinc_ors_inventory1").validate({/*inventory module*/
 		rules: {
 			facilityDateOfInventory:{required: true},
 			facilityName:{required: true},
