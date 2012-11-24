@@ -1882,7 +1882,7 @@
 				<div class="row" id="tr_54">
 					<div class="left">
 
-						14a. Self inflating Neonatal Ambu bag ( 500 mls)
+						<label>14a. Self inflating Neonatal Ambu bag (500 mls)</label>
 					</div>
 					<div class="center">
 						<select class="cloned left-combo" name="q14equipAvailability_54" id="q12equipAvailability_54">
@@ -1909,7 +1909,7 @@
 
 				<div class="row" id="tr_55">
 					<div class="left">
-						14b.i. Infant masks-Size 0
+						<label>14b.i. Infant masks-Size 0</label>
 					</div>
 					<div class="center">
 						<select class="cloned left-combo" name="q14equipAvailability_55" id="q12equipAvailability_55">
@@ -1927,7 +1927,7 @@
 
 				<div class="row" id="tr_56">
 					<div class="left">
-						14b.ii. Infant masks-Size 1
+						<label>14b.ii. Infant masks-Size 1</label>
 					</div>
 
 					<div class="center">
@@ -1945,7 +1945,7 @@
 
 				<div class="row" id="tr_57">
 					<div class="left">
-						14b.iii. Infant masks-Size 2
+						<label>14b.iii. Infant masks-Size 2</label>
 					</div>
 
 					<div class="center">
@@ -2000,7 +2000,7 @@
 
 				<div class="row" id="tr_58">
 					<div class="left">
-						14c. Clock  with seconds arm
+						<label>14c. Clock  with seconds arm</label>
 					</div>
 
 					<div class="center">
@@ -2016,7 +2016,7 @@
 
 				<div class="row" id="tr_59">
 					<div class="left">
-						14d. Neonatal Incubator
+						<label>14d. Neonatal Incubator</label>
 					</div>
 
 					<div class="center">
@@ -2042,7 +2042,7 @@
 
 				<div class="row" id="tr_60">
 					<div class="left">
-						14e. A Radiant Heater
+						<label>14e. A Radiant Heater</label>
 					</div>
 
 					<div class="center">
@@ -2068,7 +2068,7 @@
 
 				<div class="row" id="tr_61">
 					<div class="left">
-						14f. Infant Scale
+						<label>14f. Infant Scale</label>
 					</div>
 
 					<div class="center">
@@ -2095,7 +2095,7 @@
 
 				<div class="row" id="tr_62">
 					<div class="left">
-						14g. Suction bulb for mucus extraction
+						<label>14g. Suction bulb for mucus extraction</label>
 					</div>
 
 					<div class="center">
@@ -2124,7 +2124,7 @@
 
 				<div class="row" id="tr_63">
 					<div class="left">
-						14h. Suction apparatus for use with catheter
+						<label>14h. Suction apparatus for use with catheter</label>
 					</div>
 
 					<div class="center">
@@ -2151,7 +2151,7 @@
 
 				<div class="row" id="tr_64">
 					<div class="left">
-						14i. A flat, clean, dry and warm newborn resuscitation surface
+						<label>14i. A flat, clean, dry and warm newborn resuscitation surface</label>
 					</div>
 
 					<div class="center">
@@ -2167,7 +2167,7 @@
 
 				<div class="row" id="tr_65">
 					<div class="left">
-						14j. Disposable cord ties or clamps
+						<label>14j. Disposable cord ties or clamps</label>
 					</div>
 
 					<div class="center">
@@ -2192,7 +2192,7 @@
 
 				<div class="row" id="tr_66">
 					<div class="left">
-						14k. Clean and warm towels/cloths for drying / warming / wrapping baby
+						<label>14k. Clean and warm towels/cloths for drying / warming / wrapping baby</label>
 					</div>
 
 					<div class="center">
@@ -2243,7 +2243,7 @@
 			<div class="row">
 				<div class="left">
 
-					15. Does this facility perform blood transfusions?
+					<label>15. Does this facility perform blood transfusions?</label>
 				</div>
 				<div class="center">
 
@@ -2328,7 +2328,7 @@
 						</div>
 						<div class="row" id="tr_67">
 							<div class="left">
-								18a. Operating Table
+								<label>18a. Operating Table</label>
 							</div>
 
 							<div class="center">
@@ -2355,7 +2355,7 @@
 
 						<div class="row" id="tr_68">
 							<div class="left">
-								18b. Operating Light
+								<label>18b. Operating Light</label>
 							</div>
 
 							<div class="center">
@@ -2382,7 +2382,7 @@
 
 						<div class="row" id="tr_69">
 							<div class="left">
-								18c. Anaesthetic machine
+								<label>18c. Anaesthetic machine</label>
 							</div>
 
 							<div class="center">
@@ -2409,7 +2409,7 @@
 
 						<div class="row" id="tr_70">
 							<div class="left">
-								18d. Laryngoscopes
+								<label>18d. Laryngoscopes</label>
 							</div>
 
 							<div class="center">
@@ -2436,7 +2436,7 @@
 
 						<div class="row" id="tr_71">
 							<div class="left">
-								18e. Endotracheal tubes
+								<label>18e. Endotracheal tubes</label>
 							</div>
 
 							<div class="center">
@@ -2463,7 +2463,7 @@
 
 						<div class="row" id="tr_72">
 							<div class="left">
-								18f. Anaesthetic drugs e.g ketamine
+								<label>18f. Anaesthetic drugs e.g ketamine</label>
 							</div>
 
 							<div class="center">
@@ -2490,7 +2490,7 @@
 
 						<div class="row" id="tr_73">
 							<div class="left">
-								18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)
+								<label>18g. Anaesthetic gases (halothane, NO2, Oxygen, etc)</label>
 							</div>
 
 							<div class="center">
@@ -2517,7 +2517,7 @@
 
 						<div class="row" id="tr_74">
 							<div class="left">
-								18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)
+								<label>18h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)</label>
 							</div>
 
 							<div class="center">
@@ -2544,7 +2544,7 @@
 
 						<div class="row" id="tr_75">
 							<div class="left">
-								18i. Scrub area adjacent to or in the operating room
+								<label>18i. Scrub area adjacent to or in the operating room</label>
 							</div>
 
 							<div class="center">
@@ -2571,7 +2571,7 @@
 
 						<div class="row" id="tr_76">
 							<div class="left">
-								18j. Running Water
+								<label>18j. Running Water</label>
 							</div>
 
 							<div class="center">
@@ -2598,7 +2598,7 @@
 
 						<div class="row" id="tr_77">
 							<div class="left">
-								18k. Suction Machine
+								<label>18k. Suction Machine</label>
 							</div>
 
 							<div class="center">
@@ -2625,7 +2625,7 @@
 
 						<div class="row" id="tr_78">
 							<div class="left">
-								18l. Standard Cesaerian Section kit
+								<label>18l. Standard Cesaerian Section kit</label>
 							</div>
 
 							<div class="center">
@@ -2652,7 +2652,7 @@
 
 						<div class="row" id="tr_79">
 							<div class="left">
-								18m. Sterile operation gowns
+								<label>18m. Sterile operation gowns</label>
 							</div>
 
 							<div class="center">
@@ -2679,7 +2679,7 @@
 
 						<div class="row" id="tr_80">
 							<div class="left">
-								18n. Sterile Drapes
+								<label>18n. Sterile Drapes</label>
 							</div>
 
 							<div class="center">
@@ -2706,7 +2706,7 @@
 
 						<div class="row" id="tr_81">
 							<div class="left">
-								18o. Sterile gloves in various sizes
+								<label>18o. Sterile gloves in various sizes</label>
 							</div>
 
 							<div class="center">
@@ -2752,7 +2752,7 @@
 
 						<div class="row" id="tr_82">
 							<div class="left">
-								18p. IV canulas
+								<label>18p. IV canulas</label>
 							</div>
 
 							<div class="center">
@@ -2779,7 +2779,7 @@
 
 						<div class="row" id="tr_83">
 							<div class="left">
-								18q. Drip Stand
+								<label>18q. Drip Stand</label>
 							</div>
 							<input type="hidden"  name="q18equipCode_105" id="q18equipCode_105" value="EQP107" />
 
@@ -2805,7 +2805,7 @@
 
 						<div class="row" id="tr_84">
 							<div class="left">
-								18r. Blood transfusion set
+								<label>18r. Blood transfusion set</label>
 							</div>
 
 							<div class="center">
@@ -2832,7 +2832,7 @@
 
 						<div class="row" id="tr_85">
 							<div class="left">
-								18s. Recovery room/ recovery area
+								<label>18s. Recovery room/ recovery area</label>
 							</div>
 
 							<div class="center">

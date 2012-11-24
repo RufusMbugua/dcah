@@ -210,7 +210,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				
 				//if(loaded==false)
 				loadGlobalScript();renderFacilityInfo();break_form_to_steps(form_id);
-				$( "#tabs" ).tabs();
+				//$( "#tabs" ).tabs();
 				//alert('done');
 				
 				 });
@@ -294,7 +294,7 @@ $mfCode = $this -> session -> userdata('fCode');
 								 //try remove this class as it makes the ui look nasty
 								//alert(form_id);
 								//'#facility_section'
-								$(form_id).find('input,select,radio,label[class="dcah-label"]').removeClass('ui-helper-reset ui-formwizard-content ui-wizard-content ui-state-default');
+								$(form_id).find('input,select,radio,label[class="dcah-label"],form').removeClass('ui-helper-reset ui-state-default ui-helper-reset');
 							
 							var remoteAjax = {}; // empty options object*/
 				

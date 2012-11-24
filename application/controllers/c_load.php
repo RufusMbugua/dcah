@@ -352,1655 +352,1903 @@ class C_Load extends MY_Controller {
 
 	<!--end diarrhoiea morbidity factor div-->
 
-	<!--begin child health drug div -->
-	<div id="childhealth_drugs" class="step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-
-		<h3 align="center"> Commodities Assessment </h3>
-		<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the following units
-
-		</p>
-		<div id="tabs">
-			<ul>
-				<li>
-					<a href="#tabs-1">MCH</a>
-				</li>
-				<li>
-					<a href="#tabs-2">PEDS WARD</a>
-				</li>
-				<li>
-					<a href="#tabs-3">OPD</a>
-				</li>
-				<li>
-					<a href="#tabs-4">PHARMACY</a>
-				</li>
-				<li>
-					<a href="#tabs-5">STORES</a>
-				</li>
-				<li>
-					<a href="#tabs-6">Others*</a>
-				</li>
-			</ul>
-			<div id="tabs-1" class="tab MCH">
-
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-						<tr></tr>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Tablets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<!--td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						</td-->
-						<td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-			</div>
-			<!--close tabs-1-->
-
-			<div id="tabs-2" class="tab PEDS">
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Tablets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<!--td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						</td-->
-						<td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-			</div>
-			<!--close tabs-2-->
-
-			<div id="tabs-3" class="tab OPD">
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Tablets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<!--td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						</td-->
-						<td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<!--td width="144">Batch No</td-->
-							<td width="144">Quantities at Hand (Sachets)</td>
-							<!--td width="144">Date Supplied to Facility</td-->
-							<!--td width="144">Supplier</td-->
-							<td width="144">Expiry Date</td>
-							<!--td width="144">Comments</td-->
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<!--td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-
-						</td-->
-						<td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td-->
-						<!--td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td-->
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<!--td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td-->
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-			</div>
-			<!--close tabs-3-->
-
-			<div id="tabs-4" class="tab Pharmacy">
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Tablets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-			</div>
-			<!--close tabs-4-->
-
-			<div id="tabs-5" class="tab Stores">
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Tablets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-			</div>
-			<!--close tabs-5-->
-
-			<div id="tabs-6" class="tab Others">
-				<h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Tablets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<tr class="clonable zinc">
-						<td width="144">
-						<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_1">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Ciprofloxacin Assessment</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-
-				<h3 align="center"> Metronidazole (Flagyl)</h3>
-				<table>
-					<thead>
-						<tr>
-
-							<td width="144">Batch No</td>
-							<!--td width="144">Quantities at Hand (Sachets)</td-->
-							<td width="144">Date Supplied to Facility</td>
-							<td width="144">Supplier</td>
-							<td width="144">Expiry Date</td>
-							<td width="144">Comments</td>
-
-						</tr>
-					</thead>
-					<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-					<tr class="clonable ors">
-						<td width="144">
-						<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-						<input type="hidden"  name="orsCommodityName_1" id="orsCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-						</td>
-						<!--td width="144">
-						<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
-						</td-->
-						<td width="144">
-						<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockExpiryDate_1" id="orsStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-						</td>
-						<td width="144">
-						<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-						</td>
-					</tr>
-					<tr id="formbuttons_2">
-						<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
-						<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
-					</tr>
-				</table>
-			</div>
-			<!--end of tabs-6-->
-		</div><!--end of div tabs-->
-	</div>
-	<!--end child health drug div -->
-
-	<!--begin ort corner div-->
-	<div id="ort_part1" class="step">
-		<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
-		<div class="block">
-			<div class="column">
-				<div class="row-title">
-					<div class="left">
-						ASPECTS
-					</div>
-					<div class="right" style="float:right">
-						<div class="col">
-							YES
-						</div>
-						<div class="col">
-							NO
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="left">
-						<label> Are dehydrated children rehydrated at this facility? </label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="radio" name="ortQuestion1" id="ortQuestion1_y" value="1" />
-						</div>
-						<div class="col">
-							<input type="radio" name="ortQuestion1" id="ortQuestion1_n" value="0" />
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="left">
-						<label> Does the facility have a designated location for oral rehydration ?</label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="radio" name="ortQuestion2" id="ortQuestion2_y"  value="1" />
-						</div>
-						<div class="col">
-							<input type="radio" name="ortQuestion2" id="ortQuestion2_n" value="0" />
-						</div>
-					</div>
-				</div>
-				<div class="row hide" style="display:none">
-					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
-				</div>
-				<div class="row hide" style="display:none">
-					<div class="left" >
-						<label> MCH</label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
-						</div>
-					</div>
-				</div>
-				<div class="row hide" style="display:none">
-					<div class="left" >
-						<label> OPD</label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
-						</div>
-					</div>
-				</div>
-				<div class="row hide" style="display:none">
-					<div class="left" >
-						<label> WARD </label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
-						</div>
-					</div>
-				</div>
-				<div class="row hide" style="display:none">
-					<div class="left" >
-						<label> Other*?</label>
-					</div>
-					<div class="right">
-						<div class="col">
-							<input type="text" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--end of ort corner part1 -->
-	<div id="ort_questions" class="step">
-		<h3 align="center"> Oral Rehydration Therapy Corner Assessment ...</h3>
-		<div class="block">
-			<div class="row">
-				<label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility?</label>
-				<input style="font-size:1.0em" type="text" />
-			</div>
-
-			<div class="row">
-				<label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing or Broken ORT Corner equipment?</label>
-				<input style="font-size:1.0em" type="text" />
-			</div>
-		</div>
-	</div>
-	<div id="ort_part2" class="step">
-		<div class="row-title">
-			<label class="dcah-label">EQUIPMENT</label>
-		</div>
-		<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
-		<div class="block">
-			<table id="tableEquipmentList">
-				<tr class="row2">
-					<input type="button" id="editEquipmentListTopButton" name="editEquipmentListTopButton" class="awesome myblue medium" value="Edit List"/>
+<!--begin child health drug section -->
+     <div id="tabs-1" class="tab MCH step">
+   	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: MCH</section>
+	
+		
+        <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
 				</tr>
 				<tr>
-					<thead >
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Yes/No</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
-					</thead>
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znMCHCommodityName_1" id="znMCHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znMCHUnit_1" id="znMCHUnit_1" value="MCH" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znMCHStockExpiryDate_1" id="znMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_1">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
 
 				</tr>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsMCHCommodityName_1" id="orsMCHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsMCHUnit_1" id="orsMCHUnit_1" value="MCH" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsMCHStockExpiryDate_1" id="orsMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_2">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
 
-				<tr class="row2" id="tr_1">
-					<td width="400"><label>Tea spoons </label>
-					<input type="hidden"  name="equipCode_1" id="equipCode_1" value="EQP01" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_1" id="equipAvailable_1" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_2">
-					<td width="400"><label>Table spoons </label>
-					<input type="hidden"  name="equipCode_2" id="equipCode_2" value="EQP02" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_2" id="equipAvailable_2" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipCommodityName_1" id="cipCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipMCHUnit_1" id="cipMCHUnit_1" value="MCH" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="cipStockExpiryDate_1" id="cipStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_3">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_3" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_3" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_3">
-					<td width="400"><label>Stirring spoon </label>
-					<input type="hidden"  name="equipCode_3" id="equipCode_3" value="EQP03" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_3" id="equipAvailable_3" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metCommodityName_1" id="metCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metMCHUnit_1" id="metMCHUnit_1" value="MCH" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="metStockExpiryDate_1" id="metStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_4">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_4" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_4" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-1-->
+	
+	<div id="tabs-2" class="tab PEDS step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: PEDS</section>
+	     <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_4">
-					<td width="400"><label>Plastic buckets (with lids for infection prevention) </label>
-					<input type="hidden"  name="equipCode_4" id="equipCode_4" value="EQP04" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znPEDCommodityName_1" id="znPEDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znPEDUnit_1" id="znPEDUnit_1" value="PED" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znPEDStockExpiryDate_1" id="znPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_5">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_5" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_5" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_5">
-					<td width="400"><label> Buckets â€“ for storing cups, spoons </label>
-					<input type="hidden"  name="equipCode_5" id="equipCode_5" value="EQP05" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_5" id="equipAvailable_5" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsPEDCommodityName_1" id="orsPEDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsPEDUnit_1" id="orsPEDUnit_1" value="PED" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsPEDStockExpiryDate_1" id="orsPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_6">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_6" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_6" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_6">
-					<td width="400"><label> Plastic cups (50-100mls) </label>
-					<input type="hidden"  name="equipCode_6" id="equipCode_6" value="EQP06" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_6" id="equipAvailable_6" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipPEDCommodityName_1" id="cipPEDCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipPEDUnit_1" id="cipPEDUnit_1" value="PED" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="cipPEDStockExpiryDate_1" id="cipPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_7">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_7" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_7" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_7">
-					<td width="400"><label> Plastic cups (101-200mls) </label>
-					<input type="hidden"  name="equipCode_7" id="equipCode_7" value="EQP07" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_7" id="equipAvailable_7" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metPEDCommodityName_1" id="metPEDCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metPEDUnit_1" id="metPEDUnit_1" value="PED" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="metPEDStockExpiryDate_1" id="metPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_8">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_8" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_8" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-2-->
+	
+	<div id="tabs-3" class="tab OPD step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: OPD</section>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_8">
-					<td width="400"><label> Plastic cups (201mls-499mls) </label>
-					<input type="hidden"  name="equipCode_8" id="equipCode_8" value="EQP08" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_8" id="equipAvailable_8" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<tr class="clonable zinc">
+				<!--td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				</td-->
+				<td width="144">
+				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="znOPDCommodityName_1" id="znOPDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znOPDUnit_1" id="znOPDUnit_1" value="OPD" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="znOPDStockExpiryDate_1" id="znOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_9">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_9" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_9" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_9">
-					<td width="400"><label> Plastic cups (500mls) </label>
-					<input type="hidden"  name="equipCode_9" id="equipCode_9" value="EQP09" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_9" id="equipAvailable_9" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="orsOPDCommodityName_1" id="orsOPDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsOPDUnit_1" id="orsOPDUnit_1" value="OPD" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="orsOPDStockExpiryDate_1" id="orsOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_10">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_10" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_10" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_10">
-					<td width="400"><label> 1 litre Calibrated measuring jars </label>
-					<input type="hidden"  name="equipCode_10" id="equipCode_10" value="EQP10" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_10" id="equipAvailable_10" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="cipOPDCommodityName_1" id="cipOPDCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipOPDUnit_1" id="cipOPDUnit_1" value="OPD" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="cipOPDStockExpiryDate_1" id="cipOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_11">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_11" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_11" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<!--td width="144">Batch No</td-->
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<!--td width="144">Date Supplied to Facility</td-->
+					<!--td width="144">Supplier</td-->
+					<td width="144">Expiry Date</td>
+					<!--td width="144">Comments</td-->
+
 				</tr>
-				<tr class="row2" id="tr_11">
-					<td width="400"><label> Table Trays </label>
-					<input type="hidden"  name="equipCode_11" id="equipCode_11" value="EQP11" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_11" id="equipAvailable_11" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<!--td width="144">
+				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
+				
+				</td-->
+				<td width="144">
+				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="hidden"  name="metOPDCommodityName_1" id="metOPDCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metOPDUnit_1" id="metOPDUnit_1" value="OPD" />
+				</td>
+				<!--td width="144">
+				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td-->
+				<!--td width="144">
+				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
+				</td-->
+				<td width="144">
+				<input type="text"  name="metOPDStockExpiryDate_1" id="metOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_12">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_12" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_12" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-3-->
+	
+	
+	<div id="tabs-4" class="tab Pharmacy step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>	<section align="center" class="row-title"> Unit: Pharmacy</section>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_12">
-					<td width="400"><label> Wash Basins </label>
-					<input type="hidden"  name="equipCode_12" id="equipCode_12" value="EQP12" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_12" id="equipAvailable_12" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znPHAUnit_1" id="znPHAUnit_1" value="PHA" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="znPHAStockDispensedDate_1" id="znPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znPHAStockSupplier_1" id="znPHAStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znPHAStockExpiryDate_1" id="znPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znPHAStockComments_1" id="znPHAStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_13">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_13" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_13" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_13">
-					<td width="400"><label> Water heating equipment,(e.g..hot plate/Meko ) </label>
-					<input type="hidden"  name="equipCode_13" id="equipCode_13" value="EQP13" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_13" id="equipAvailable_13" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsPHAStockBatchNo_1" id="orsPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsPHACommodityName_1" id="orsPHACommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsPHAUnit_1" id="orsPHAUnit_1" value="PHA" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsPHAStockDispensedDate_1" id="orsPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsPHAStockSupplier_1" id="orsPHAStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsPHAStockExpiryDate_1" id="orsPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsPHAStockComments_1" id="orsPHAStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_14">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_14" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_14" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_14">
-					<td width="400"><label> Hot plate-Electric/Solar powered </label>
-					<input type="hidden"  name="equipCode_14" id="equipCode_14" value="EQP14" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_14" id="equipAvailable_14" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="cipPHAStockBatchNo_1" id="cipPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipPHACommodityName_1" id="cipPHACommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipPHAUnit_1" id="cipPHAUnit_1" value="PHA" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="cipPHAStockDispensedDate_1" id="cipPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipPHAStockSupplier_1" id="cipPHAStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipPHAStockExpiryDate_1" id="cipPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipPHAStockComments_1" id="cipPHAStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_15">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_15" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_15" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_15">
-					<td width="400"><label> Heater- Gas powered </label>
-					<input type="hidden"  name="equipCode_15" id="equipCode_15" value="EQP15" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_15" id="equipAvailable_15" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+
+
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="metPHAStockBatchNo_1" id="metPHAStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metPHACommodityName_1" id="metPHACommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metPHAUnit_1" id="metPHAUnit_1" value="PHA" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="metPHAStockDispensedDate_1" id="metPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metPHAStockSupplier_1" id="metPHAStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metPHAStockExpiryDate_1" id="metPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metPHAStockComments_1" id="metPHAStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_16">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_16" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_16" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--close tabs-4-->
+	
+	<div id="tabs-5" class="tab Stores step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: Stores</section>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_16">
-					<td width="400"><label> Charcoal or Firewood  stove/Heater </label>
-					<input type="hidden"  name="equipCode_16" id="equipCode_16" value="EQP16" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_16" id="equipAvailable_16" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="text"    name="znSTOBatchNo_1" id="znSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znSTOCommodityName_1" id="znSTOCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="znSTOUnit_1" id="znSTOUnit_1" value="Store" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="znSTOStockDispensedDate_1" id="znSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znSTOStockSupplier_1" id="znSTOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znSTOStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znSTOStockComments_1" id="znSTOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_17">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_17" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_17" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_17">
-					<td width="400"><label> Paraffin Stove/Heater </label>
-					<input type="hidden"  name="equipCode_17" id="equipCode_17" value="EQP17" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_17" id="equipAvailable_17" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsSTOStockBatchNo_1" id="orsSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsSTOCommodityName_1" id="orsSTOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="orsSTOUnit_1" id="orsSTOUnit_1" value="Store" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsSTOStockDispensedDate_1" id="orsSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsSTOStockSupplier_1" id="orsSTOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsSTOStockExpiryDate_1" id="orsSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsSTOStockComments_1" id="orsSTOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_18">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_18" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_18" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_18">
-					<td width="400"><label> Sufurias  with a Lid (14 inch) </label>
-					<input type="hidden"  name="equipCode_18" id="equipCode_18" value="EQP18" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_18" id="equipAvailable_18" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="cipSTOStockBatchNo_1" id="cipSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipSTOCommodityName_1" id="cipSTOCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="cipSTOUnit_1" id="cipSTOUnit_1" value="Store" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="cipSTOStockDispensedDate_1" id="cipSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipSTOStockSupplier_1" id="cipSTOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipSTOStockExpiryDate_1" id="cipSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipSTOStockComments_1" id="cipSTOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_19">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_19" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_19" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_19">
-					<td width="400"><label> Waste Container </label>
-					<input type="hidden"  name="equipCode_19" id="equipCode_19" value="EQP19" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_19" id="equipAvailable_19" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="metSTOStockBatchNo_1" id="metSTOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metSTOCommodityName_1" id="metSTOCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="metSTOUnit_1" id="metSTOUnit_1" value="Store" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="metSTOStockDispensedDate_1" id="metSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metSTOStockSupplier_1" id="metSTOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metSTOStockExpiryDate_1" id="metSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metSTOStockComments_1" id="metSTOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_20">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_20" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_20" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+	</div> <!--close tabs-5-->
+	
+	<div id="tabs-6" class="tab Others step">
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<section align="center" class="row-title"> Unit: Others</section>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Tablets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_20">
-					<td width="400"><label> Wall Clock /Timing device </label>
-					<input type="hidden"  name="equipCode_20" id="equipCode_20" value="EQP20" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_20" id="equipAvailable_20" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<div class="row2"> 
+				<label>Unit Name</label>
+				<input type="text"  name="otherUnit_1" id="otherUnit_1" class="cloned" maxlength="45"/>
+				</div>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="text"  name="znOTHStockBatchNo_1" id="znOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="znOTHCommodityName_1" id="znOTHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="znOTHStockDispensedDate_1" id="znOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znOTHStockSupplier_1" id="znOTHStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="znOTHStockExpiryDate_1" id="znOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_21">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_21" value="Add a Batch" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_21" value="Remove Batch" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_21">
-					<td width="400"><label> Table- for mixing ORS </label>
-					<input type="hidden"  name="equipCode_21" id="equipCode_21" value="EQP21" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_21" id="equipAvailable_21" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="orsOTHStockBatchNo_1" id="orsOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="orsOTHCommodityName_1" id="orsOTHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="orsOTHStockDispensedDate_1" id="orsOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsOTHStockSupplier_1" id="orsOTHStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="orsOTHStockExpiryDate_1" id="orsOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsOTHStockComments_1" id="orsOTHStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_22">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_22" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_22" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_22">
-					<td width="400"><label> Benches/chair(s) </label>
-					<input type="hidden"  name="equipCode_22" id="equipCode_22" value="EQP22" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_22" id="equipAvailable_22" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="cipOTHStockBatchNo_1" id="cipOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="cipOTHCommodityName_1" id="cipOTHCommodityName_1" value="Ciprofloxacin" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="cipOTHStockDispensedDate_1" id="cipOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipOTHStockSupplier_1" id="cipOTHStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="cipOTHStockExpiryDate_1" id="cipOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<!--td width="144">
+				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
+				</td-->
+			</tr>
+			<tr id="formbuttons_23">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_23" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_23" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl)</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
 				</tr>
-				<tr class="row2" id="tr_23">
-					<td width="400"><label> Water Storage Container ( at least 40lts)- With Tap </label>
-					<input type="hidden"  name="equipCode_23" id="equipCode_23" value="EQP23" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_23" id="equipAvailable_23" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_24">
-					<td width="400"><label> Water Storage Container ( at least 40lts)- Without Tap </label>
-					<input type="hidden"  name="equipCode_24" id="equipCode_24" value="EQP24" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_24" id="equipAvailable_24" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_25">
-					<td width="400"><label> Locally available measuring containers e.g. cooking fat Tins. </label>
-					<input type="hidden"  name="equipCode_25" id="equipCode_25" value="EQP25" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_25" id="equipAvailable_25" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_26">
-					<td width="400"><label> Weighing scale </label>
-					<input type="hidden"  name="equipCode_26" id="equipCode_26" value="EQP26" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_26" id="equipAvailable_26" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_27">
-					<td width="400"><label> Hand Washing Facility/Point e.g. tippy taps. </label>
-					<input type="hidden"  name="equipCode_27" id="equipCode_27" value="EQP27" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_27" id="equipAvailable_27" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_28">
-					<td width="400"><label> Safe water source </label>
-					<input type="hidden"  name="equipCode_28" id="equipCode_28" value="EQP28" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_28" id="equipAvailable_28" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_29">
-					<td width="400"><label> Thermometer </label>
-					<input type="hidden"  name="equipCode_29" id="equipCode_29" value="EQP29" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_29" id="equipAvailable_29" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_30">
-					<td width="400"><label> MUAC Tape </label>
-					<input type="hidden"  name="equipCode_30" id="equipCode_30" value="EQP30" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_30" id="equipAvailable_30" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<!--tr class="row2">
-				<input type="button" id="editEquipmentListBottomButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/-->
-				</tr>
-			</table>
-		</div>
+			</thead>
+			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="text"  name="metOTHStockBatchNo_1" id="metOTHStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="metOTHCommodityName_1" id="metOTHCommodityName_1" value="Metronidazole" />
+				</td>
+				<!--td width="144">
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td-->
+				<td width="144">
+				<input type="date"  name="metOTHStockDispensedDate_1" id="metOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metOTHStockSupplier_1" id="metOTHStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metOTHStockExpiryDate_1" id="metOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="metOTHStockComments_1" id="metOTHStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_24">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_24" value="Add a Batch" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_24" value="Remove Batch" width="12"/>
+			</tr>
+		</table>
+	</div> <!--end of tabs-6-->
+<!--end child health drug section -->	
+
+<!--begin ort corner section-->
+<div id="ort_part1" class="step">
+<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
+	<section class="block">
+		<section class="column">
+			<section class="row-title">
+				<section class="left">
+					ASPECTS
+				</section>
+				<section class="right" style="float:right">
+					<section class="col">
+						YES
+					</section>
+					<section class="col">
+						NO
+					</section>
+				</section>
+			</section>
+			<section class="row">
+				<section class="left">
+					<label> Are dehydrated children rehydrated at this facility? </label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="radio" name="ortQuestion1" id="ortQuestion1_y" value="1" />
+					</section>
+					<section class="col">
+						<input type="radio" name="ortQuestion1" id="ortQuestion1_n" value="0" />
+					</section>
+				</section>
+			</section>
+			<section class="row">
+				<section class="left">
+					<label> Does the facility have a designated location for oral rehydration ?</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="radio" name="ortQuestion2" id="ortQuestion2_y"  value="1" />
+					</section>
+					<section class="col">
+						<input type="radio" name="ortQuestion2" id="ortQuestion2_n" value="0" />
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
+				</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> MCH</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> OPD</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocationOPD" id="ortDehydrationLocationOPD"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> WARD </label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="checkbox" name="ortDehydrationLocationWard" id="ortDehydrationLocationWard"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+			<section class="row hide" style="display:none">
+				<section class="left" >
+					<label> Other*?</label>
+				</section>
+				<section class="right">
+					<section class="col">
+						<input type="text" name="ortDehydrationLocationOther" id="ortDehydrationLocationOther"  value="" maxlength="50"/>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+	</div> <!--end of ort corner part1 -->
+	
+	 <div id="ort_part2" class="step">
+	<div class="row-title">
+		<label class="dcah-label">EQUIPMENT</label>
 	</div>
-	<!--end of ort corner part 2 -->
-	<!--end ort corner div-->
+	<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
+	<div class="block">
+		<table id="tableEquipmentList">
+			<tr class="row2">
+				<input type="button" id="editEquipmentListTopButton" name="editEquipmentListTopButton" class="awesome myblue medium" value="Edit List"/>
+			</tr>
+			<tr>
+				<thead >
+					<td width="144"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
+					<td width="144"><label class="dcah-label" style="font-size:1.0em">Yes/No</label></td>
+					<td width="144"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
+					<td width="144"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility? (respond by item)</label></td>
+					<td width="144"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing, stolen or Broken ORT Corner equipment in the Current *AOP/QIP?</label></td>
+				</thead>
+
+			</tr>
+
+			<tr class="row2" id="tr_1">
+				<td width="144"><label>Tea spoons </label>
+				<input type="hidden"  name="equipCode_1" id="equipCode_1" value="EQP01" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_1" id="equipAvailable_1" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_1" id="equipSupplier_1" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_1" id="equipBudgetPresent_1" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_2">
+				<td width="144"><label>Table spoons </label>
+				<input type="hidden"  name="equipCode_2" id="equipCode_2" value="EQP02" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_2" id="equipAvailable_2" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_2" id="equipSupplier_2" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_2" id="equipBudgetPresent_2" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_3">
+				<td width="144"><label>Stirring spoon </label>
+				<input type="hidden"  name="equipCode_3" id="equipCode_3" value="EQP03" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_3" id="equipAvailable_3" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_3" id="equipSupplier_3" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_3" id="equipBudgetPresent_3" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_4">
+				<td width="144"><label>Plastic buckets (with lids for infection prevention) </label>
+				<input type="hidden"  name="equipCode_4" id="equipCode_4" value="EQP04" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_4" id="equipSupplier_4" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_4" id="equipBudgetPresent_4" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_5">
+				<td width="144"><label> Buckets â€“ for storing cups, spoons </label>
+				<input type="hidden"  name="equipCode_5" id="equipCode_5" value="EQP05" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_5" id="equipAvailable_5" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_5" id="equipSupplier_5" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_5" id="equipBudgetPresent_5" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_6">
+				<td width="144"><label> Plastic cups (50-100mls) </label>
+				<input type="hidden"  name="equipCode_6" id="equipCode_6" value="EQP06" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_6" id="equipAvailable_6" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_6" id="equipSupplier_6" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_6" id="equipBudgetPresent_6" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_7">
+				<td width="144"><label> Plastic cups (101-200mls) </label>
+				<input type="hidden"  name="equipCode_7" id="equipCode_7" value="EQP07" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_7" id="equipAvailable_7" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_7" id="equipSupplier_7" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_7" id="equipBudgetPresent_7" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_8">
+				<td width="144"><label> Plastic cups (201mls-499mls) </label>
+				<input type="hidden"  name="equipCode_8" id="equipCode_8" value="EQP08" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_8" id="equipAvailable_8" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_8" id="equipSupplier_8" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_8" id="equipBudgetPresent_8" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_9">
+				<td width="144"><label> Plastic cups (500mls) </label>
+				<input type="hidden"  name="equipCode_9" id="equipCode_9" value="EQP09" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_9" id="equipAvailable_9" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_9" id="equipSupplier_9" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_9" id="equipBudgetPresent_9" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_10">
+				<td width="144"><label> 1 litre Calibrated measuring jars </label>
+				<input type="hidden"  name="equipCode_10" id="equipCode_10" value="EQP10" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_10" id="equipAvailable_10" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_10" id="equipSupplier_10" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_10" id="equipBudgetPresent_10" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_11">
+				<td width="144"><label> Table Trays </label>
+				<input type="hidden"  name="equipCode_11" id="equipCode_11" value="EQP11" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_11" id="equipAvailable_11" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_11" id="equipSupplier_11" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_11" id="equipBudgetPresent_11" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_12">
+				<td width="144"><label> Wash Basins </label>
+				<input type="hidden"  name="equipCode_12" id="equipCode_12" value="EQP12" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_12" id="equipAvailable_12" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_12" id="equipSupplier_12" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_12" id="equipBudgetPresent_12" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_13">
+				<td width="144"><label> Water heating equipment,(e.g..hot plate/Meko ) </label>
+				<input type="hidden"  name="equipCode_13" id="equipCode_13" value="EQP13" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_13" id="equipAvailable_13" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_13" id="equipSupplier_13" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_13" id="equipBudgetPresent_13" class="cloned ">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_14">
+				<td width="144"><label> Hot plate-Electric/Solar powered </label>
+				<input type="hidden"  name="equipCode_14" id="equipCode_14" value="EQP14" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_14" id="equipAvailable_14" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_14" id="equipSupplier_14" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_14" id="equipBudgetPresent_14" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_15">
+				<td width="144"><label> Heater- Gas powered </label>
+				<input type="hidden"  name="equipCode_15" id="equipCode_15" value="EQP15" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_15" id="equipAvailable_15" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_15" id="equipSupplier_15" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_15" id="equipBudgetPresent_15" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_16">
+				<td width="144"><label> Charcoal or Firewood  stove/Heater </label>
+				<input type="hidden"  name="equipCode_16" id="equipCode_16" value="EQP16" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_16" id="equipAvailable_16" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_16" id="equipSupplier_16" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_16" id="equipBudgetPresent_16" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_17">
+				<td width="144"><label> Paraffin Stove/Heater </label>
+				<input type="hidden"  name="equipCode_17" id="equipCode_17" value="EQP17" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_17" id="equipAvailable_17" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_17" id="equipSupplier_17" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_17" id="equipBudgetPresent_17" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_18">
+				<td width="144"><label> Sufurias  with a Lid (14 inch) </label>
+				<input type="hidden"  name="equipCode_18" id="equipCode_18" value="EQP18" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_18" id="equipAvailable_18" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_18" id="equipSupplier_18" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_18" id="equipBudgetPresent_18" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_19">
+				<td width="144"><label> Waste Container </label>
+				<input type="hidden"  name="equipCode_19" id="equipCode_19" value="EQP19" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_19" id="equipAvailable_19" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_19" id="equipSupplier_19" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_19" id="equipBudgetPresent_19" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_20">
+				<td width="144"><label> Wall Clock /Timing device </label>
+				<input type="hidden"  name="equipCode_20" id="equipCode_20" value="EQP20" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_20" id="equipAvailable_20" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_20" id="equipSupplier_20" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_20" id="equipBudgetPresent_20" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_21">
+				<td width="144"><label> Table- for mixing ORS </label>
+				<input type="hidden"  name="equipCode_21" id="equipCode_21" value="EQP21" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_21" id="equipAvailable_21" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_21" id="equipSupplier_21" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_21" id="equipBudgetPresent_21" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_22">
+				<td width="144"><label> Benches/chair(s) </label>
+				<input type="hidden"  name="equipCode_22" id="equipCode_22" value="EQP22" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_22" id="equipAvailable_22" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_22" id="equipSupplier_22" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_22" id="equipBudgetPresent_22" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_23">
+				<td width="144"><label> Water Storage Container ( at least 40lts)- With Tap </label>
+				<input type="hidden"  name="equipCode_23" id="equipCode_23" value="EQP23" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_23" id="equipAvailable_23" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_23" id="equipSupplier_23" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_23" id="equipBudgetPresent_23" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_24">
+				<td width="144"><label> Water Storage Container ( at least 40lts)- Without Tap </label>
+				<input type="hidden"  name="equipCode_24" id="equipCode_24" value="EQP24" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_24" id="equipAvailable_24" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_24" id="equipSupplier_24" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_24" id="equipBudgetPresent_24" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_25">
+				<td width="144"><label> Locally available measuring containers e.g. cooking fat Tins. </label>
+				<input type="hidden"  name="equipCode_25" id="equipCode_25" value="EQP25" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_25" id="equipAvailable_25" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_25" id="equipSupplier_25" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_25" id="equipBudgetPresent_25" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_26">
+				<td width="144"><label> Weighing scale </label>
+				<input type="hidden"  name="equipCode_26" id="equipCode_26" value="EQP26" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_26" id="equipAvailable_26" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_26" id="equipSupplier_26" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_26" id="equipBudgetPresent_26" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_27">
+				<td width="144"><label> Hand Washing Facility/Point e.g. tippy taps. </label>
+				<input type="hidden"  name="equipCode_27" id="equipCode_27" value="EQP27" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_27" id="equipAvailable_27" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_27" id="equipSupplier_27" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_27" id="equipBudgetPresent_27" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_28">
+				<td width="144"><label> Safe water source </label>
+				<input type="hidden"  name="equipCode_28" id="equipCode_28" value="EQP28" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_28" id="equipAvailable_28" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_28" id="equipSupplier_28" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_28" id="equipBudgetPresent_28" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_29">
+				<td width="144"><label> Thermometer </label>
+				<input type="hidden"  name="equipCode_29" id="equipCode_29" value="EQP29" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_29" id="equipAvailable_29" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_29" id="equipSupplier_29" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_29" id="equipBudgetPresent_29" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+			<tr class="row2" id="tr_30">
+				<td width="144"><label> MUAC Tape </label>
+				<input type="hidden"  name="equipCode_30" id="equipCode_30" value="EQP30" />
+				</td>
+				<td width="144">
+				<select name="equipAvailable_30" id="equipAvailable_30" class="cloned left-combo">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+				<td width="144">
+				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="equipSupplier_30" id="equipSupplier_30" class="cloned"  maxlength="45"/>
+				</td>
+				<td width="144">
+				<select name="equipBudgetPresent_30" id="equipBudgetPresent_30" class="cloned">
+					<option value="" selected="selected">Select One</option>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select></td>
+			</tr>
+		</table>
+	</div>
+	</div> <!--end of ort corner part 2 -->
+<!--end ort corner section-->
 
 	<div class="buttons">
 		<input title="To move to the previous step" id="back" class="awesome magenta medium" type="reset"/>
@@ -2018,8 +2266,7 @@ class C_Load extends MY_Controller {
 		$this -> load -> view('form', $data);
 	}
 
-	
-	public function form_mnh_equipment_assessment() {
+public function form_mnh_equipment_assessment() {
 		$form_mnh_assessment = '';
 		$form_mnh_assessment.= '
      <form name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment11' . '" >
