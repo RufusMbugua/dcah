@@ -940,8 +940,8 @@ div.slider-nav span.left {
 	
 }
 .form-container {
-	margin-top: -1%;
-	width: 75%;
+	margin:auto;
+	width: 90%;
 	height: 700px;
 	overflow: auto;
 	padding: 2%;
@@ -1309,7 +1309,7 @@ form input:not([type=submit]), form textarea {
 	border: 1px solid #999;
 	outline: none;
 	padding: 5px 5px 5px 5px;
-	margin: 5px 5px 5px 5px;
+	margin: 5px 0 5px 0;
 }
 .form-login input:not([type=submit]):focus, form input:not([type=submit]):focus, form textarea:focus {
 	-webkit-box-shadow: inset 0px 3px 6px -3px #000;
@@ -1424,10 +1424,7 @@ form input:not([type=submit]), form textarea {
 /* Columns*/
 .column, .column-wide {
 	padding: 0 20px 10px 10px;
-	
-	float: left;
 	height: auto;
-	margin-bottom: 5px;
 }
 .col {
 	width: 33%;
@@ -1438,17 +1435,28 @@ form input:not([type=submit]), form textarea {
 	width:95%;
 	margin:auto;
 	display:block;
+	height:auto;
 }
 .block .column:first-child {
 	border-right: 2px solid #999999;
+}
+.block .column select, .block .column input{
+	width:90%;
+}
+td input[type=number]{
+	float:left;
+}
+.block .column:nth-child(even){
+	float:right;
 }
 .col-x4 {
 	width: 24%;
 }
 .column {
-	width: 47%;
-	margin-bottom:2%;
+	width: 47.5%;
+	padding-bottom:2%;
 	display:inline-block;
+	position:relative;
 	
 }
 .column-wide {
@@ -1472,6 +1480,9 @@ form input:not([type=submit]), form textarea {
 	float: left;
 	display: block;
 	width: 85%;
+}
+.row{
+	margin:0;
 }
 .row, .row2 {
 	width: 100%;
