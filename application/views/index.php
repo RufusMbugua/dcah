@@ -9,7 +9,7 @@
 	
 		<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css"/>
 		
-		<style>
+		<style type="text/css">
 		    .ui-autocomplete {
 		        max-height: 100px;
 		        overflow-y: auto;
