@@ -347,7 +347,7 @@ class C_Load extends MY_Controller {
 					Indicate number of diarrhoea cases seen in this facility in the <b>last 2 months</b></label>
 			</div>
 			<div class="center">
-				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
+				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/>
 			</div>
 		</div>
 	</div>
@@ -383,7 +383,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znMCHCommodityName_1" id="znMCHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znMCHUnit_1" id="znMCHUnit_1" value="MCH" />
 				</td>
@@ -427,7 +427,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsMCHCommodityName_1" id="orsMCHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsMCHUnit_1" id="orsMCHUnit_1" value="MCH" />
 				</td>
@@ -471,7 +471,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipCommodityName_1" id="cipCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipMCHUnit_1" id="cipMCHUnit_1" value="MCH" />
 				</td>
@@ -515,7 +515,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metCommodityName_1" id="metCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metMCHUnit_1" id="metMCHUnit_1" value="MCH" />
 				</td>
@@ -566,7 +566,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znPEDCommodityName_1" id="znPEDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znPEDUnit_1" id="znPEDUnit_1" value="PED" />
 				</td>
@@ -610,7 +610,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsPEDCommodityName_1" id="orsPEDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsPEDUnit_1" id="orsPEDUnit_1" value="PED" />
 				</td>
@@ -654,7 +654,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipPEDCommodityName_1" id="cipPEDCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipPEDUnit_1" id="cipPEDUnit_1" value="PED" />
 				</td>
@@ -698,7 +698,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metPEDCommodityName_1" id="metPEDCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metPEDUnit_1" id="metPEDUnit_1" value="PED" />
 				</td>
@@ -748,7 +748,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znOPDCommodityName_1" id="znOPDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znOPDUnit_1" id="znOPDUnit_1" value="OPD" />
 				</td>
@@ -792,7 +792,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsOPDCommodityName_1" id="orsOPDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsOPDUnit_1" id="orsOPDUnit_1" value="OPD" />
 				</td>
@@ -836,7 +836,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipOPDCommodityName_1" id="cipOPDCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipOPDUnit_1" id="cipOPDUnit_1" value="OPD" />
 				</td>
@@ -880,7 +880,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metOPDCommodityName_1" id="metOPDCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metOPDUnit_1" id="metOPDUnit_1" value="OPD" />
 				</td>
@@ -932,7 +932,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znPHAUnit_1" id="znPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znPHAStockDispensedDate_1" id="znPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -975,7 +975,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsPHAUnit_1" id="orsPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsPHAStockDispensedDate_1" id="orsPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1018,7 +1018,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipPHAUnit_1" id="cipPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipPHAStockDispensedDate_1" id="cipPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1063,7 +1063,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metPHAUnit_1" id="metPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metPHAStockDispensedDate_1" id="metPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1113,7 +1113,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znSTOUnit_1" id="znSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znSTOStockDispensedDate_1" id="znSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1156,7 +1156,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsSTOUnit_1" id="orsSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsSTOStockDispensedDate_1" id="orsSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1199,7 +1199,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipSTOUnit_1" id="cipSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipSTOStockDispensedDate_1" id="cipSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1242,7 +1242,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metSTOUnit_1" id="metSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metSTOStockDispensedDate_1" id="metSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1296,7 +1296,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znOTHCommodityName_1" id="znOTHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znOTHStockDispensedDate_1" id="znOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1338,7 +1338,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsOTHCommodityName_1" id="orsOTHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsOTHStockDispensedDate_1" id="orsOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1380,7 +1380,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipOTHCommodityName_1" id="cipOTHCommodityName_1" value="Ciprofloxacin" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipOTHStockDispensedDate_1" id="cipOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1422,7 +1422,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metOTHCommodityName_1" id="metOTHCommodityName_1" value="Metronidazole" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metOTHStockDispensedDate_1" id="metOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -1568,7 +1568,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_1" id="equipSupplier_1" class="cloned"  maxlength="45"/>
@@ -1591,7 +1591,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_2" id="equipSupplier_2" class="cloned"  maxlength="45"/>
@@ -1614,7 +1614,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_3" id="equipSupplier_3" class="cloned"  maxlength="45"/>
@@ -1637,7 +1637,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_4" id="equipSupplier_4" class="cloned"  maxlength="45"/>
@@ -1660,7 +1660,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_5" id="equipSupplier_5" class="cloned"  maxlength="45"/>
@@ -1683,7 +1683,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_6" id="equipSupplier_6" class="cloned"  maxlength="45"/>
@@ -1706,7 +1706,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_7" id="equipSupplier_7" class="cloned"  maxlength="45"/>
@@ -1729,7 +1729,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_8" id="equipSupplier_8" class="cloned"  maxlength="45"/>
@@ -1752,7 +1752,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_9" id="equipSupplier_9" class="cloned"  maxlength="45"/>
@@ -1775,7 +1775,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_10" id="equipSupplier_10" class="cloned"  maxlength="45"/>
@@ -1798,7 +1798,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_11" id="equipSupplier_11" class="cloned"  maxlength="45"/>
@@ -1821,7 +1821,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_12" id="equipSupplier_12" class="cloned"  maxlength="45"/>
@@ -1844,7 +1844,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_13" id="equipSupplier_13" class="cloned"  maxlength="45"/>
@@ -1867,7 +1867,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_14" id="equipSupplier_14" class="cloned"  maxlength="45"/>
@@ -1890,7 +1890,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_15" id="equipSupplier_15" class="cloned"  maxlength="45"/>
@@ -1913,7 +1913,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_16" id="equipSupplier_16" class="cloned"  maxlength="45"/>
@@ -1936,7 +1936,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_17" id="equipSupplier_17" class="cloned"  maxlength="45"/>
@@ -1959,7 +1959,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_18" id="equipSupplier_18" class="cloned"  maxlength="45"/>
@@ -1982,7 +1982,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_19" id="equipSupplier_19" class="cloned"  maxlength="45"/>
@@ -2005,7 +2005,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_20" id="equipSupplier_20" class="cloned"  maxlength="45"/>
@@ -2028,7 +2028,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_21" id="equipSupplier_21" class="cloned"  maxlength="45"/>
@@ -2051,7 +2051,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_22" id="equipSupplier_22" class="cloned"  maxlength="45"/>
@@ -2074,7 +2074,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_23" id="equipSupplier_23" class="cloned"  maxlength="45"/>
@@ -2097,7 +2097,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_24" id="equipSupplier_24" class="cloned"  maxlength="45"/>
@@ -2120,7 +2120,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_25" id="equipSupplier_25" class="cloned"  maxlength="45"/>
@@ -2143,7 +2143,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_26" id="equipSupplier_26" class="cloned"  maxlength="45"/>
@@ -2166,7 +2166,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_27" id="equipSupplier_27" class="cloned"  maxlength="45"/>
@@ -2189,7 +2189,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_28" id="equipSupplier_28" class="cloned"  maxlength="45"/>
@@ -2212,7 +2212,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_29" id="equipSupplier_29" class="cloned"  maxlength="45"/>
@@ -2235,7 +2235,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_30" id="equipSupplier_30" class="cloned"  maxlength="45"/>
@@ -2276,6 +2276,7 @@ class C_Load extends MY_Controller {
 
     <!-- begin facility  div --->
     <div id="facility_div" class="step">
+    <input type="hidden" name="step_name" value="facility_div"/>
     <h3 align="center">FACILITY REGISTRATION</h3>
 
 	<div class="block">
@@ -2490,7 +2491,7 @@ class C_Load extends MY_Controller {
 	</div>
 	<div class="center">
 
-	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
+	<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/>
 	</div>
 	</div>
 	</div>
@@ -2594,7 +2595,7 @@ class C_Load extends MY_Controller {
 					</div>
 					<div class="right">
 
-						<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned fromZero" min="0" style="float:left"/>
+						<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned numbers  fromZero" min="0" style="float:left"/>
 
 					</div>
 
@@ -2673,7 +2674,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_1" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_1" id="q9equipFunctioning_1" class="cloned">
@@ -2683,7 +2684,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_1" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_1" id="q9equipCode_1" value="EQP31" />
 				</div>
@@ -2700,7 +2701,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_2" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -2711,7 +2712,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_2" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_2" id="q9equipCode_2" value="EQP32" />
 				</div>
@@ -2728,7 +2729,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_3" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 
 					<div class="right">
@@ -2739,7 +2740,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_3" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_3" id="q9equipCode_3" value="EQP33" />
 				</div>
@@ -2756,7 +2757,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_4" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_4" id="q9equipFunctioning_4" class="cloned">
@@ -2766,7 +2767,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_4" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_4" id="q9equipCode_4" value="EQP34" />
@@ -2784,7 +2785,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_5" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -2795,7 +2796,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_5" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_5" id="q9equipCode_5" value="EQP35" />
@@ -2813,7 +2814,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_6" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_6" id="q9equipFunctioning_6" class="cloned">
@@ -2823,7 +2824,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_6" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_6" id="q9equipCode_6" value="EQP36" />
@@ -2841,7 +2842,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_7" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_7" id="q9equipFunctioning_7" class="cloned">
@@ -2851,7 +2852,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_7" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_7" id="q9equipCode_7" value="EQP37" />
@@ -2869,7 +2870,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_8" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -2881,7 +2882,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_8" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_8" id="q9equipCode_8" value="EQP38" />
 				</div>
@@ -3000,7 +3001,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_14" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_14" type="number" class="cloned numbers  fromZero" min="0"/>
 						<input type="hidden"  name="q9equipCode_14" id="q9equipCode_14" value="EQP44" />
 					</div>
 				</div>
@@ -3094,7 +3095,7 @@ class C_Load extends MY_Controller {
 					<label>10a. Cord scissors</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_1" id="q10equipAQty_1" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_1" id="q10equipAQty_1" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_1" id="q10equipCode_1" value="EQP47"/>
 			</div>
@@ -3104,7 +3105,7 @@ class C_Load extends MY_Controller {
 					<label>10b. Long artery Forceps (straight, lockable)</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_2" id="q10equipAQty_2" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_2" id="q10equipAQty_2" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_2" id="q10equipCode_2" value="EQP48" />
 			</div>
@@ -3115,7 +3116,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_3" id="q10equipAQty_3" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_3" id="q10equipAQty_3" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_3" id="q10equipCode_3" value="EQP49" />
 
@@ -3127,7 +3128,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_4" id="q10equipAQty_4" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_4" id="q10equipAQty_4" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_4" id="q10equipCode_4" value="EQP50" />
 			</div>
@@ -3137,7 +3138,7 @@ class C_Load extends MY_Controller {
 					<label>10e. Gallipots</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_5" id="q10equipCode_5" value="EQP51" />
 			</div>
@@ -3148,7 +3149,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_6" id="q10equipCode_6" value="EQP52" />
 			</div>
@@ -3159,7 +3160,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_7" id="q10equipCode_7" value="EQP53" />
 			</div>
@@ -3172,7 +3173,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_8" id="q10equipAQty_8" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_8" id="q10equipAQty_8" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_8" id="q10equipCode_8" value="EQP54" />
 			</div>
@@ -3183,7 +3184,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_9" id="q10equipAQty_9" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_9" id="q10equipAQty_9" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_9" id="q10equipCode_9" value="EQP55" />
 
@@ -3191,7 +3192,7 @@ class C_Load extends MY_Controller {
 		</div>
 
 	</div>
-	</div>
+	<!--/div-->
 	<!--end delivery kit contents div-->
 					
 							
@@ -3232,7 +3233,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_17" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_17" id="q11equipFunctioning_17" class="cloned">
@@ -3243,7 +3244,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_17" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_17" id="q11equipCode_17" value="EQP56" />
 				</div>
@@ -3261,7 +3262,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_18" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<div class="right">
@@ -3273,7 +3274,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_18" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_18" id="q11equipCode_18" value="EQP57" />
 				</div>
@@ -3319,7 +3320,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_20" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_20" id="q11equipFunctioning_20" class="cloned">
@@ -3330,7 +3331,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_20" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_20" id="q11equipCode_20" value="EQP59" />
 				</div>
@@ -3348,7 +3349,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_21" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_21" id="q11equipFunctioning_21" class="cloned">
@@ -3359,7 +3360,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_21" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_21" id="q11equipCode_21" value="EQP60" />
 				</div>
@@ -3377,7 +3378,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_22" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_22" id="q11equipFunctioning_22" class="cloned">
@@ -3388,7 +3389,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_22" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_22" id="q11equipCode_22" value="EQP61" />
 				</div>
@@ -3406,7 +3407,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_23" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_23" id="q11equipFunctioning_23" class="cloned">
@@ -3417,7 +3418,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_23" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_23" id="q11equipCode_23" value="EQP62" />
 				</div>
@@ -3434,7 +3435,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_24" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_24" id="q11equipFunctioning_24" class="cloned">
@@ -3444,7 +3445,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_24" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_24" id="q11equipCode_24" value="EQP63" />
 				</div>
@@ -3461,7 +3462,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_25" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
 
 						<select name="q11equipAType_25" id="q11equipAType_25" class="cloned">
 							<option value="" selected="selected">Select Type</option>
@@ -3477,7 +3478,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_25" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_25" id="q11equipCode_25" value="EQP64" />
 				</div>
@@ -3494,7 +3495,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_26" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -3505,7 +3506,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_26" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_26" id="q11equipCode_26" value="EQP65" />
 				</div>
@@ -3542,7 +3543,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_27" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_27" id="q11equipFunctioning_27" class="cloned">
@@ -3552,7 +3553,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_27" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q11equipCode_27" id="q11equipCode_27" value="EQP66" />
@@ -3569,7 +3570,7 @@ class C_Load extends MY_Controller {
 							<option value="EQP68">Kiwi Vacuum Extractor </option>
 						</select>
 
-						<input name="q11equipAQty_28" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_28" id="q11equipFunctioning_28" class="cloned">
@@ -3579,7 +3580,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_28" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_28" id="q11equipCode_28" />
 				</div>
@@ -3596,7 +3597,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_29" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_29" id="q11equipFunctioning_29" class="cloned">
@@ -3606,7 +3607,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_29" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_29" id="q11equipCode_29" value="EQP69" />
 				</div>
@@ -3657,7 +3658,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_32" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_32" id="q11equipFunctioning_32" class="cloned">
@@ -3667,7 +3668,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_32" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_32" id="q11equipCode_32" value="EQP72" />
 				</div>
@@ -3710,7 +3711,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_34" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<div class="right">
@@ -3721,7 +3722,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_34" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_34" id="q11equipCode_34" value="EQP74" />
 				</div>
@@ -3739,7 +3740,7 @@ class C_Load extends MY_Controller {
 							<option>Never Available</option>
 						</select>
 
-						<input name="q11equipAQty_35" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_35" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_35" id="q11equipCode_35" value="EQP75" />
 				</div>
@@ -3757,7 +3758,7 @@ class C_Load extends MY_Controller {
 							<option>Never Available</option>
 						</select>
 
-						<input name="q11equipAQty_36" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_36" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
 				</div>
@@ -3798,7 +3799,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_1" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3816,7 +3817,7 @@ class C_Load extends MY_Controller {
 			<option>Never Available</option>
 			</select>
 
-			<input name="q12equipAQty_2" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 
 			</div>
 
@@ -3835,7 +3836,7 @@ class C_Load extends MY_Controller {
 						<option value="Intravenous solution-NS Infusion">NS Infusion</option>
 
 					</select>
-					<input name="q12equipAQty_3" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3853,7 +3854,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_4" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3871,7 +3872,7 @@ class C_Load extends MY_Controller {
 			<option>Sometimes Available</option>
 			<option>Never Available</option>
 			</select>
-			<input name="q12equipAQty_5" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 			</div>
 
 			</div-->
@@ -3890,7 +3891,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_6" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3908,7 +3909,7 @@ class C_Load extends MY_Controller {
 			<option>Never Available</option>
 			</select>
 
-			<input name="q12equipAQty_7" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 			</div>
 
 			</div-->
@@ -3926,7 +3927,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_8" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3944,7 +3945,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_9" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_9" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3964,7 +3965,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_10" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_10" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -3982,7 +3983,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_11" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_11" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4000,7 +4001,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_12" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_12" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4018,7 +4019,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_13" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_13" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4036,7 +4037,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_14" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_14" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4054,7 +4055,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_15" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_15" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4072,7 +4073,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_16" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_16" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4090,7 +4091,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_17" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -4186,7 +4187,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_59" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
@@ -4196,7 +4197,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_59" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
 				</div>
@@ -4212,7 +4213,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_60" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
@@ -4222,7 +4223,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_60" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
 				</div>
@@ -4238,7 +4239,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_61" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
@@ -4248,7 +4249,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_61" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
@@ -4266,7 +4267,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q14equipAQty_62" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -4277,7 +4278,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_62" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
@@ -4295,7 +4296,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q14equipAQty_63" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
@@ -4305,7 +4306,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_63" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
 				</div>
@@ -4446,7 +4447,7 @@ class C_Load extends MY_Controller {
 			<div class="right">
 			<div class="col">
 
-			<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
+			<input type="number" class="cloned numbers  fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
 
 			</div>
 			</div>
@@ -4499,7 +4500,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_67" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_67" id="q18equipFunctioning_67" class="cloned">
@@ -4509,7 +4510,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_67" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_67" id="q18equipCode_67" value="EQP91" />
 						</div>
@@ -4526,7 +4527,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_68" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_68" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_68" id="q18equipFunctioning_68" class="cloned">
@@ -4536,7 +4537,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input type="number" class="cloned fromZero" />
+								<input type="number" class="cloned numbers  fromZero" />
 							</div>
 							<input type="hidden"  name="q18equipCode_68" id="q18equipCode_68" value="EQP92" />
 						</div>
@@ -4553,7 +4554,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_69" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_69" id="q18equipFunctioning_69" class="cloned">
@@ -4563,7 +4564,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_69" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_69" id="q18equipCode_69" value="EQP93" />
 						</div>
@@ -4580,7 +4581,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_70" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_70" id="q18equipFunctioning_70" class="cloned">
@@ -4590,7 +4591,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_70" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_70" id="q18equipCode_70" value="EQP94" />
 						</div>
@@ -4607,7 +4608,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_71" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_71" id="q18equipFunctioning_71" class="cloned">
@@ -4617,7 +4618,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_71" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_71" id="q18equipCode_71" value="EQP95" />
 						</div>
@@ -4634,7 +4635,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_72" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_72" id="q18equipFunctioning_72" class="cloned">
@@ -4644,7 +4645,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_72" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_72" id="q18equipCode_72" value="EQP96" />
 						</div>
@@ -4661,7 +4662,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_73" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_73" id="q18equipFunctioning_73" class="cloned">
@@ -4671,7 +4672,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_73" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_73" id="q18equipCode_73" value="EQP97" />
 						</div>
@@ -4688,7 +4689,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_74" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_74" id="q18equipFunctioning_74" class="cloned">
@@ -4698,7 +4699,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_74" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_74" id="q18equipCode_74" value="EQP98" />
 						</div>
@@ -4715,7 +4716,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_75" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_75" id="q18equipFunctioning_75" class="cloned">
@@ -4725,7 +4726,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_75" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_75" id="q18equipCode_75" value="EQP99" />
 						</div>
@@ -4742,7 +4743,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_76" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_76" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_76" id="q18equipFunctioning_76" class="cloned">
@@ -4752,7 +4753,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_76" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_76" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_76" id="q18equipCode_76" value="EQP100" />
 						</div>
@@ -4769,7 +4770,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_77" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_77" id="q18equipFunctioning_77" class="cloned">
@@ -4779,7 +4780,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_77" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_77" id="q18equipCode_77" value="EQP101" />
 						</div>
@@ -4796,7 +4797,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_78" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_78" id="q18equipFunctioning_78" class="cloned">
@@ -4806,7 +4807,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_78" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_78" id="q18equipCode_78" value="EQP102" />
 						</div>
@@ -4823,7 +4824,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_79" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_79" id="q18equipFunctioning_79" class="cloned">
@@ -4833,7 +4834,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_79" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_79" id="q18equipCode_79" value="EQP103" />
 						</div>
@@ -4850,7 +4851,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_80" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_80" id="q18equipFunctioning_80" class="cloned">
@@ -4860,7 +4861,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_80" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_80" id="q18equipCode_80" value="EQP104" />
 						</div>
@@ -4896,7 +4897,7 @@ class C_Load extends MY_Controller {
 									<option value="9">Size 9</option>
 								</select>
 
-								<input name="q18equipAQty_81" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_81" id="q18equipFunctioning_81" class="cloned">
@@ -4906,7 +4907,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_81" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_81" id="q18equipCode_81" value="EQP105" />
 						</div>
@@ -4923,7 +4924,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_82" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_82" id="q18equipFunctioning_82" class="cloned">
@@ -4933,7 +4934,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_82" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_82" id="q18equipCode_82" value="EQP106" />
 						</div>
@@ -4951,7 +4952,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_83" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_83" id="q18equipFunctioning_83" class="cloned">
@@ -4960,7 +4961,7 @@ class C_Load extends MY_Controller {
 									<option> No </option>
 									<option> Dont Know </option>
 								</select>
-								<input name="q18equipFQty_83" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 						</div>
 
@@ -4976,7 +4977,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_84" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_84" id="q18equipFunctioning_84" class="cloned">
@@ -4986,7 +4987,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_84" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_84" id="q18equipCode_84" value="EQP108" />
 						</div>
@@ -5003,7 +5004,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_85" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_85" id="q18equipFunctioning_85" class="cloned">
@@ -5013,7 +5014,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_85" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_85" id="q18equipCode_85" value="EQP109" />
 						</div>
@@ -5045,11 +5046,11 @@ class C_Load extends MY_Controller {
 
     public function get_form(){
     	$this->combined_form.='<h5 id="status"></h5>
-		<form class="bbq" name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
-	
+		<form class="bbq" name="dcah_tool" id="dcah_tool" method="POST" action="' . base_url() . 'submit/c_form/form_dcah_assessment' . '" >
 
 	<!-- begin facility  div --->
 	<div id="facility_div" class="step">
+	<input type="hidden" name="step_name" value="facility_div"/>
 		<h3 align="center">FACILITY REGISTRATION</h3>
 
 		<div class="block">
@@ -5072,7 +5073,7 @@ class C_Load extends MY_Controller {
 						<label>Facility Name:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="facilityName" id="facilityName"/>
+						<input type="text" name="facilityName" class="cloned" readonly="readonly" id="facilityName"/>
 					</div>
 				</div>
 				<div class="row2">
@@ -5080,7 +5081,7 @@ class C_Load extends MY_Controller {
 						<label>Facility Type:</label>
 					</div>
 					<div class="right">
-						<select name="facilityType" id="facilityType">
+						<select name="facilityType" id="facilityType" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectFacilityType . '
 						</select>
@@ -5091,7 +5092,7 @@ class C_Load extends MY_Controller {
 						<label>Facility Level:</label>
 					</div>
 					<div class="right">
-						<select name="facilityLevel" id="facilityLevel">
+						<select name="facilityLevel" id="facilityLevel" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectFacilityLevel . '
 						</select>
@@ -5102,7 +5103,7 @@ class C_Load extends MY_Controller {
 						<label>Owned By:</label>
 					</div>
 					<div class="right">
-						<select name="facilityOwner" id="facilityOwner">
+						<select name="facilityOwner" id="facilityOwner" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectFacilityOwner . '
 						</select>
@@ -5113,7 +5114,7 @@ class C_Load extends MY_Controller {
 						<label>Province:</label>
 					</div>
 					<div class="right">
-						<select name="facilityProvince" id="facilityProvince">
+						<select name="facilityProvince" id="facilityProvince" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectProvince . '
 						</select>
@@ -5125,7 +5126,7 @@ class C_Load extends MY_Controller {
 						<label>District:</label>
 					</div>
 					<div class="right">
-						<select name="facilityDistrict" id="facilityDistrict">
+						<select name="facilityDistrict" id="facilityDistrict" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectDistricts . '
 						</select>
@@ -5136,7 +5137,7 @@ class C_Load extends MY_Controller {
 						<label>County:</label>
 					</div>
 					<div class="right">
-						<select name="facilityCounty" id="facilityCounty">
+						<select name="facilityCounty" id="facilityCounty" class="cloned">
 							<option value="" selected="selected">Select One</option>
 							' . $this -> selectCounties . '
 						</select>
@@ -5153,7 +5154,7 @@ class C_Load extends MY_Controller {
 						<label>Name:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="facilityContactPerson" id="facilityContactPerson"/>
+						<input type="text" name="facilityContactPerson" id="facilityContactPerson" class="cloned"/>
 					</div>
 				</div>
 				<div class="row2">
@@ -5171,7 +5172,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 1:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14"/>
+						<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14" class="cloned numbers"/>
 					</div>
 
 				</div>
@@ -5181,7 +5182,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 2:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14"/>
+						<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14" class="numbers"/>
 					</div>
 
 				</div>
@@ -5191,7 +5192,7 @@ class C_Load extends MY_Controller {
 						<label>Email:</label>
 					</div>
 					<div class="right">
-						<input type="email" name="facilityEmail" id="facilityEmail" maxlength="90"/>
+						<input type="email" name="facilityEmail" id="facilityEmail" maxlength="90" class="cloned"/>
 						<input type="hidden"  name="facilityMFC" id="facilityMFC"/>
 					</div>
 				</div>
@@ -5207,7 +5208,7 @@ class C_Load extends MY_Controller {
 						<label>Name:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MCHContactPerson" id="MCHContactPerson"/>
+						<input type="text" name="MCHContactPerson" id="MCHContactPerson" class="cloned"/>
 					</div>
 				</div>
 				<div class="row2">
@@ -5225,7 +5226,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 1:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MCHTelephone" id="MCHTelephone" maxlength="14"/>
+						<input type="text" name="MCHTelephone" id="MCHTelephone" maxlength="14" class="cloned numbers"/>
 					</div>
 
 				</div>
@@ -5235,7 +5236,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 2:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MCHAltTelephone" id="MCHAltTelephone" maxlength="14"/>
+						<input type="text" name="MCHAltTelephone" id="MCHAltTelephone" maxlength="14" class="numbers"/>
 					</div>
 
 				</div>
@@ -5245,22 +5246,35 @@ class C_Load extends MY_Controller {
 						<label>Email:</label>
 					</div>
 					<div class="right">
-						<input type="email" name="MCHEmail" id="MCHEmail" maxlength="90"/>
-						<input type="hidden"  name="MCHMFC" id="MCHMFC"/>
+						<input type="email" name="MCHEmail" id="MCHEmail" maxlength="90" class="cloned"/>
 					</div>
 				</div>
 			</div>
 
 			<div class="column" style="margin-bottom:30px">
 				<div class="row-title">
-					Maternity Contact
+					Maternity Contact 
 				</div>
+				
+				
+				<div class="row2">
+				<div class="left">
+				<label><b>Click on the Checkbox on the right if no Maternity Contact Information is available</b></label>
+				</div>
+				<div class="center">
+				<input type="checkbox" name="noMaternityContact" id="noMaternityContact"di title="check this box if Maternity Contact Information is not available"/>
+				</div>
+				
+				</div>
+				
+				
+				<div id="maternity_info">
 				<div class="row2">
 					<div class="left">
 						<label>Name:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MaternityContactPerson" id="MaternityContactPerson"/>
+						<input type="text" name="MaternityContactPerson" id="MaternityContactPerson" class="cloned"/>
 					</div>
 				</div>
 				<div class="row2">
@@ -5278,7 +5292,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 1:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MaternityTelephone" id="MaternityTelephone" maxlength="14"/>
+						<input type="text" name="MaternityTelephone" id="MaternityTelephone" maxlength="14" class="cloned numbers"/>
 					</div>
 
 				</div>
@@ -5288,7 +5302,7 @@ class C_Load extends MY_Controller {
 						<label>Cell 2:</label>
 					</div>
 					<div class="right">
-						<input type="text" name="MaternityAltTelephone" id="MaternityAltTelephone" maxlength="14"/>
+						<input type="text" name="MaternityAltTelephone" id="MaternityAltTelephone" maxlength="14" class="numbers"/>
 					</div>
 
 				</div>
@@ -5298,9 +5312,9 @@ class C_Load extends MY_Controller {
 						<label>Email:</label>
 					</div>
 					<div class="right">
-						<input type="email" name="MaternityEmail" id="MaternityEmail" maxlength="90"/>
-						<input type="hidden"  name="MaternityMFC" id="MaternityMFC"/>
+						<input type="email" name="MaternityEmail" id="MaternityEmail" maxlength="90" class="cloned"/>
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -5317,7 +5331,7 @@ class C_Load extends MY_Controller {
 					Indicate number of diarrhoea cases seen in this facility in the <b>last 2 months</b></label>
 			</div>
 			<div class="center">
-				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned"/>
+				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/>
 			</div>
 		</div>
 	</div>
@@ -5353,7 +5367,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znMCHCommodityName_1" id="znMCHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znMCHUnit_1" id="znMCHUnit_1" value="MCH" />
 				</td>
@@ -5397,7 +5411,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsMCHCommodityName_1" id="orsMCHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsMCHUnit_1" id="orsMCHUnit_1" value="MCH" />
 				</td>
@@ -5441,7 +5455,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipCommodityName_1" id="cipCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipMCHUnit_1" id="cipMCHUnit_1" value="MCH" />
 				</td>
@@ -5485,7 +5499,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metCommodityName_1" id="metCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metMCHUnit_1" id="metMCHUnit_1" value="MCH" />
 				</td>
@@ -5536,7 +5550,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znPEDCommodityName_1" id="znPEDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znPEDUnit_1" id="znPEDUnit_1" value="PED" />
 				</td>
@@ -5580,7 +5594,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsPEDCommodityName_1" id="orsPEDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsPEDUnit_1" id="orsPEDUnit_1" value="PED" />
 				</td>
@@ -5624,7 +5638,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipPEDCommodityName_1" id="cipPEDCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipPEDUnit_1" id="cipPEDUnit_1" value="PED" />
 				</td>
@@ -5668,7 +5682,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metPEDCommodityName_1" id="metPEDCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metPEDUnit_1" id="metPEDUnit_1" value="PED" />
 				</td>
@@ -5718,7 +5732,7 @@ class C_Load extends MY_Controller {
 				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
 				</td-->
 				<td width="144">
-				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="znOPDCommodityName_1" id="znOPDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				<input type="hidden"  name="znOPDUnit_1" id="znOPDUnit_1" value="OPD" />
 				</td>
@@ -5762,7 +5776,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="orsOPDCommodityName_1" id="orsOPDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				<input type="hidden"  name="orsOPDUnit_1" id="orsOPDUnit_1" value="OPD" />
 				</td>
@@ -5806,7 +5820,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="cipOPDCommodityName_1" id="cipOPDCommodityName_1" value="Ciprofloxacin" />
 				<input type="hidden"  name="cipOPDUnit_1" id="cipOPDUnit_1" value="OPD" />
 				</td>
@@ -5850,7 +5864,7 @@ class C_Load extends MY_Controller {
 				
 				</td-->
 				<td width="144">
-				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				<input type="hidden"  name="metOPDCommodityName_1" id="metOPDCommodityName_1" value="Metronidazole (Flagyl)" />
 				<input type="hidden"  name="metOPDUnit_1" id="metOPDUnit_1" value="OPD" />
 				</td>
@@ -5902,7 +5916,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znPHAUnit_1" id="znPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znPHAStockDispensedDate_1" id="znPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -5945,7 +5959,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsPHAUnit_1" id="orsPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsPHAStockDispensedDate_1" id="orsPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -5988,7 +6002,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipPHAUnit_1" id="cipPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipPHAStockDispensedDate_1" id="cipPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6033,7 +6047,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metPHAUnit_1" id="metPHAUnit_1" value="PHA" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metPHAStockDispensedDate_1" id="metPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6083,7 +6097,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znSTOUnit_1" id="znSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znSTOStockDispensedDate_1" id="znSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6126,7 +6140,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsSTOUnit_1" id="orsSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsSTOStockDispensedDate_1" id="orsSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6169,7 +6183,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipSTOUnit_1" id="cipSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipSTOStockDispensedDate_1" id="cipSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6212,7 +6226,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metSTOUnit_1" id="metSTOUnit_1" value="Store" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metSTOStockDispensedDate_1" id="metSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6266,7 +6280,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="znOTHCommodityName_1" id="znOTHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="znOTHStockDispensedDate_1" id="znOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6308,7 +6322,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="orsOTHCommodityName_1" id="orsOTHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="orsOTHStockDispensedDate_1" id="orsOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6350,7 +6364,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="cipOTHCommodityName_1" id="cipOTHCommodityName_1" value="Ciprofloxacin" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="cipOTHStockDispensedDate_1" id="cipOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6392,7 +6406,7 @@ class C_Load extends MY_Controller {
 				<input type="hidden"  name="metOTHCommodityName_1" id="metOTHCommodityName_1" value="Metronidazole" />
 				</td>
 				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td-->
 				<td width="144">
 				<input type="date"  name="metOTHStockDispensedDate_1" id="metOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
@@ -6538,7 +6552,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_1" id="equipSupplier_1" class="cloned"  maxlength="45"/>
@@ -6561,7 +6575,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_2" id="equipSupplier_2" class="cloned"  maxlength="45"/>
@@ -6584,7 +6598,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_3" id="equipSupplier_3" class="cloned"  maxlength="45"/>
@@ -6607,7 +6621,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_4" id="equipSupplier_4" class="cloned"  maxlength="45"/>
@@ -6630,7 +6644,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_5" id="equipSupplier_5" class="cloned"  maxlength="45"/>
@@ -6653,7 +6667,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_6" id="equipSupplier_6" class="cloned"  maxlength="45"/>
@@ -6676,7 +6690,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_7" id="equipSupplier_7" class="cloned"  maxlength="45"/>
@@ -6699,7 +6713,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_8" id="equipSupplier_8" class="cloned"  maxlength="45"/>
@@ -6722,7 +6736,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_9" id="equipSupplier_9" class="cloned"  maxlength="45"/>
@@ -6745,7 +6759,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_10" id="equipSupplier_10" class="cloned"  maxlength="45"/>
@@ -6768,7 +6782,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_11" id="equipSupplier_11" class="cloned"  maxlength="45"/>
@@ -6791,7 +6805,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_12" id="equipSupplier_12" class="cloned"  maxlength="45"/>
@@ -6814,7 +6828,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_13" id="equipSupplier_13" class="cloned"  maxlength="45"/>
@@ -6837,7 +6851,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_14" id="equipSupplier_14" class="cloned"  maxlength="45"/>
@@ -6860,7 +6874,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_15" id="equipSupplier_15" class="cloned"  maxlength="45"/>
@@ -6883,7 +6897,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_16" id="equipSupplier_16" class="cloned"  maxlength="45"/>
@@ -6906,7 +6920,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_17" id="equipSupplier_17" class="cloned"  maxlength="45"/>
@@ -6929,7 +6943,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_18" id="equipSupplier_18" class="cloned"  maxlength="45"/>
@@ -6952,7 +6966,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_19" id="equipSupplier_19" class="cloned"  maxlength="45"/>
@@ -6975,7 +6989,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_20" id="equipSupplier_20" class="cloned"  maxlength="45"/>
@@ -6998,7 +7012,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_21" id="equipSupplier_21" class="cloned"  maxlength="45"/>
@@ -7021,7 +7035,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_22" id="equipSupplier_22" class="cloned"  maxlength="45"/>
@@ -7044,7 +7058,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_23" id="equipSupplier_23" class="cloned"  maxlength="45"/>
@@ -7067,7 +7081,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_24" id="equipSupplier_24" class="cloned"  maxlength="45"/>
@@ -7090,7 +7104,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_25" id="equipSupplier_25" class="cloned"  maxlength="45"/>
@@ -7113,7 +7127,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_26" id="equipSupplier_26" class="cloned"  maxlength="45"/>
@@ -7136,7 +7150,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_27" id="equipSupplier_27" class="cloned"  maxlength="45"/>
@@ -7159,7 +7173,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_28" id="equipSupplier_28" class="cloned"  maxlength="45"/>
@@ -7182,7 +7196,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_29" id="equipSupplier_29" class="cloned"  maxlength="45"/>
@@ -7205,7 +7219,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_30" id="equipSupplier_30" class="cloned"  maxlength="45"/>
@@ -7236,7 +7250,7 @@ class C_Load extends MY_Controller {
 	</div>
 	<div class="center">
 
-	<input type="text" id="deliveryCases" name="InformationCases" class="cloned fromZero"/>
+	<input type="text" id="deliveryCases" name="InformationCases" class="cloned numbers fromZero"/>
 	</div>
 	</div>
 	</div>
@@ -7340,7 +7354,7 @@ class C_Load extends MY_Controller {
 					</div>
 					<div class="right">
 
-						<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned fromZero" min="0" style="float:left"/>
+						<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned numbers  fromZero" min="0" style="float:left"/>
 
 					</div>
 
@@ -7419,7 +7433,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_1" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_1" id="q9equipFunctioning_1" class="cloned">
@@ -7429,7 +7443,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_1" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_1" id="q9equipCode_1" value="EQP31" />
 				</div>
@@ -7446,7 +7460,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_2" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -7457,7 +7471,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_2" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_2" id="q9equipCode_2" value="EQP32" />
 				</div>
@@ -7474,7 +7488,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_3" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 
 					<div class="right">
@@ -7485,7 +7499,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_3" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_3" id="q9equipCode_3" value="EQP33" />
 				</div>
@@ -7502,7 +7516,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_4" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_4" id="q9equipFunctioning_4" class="cloned">
@@ -7512,7 +7526,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_4" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_4" id="q9equipCode_4" value="EQP34" />
@@ -7530,7 +7544,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_5" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -7541,7 +7555,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_5" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_5" id="q9equipCode_5" value="EQP35" />
@@ -7559,7 +7573,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_6" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_6" id="q9equipFunctioning_6" class="cloned">
@@ -7569,7 +7583,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_6" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_6" id="q9equipCode_6" value="EQP36" />
@@ -7587,7 +7601,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_7" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q9equipFunctioning_7" id="q9equipFunctioning_7" class="cloned">
@@ -7597,7 +7611,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_7" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q9equipCode_7" id="q9equipCode_7" value="EQP37" />
@@ -7615,7 +7629,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_8" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -7627,7 +7641,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q9equipFQty_8" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipFQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q9equipCode_8" id="q9equipCode_8" value="EQP38" />
 				</div>
@@ -7746,7 +7760,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q9equipAQty_14" type="number" class="cloned fromZero" min="0"/>
+						<input name="q9equipAQty_14" type="number" class="cloned numbers  fromZero" min="0"/>
 						<input type="hidden"  name="q9equipCode_14" id="q9equipCode_14" value="EQP44" />
 					</div>
 				</div>
@@ -7840,7 +7854,7 @@ class C_Load extends MY_Controller {
 					<label>10a. Cord scissors</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_1" id="q10equipAQty_1" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_1" id="q10equipAQty_1" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_1" id="q10equipCode_1" value="EQP47"/>
 			</div>
@@ -7850,7 +7864,7 @@ class C_Load extends MY_Controller {
 					<label>10b. Long artery Forceps (straight, lockable)</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_2" id="q10equipAQty_2" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_2" id="q10equipAQty_2" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_2" id="q10equipCode_2" value="EQP48" />
 			</div>
@@ -7861,7 +7875,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_3" id="q10equipAQty_3" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_3" id="q10equipAQty_3" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_3" id="q10equipCode_3" value="EQP49" />
 
@@ -7873,7 +7887,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_4" id="q10equipAQty_4" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_4" id="q10equipAQty_4" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_4" id="q10equipCode_4" value="EQP50" />
 			</div>
@@ -7883,7 +7897,7 @@ class C_Load extends MY_Controller {
 					<label>10e. Gallipots</label>
 				</div>
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_5" id="q10equipCode_5" value="EQP51" />
 			</div>
@@ -7894,7 +7908,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_6" id="q10equipCode_6" value="EQP52" />
 			</div>
@@ -7905,7 +7919,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_7" id="q10equipCode_7" value="EQP53" />
 			</div>
@@ -7918,7 +7932,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_8" id="q10equipAQty_8" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_8" id="q10equipAQty_8" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_8" id="q10equipCode_8" value="EQP54" />
 			</div>
@@ -7929,7 +7943,7 @@ class C_Load extends MY_Controller {
 				</div>
 
 				<div class="center">
-					<input type="number" class="cloned fromZero" name="q10equipAQty_9" id="q10equipAQty_9" min="0"/>
+					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_9" id="q10equipAQty_9" min="0"/>
 				</div>
 				<input type="hidden"  name="q10equipCode_9" id="q10equipCode_9" value="EQP55" />
 
@@ -7937,7 +7951,7 @@ class C_Load extends MY_Controller {
 		</div>
 
 	</div>
-	</div>
+	<!--/div-->
 	<!--end delivery kit contents div-->
 					
 							
@@ -7978,7 +7992,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_17" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_17" id="q11equipFunctioning_17" class="cloned">
@@ -7989,7 +8003,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_17" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_17" id="q11equipCode_17" value="EQP56" />
 				</div>
@@ -8007,7 +8021,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_18" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<div class="right">
@@ -8019,7 +8033,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_18" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_18" id="q11equipCode_18" value="EQP57" />
 				</div>
@@ -8065,7 +8079,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_20" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_20" id="q11equipFunctioning_20" class="cloned">
@@ -8076,7 +8090,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_20" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_20" id="q11equipCode_20" value="EQP59" />
 				</div>
@@ -8094,7 +8108,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_21" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_21" id="q11equipFunctioning_21" class="cloned">
@@ -8105,7 +8119,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_21" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_21" id="q11equipCode_21" value="EQP60" />
 				</div>
@@ -8123,7 +8137,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_22" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_22" id="q11equipFunctioning_22" class="cloned">
@@ -8134,7 +8148,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_22" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_22" id="q11equipCode_22" value="EQP61" />
 				</div>
@@ -8152,7 +8166,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_23" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_23" id="q11equipFunctioning_23" class="cloned">
@@ -8163,7 +8177,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_23" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_23" id="q11equipCode_23" value="EQP62" />
 				</div>
@@ -8180,7 +8194,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_24" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_24" id="q11equipFunctioning_24" class="cloned">
@@ -8190,7 +8204,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_24" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_24" id="q11equipCode_24" value="EQP63" />
 				</div>
@@ -8207,7 +8221,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_25" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
 
 						<select name="q11equipAType_25" id="q11equipAType_25" class="cloned">
 							<option value="" selected="selected">Select Type</option>
@@ -8223,7 +8237,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_25" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_25" id="q11equipCode_25" value="EQP64" />
 				</div>
@@ -8240,7 +8254,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_26" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -8251,7 +8265,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_26" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_26" id="q11equipCode_26" value="EQP65" />
 				</div>
@@ -8288,7 +8302,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_27" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_27" id="q11equipFunctioning_27" class="cloned">
@@ -8298,7 +8312,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_27" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q11equipCode_27" id="q11equipCode_27" value="EQP66" />
@@ -8315,7 +8329,7 @@ class C_Load extends MY_Controller {
 							<option value="EQP68">Kiwi Vacuum Extractor </option>
 						</select>
 
-						<input name="q11equipAQty_28" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_28" id="q11equipFunctioning_28" class="cloned">
@@ -8325,7 +8339,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_28" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_28" id="q11equipCode_28" />
 				</div>
@@ -8342,7 +8356,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_29" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_29" id="q11equipFunctioning_29" class="cloned">
@@ -8352,7 +8366,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_29" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_29" id="q11equipCode_29" value="EQP69" />
 				</div>
@@ -8403,7 +8417,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_32" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q11equipFunctioning_32" id="q11equipFunctioning_32" class="cloned">
@@ -8413,7 +8427,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_32" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_32" id="q11equipCode_32" value="EQP72" />
 				</div>
@@ -8456,7 +8470,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q11equipAQty_34" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<div class="right">
@@ -8467,7 +8481,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q11equipFQty_34" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipFQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_34" id="q11equipCode_34" value="EQP74" />
 				</div>
@@ -8485,7 +8499,7 @@ class C_Load extends MY_Controller {
 							<option>Never Available</option>
 						</select>
 
-						<input name="q11equipAQty_35" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_35" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_35" id="q11equipCode_35" value="EQP75" />
 				</div>
@@ -8503,7 +8517,7 @@ class C_Load extends MY_Controller {
 							<option>Never Available</option>
 						</select>
 
-						<input name="q11equipAQty_36" type="number" class="cloned fromZero" min="0"/>
+						<input name="q11equipAQty_36" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
 				</div>
@@ -8544,7 +8558,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_1" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8562,7 +8576,7 @@ class C_Load extends MY_Controller {
 			<option>Never Available</option>
 			</select>
 
-			<input name="q12equipAQty_2" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
 
 			</div>
 
@@ -8581,7 +8595,7 @@ class C_Load extends MY_Controller {
 						<option value="Intravenous solution-NS Infusion">NS Infusion</option>
 
 					</select>
-					<input name="q12equipAQty_3" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8599,7 +8613,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_4" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8617,7 +8631,7 @@ class C_Load extends MY_Controller {
 			<option>Sometimes Available</option>
 			<option>Never Available</option>
 			</select>
-			<input name="q12equipAQty_5" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
 			</div>
 
 			</div-->
@@ -8636,7 +8650,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_6" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8654,7 +8668,7 @@ class C_Load extends MY_Controller {
 			<option>Never Available</option>
 			</select>
 
-			<input name="q12equipAQty_7" type="number" class="cloned fromZero" min="0"/>
+			<input name="q12equipAQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
 			</div>
 
 			</div-->
@@ -8672,7 +8686,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_8" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8690,7 +8704,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_9" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_9" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8710,7 +8724,7 @@ class C_Load extends MY_Controller {
 						<option>Never Available</option>
 					</select>
 
-					<input name="q12equipAQty_10" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_10" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8728,7 +8742,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_11" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_11" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8746,7 +8760,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_12" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_12" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8764,7 +8778,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_13" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_13" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8782,7 +8796,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_14" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_14" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8800,7 +8814,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_15" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_15" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8818,7 +8832,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_16" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_16" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8836,7 +8850,7 @@ class C_Load extends MY_Controller {
 						<option>Sometimes Available</option>
 						<option>Never Available</option>
 					</select>
-					<input name="q12equipAQty_17" type="number" class="cloned fromZero" min="0"/>
+					<input name="q12equipAQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
 				</div>
 
 			</div>
@@ -8932,7 +8946,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_59" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
@@ -8942,7 +8956,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_59" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
 				</div>
@@ -8958,7 +8972,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_60" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
@@ -8968,7 +8982,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_60" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
 				</div>
@@ -8984,7 +8998,7 @@ class C_Load extends MY_Controller {
 							<option>Yes </option>
 							<option>No </option>
 						</select>
-						<input name="q14equipAQty_61" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
@@ -8994,7 +9008,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_61" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
@@ -9012,7 +9026,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q14equipAQty_62" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 
@@ -9023,7 +9037,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_62" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
 
 					</div>
 					<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
@@ -9041,7 +9055,7 @@ class C_Load extends MY_Controller {
 							<option>No </option>
 						</select>
 
-						<input name="q14equipAQty_63" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipAQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<div class="right">
 						<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
@@ -9051,7 +9065,7 @@ class C_Load extends MY_Controller {
 							<option> Do Not Know </option>
 						</select>
 
-						<input name="q14equipFQty_63" type="number" class="cloned fromZero" min="0"/>
+						<input name="q14equipFQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
 					</div>
 					<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
 				</div>
@@ -9192,7 +9206,7 @@ class C_Load extends MY_Controller {
 			<div class="right">
 			<div class="col">
 
-			<input type="number" class="cloned fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
+			<input type="number" class="cloned numbers  fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
 
 			</div>
 			</div>
@@ -9245,7 +9259,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_67" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_67" id="q18equipFunctioning_67" class="cloned">
@@ -9255,7 +9269,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_67" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_67" id="q18equipCode_67" value="EQP91" />
 						</div>
@@ -9272,7 +9286,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_68" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_68" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_68" id="q18equipFunctioning_68" class="cloned">
@@ -9282,7 +9296,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input type="number" class="cloned fromZero" />
+								<input type="number" class="cloned numbers  fromZero" />
 							</div>
 							<input type="hidden"  name="q18equipCode_68" id="q18equipCode_68" value="EQP92" />
 						</div>
@@ -9299,7 +9313,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_69" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_69" id="q18equipFunctioning_69" class="cloned">
@@ -9309,7 +9323,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_69" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_69" id="q18equipCode_69" value="EQP93" />
 						</div>
@@ -9326,7 +9340,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_70" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_70" id="q18equipFunctioning_70" class="cloned">
@@ -9336,7 +9350,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_70" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_70" id="q18equipCode_70" value="EQP94" />
 						</div>
@@ -9353,7 +9367,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_71" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_71" id="q18equipFunctioning_71" class="cloned">
@@ -9363,7 +9377,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_71" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_71" id="q18equipCode_71" value="EQP95" />
 						</div>
@@ -9380,7 +9394,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_72" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_72" id="q18equipFunctioning_72" class="cloned">
@@ -9390,7 +9404,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_72" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_72" id="q18equipCode_72" value="EQP96" />
 						</div>
@@ -9407,7 +9421,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_73" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_73" id="q18equipFunctioning_73" class="cloned">
@@ -9417,7 +9431,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_73" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_73" id="q18equipCode_73" value="EQP97" />
 						</div>
@@ -9434,7 +9448,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_74" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_74" id="q18equipFunctioning_74" class="cloned">
@@ -9444,7 +9458,7 @@ class C_Load extends MY_Controller {
 									<option>Never Available</option>
 								</select>
 
-								<input name="q18equipFQty_74" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_74" id="q18equipCode_74" value="EQP98" />
 						</div>
@@ -9461,7 +9475,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_75" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_75" id="q18equipFunctioning_75" class="cloned">
@@ -9471,7 +9485,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_75" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_75" id="q18equipCode_75" value="EQP99" />
 						</div>
@@ -9488,7 +9502,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_76" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_76" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_76" id="q18equipFunctioning_76" class="cloned">
@@ -9498,7 +9512,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_76" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_76" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_76" id="q18equipCode_76" value="EQP100" />
 						</div>
@@ -9515,7 +9529,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_77" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_77" id="q18equipFunctioning_77" class="cloned">
@@ -9525,7 +9539,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_77" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_77" id="q18equipCode_77" value="EQP101" />
 						</div>
@@ -9542,7 +9556,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_78" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_78" id="q18equipFunctioning_78" class="cloned">
@@ -9552,7 +9566,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_78" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_78" id="q18equipCode_78" value="EQP102" />
 						</div>
@@ -9569,7 +9583,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_79" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_79" id="q18equipFunctioning_79" class="cloned">
@@ -9579,7 +9593,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_79" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_79" id="q18equipCode_79" value="EQP103" />
 						</div>
@@ -9596,7 +9610,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_80" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_80" id="q18equipFunctioning_80" class="cloned">
@@ -9606,7 +9620,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_80" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_80" id="q18equipCode_80" value="EQP104" />
 						</div>
@@ -9642,7 +9656,7 @@ class C_Load extends MY_Controller {
 									<option value="9">Size 9</option>
 								</select>
 
-								<input name="q18equipAQty_81" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_81" id="q18equipFunctioning_81" class="cloned">
@@ -9652,7 +9666,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_81" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_81" id="q18equipCode_81" value="EQP105" />
 						</div>
@@ -9669,7 +9683,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_82" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_82" id="q18equipFunctioning_82" class="cloned">
@@ -9679,7 +9693,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_82" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_82" id="q18equipCode_82" value="EQP106" />
 						</div>
@@ -9697,7 +9711,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_83" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_83" id="q18equipFunctioning_83" class="cloned">
@@ -9706,7 +9720,7 @@ class C_Load extends MY_Controller {
 									<option> No </option>
 									<option> Dont Know </option>
 								</select>
-								<input name="q18equipFQty_83" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 						</div>
 
@@ -9722,7 +9736,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_84" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_84" id="q18equipFunctioning_84" class="cloned">
@@ -9732,7 +9746,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_84" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_84" id="q18equipCode_84" value="EQP108" />
 						</div>
@@ -9749,7 +9763,7 @@ class C_Load extends MY_Controller {
 									<option>No </option>
 								</select>
 
-								<input name="q18equipAQty_85" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipAQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<div class="center">
 								<select name="q18equipFunctioning_85" id="q18equipFunctioning_85" class="cloned">
@@ -9759,7 +9773,7 @@ class C_Load extends MY_Controller {
 									<option> Dont Know </option>
 								</select>
 
-								<input name="q18equipFQty_85" type="number" class="cloned fromZero" min="0"/>
+								<input name="q18equipFQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
 							</div>
 							<input type="hidden"  name="q18equipCode_85" id="q18equipCode_85" value="EQP109" />
 						</div>
@@ -10321,7 +10335,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_1" id="equipSupplier_1" class="cloned"  maxlength="45"/>
@@ -10344,7 +10358,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_2" id="equipSupplier_2" class="cloned"  maxlength="45"/>
@@ -10367,7 +10381,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_3" id="equipSupplier_3" class="cloned"  maxlength="45"/>
@@ -10390,7 +10404,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_4" id="equipSupplier_4" class="cloned"  maxlength="45"/>
@@ -10413,7 +10427,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_5" id="equipSupplier_5" class="cloned"  maxlength="45"/>
@@ -10436,7 +10450,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_6" id="equipSupplier_6" class="cloned"  maxlength="45"/>
@@ -10459,7 +10473,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_7" id="equipSupplier_7" class="cloned"  maxlength="45"/>
@@ -10482,7 +10496,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_8" id="equipSupplier_8" class="cloned"  maxlength="45"/>
@@ -10505,7 +10519,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_9" id="equipSupplier_9" class="cloned"  maxlength="45"/>
@@ -10528,7 +10542,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_10" id="equipSupplier_10" class="cloned"  maxlength="45"/>
@@ -10551,7 +10565,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_11" id="equipSupplier_11" class="cloned"  maxlength="45"/>
@@ -10574,7 +10588,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_12" id="equipSupplier_12" class="cloned"  maxlength="45"/>
@@ -10597,7 +10611,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_13" id="equipSupplier_13" class="cloned"  maxlength="45"/>
@@ -10620,7 +10634,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_14" id="equipSupplier_14" class="cloned"  maxlength="45"/>
@@ -10643,7 +10657,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_15" id="equipSupplier_15" class="cloned"  maxlength="45"/>
@@ -10666,7 +10680,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_16" id="equipSupplier_16" class="cloned"  maxlength="45"/>
@@ -10689,7 +10703,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_17" id="equipSupplier_17" class="cloned"  maxlength="45"/>
@@ -10712,7 +10726,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_18" id="equipSupplier_18" class="cloned"  maxlength="45"/>
@@ -10735,7 +10749,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_19" id="equipSupplier_19" class="cloned"  maxlength="45"/>
@@ -10758,7 +10772,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_20" id="equipSupplier_20" class="cloned"  maxlength="45"/>
@@ -10781,7 +10795,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_21" id="equipSupplier_21" class="cloned"  maxlength="45"/>
@@ -10804,7 +10818,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_22" id="equipSupplier_22" class="cloned"  maxlength="45"/>
@@ -10827,7 +10841,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_23" id="equipSupplier_23" class="cloned"  maxlength="45"/>
@@ -10850,7 +10864,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_24" id="equipSupplier_24" class="cloned"  maxlength="45"/>
@@ -10873,7 +10887,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_25" id="equipSupplier_25" class="cloned"  maxlength="45"/>
@@ -10896,7 +10910,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_26" id="equipSupplier_26" class="cloned"  maxlength="45"/>
@@ -10919,7 +10933,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_27" id="equipSupplier_27" class="cloned"  maxlength="45"/>
@@ -10942,7 +10956,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_28" id="equipSupplier_28" class="cloned"  maxlength="45"/>
@@ -10965,7 +10979,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_29" id="equipSupplier_29" class="cloned"  maxlength="45"/>
@@ -10988,7 +11002,7 @@ class C_Load extends MY_Controller {
 					<option value="0">No</option>
 				</select></td>
 				<td width="144">
-				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
+				<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned numbers  fromZero" maxlength="6"/>
 				</td>
 				<td width="144">
 				<input type="text"  name="equipSupplier_30" id="equipSupplier_30" class="cloned"  maxlength="45"/>

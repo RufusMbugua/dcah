@@ -287,7 +287,8 @@ $mfCode = $this -> session -> userdata('fCode');
 						   //alert(form_id);	
 								$(form_id).formwizard({ 
 								 	formPluginEnabled: true,
-								 	validationEnabled: true,
+								 	validationEnabled: false,
+								 	historyEnabled:true,
 								 	focusFirstInput : true,
 								 	formOptions :{
 										success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("Thank you for completing this assessment! :) ").fadeTo(5000, 0); })},
@@ -307,8 +308,8 @@ $mfCode = $this -> session -> userdata('fCode');
 									remoteAjax[$(this).attr("id")] = {
 										url : "<?php echo base_url()?>/submit/c_form/data_handler", // the url which stores the stuff in db for each step
 										dataType : 'json',
-										//beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data))},
-										beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
+										beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data))},
+										//beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
 										success : function(data){
 										 			if(data){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
 											 			$("#data").html("...Data was saved successfully");
