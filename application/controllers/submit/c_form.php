@@ -25,6 +25,11 @@ class C_Form extends MY_Controller{
 		
 	}//close form_zinc_ors_inventory()
 	
+	public function data_handler(){
+		//print var_dump($this->input->post());
+		print 'true';
+	}
+	
 	public function form_mnh_equipment_assessment(){
 		$this->load->model('m_mnh_assessment');
 		$this->m_mnh_assessment->addRecord();

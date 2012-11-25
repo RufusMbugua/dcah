@@ -218,7 +218,13 @@ $mfCode = $this -> session -> userdata('fCode');
 				})/*end of which link was clicked*/
 				/*----------------------------------------------------------------------------------------------------------------*/
 				
-				//load zinc form on form load
+				//load 1st section of the assessment on page load
+				$(".form-container").load('<?php echo base_url() . 'c_load/get_form'; ?>',function(){
+
+					//include remote scripts
+					loadGlobalScript();renderFacilityInfo();break_form_to_steps(form_id)
+
+					});
 				
 				/*-----------------------------------------------------------------------------------------------------------------*/
 				/*start of ajax data requests*/
@@ -284,25 +290,55 @@ $mfCode = $this -> session -> userdata('fCode');
 								 	validationEnabled: true,
 								 	focusFirstInput : true,
 								 	formOptions :{
-										success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("You are now registered!").fadeTo(5000, 0); })},
-										beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data));},
+										success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("Thank you for completing this assessment! :) ").fadeTo(5000, 0); })},
+										beforeSubmit: function(data){$("#data").html("Processing...");},
 										dataType: 'json',
-										resetForm: true
+										resetForm: true,
+										disableUIStyles:true
 								 	}
 								 });
 								 
-								 //try remove this class as it makes the ui look nasty
-								//alert(form_id);
-								//'#facility_section'
+								 //remove some jQueryUI styles
 								$(form_id).find('input,select,radio,label[class="dcah-label"],form').removeClass('ui-helper-reset ui-state-default ui-helper-reset');
-							
-							var remoteAjax = {}; // empty options object*/
-				
+								
+								  var remoteAjax = {}; // empty options object
+
+								$(form_id+" .step").each(function(){ // for each step in the wizard, add an option to the remoteAjax object...
+									remoteAjax[$(this).attr("id")] = {
+										url : "<?php echo base_url()?>/submit/c_form/data_handler", // the url which stores the stuff in db for each step
+										dataType : 'json',
+										//beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data))},
+										beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
+										success : function(data){
+										 			if(data){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
+											 			$("#data").html("...Data was saved successfully");
+											 		}else{
+											 			alert("An internal error occurred, nothing was stored.");
+											 		}
+											 		
+										 			return data; //return true to make the wizard move to the next step, false will cause the wizard to stay on the CV step (change this in store_in_database.html)
+										 		}
+										};
+								});
+						
+								$(form_id).formwizard("option", "remoteAjax", remoteAjax); // set the remoteAjax option for the wizard
 						
 				  	}
+				  	
 						/*---------------------end form wizard functions----------------------------------------------------------------*/
 						
 		</script>
+		
+		<style type="text/css">
+		#buttonsPane{
+			    margin-top : 0.5em;
+				margin-right : 1em;
+				text-align: right;
+			}
+		.ui-autocomplete-loading {
+        		background: white url('<?php echo base_url(); ?>images/ui-anim_basic_16x16.gif') right center no-repeat;
+    		}
+		</style>
 	</head>
 	<body>
 		
