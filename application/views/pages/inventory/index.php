@@ -336,7 +336,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				</div>
 				<div class="right-side-nav">
 
-					<div class="sessionUser"><?php echo 'Facility:	'.$mfName ?></div>
+			
 
 		            <div style="float:right;margin-right:5%"><?php echo anchor(base_url().'c_auth/logout','Logout') ?></div>
 	
@@ -359,8 +359,10 @@ $mfCode = $this -> session -> userdata('fCode');
 						
 						<!--li><a id="ort_li" class="awesome blue large" style="font-size:1em;display:inline-block">ORT Corner Assessment</a></li-->
 					</ul>
+					
 				</div>					
 				<div class="form-container ui-widget">
+					<div class="sessionUser"><?php echo 'Facility:	'.$mfName ?></div><br>
 					<?php
 
 					echo $form;
