@@ -222,7 +222,7 @@ function __construct() {
 					//die('New entry, enter new one');
 			   $this -> theForm = new \models\Entities\E_Facility(); //create an object of the model
 			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-			   $this -> theForm -> setFacilityName($this->input->post('facilityName'));
+			   $this -> theForm -> setFacilityName($this->input->post('facilityName',TRUE));
 			   $this -> theForm -> setFacilityMFC($this -> session -> userdata('fCode'));//obtain facility code from current session
 				}else{
 				//$this -> theForm = new \models\Entities\E_Facility(); //create an object of the model
@@ -243,13 +243,21 @@ function __construct() {
 				$this -> theForm -> setFacilityLevel($this->level->getFacilityLevel());
 				$this -> theForm -> setFacilityProvince($this->province->getProvinceName());
 				$this -> theForm -> setFacilityCounty($this->county->getCountyName());
-				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson'));
+				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson',TRUE));
 				if($this->input->post('facilityAltTelephone') !=''){
-				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone').'/'.$this->input->post('facilityAltTelephone'));
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE).'/'.$this->input->post('facilityAltTelephone',TRUE));
 				}else{
-				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone'));	
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE));	
 				}
-				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail'));
+				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail',TRUE));
+				
+				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson',TRUE));
+				if($this->input->post('facilityAltTelephone') !=''){
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE).'/'.$this->input->post('facilityAltTelephone',TRUE));
+				}else{
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE));	
+				}
+				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail',TRUE));
 				$this -> em -> persist($this -> theForm);
                 
 				try{

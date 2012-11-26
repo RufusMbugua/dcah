@@ -27,15 +27,18 @@ $().ready(function(){
     
     //class specific validation rules
      $.validator.addClassRules({
-        cloned1:{
+        cloned:{
         required: true
     },
     positive:{
-    	positiveNumber1:true
+    	positiveNumber:true
     	},
-    fromZero1:{
+    fromZero:{
     	zeroAndAbove:true
-    	}
+    },
+    numbers:{
+    	digits:true
+    }
     });
     
     /*get form id from after ajax request from the user click event*/
@@ -87,8 +90,8 @@ $().ready(function(){
 			facilityOwner: {required: true},
 			facilityDistrict: {required: true},
 			facilityCounty: {required: true},
-			facilityTelephone:{required:true},
-			facilityAltTelephone:{required:false},
+			facilityTelephone:{required:true,digits:true},
+			facilityAltTelephone:{required:false,digits:true},
 			facilityEmail:{required: true,email:true},
 
 			'q18equipAType_81[]':{required:true},
@@ -106,8 +109,8 @@ $().ready(function(){
 			facilityOwner: {required: "*Required"},
 			facilityDistrict: {required:"*Required"},
 			facilityCounty: {required: "*Required"},
-			facilityTelephone:{required:"*Required"},
-			facilityAltTelephone:{required:"*Required"},
+			facilityTelephone:{required:"*Required",digits:"Only digits are allowed"},
+			facilityAltTelephone:{required:"*Required",digits:"Only digits are allowed"},
 			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
 
 			'q18equipAType_81[]':{required:"Select at least 1 type of size"},
@@ -117,13 +120,57 @@ $().ready(function(){
 		}
 	}); /*end of form_mnh_assessment*/
 	
-	/*---------------------------------------start of validation to form_mnh_assessment form------------------------------------------------------------*/
-	$("#form-verify").validate({/*inventory module*/
+	$("#dcah_tool").validate({/*combined tool*/
+		rules: {
+			facilityDateOfInventory:{required: true},
+			facilityName:{required: true},
+			facilityContactPerson:{required: true},
+			facilityZincOrsDispensedFrom:{required: false},
+			facilityDistrict: {required: true},
+			facilityCounty: {required: true},
+			facilityType:{required:true},
+			facilityLevel:{required:true},
+			facilityProvince: {required: true},
+			facilityOwner: {required: true},
+			facilityDistrict: {required: true},
+			facilityTelephone:{required:true,digits:true},
+			facilityAltTelephone:{required:true,digits:true},
+			facilityEmail:{required: true,email:true},
+			ortQuestion1:{required:true},
+			ortQuestion2:{required:true},
+			ortDehydrationLocation:{required:true},
+			'q18equipAType_81[]':{required:true},
+			'q6bSkilledProviders[]':{required:true}
+		},
+		messages: {
+			facilityDateOfInventory:{required: "*Required"},
+			facilityName:{required: "*Required"},
+			facilityContactPerson:{required: "*Required"},
+			facilityZincOrsDispensedFrom:{required: "*Required"},
+			facilityDistrict: {required:"*Required"},
+			facilityCounty: {required: "*Required"},
+			facilityType:{required:"*Required"},
+			facilityLevel:{required:"*Required"},
+			facilityProvince: {required: "*Required"},
+			facilityOwner: {required: "*Required"},
+			facilityTelephone:{required:"*Required",digits:"Only digits are allowed"},
+			facilityAltTelephone:{required:"*Required",digits:"Only digits are allowed"},
+			facilityEmail:{required: "*Required",email:"Not a valid email. Valid example: facility_name@dcah.or.ke"},
+			ortQuestion1:{required:"*Required"},
+			ortQuestion2:{required:"*Required"},
+			ortDehydrationLocation:{required:"*Required"},
+			'q18equipAType_81[]':{required:"Select at least 1 type of size"},
+			'q6bSkilledProviders[]':{required:"Select at least 1 skilled provider"}
+		}
+	});
+	
+	/*---------------------------------------start of form-verify validation rules------------------------------------------------------------*/
+	$("#form-verify").validate({/*authentication form*/
 		rules: {
 			username:{required:true}
 		},
 		messages:{
-			username:{required:"Facility Name Required"}
+			username:{required:"Facility Name is required!"}
 		}
 	});/*end of form-verify validation rules*/
 	
