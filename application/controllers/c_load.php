@@ -78,7 +78,7 @@ class C_Load extends MY_Controller {
 		$form_zinc_ors.='<h5 id="status"></h5>
 		<form class="bbq" name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
 	<!-- form for collecting inventory status information -->
-
+ <p id="data" class="message success"></p>
 	<!-- begin facility  div --->
 	<div id="facility_div" class="step">
 		<h3 align="center">FACILITY REGISTRATION</h3>
@@ -2259,7 +2259,7 @@ class C_Load extends MY_Controller {
 	</div>
 </form>
 <hr />
-<p id="data" class="error"></p>';
+<p id="data" class="message success"></p>';
 
 		$data['form'] = $form_zinc_ors;
 		$data['form_id'] = 'zinc_ors_inventory';
@@ -2273,7 +2273,7 @@ class C_Load extends MY_Controller {
 		<h5 id="status"></h5>
      <form class="bbq" name="form_mnh_assessment" id="form_mnh_assessment" method="POST" action="' . base_url() . 'submit/c_form/form_mnh_equipment_assessment11' . '" >
 	<!-- form for collecting inventory status information -->
-
+ <p id="data" class="message success"></p>
     <!-- begin facility  div --->
     <div id="facility_div" class="step">
     <h3 align="center">FACILITY REGISTRATION</h3>
@@ -5035,7 +5035,7 @@ class C_Load extends MY_Controller {
 		</div>
 		</form>
 		<hr />
-	    <p id="data" class="error"></p>';
+	    ';
 		$data['form'] = $form_mnh_assessment;
 		$data['form_id'] = 'form_mnh_assessment';
 
@@ -5047,7 +5047,7 @@ class C_Load extends MY_Controller {
     	$this->combined_form.='<h5 id="status"></h5>
 		<form class="bbq" name="zinc_ors_inventory" id="zinc_ors_inventory" method="POST" action="' . base_url() . 'submit/c_form/form_zinc_ors_inventory' . '" >
 	
-
+ <p id="data" class="message success"></p>
 	<!-- begin facility  div --->
 	<div id="facility_div" class="step">
 		<h3 align="center">FACILITY REGISTRATION</h3>
@@ -9781,7 +9781,7 @@ class C_Load extends MY_Controller {
 		</div>
 		</form>
 		<hr />
-	    <p id="data" class="error"></p>
+	    
 <!--end of mnh_form-->';
 		$data['form'] = $this->combined_form;
 		$data['form_id'] = 'form_dcah';
