@@ -15,26 +15,26 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	function __construct() {
 		parent::__construct();
 		$this->isFacility='false';
-		
+
 	}
 
 	function addRecord() {
         $s=microtime(true); /*mark the timestamp at the beginning of the transaction*/
-		 
+
 		 $this->elements = array();
 		 $this->theIds=array();
-		 
-		
+
+
 		if ($this -> input -> post()) {//check if a post was made
-		
+
 	    $this->updateFacilityInfo();
 		$this->addORTInfo();//<-
 		$this->addEquipmentAssessmentInfo();
 	    $this->addZincCommoditiesInfo();
 		$this->addORSCommoditiesInfo();
-			
+
 			//exit;
-			
+
 			}//close the this->input->post
 			$e=microtime(true);
 			$this->executionTime=round($e-$s,'4');
@@ -42,7 +42,29 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			return $this -> response = 'ok';
 	} //end of addRecord()
 
-   
+	function updateFacility(){
+		 /*check assessment tracker log*/
+		 if($this->input->post()){
+
+			 $this->writeAssessmentTrackerLog();
+		 	 $step=$this->input->post('step_name',TRUE);
+			switch($step){
+				case 'facility_div':
+				$this->updateFacilityInfo();/*Defined in MY_Model*/
+					break;
+				case 'diarrhoea_cases':
+
+					break;
+
+			}
+		 	//print var_dump($this->input->post());
+
+
+		 return $this -> response = 'true';
+		 }
+	}
+
+
    
    //methods required 1. to check if supplied facility name exists
    // 2. If facility name exists, 1. skip the facility insert but update* the facility info supplied 2. insert into the others
@@ -60,16 +82,16 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				//die($ex->getMessage());
 			}
 			return $this->facility;
-		
+
 	}/*close facilityExists($mfc)*/
-	
+
 	public function getFacilityCode(){
 		if ($this -> input -> post()) {//check if a post was made
-			
+
        //Working with an object of the entity
        try{
 		$this->facility = $this->em->getRepository('models\Entities\e_facility')->findOneBy(array('facilityMFC' => $this -> input -> post('username')));
-	    
+
 	    if($this->facility){
 			return $this->isFacility='true';
 	    }
@@ -77,17 +99,17 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			//ignore
 				//die($ex->getMessage());
 		}
-		
+
 	}//close the this->input->post
 	}/*close getFacilityCode()*/
-	
+
 	public function verifyFacilityByName(){
 		if ($this -> input -> post()) {//check if a post was made
-			
+
        //Working with an object of the entity
        try{
 		$this->facility = $this->em->getRepository('models\Entities\e_facility')->findOneBy(array('facilityName' => $this -> input -> post('username')));
-	    
+
 	    if($this->facility){
 			return $this->isFacility='true';
 	    }
@@ -95,10 +117,10 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			//ignore
 				//die($ex->getMessage());
 		}
-		
+
 	}//close the this->input->post
 	}/*close verifyFacilityByName*/
-	
+
 	//checks if commodity name exists
 	 public function commodityExists($cName){
 	     try{
@@ -109,12 +131,12 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				//die($ex->getMessage());
 			}
 			return $this->commodity;
-		
+
 	}/*close commodityExists($cName)*/
-	
-	
+
+
 	private function addORTInfo(){
-		
+
 		    foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		    if(substr($key,0,3)=="ort"){//select data for ort
 			     $this->attr = $key;//the attribute name
@@ -127,21 +149,21 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				   }
 				   //print $key.' val='.$val.' <br />';
 			 }
-			
+
 			 }//close foreach ($this -> input -> post() as $key => $val)
-			 
+
 			 //exit;
-				
+
 		        //get the highest value of the array that will control the number of inserts to be done
 						$this->noOfInsertsBatch=1; //only 1 ort corner record inserted
-						 
-						 
+
+
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-			 	
+
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_OrtC_Assessment(); //create an object of the model
-		      
-			 	
+
+
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				$this -> theForm -> setFacilityMFC($this->input->post('facilityMFC'));
 				$this -> theForm -> setQuestion1($this->elements['ortQuestion1']);
@@ -152,47 +174,47 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
 				$this -> theForm -> setDateOfAssessment($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
-						
+
 						//now do a batched insert
-			
-			  
+
+
 			try{
-					
+
 				$this -> em -> flush();
 					//retrieve id of the last insert to use in in equipment assessment
 				//$this -> em -> refresh($this -> theForm);
-				
+
 				$this->ortAssessCode=$this->theForm->getOrtAssessmentCode();
 				//print ('last id: '.$this->ortAssessCode);exit;
-				
+
 				$this->em->clear(); //detaches all objects from doctrine
-				
+
 				}catch(Exception $ex){
 				    //die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				
-			
+
+
 					 } //end of innner loop	
 	}//close addORTInfo
-	
+
 	private function addEquipmentAssessmentInfo(){
 		$count=1;$finalCount=0;
 		foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		    if(substr($key,0,5)=="equip"){//select data for equipment
 			   //we separate the attribute name from the number
-					
+
 				  $this->frags = explode("_", $key);
-				   
+
 				  //$this->id = $this->frags[1];  // the id
-				
+
 				 $this->id = $count;  // the id
-				    
-				  
+
+
 				  $this->attr = $this->frags[0];//the attribute name
-				  
-				  
+
+
 				     //mark the end of 1 row...for record count
 				if($this->attr=="equipBudgetPresent"){
 					//print 'count at:'.$count.'<br />';
@@ -200,7 +222,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 					 $count++;
 					 // print 'DOM: '.$key.' Attr: '.$this->attr.' val='.$val.' id='.$this->id.' <br />';
 				}
-				  
+
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
 					 $this->elements[$this->id][$this->attr]=htmlentities($val);
@@ -208,26 +230,26 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				   }else{
 				   	$this->elements[$this->id][$this->attr]='';
 				   }
-				 
-				
-				   
+
+
+
 			 }
-			
+
 			 }//close foreach ($this -> input -> post() as $key => $val)
 			// print var_dump($this->elements);
 			// exit;
-		    
+
 		          //get the highest value of the array that will control the number of inserts to be done
 				  $this->noOfInsertsBatch=$finalCount;
-						 
-						 
+
+
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-			 	
+
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_Equipment_Assessment(); //create an object of the model
-			   
+
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
-			 	
+
 				//$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				$this -> theForm -> setEquipmentCode($this->elements[$i]['equipCode']);
 				$this -> theForm -> setOrtCode($this->ortAssessCode);
@@ -236,63 +258,63 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setSupplierName($this->elements[$i]['equipSupplier']);
 				$this -> theForm -> setBudgetKept($this->elements[$i]['equipBudgetPresent']);
 				$this -> em -> persist($this -> theForm);
-						
+
 						//now do a batched insert, default at 5
 			  $this->batchSize=5;
 			if($i % $this->batchSize==0){
 			try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
 				    //die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				
+
 			} else if($i<$this->batchSize || $i>$this->batchSize || $i==$this->noOfInsertsBatch && 
 			$this->noOfInsertsBatch-$i<$this->batchSize){
 				 //total records less than a batch, insert all of them
 				try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
 				}catch(Exception $ex){
 					//die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				 
-				
+
+
 			}//end of batch condition
 					 } //end of innner loop	
-					 
-					 
+
+
 	}//close addEquipmentAssessmentInfo
-	
+
 	private function addZincCommoditiesInfo(){
-		 	
+
 		 $count=1;$finalCount=0;
 		foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		    if(substr($key,0,2)=="zn"){//select data for zn commodities
 			   //we separate the attribute name from the number
-					
+
 				  $this->frags = explode("_", $key);
-				   
+
 				  //$this->id = $this->frags[1];  // the id
-				
+
 				$this->id = $count;  // the id
-				    
-				  
+
+
 				  $this->attr = $this->frags[0];//the attribute name
-				  
+
 				  //mark the end of 1 row...for record count
 				if($this->attr=="znStockComments"){
 					//print 'count at:'.$count.'<br />';
 					$finalCount=$count;
 					 $count++;
 				}
-				 
+
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
 					 $this->elements[$this->id][$this->attr]=htmlentities($val);
@@ -302,22 +324,22 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				   }
 				 // print $this->attr.' val='.$val.' id='.$this->id.' <br />';
 				  //print $key.' val='.$this->elements[$this->id][$this->attr].'<br />';
-				  
+
 			 }//close  if(substr($key,0,2)=="zn")
-			
+
 			 }//close foreach ($this -> input -> post() as $key => $val)
 			// print 'Record count at:'.$finalCount.'<br />';
 			 //exit;	
-			
+
 		  //get the record count that will control the number of inserts to be done        
 		  $this->noOfInsertsBatch=$finalCount;
-						 
-						 
+
+
 		for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-			 	
+
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_Stock(); //create an object of the model
-			 	
+
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				$this -> theForm -> setStockBatchNo($this->elements[$i]['znStockBatchNo']);
 				$this -> theForm -> setStockQuantity($this->elements[$i]['znStockQuantity']);
@@ -329,62 +351,62 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setStockFacility($this->input->post('facilityMFC'));
 				$this -> theForm -> setStockDateOfInventory($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
-						
+
 						//now do a batched insert, default at 5
 			  $this->batchSize=5;
 			if($i % $this->batchSize==0){
 			try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
 				    //die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				
+
 			} else if($i<$this->batchSize || $i>$this->batchSize || $i==$this->noOfInsertsBatch && 
 			$this->noOfInsertsBatch-$i<$this->batchSize){
 				 //total records less than a batch, insert all of them
 				try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
 				}catch(Exception $ex){
 					//die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				 
-				
+
+
 			}//end of batch condition
 					 } //end of innner loop	
 	}//close addZincCommoditiesInfo
-	
+
 	private function addORSCommoditiesInfo(){
-		
+
 		 $count=1;$finalCount=0;
 		foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		    if(substr($key,0,3)=="ors"){//select data for ors commodities
 			   //we separate the attribute name from the number
-					
+
 				  $this->frags = explode("_", $key);
-				   
+
 				  $this->id = $this->frags[1];  // the id
-				  
+
 				  //$this->id = $count;  // the id
-				    
-				  
+
+
 				  $this->attr = $this->frags[0];//the attribute name
-				  
+
 				   //mark the end of 1 row...for record count
 				if($this->attr=="orsStockComments"){
 					//print 'count at:'.$count.'<br />';
 					$finalCount=$count;
 					 $count++;
 				}
-				  
-				  
+
+
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
 					 $this->elements[$this->id][$this->attr]=htmlentities($val);
@@ -393,26 +415,26 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				   	$this->elements[$this->attr]='';
 				   }
 				  // print $this->attr.' val='.$val.' id='.$this->id.' <br />';
-				  
+
 			 }//close if(substr($key,0,3)=="ors")
-			
+
 			 }//close foreach ($this -> input -> post() as $key => $val)
-			 
+
 			// print 'Record count at:'.$finalCount.'<br />';
-			 
+
 			// exit;	
-		
+
 		 //get the highest value of the array that will control the number of inserts to be done
 
 		$this->noOfInsertsBatch=$finalCount;		 
-						 
+
 		for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-			 	
+
 				//insert facility if new, else update the existing one
 			   $this -> theForm = new \models\Entities\E_Stock(); //create an object of the model
-			   
+
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
-			 	
+
 				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				$this -> theForm -> setStockBatchNo($this->elements[$i]['orsStockBatchNo']);
 				$this -> theForm -> setStockQuantity($this->elements[$i]['orsStockQuantity']);
@@ -424,38 +446,38 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> theForm -> setStockFacility($this->input->post('facilityMFC'));
 				$this -> theForm -> setStockDateOfInventory($this->input->post('facilityDateOfInventory'));
 				$this -> em -> persist($this -> theForm);
-						
+
 						//now do a batched insert, default at 5
 			  $this->batchSize=5;
 			if($i % $this->batchSize==0){
 			try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
 				    //die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				
+
 			} else if($i<$this->batchSize || $i>$this->batchSize || $i==$this->noOfInsertsBatch && 
 			$this->noOfInsertsBatch-$i<$this->batchSize){
 				 //total records less than a batch, insert all of them
 				try{
-					
+
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
 				}catch(Exception $ex){
 					//die($ex->getMessage());
 					/*display user friendly message*/
-					
+
 				}//end of catch
-				 
-				
+
+
 			}//end of batch condition
 					 } //end of innner loop	
 	}// addORSCommoditiesInfo();
-	
+
 	//fetch prexisting data about the facilities
 	public function retrieveMFLInformation(){
 		$this->countyList=$this->getAllCountyNames();
@@ -469,7 +491,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		return $this->dbSessionValues;
 	}
 
-	
+
 	/*retrieve form files by factory*/
 	function retrieveFacilityInfo($mfc){
 	      /*using DQL*/
@@ -479,7 +501,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		  $query->setParameter('fcode',$mfc);
           
           $this->formRecords = $query->getArrayResult();
-		 
+
 		  if(max($this->formRecords) !=0)
 		  $this->response=array('rData'=>$this->formRecords);
 		 //json format
@@ -491,9 +513,9 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		    //die($ex->getMessage());
 		  	return false;
 		  }
-		 
+
 		   return true;
-		   
+
 	}/*close retrieveForms($factory)*/
-	
+
 }//end of class M_Zinc_Ors_Inventory 

@@ -38,8 +38,9 @@
 |
 */
 
-$route['default_controller'] = "c_front";
+$route['default_controller'] = 'c_front';
 $route['404_override'] = '';
+//$route['c_auth/go']='c_front/inventory';
 
 
 /* End of file routes.php */
