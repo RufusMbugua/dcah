@@ -4,10 +4,11 @@ class C_Form extends MY_Controller{
 	
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('M_Zinc_Ors_Inventory');
 	}
 	
 	public function form_zinc_ors_inventory(){
-		$this->load->model('M_Zinc_Ors_Inventory');
+		
 		$this->M_Zinc_Ors_Inventory->addRecord();
 		
 		if($this->M_Zinc_Ors_Inventory->response='ok'){
@@ -27,7 +28,14 @@ class C_Form extends MY_Controller{
 	
 	public function data_handler(){
 		//print var_dump($this->input->post());
+		
+		$this->M_Zinc_Ors_Inventory->updateFacility();
+		if($this->M_Zinc_Ors_Inventory->response=='true'){
 		print 'true';
+		}else{
+			print 'false';
+		}
+		
 	}
 	
 	public function form_mnh_equipment_assessment(){

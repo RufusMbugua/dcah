@@ -62,24 +62,49 @@ namespace models\Entities;
 	private $facilityOwnedBy;
 	
    /**
-	* @Column(name="facilityContactPerson", type="string", length=45, nullable=true)
+	* @Column(name="facilityInchargeContactPerson", type="string", length=45, nullable=true)
 	* */
-	private $facilityContactPerson;
+	private $facilityInchargeContactPerson;
 	
 	/**
-	* @Column(name="zincOrsDispensedFrom", type="string", length=45, nullable=false)
+	* @Column(name="facilityInchargeEmail", type="string", length=100, nullable=true)
 	* */
-	//private $zincOrsDispensedFrom;
+	private $facilityInchargeEmail;
 	
 	/**
-	* @Column(name="facilityEmail", type="string", length=100, nullable=true)
+	* @Column(name="facilityInchargeTelephone", type="string", length=55, nullable=true)
 	* */
-	private $facilityEmail;
+	private $facilityInchargeTelephone;
 	
 	/**
-	* @Column(name="facilityTelephone", type="string", length=55, nullable=true)
+	* @Column(name="facilityMCHContactPerson", type="string", length=45, nullable=true)
 	* */
-	private $facilityTelephone;
+	private $facilityMCHContactPerson;
+	
+	/**
+	* @Column(name="facilityMCHEmail", type="string", length=100, nullable=true)
+	* */
+	private $facilityMCHEmail;
+	
+	/**
+	* @Column(name="facilityMCHTelephone", type="string", length=55, nullable=true)
+	* */
+	private $facilityMCHTelephone;
+	
+	/**
+	* @Column(name="facilityMaternityContactPerson", type="string", length=45, nullable=true)
+	* */
+	private $facilityMaternityContactPerson;
+	
+	/**
+	* @Column(name="facilityMaternityEmail", type="string", length=100, nullable=true)
+	* */
+	private $facilityMaternityEmail;
+	
+	/**
+	* @Column(name="facilityMaternityTelephone", type="string", length=55, nullable=true)
+	* */
+	private $facilityMaternityTelephone;
 	
 	/**
 	* @Column(name="createdAt", type="datetime", nullable=true)
@@ -152,30 +177,67 @@ namespace models\Entities;
 	}
 	
 	
-	public function getFacilityContactPerson() {
-			return $this -> facilityContactPerson;}
+	public function getFacilityInchargeContactPerson() {
+			return $this -> facilityInchargeContactPerson;}
 	
-	public function setFacilityContactPerson($facilityContactPerson) { $this -> facilityContactPerson = $facilityContactPerson;
+	public function setFacilityInchargeContactPerson($facilityInchargeContactPerson) { $this -> facilityInchargeContactPerson = $facilityInchargeContactPerson;
 	}
 	
-	/*public function getZincOrsDispensedFrom() {
-			return $this -> zincOrsDispensedFrom;}
 	
-	public function setZincOrsDispensedFrom($zincOrsDispensedFrom) { $this -> zincOrsDispensedFrom = $zincOrsDispensedFrom;
-	}*/
-	
-	public function getFacilityEmail() {
-			return $this -> facilityEmail;
+	public function getFacilityInchargeEmail() {
+			return $this -> facilityInchargeEmail;
 	}
 	
-	public function setFacilityEmail($facilityEmail) { $this -> facilityEmail = $facilityEmail;
+	public function setFacilityInchargeEmail($facilityInchargeEmail) { $this -> facilityInchargeEmail = $facilityInchargeEmail;
 	}
 	
-	public function getFacilityTelephone() {
-			return $this -> facilityTelephone;
+	public function getFacilityInchargeTelephone() {
+			return $this -> facilityInchargeTelephone;
 	}
 	
-	public function setFacilityTelephone($facilityTelephone) { $this -> facilityTelephone = $facilityTelephone;
+	public function setFacilityInchargeTelephone($facilityInchargeTelephone) { $this -> facilityInchargeTelephone = $facilityInchargeTelephone;
+	}
+	
+	public function getFacilityMCHContactPerson() {
+			return $this -> facilityMCHContactPerson;}
+	
+	public function setFacilityMCHContactPerson($facilityMCHContactPerson) { $this -> facilityMCHContactPerson = $facilityMCHContactPerson;
+	}
+	
+	
+	public function getFacilityMCHEmail() {
+			return $this -> facilityMCHEmail;
+	}
+	
+	public function setFacilityMCHEmail($facilityMCHEmail) { $this -> facilityMCHEmail = $facilityMCHEmail;
+	}
+	
+	public function getFacilityMCHTelephone() {
+			return $this -> facilityMCHTelephone;
+	}
+	
+	public function setFacilityMCHTelephone($facilityMCHTelephone) { $this -> facilityMCHTelephone = $facilityMCHTelephone;
+	}
+	
+	public function getFacilityMaternityContactPerson() {
+			return $this -> facilityMaternityContactPerson;}
+	
+	public function setFacilityMaternityContactPerson($facilityMaternityContactPerson) { $this -> facilityMaternityContactPerson = $facilityMaternityContactPerson;
+	}
+	
+	
+	public function getFacilityMaternityEmail() {
+			return $this -> facilityMaternityEmail;
+	}
+	
+	public function setFacilityMaternityEmail($facilityMaternityEmail) { $this -> facilityMaternityEmail = $facilityMaternityEmail;
+	}
+	
+	public function getFacilityMaternityTelephone() {
+			return $this -> facilityMaternityTelephone;
+	}
+	
+	public function setFacilityMaternityTelephone($facilityMaternityTelephone) { $this -> facilityMaternityTelephone = $facilityMaternityTelephone;
 	}
 	
 	public function getCreatedAt() {

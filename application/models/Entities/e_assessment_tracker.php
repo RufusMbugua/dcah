@@ -16,7 +16,7 @@ namespace models\Entities;
 	
    /**
 	* @ManyToOne(targetEntity="form_steps",inversedBy="stepID")
-    * @Column(name="trackerSection", type="integer",nullable=false)
+    * @Column(name="trackerSection", type="string",length=45,nullable=false)
 	* */
 	private $trackerSection;
 	
@@ -40,10 +40,10 @@ namespace models\Entities;
 	}
 	 
 	public function getTrackerSection() {
-			return $this -> trackerName;
+			return $this -> trackerSection;
 	}
 	
-	public function setTrackerSection($trackerName) { $this -> trackerName = $trackerName;
+	public function setTrackerSection($trackerSection) { $this -> trackerSection = $trackerSection;
 	}
 	
 	public function getLastActivity() {
