@@ -41,30 +41,8 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	        $this->rowsInserted=$this->noOfInsertsBatch;
 			return $this -> response = 'ok';
 	} //end of addRecord()
-	
-	function updateFacility(){
-		 /*check assessment tracker log*/
-		 if($this->input->post()){
-		 	
-			 $this->writeAssessmentTrackerLog();
-		 	 $step=$this->input->post('step_name',TRUE);
-			switch($step){
-				case 'facility_div':
-				$this->updateFacilityInfo();/*Defined in MY_Model*/
-					break;
-				case 'diarrhoea_cases':
-					
-					break;
-					
-			}
-		 	//print var_dump($this->input->post());
-		
-		
-		 return $this -> response = 'true';
-		 }
-	}
-	
-	
+
+   
    
    //methods required 1. to check if supplied facility name exists
    // 2. If facility name exists, 1. skip the facility insert but update* the facility info supplied 2. insert into the others

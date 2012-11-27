@@ -3,7 +3,7 @@
 
 class  MY_Model  extends  CI_Model{
 
-public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityFound,$commodity,$facility,$section,$sectionExists;
+public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityExists,$commodity,$facility;
 
 function __construct() {
 		parent::__construct();
@@ -14,8 +14,7 @@ function __construct() {
 		$this->em = $this->doctrine->em;
 		$this->response='';
 		$this->theForm='';
-		$this->facilityFound=false;
-		$this->sectionExists=false;
+		$this->facilityExists=false;
 	}
 
    /*utilized in several models*/
@@ -102,7 +101,7 @@ function __construct() {
 		  //die(var_dump($this->level));
 		 }catch(exception $ex){
 		 	//ignore
-		 	$ex->getMessage();//exit;
+		 	//$ex->getMessage();//exit;
 		 }
 		return $this->level;
 	}/*end of getAllFacilityLevels*/
@@ -158,9 +157,7 @@ function __construct() {
 	     try{
 			$this->facility=$this->em->getRepository('models\Entities\E_Facility')
 			                       ->findOneBy( array('facilityName'=>$mfc));
-			if($this->facility){
-			$this->facilityFound=true;
-			}
+			$this->facilityExists=true;
 			}catch(exception $ex){
 				//ignore
 				//die($ex->getMessage());
@@ -168,23 +165,6 @@ function __construct() {
 			return $this->facility;
 		
 	}/*close facilityExists($mfc)*/
-	
-	//check if tracker entry has already been done
-   public function sectionEntryExists($mfc,$section){
-	     try{
-			$this->section=$this->em->getRepository('models\Entities\e_assessment_tracker')
-			                       ->findOneBy( array('facilityCode'=>$mfc,'trackerSection'=>$section));
-			if($this->section){
-				$this->sectionExists=true;
-			}
-			}catch(exception $ex){
-				//ignore
-				//die($ex->getMessage());
-			}
-			return $this->section;
-		
-	}/*close sectionEntryExists($mfc,$section)*/
-	
 	
 	//checks if commodity name exists
 	 public function commodityExists($cName){
@@ -204,7 +184,7 @@ function __construct() {
 			foreach ($this -> input -> post() as $key => $val) {//For every posted values
 		   
 		  
-		   // if(substr($key,0,3)=="fac"){//select data for facilities
+		    if(substr($key,0,3)=="fac"){//select data for facilities
 			     $this->attr = $key;//the attribute name
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
@@ -214,7 +194,7 @@ function __construct() {
 				   	$this->elements[$this->attr]='';
 				   }
 				   
-			// }
+			 }
 			
 			// print $key.' val='.$val.' <br />';
 			
@@ -224,8 +204,6 @@ function __construct() {
 			
 			//check if facility exists
 			$this->facility=$this->facilityExists($this -> session -> userdata('fName'));
-			
-			//print var_dump($this->facility);
 			
 		   //get county name,district name,level name by id
 			$this->getCountyName($this->input->post('facilityCounty'));/*method defined in MY_Model*/
@@ -240,7 +218,7 @@ function __construct() {
 						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
 			 	
 				//insert facility if new, else update the existing one
-				if(!$this->facility){
+				if($this->facilityExists!=true){
 					//die('New entry, enter new one');
 			   $this -> theForm = new \models\Entities\E_Facility(); //create an object of the model
 			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
@@ -265,29 +243,29 @@ function __construct() {
 				$this -> theForm -> setFacilityLevel($this->level->getFacilityLevel());
 				$this -> theForm -> setFacilityProvince($this->province->getProvinceName());
 				$this -> theForm -> setFacilityCounty($this->county->getCountyName());
-				$this -> theForm -> setFacilityInchargeContactPerson($this->input->post('facilityContactPerson',TRUE));
-				($this->input->post('facilityAltTelephone',TRUE) !='')?$this -> theForm -> setFacilityInchargeTelephone($this->input->post('facilityTelephone',TRUE).'/'.$this->input->post('facilityAltTelephone',TRUE)):$this -> theForm -> setFacilityInchargeTelephone($this->input->post('facilityTelephone',TRUE));	
+				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson',TRUE));
+				if($this->input->post('facilityAltTelephone') !=''){
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE).'/'.$this->input->post('facilityAltTelephone',TRUE));
+				}else{
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE));	
+				}
+				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail',TRUE));
 				
-				$this -> theForm -> setFacilityInchargeEmail($this->input->post('facilityEmail',TRUE));
-				
-				($this->elements['MCHContactPerson']=='')?  $this -> theForm -> setFacilityMCHContactPerson('n/a'):$this -> theForm -> setFacilityMCHContactPerson($this->input->post('MCHContactPerson',TRUE));
-				($this->input->post('MCHAltTelephone',TRUE) !='')?$this -> theForm -> setFacilityMCHTelephone($this->input->post('MCHTelephone',TRUE).'/'.$this->input->post('MCHAltTelephone',TRUE)):$this -> theForm -> setFacilityMCHTelephone($this->input->post('MCHTelephone',TRUE));	
-				
-				($this->elements['MCHEmail']=='')?$this -> theForm -> setFacilityMCHEmail('n/a'):$this -> theForm -> setFacilityMCHEmail($this->input->post('MCHEmail',TRUE));
-				
-				($this->elements['MaternityContactPerson']=='')?$this -> theForm -> setFacilityMaternityContactPerson('n/a'):$this -> theForm -> setFacilityMaternityContactPerson($this->input->post('MaternityContactPerson',TRUE));
-				($this->input->post('MaternityAltTelephone',TRUE) !='')?$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE).'/'.$this->input->post('MaternityAltTelephone',TRUE)):$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE));
-				($this->elements['MaternityEmail']=='')?$this -> theForm -> setFacilityMaternityEmail('n/a'):$this -> theForm -> setFacilityMaternityEmail($this->input->post('MaternityEmail',TRUE));
+				$this -> theForm -> setFacilityContactPerson($this->input->post('facilityContactPerson',TRUE));
+				if($this->input->post('facilityAltTelephone') !=''){
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE).'/'.$this->input->post('facilityAltTelephone',TRUE));
+				}else{
+				$this -> theForm -> setFacilityTelephone($this->input->post('facilityTelephone',TRUE));	
+				}
+				$this -> theForm -> setFacilityEmail($this->input->post('facilityEmail',TRUE));
 				$this -> em -> persist($this -> theForm);
                 
 				try{
 					
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
-				//print 'true';
 				}catch(Exception $ex){
 				    die($ex->getMessage());
-				    //print 'false';
 					/*display user friendly message*/
 					
 				}//end of catch
@@ -297,58 +275,6 @@ function __construct() {
 					 } //end of innner loop
 					 
 	} //close updateFacilityInfo
-	
-	//assuming both the child health and mnh assessment is taken, every facility has exactly 22 entries...they are updated if they already exist
-	protected function writeAssessmentTrackerLog(){
-		 //check if entry exists
-			$this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
-			
-			//print var_dump($this->section);
-		    //get the highest value of the array that will control the number of inserts to be done
-						$this->noOfInsertsBatch=1; /*only 1 entry is expected*/
-						 
-						// print "max rows: ".$this->noOfInsertsBatch; exit;
-						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-			 	
-				//insert log entry if new, else update the existing one
-				if($this->sectionExists==false){
-					//die('New entry, enter new one');
-			   $this -> theForm = new \models\Entities\e_assessment_tracker(); //create an object of the model
-			   $this -> theForm -> setTrackerSection($this->input->post('step_name',TRUE));
-			   $this -> theForm -> setLastActivity(new DateTime()); /*timestamp option*/
-			   $this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));//obtain facility code from current session
-				}else{
-				
-				try{
-					$this -> theForm=$this->em->getRepository('models\Entities\e_assessment_tracker')
-					                       ->findOneBy( array('facilityCode'=>$this -> session -> userdata('fCode'),'trackerSection'=>$this->input->post('step_name',TRUE)));
-				      
-				}catch(exception $ex){
-						//ignore
-						//die($ex->getMessage());
-					}	
-				}
-		      
-			 	$this -> theForm -> setLastActivity(new DateTime()); /*timestamp option*/	
-			  
-				$this -> em -> persist($this -> theForm);
-                
-				try{
-					
-				$this -> em -> flush();
-				$this->em->clear(); //detaches all objects from doctrine
-				//print 'true';
-				}catch(Exception $ex){
-				    die($ex->getMessage());
-				    //print 'false';
-					/*display user friendly message*/
-					
-				}//end of catch
-
-        	
-				
-					 } //end of innner loop
-	}
 	
 	
 }

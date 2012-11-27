@@ -134,16 +134,16 @@ $mfCode = $this -> session -> userdata('fCode');
 					/*submit form event*/
 					/*start of submit_form_data click event*/
 					//function triggerFormSubmit(){
-					$("#next").click(function() {
+					$("#submit_form_data").click(function() {
 
 					$("#facilityMFC").val('<?php echo $mfCode; ?>');
 					
-					if(form_id){
+					if(form_id=="#form_mnh_assessment"){
 						$("#q11equipCode_28").val($("#q1_1_equipCode_28").val());
 				
 					}
 
-					//$(form_id).submit();
+					$(form_id).submit();
 
 					});//}/*end of submit_form_data click event*/
 
@@ -241,9 +241,7 @@ $mfCode = $this -> session -> userdata('fCode');
 						$.each(info , function(i,facility) {
 						//alert("Name: "+facility.facilityMFC);//render found data
 						$("#facilityName").val(facility.facilityName);
-						$("#facilityContactPerson").val(facility.facilityInchargeContactPerson);
-						$("#MCHContactPerson").val(facility.facilityMCHContactPerson);
-						$("#MaternityContactPerson").val(facility.facilityMaternityContactPerson);
+						$("#facilityContactPerson").val(facility.facilityContactPerson);
 
   						$("#facilityType option").filter(function() {return $(this).text() == facility.facilityType;}).first().prop("selected", true);
   						$("#facilityLevel option").filter(function() {return $(this).text() == facility.facilityLevel;}).first().prop("selected", true);
@@ -252,48 +250,19 @@ $mfCode = $this -> session -> userdata('fCode');
 						$("#facilityDistrict option").filter(function() {return $(this).text() == facility.facilityDistrict;}).first().prop("selected", true);
 						$("#facilityCounty option").filter(function() {return $(this).text() == facility.facilityCounty;}).first().prop("selected", true);
 
-						$("#facilityEmail").val(facility.facilityInchargeEmail);
-						$("#MCHEmail").val(facility.facilityMCHEmail);
-						$("#MaternityEmail").val(facility.facilityMaternityEmail);
+						$("#facilityEmail").val(facility.facilityEmail);
 						
 						/*check if there is more than 1 cell phone no.*/
-						var phoneNumbers=['facility.facilityInchargeTelephone','facility.facilityMCHTelephone','facility.facilityMaternityTelephone'];
-						all=phoneNumbers.length;
-						
-						//for(i=0;i<all,i++){
-						if(facility.facilityInchargeTelephone){
-						if(facility.facilityInchargeTelephone.indexOf('/')>0){
+						if(facility.facilityTelephone !=''){
+						if(facility.facilityTelephone.indexOf('/')>0){
 							//if tel no >1, split them for display seperately
-							altTel=facility.facilityInchargeTelephone.split('/');
+							altTel=facility.facilityTelephone.split('/');
 							$("#facilityTelephone").val(altTel[0]);
 							$("#facilityAltTelephone").val(altTel[1]);
 						}else{
-						$("#facilityTelephone").val(facility.facilityInchargeTelephone);
+						$("#facilityTelephone").val(facility.facilityTelephone);
 						}
 						}
-						
-						if(facility.facilityMCHTelephone){
-						if(facility.facilityMCHTelephone.indexOf('/')>0){
-							//if tel no >1, split them for display seperately
-							altTel=facility.facilityMCHTelephone.split('/');
-							$("#MCHTelephone").val(altTel[0]);
-							$("#MCHTelephone").val(altTel[1]);
-						}else{
-						$("#MCHTelephone").val(facility.facilityMCHTelephone);
-						}
-						}
-						
-						if(facility.facilityMaternityTelephone){
-						if(facility.facilityMaternityTelephone.indexOf('/')>0){
-							//if tel no >1, split them for display seperately
-							altTel=facility.facilityMaternityTelephone.split('/');
-							$("#MaternityTelephone").val(altTel[0]);
-							$("#MaternityTelephone").val(altTel[1]);
-						}else{
-						$("#MaternityTelephone").val(facility.facilityMaternityTelephone);
-						}
-						}
-						//}
 						});
 
 						//return false;
@@ -316,7 +285,6 @@ $mfCode = $this -> session -> userdata('fCode');
 						function break_form_to_steps(form_id){
 							//form_id='#zinc_ors_inventory';
 						   //alert(form_id);	
-						   var end_url;
 								$(form_id).formwizard({ 
 								 	formPluginEnabled: true,
 								 	validationEnabled: false,
@@ -338,7 +306,7 @@ $mfCode = $this -> session -> userdata('fCode');
 
 								$(form_id+" .step").each(function(){ // for each step in the wizard, add an option to the remoteAjax object...
 									remoteAjax[$(this).attr("id")] = {
-										url : "<?php echo base_url()?>submit/c_form/data_handler", // the url which stores the stuff in db for each step
+										url : "<?php echo base_url()?>/submit/c_form/data_handler", // the url which stores the stuff in db for each step
 										dataType : 'json',
 										beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data))},
 										//beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
@@ -352,19 +320,9 @@ $mfCode = $this -> session -> userdata('fCode');
 										 			return data; //return true to make the wizard move to the next step, false will cause the wizard to stay on the CV step (change this in store_in_database.html)
 										 		}
 										};
-										
-										
 								});
 						
 								$(form_id).formwizard("option", "remoteAjax", remoteAjax); // set the remoteAjax option for the wizard
-								
-								function extract_form_section(){
-									end_url=document.location;
-								    //end_url=end_url.substr(end_url.indexOf('='),end_url.length);
-								    alert(end_url);
-								}
-								
-								
 						
 				  	}
 				  	
