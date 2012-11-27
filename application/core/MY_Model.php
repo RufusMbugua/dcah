@@ -318,7 +318,7 @@ function __construct() {
 			   $this -> theForm -> setLastActivity(new DateTime()); /*timestamp option*/
 			   $this -> theForm -> setFacilityCode($this -> session -> userdata('fCode'));//obtain facility code from current session
 				}else{
-
+                 // die('Update log');
 				try{
 					$this -> theForm=$this->em->getRepository('models\Entities\e_assessment_tracker')
 					                       ->findOneBy( array('facilityCode'=>$this -> session -> userdata('fCode'),'trackerSection'=>$this->input->post('step_name',TRUE)));

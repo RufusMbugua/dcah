@@ -320,8 +320,8 @@ $mfCode = $this -> session -> userdata('fCode');
 								 	historyEnabled:true,
 								 	focusFirstInput : true,
 								 	formOptions :{
-										success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("Thank you for completing this assessment! :) ").fadeTo(5000, 0); })},
-										beforeSubmit: function(data){$("#data").html("Processing...");},
+										//success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("Thank you for completing this assessment! :) ").fadeTo(5000, 0); })},
+										//beforeSubmit: function(data){$("#data").html("Processing...");},
 										dataType: 'json',
 										resetForm: true,
 										disableUIStyles:true
@@ -337,10 +337,10 @@ $mfCode = $this -> session -> userdata('fCode');
 									remoteAjax[$(this).attr("id")] = {
 										url : "<?php echo base_url()?>submit/c_form/data_handler", // the url which stores the stuff in db for each step
 										dataType : 'json',
-										beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data))},
+										beforeSubmit: function(data){$("#data").html("Processing... " + $.param(data))},
 										//beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
 										success : function(data){
-										 			if(data){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
+										 			if(data !='false'){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
 											 			$("#data").html("...Data was saved successfully");
 											 		}else{
 											 			alert("An internal error occurred, nothing was stored.");
@@ -354,12 +354,6 @@ $mfCode = $this -> session -> userdata('fCode');
 								});
 						
 								$(form_id).formwizard("option", "remoteAjax", remoteAjax); // set the remoteAjax option for the wizard
-								
-								function extract_form_section(){
-									end_url=document.location;
-								    //end_url=end_url.substr(end_url.indexOf('='),end_url.length);
-								    alert(end_url);
-								}
 								
 								
 						
