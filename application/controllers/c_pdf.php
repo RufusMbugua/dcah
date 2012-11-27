@@ -2,20 +2,34 @@
 class C_Pdf extends MY_Controller {
 
 	public function index() {
-		$this -> load -> library('mpdf');
-		$this -> mpdf -> WriteHTML('<p>Hallo World</p>');
-		$this -> mpdf -> Output();
-	}
-
-	public function generatePDF() {
-
 	}
 
 	public function form() {
 		//$stylesheet = file_get_contents(base_url().'css/styles.css');
 		//$html= $this->load->view('form_child_health');
 		//$html = $this ->load->view('instructions');
-		$stylesheet = '
+		$stylesheet = ('
+		td{
+			
+			font-size:1.4em;
+		}
+		td input{
+			height:100px;
+			
+		}
+		h3{
+			font-size: 1.4em;
+	font-family: Linux Libertine-DR;
+	color: #039;
+	border-bottom: solid 2px #039;
+		}
+		input, select{
+			width:500px;
+			height:60px;
+			border:none;
+			border-bottom:1px solid black;
+		}
+		
 		/* Columns*/
 .column, .column-wide {
 	padding: 0 20px 10px 10px;
@@ -35,11 +49,12 @@ class C_Pdf extends MY_Controller {
 .block .column:first-child {
 	border-right: 2px solid #999999;
 }
-.block .column select, .block .column input {
-	width: 90%;
-}
+
 td input[type=number] {
 	float: left;
+	padding:10px auto;
+			width:300px;
+			height:60px;
 }
 .block .column:nth-child(even) {
 	float: right;
@@ -58,6 +73,9 @@ td input[type=number] {
 }
 .column input, .column-wide input {
 	display: table-row;
+	padding:10px auto;
+			width:300px;
+			height:60px;
 }
 .column textarea, .column-wide textarea {
 	display: block;
@@ -95,7 +113,7 @@ td input[type=number] {
 }
 
 .left {
-	width: 40%;
+	width: 60%;
 }
 .right {
 	clear: all;
@@ -157,4508 +175,1960 @@ option {
 input[type=number] {
 	float: right;
 }
-';
-
-$html = ('
-		<form class="bbq" name="dcah_tool" id="dcah_tool" method="POST" action="' . base_url() . 'submit/c_form/form_dcah_assessment' . '" >
-
- <p id="data" class="message success"></p>
-
-	<!-- begin facility  div --->
-	<div id="facility_div" class="step">
-	<input type="hidden" name="step_name" value="facility_div"/>
-		<h3 align="center">FACILITY REGISTRATION</h3>
-
-		<div class="block">
-			<div class="column">
-				<div class="row-title">
-					Facility Information
-				</div>
-				<!--div class="row2">
-				<div class="left">
-				<label>Date:</label>
-				</div>
-				<div class="right">
-				<input type="date" name="facilityDateOfInventory" id="facilityDateOfInventory" readonly="readonly" class="autoDate" placeholder="click for date"/>
-				</div>
-
-				</div-->
-
-				<div class="row2">
-					<div class="left">
-						<label>Facility Name:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="facilityName" class="cloned" readonly="readonly" id="facilityName"/>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Facility Type:</label>
-					</div>
-					<div class="right">
-						<select name="facilityType" id="facilityType" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectFacilityType . '
-						</select>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Facility Level:</label>
-					</div>
-					<div class="right">
-						<select name="facilityLevel" id="facilityLevel" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectFacilityLevel . '
-						</select>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Owned By:</label>
-					</div>
-					<div class="right">
-						<select name="facilityOwner" id="facilityOwner" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectFacilityOwner . '
-						</select>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Province:</label>
-					</div>
-					<div class="right">
-						<select name="facilityProvince" id="facilityProvince" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectProvince . '
-						</select>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-
-						<label>District:</label>
-					</div>
-					<div class="right">
-						<select name="facilityDistrict" id="facilityDistrict" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectDistricts . '
-						</select>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>County:</label>
-					</div>
-					<div class="right">
-						<select name="facilityCounty" id="facilityCounty" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							' . $this -> selectCounties . '
-						</select>
-					</div>
-				</div>
-
-			</div>
-			<div class="column">
-				<div class="row-title">
-					In Charge Contact Information
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Name:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="facilityContactPerson" id="facilityContactPerson" class="cloned"/>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Telephone:</label>
-					</div>
-					<div class="right">
-
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 1:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="facilityTelephone" id="facilityTelephone" maxlength="14" class="cloned numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 2:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="facilityAltTelephone" id="facilityAltTelephone" maxlength="14" class="numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Email:</label>
-					</div>
-					<div class="right">
-						<input type="email" name="facilityEmail" id="facilityEmail" maxlength="90" class="cloned"/>
-						<input type="hidden"  name="facilityMFC" id="facilityMFC"/>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="block">
-			<div class="column" style="margin-bottom:30px">
-				<div class="row-title">
-					MCH Contact
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Name:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MCHContactPerson" id="MCHContactPerson" class="cloned" />
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Telephone:</label>
-					</div>
-					<div class="right">
-
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 1:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MCHTelephone" id="MCHTelephone" maxlength="14" class="cloned numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 2:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MCHAltTelephone" id="MCHAltTelephone" maxlength="14" class="numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Email:</label>
-					</div>
-					<div class="right">
-						<input type="email" name="MCHEmail" id="MCHEmail" maxlength="90" class="cloned"/>
-					</div>
-				</div>
-			</div>
-
-			<div class="column" style="margin-bottom:30px">
-				<div class="row-title">
-					Maternity Contact 
-				</div>
-				
-				
-				<div class="row2">
-				<div class="left">
-				<label><b>Click on the Checkbox on the right if no Maternity Contact Information is available</b></label>
-				</div>
-				<div class="center">
-				<input type="checkbox" name="noMaternityContact" id="noMaternityContact"di title="check this box if Maternity Contact Information is not available"/>
-				</div>
-				
-				</div>
-				
-				
-				<div id="maternity_info">
-				<div class="row2">
-					<div class="left">
-						<label>Name:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MaternityContactPerson" id="MaternityContactPerson" class="cloned"/>
-					</div>
-				</div>
-				<div class="row2">
-					<div class="left">
-						<label>Telephone:</label>
-					</div>
-					<div class="right">
-
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 1:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MaternityTelephone" id="MaternityTelephone" maxlength="14" class="cloned numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Cell 2:</label>
-					</div>
-					<div class="right">
-						<input type="text" name="MaternityAltTelephone" id="MaternityAltTelephone" maxlength="14" class="numbers"/>
-					</div>
-
-				</div>
-
-				<div class="row2">
-					<div class="left">
-						<label>Email:</label>
-					</div>
-					<div class="right">
-						<input type="email" name="MaternityEmail" id="MaternityEmail" maxlength="90" class="cloned"/>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--end facility div-->
-
-   <!--begin of child health commodity form-->
-	<!--begin diarrhoiea morbidity factor div-->
-	<div id="diarrhoea_cases" class="step">
-		<h3 align="center">Diarrhoea Morbidity Data </h3>
-		<div class="row2">
-			<div class="left">
-				<label>
-					Indicate number of diarrhoea cases seen in this facility in the <b>last 2 months</b></label>
-			</div>
-			<div class="center">
-				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/>
-			</div>
-		</div>
-	</div>
-
-	<!--end diarrhoiea morbidity factor div-->
-
-<!--begin child health drug section -->
-     <div id="tabs-1" class="tab MCH step">
-   	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: MCH</div>
-	
+.ui-helper-hidden {
+	display: none
+}
+.ui-helper-hidden-accessible {
+	position: absolute !important;
+	clip: rect(1px);
+	clip: rect(1px,1px,1px,1px)
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none
+}
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+	content: "";
+	display: table
+}
+.ui-helper-clearfix:after {
+	clear: both
+}
+.ui-helper-clearfix {
+	zoom: 1
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter: Alpha(Opacity=0)
+}
+.ui-state-disabled {
+	cursor: default !important
+}
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat
+}
+.ui-widget-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%
+}
+.ui-resizable {
+	position: relative
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block
+}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
+	display: none
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px
+}
+.ui-selectable-helper {
+	position: absolute;
+	z-index: 100;
+	border: 1px dotted black
+}
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin-top: 2px;
+	padding: .5em .5em .5em .7em;
+	zoom: 1
+}
+.ui-accordion .ui-accordion-icons {
+	padding-left: 2.2em
+}
+.ui-accordion .ui-accordion-noicons {
+	padding-left: .7em
+}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {
+	padding-left: 2.2em
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px
+}
+.ui-accordion .ui-accordion-content {
+	padding: 1em 2.2em;
+	border-top: 0;
+	overflow: auto;
+	zoom: 1
+}
+.ui-autocomplete {
+	position: absolute;
+	cursor: default
+}
+* html .ui-autocomplete {
+	width: 1px
+}
+.ui-button {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	margin-right: .1em;
+	cursor: pointer;
+	text-align: center;
+	zoom: 1;
+	overflow: visible
+}
+.ui-button, .ui-button:link, .ui-button:visited, .ui-button:hover, .ui-button:active {
+	text-decoration: none
+}
+.ui-button-icon-only {
+	width: 2.2em
+}
+button.ui-button-icon-only {
+	width: 2.4em
+}
+.ui-button-icons-only {
+	width: 3.4em
+}
+button.ui-button-icons-only {
+	width: 3.7em
+}
+.ui-button .ui-button-text {
+	display: block;
+	line-height: 1.4
+}
+.ui-button-text-only .ui-button-text {
+	padding: .4em 1em
+}
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text {
+	padding: .4em;
+	text-indent: -9999999px
+}
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
+	padding: .4em 1em .4em 2.1em
+}
+.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text {
+	padding: .4em 2.1em .4em 1em
+}
+.ui-button-text-icons .ui-button-text {
+	padding-left: 2.1em;
+	padding-right: 2.1em
+}
+input.ui-button {
+	padding: .4em 1em
+}
+.ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px
+}
+.ui-button-icon-only .ui-icon {
+	left: 50%;
+	margin-left: -8px
+}
+.ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary {
+	left: .5em
+}
+.ui-button-text-icon-secondary .ui-button-icon-secondary, .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
+	right: .5em
+}
+.ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
+	right: .5em
+}
+.ui-buttonset {
+	margin-right: 7px
+}
+.ui-buttonset .ui-button {
+	margin-left: 0;
+	margin-right: -.3em
+}
+button.ui-button::-moz-focus-inner {
+	border: 0;
+	padding: 0
+}
+.ui-datepicker {
+	width: 17em;
+	padding: .2em .2em 0;
+	display: none
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .2em 0
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 2px;
+	width: 1.8em;
+	height: 1.8em
+}
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+	top: 1px
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px
+}
+.ui-datepicker .ui-datepicker-next {
+	right: 2px
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+	left: 1px
+}
+.ui-datepicker .ui-datepicker-next-hover {
+	right: 1px
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: 1px 0
+}
+.ui-datepicker select.ui-datepicker-month-year {
+	width: 100%
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+	width: 49%
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em
+}
+.ui-datepicker th {
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 1px
+}
+.ui-datepicker td span, .ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: right;
+	text-decoration: none
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left
+}
+.ui-datepicker.ui-datepicker-multi {
+	width: auto
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
+	border-left-width: 0
+}
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0em
+}
+.ui-datepicker-rtl {
+	direction: rtl
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: right
+}
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px
+}
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px
+}
+.ui-datepicker-cover {
+	position: absolute;
+	z-index: -1;
+	filter: mask();
+	top: -4px;
+	left: -4px;
+	width: 200px;
+	height: 200px
+}
+.ui-dialog {
+	position: absolute;
+	padding: .2em;
+	width: 300px;
+	overflow: hidden
+}
+.ui-dialog .ui-dialog-titlebar {
+	padding: .4em 1em;
+	position: relative
+}
+.ui-dialog .ui-dialog-title {
+	float: left;
+	margin: .1em 16px .1em 0
+}
+.ui-dialog .ui-dialog-titlebar-close {
+	position: absolute;
+	right: .3em;
+	top: 50%;
+	width: 19px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 18px
+}
+.ui-dialog .ui-dialog-titlebar-close span {
+	display: block;
+	margin: 1px
+}
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {
+	padding: 0
+}
+.ui-dialog .ui-dialog-content {
+	position: relative;
+	border: 0;
+	padding: .5em 1em;
+	background: none;
+	overflow: auto;
+	zoom: 1
+}
+.ui-dialog .ui-dialog-buttonpane {
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin: .5em 0 0 0;
+	padding: .3em 1em .5em .4em
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+	float: right
+}
+.ui-dialog .ui-dialog-buttonpane button {
+	margin: .5em .4em .5em 0;
+	cursor: pointer
+}
+.ui-dialog .ui-resizable-se {
+	width: 14px;
+	height: 14px;
+	right: 3px;
+	bottom: 3px
+}
+.ui-draggable .ui-dialog-titlebar {
+	cursor: move
+}
+.ui-menu {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+	display: block;
+	outline: none
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+	position: absolute
+}
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	width: 100%
+}
+.ui-menu .ui-menu-divider {
+	margin: 5px -2px 5px -2px;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 1px 0 0 0
+}
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 2px .4em;
+	line-height: 1.5;
+	zoom: 1;
+	font-weight: normal
+}
+.ui-menu .ui-menu-item a.ui-state-focus, .ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px
+}
+.ui-menu .ui-state-disabled {
+	font-weight: normal;
+	margin: .4em 0 .2em;
+	line-height: 1.5
+}
+.ui-menu .ui-state-disabled a {
+	cursor: default
+}
+.ui-menu-icons {
+	position: relative
+}
+.ui-menu-icons .ui-menu-item a {
+	position: relative;
+	padding-left: 2em
+}
+.ui-menu .ui-icon {
+	position: absolute;
+	top: .2em;
+	left: .2em
+}
+.ui-menu .ui-menu-icon {
+	position: static;
+	float: right
+}
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden
+}
+.ui-progressbar .ui-progressbar-value {
+	margin: -1px;
+	height: 100%
+}
+.ui-slider {
+	position: relative;
+	text-align: left
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0
+}
+.ui-slider-horizontal {
+	height: .8em
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.3em;
+	margin-left: -.6em
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0
+}
+.ui-slider-vertical {
+	width: .8em;
+	height: 100px
+}
+.ui-slider-vertical .ui-slider-handle {
+	left: -.3em;
+	margin-left: 0;
+	margin-bottom: -.6em
+}
+.ui-slider-vertical .ui-slider-range {
+	left: 0;
+	width: 100%
+}
+.ui-slider-vertical .ui-slider-range-min {
+	bottom: 0
+}
+.ui-slider-vertical .ui-slider-range-max {
+	top: 0
+}
+.ui-spinner {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	vertical-align: middle
+}
+.ui-spinner-input {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: .2em 0;
+	vertical-align: middle;
+	margin-left: .4em;
+	margin-right: 22px
+}
+.ui-spinner-button {
+	width: 16px;
+	height: 50%;
+	font-size: .5em;
+	padding: 0;
+	margin: 0;
+	z-index: 100;
+	text-align: center;
+	position: absolute;
+	cursor: default;
+	display: block;
+	overflow: hidden;
+	right: 0
+}
+.ui-spinner a.ui-spinner-button {
+	border-top: none;
+	border-bottom: none;
+	border-right: none
+}
+.ui-spinner .ui-icon {
+	position: absolute;
+	margin-top: -8px;
+	top: 50%;
+	left: 0
+}
+.ui-spinner-up {
+	top: 0
+}
+.ui-spinner-down {
+	bottom: 0
+}
+span.ui-spinner {
+	background: none
+}
+.ui-spinner .ui-icon-triangle-1-s {
+	background-position: -65px -16px
+}
+.ui-tabs {
+	position: relative;
+	padding: .2em;
+	zoom: 1
+}
+.ui-tabs .ui-tabs-nav {
+	margin: 0;
+	padding: .2em .2em 0
+}
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	top: 0;
+	margin: 1px .2em 0 0;
+	border-bottom: 0;
+	padding: 0;
+	white-space: nowrap
+}
+.ui-tabs .ui-tabs-nav li a {
+	float: left;
+	padding: .5em 1em;
+	text-decoration: none
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	margin-bottom: -1px;
+	padding-bottom: 1px
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {
+	cursor: text
+}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active a {
+	cursor: pointer
+}
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	border-width: 0;
+	padding: 1em 1.4em;
+	background: none
+}
+.ui-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	-o-box-shadow: 0 0 5px #aaa;
+	-moz-box-shadow: 0 0 5px #aaa;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa
+}
+* html .ui-tooltip {
+	background-image: none
+}
+body .ui-tooltip {
+	border-width: 2px
+}
+.ui-widget {
+	font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size: 1.1em
+}
+.ui-widget .ui-widget {
+	font-size: 1em
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size: 1em
+}
+.ui-widget-content {
+	border: 1px solid #a6c9e2;
+	background: #fcfdfd url(images/ui-bg_inset-hard_100_fcfdfd_1x100.png) 50% bottom repeat-x;
+	color: #222
+}
+.ui-widget-content a {
+	color: #222
+}
+.ui-widget-header {
+	border: 1px solid #4297d7;
+	background: #5c9ccc url(images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x;
+	color: #fff;
+	font-weight: bold
+}
+.ui-widget-header a {
+	color: #fff
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: 1px solid #c5dbec;
+	background: #dfeffc url(images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #2e6e9e
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+	color: #2e6e9e;
+	text-decoration: none
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	border: 1px solid #79b7e7;
+	background: #d0e5f5 url(images/ui-bg_glass_75_d0e5f5_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #1d5987
+}
+.ui-state-hover a, .ui-state-hover a:hover {
+	color: #1d5987;
+	text-decoration: none
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border: 1px solid #79b7e7;
+	background: #f5f8f9 url(images/ui-bg_inset-hard_100_f5f8f9_1x100.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #e17009
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #e17009;
+	text-decoration: none
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+	border: 1px solid #fad42e;
+	background: #fbec88 url(images/ui-bg_flat_55_fbec88_40x100.png) 50% 50% repeat-x;
+	color: #363636
+}
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
+	color: #363636
+}
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+	border: 1px solid #cd0a0a;
+	background: #fef1ec url(images/ui-bg_glass_95_fef1ec_1x400.png) 50% 50% repeat-x;
+	color: #cd0a0a
+}
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a {
+	color: #cd0a0a
+}
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {
+	color: #cd0a0a
+}
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
+	font-weight: bold
+}
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
+	opacity: .7;
+	filter: Alpha(Opacity=70);
+	font-weight: normal
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+	opacity: .35;
+	filter: Alpha(Opacity=35);
+	background-image: none
+}
+.ui-icon {
+	width: 16px;
+	height: 16px;
+	background-image: url(images/ui-icons_469bdd_256x240.png)
+}
+.ui-widget-content .ui-icon {
+	background-image: url(images/ui-icons_469bdd_256x240.png)
+}
+.ui-widget-header .ui-icon {
+	background-image: url(images/ui-icons_d8e7f3_256x240.png)
+}
+.ui-state-default .ui-icon {
+	background-image: url(images/ui-icons_6da8d5_256x240.png)
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+	background-image: url(images/ui-icons_217bc0_256x240.png)
+}
+.ui-state-active .ui-icon {
+	background-image: url(images/ui-icons_f9bd01_256x240.png)
+}
+.ui-state-highlight .ui-icon {
+	background-image: url(images/ui-icons_2e83ff_256x240.png)
+}
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+	background-image: url(images/ui-icons_cd0a0a_256x240.png)
+}
+.ui-icon-carat-1-n {
+	background-position: 0 0
+}
+.ui-icon-carat-1-ne {
+	background-position: -16px 0
+}
+.ui-icon-carat-1-e {
+	background-position: -32px 0
+}
+.ui-icon-carat-1-se {
+	background-position: -48px 0
+}
+.ui-icon-carat-1-s {
+	background-position: -64px 0
+}
+.ui-icon-carat-1-sw {
+	background-position: -80px 0
+}
+.ui-icon-carat-1-w {
+	background-position: -96px 0
+}
+.ui-icon-carat-1-nw {
+	background-position: -112px 0
+}
+.ui-icon-carat-2-n-s {
+	background-position: -128px 0
+}
+.ui-icon-carat-2-e-w {
+	background-position: -144px 0
+}
+.ui-icon-triangle-1-n {
+	background-position: 0 -16px
+}
+.ui-icon-triangle-1-ne {
+	background-position: -16px -16px
+}
+.ui-icon-triangle-1-e {
+	background-position: -32px -16px
+}
+.ui-icon-triangle-1-se {
+	background-position: -48px -16px
+}
+.ui-icon-triangle-1-s {
+	background-position: -64px -16px
+}
+.ui-icon-triangle-1-sw {
+	background-position: -80px -16px
+}
+.ui-icon-triangle-1-w {
+	background-position: -96px -16px
+}
+.ui-icon-triangle-1-nw {
+	background-position: -112px -16px
+}
+.ui-icon-triangle-2-n-s {
+	background-position: -128px -16px
+}
+.ui-icon-triangle-2-e-w {
+	background-position: -144px -16px
+}
+.ui-icon-arrow-1-n {
+	background-position: 0 -32px
+}
+.ui-icon-arrow-1-ne {
+	background-position: -16px -32px
+}
+.ui-icon-arrow-1-e {
+	background-position: -32px -32px
+}
+.ui-icon-arrow-1-se {
+	background-position: -48px -32px
+}
+.ui-icon-arrow-1-s {
+	background-position: -64px -32px
+}
+.ui-icon-arrow-1-sw {
+	background-position: -80px -32px
+}
+.ui-icon-arrow-1-w {
+	background-position: -96px -32px
+}
+.ui-icon-arrow-1-nw {
+	background-position: -112px -32px
+}
+.ui-icon-arrow-2-n-s {
+	background-position: -128px -32px
+}
+.ui-icon-arrow-2-ne-sw {
+	background-position: -144px -32px
+}
+.ui-icon-arrow-2-e-w {
+	background-position: -160px -32px
+}
+.ui-icon-arrow-2-se-nw {
+	background-position: -176px -32px
+}
+.ui-icon-arrowstop-1-n {
+	background-position: -192px -32px
+}
+.ui-icon-arrowstop-1-e {
+	background-position: -208px -32px
+}
+.ui-icon-arrowstop-1-s {
+	background-position: -224px -32px
+}
+.ui-icon-arrowstop-1-w {
+	background-position: -240px -32px
+}
+.ui-icon-arrowthick-1-n {
+	background-position: 0 -48px
+}
+.ui-icon-arrowthick-1-ne {
+	background-position: -16px -48px
+}
+.ui-icon-arrowthick-1-e {
+	background-position: -32px -48px
+}
+.ui-icon-arrowthick-1-se {
+	background-position: -48px -48px
+}
+.ui-icon-arrowthick-1-s {
+	background-position: -64px -48px
+}
+.ui-icon-arrowthick-1-sw {
+	background-position: -80px -48px
+}
+.ui-icon-arrowthick-1-w {
+	background-position: -96px -48px
+}
+.ui-icon-arrowthick-1-nw {
+	background-position: -112px -48px
+}
+.ui-icon-arrowthick-2-n-s {
+	background-position: -128px -48px
+}
+.ui-icon-arrowthick-2-ne-sw {
+	background-position: -144px -48px
+}
+.ui-icon-arrowthick-2-e-w {
+	background-position: -160px -48px
+}
+.ui-icon-arrowthick-2-se-nw {
+	background-position: -176px -48px
+}
+.ui-icon-arrowthickstop-1-n {
+	background-position: -192px -48px
+}
+.ui-icon-arrowthickstop-1-e {
+	background-position: -208px -48px
+}
+.ui-icon-arrowthickstop-1-s {
+	background-position: -224px -48px
+}
+.ui-icon-arrowthickstop-1-w {
+	background-position: -240px -48px
+}
+.ui-icon-arrowreturnthick-1-w {
+	background-position: 0 -64px
+}
+.ui-icon-arrowreturnthick-1-n {
+	background-position: -16px -64px
+}
+.ui-icon-arrowreturnthick-1-e {
+	background-position: -32px -64px
+}
+.ui-icon-arrowreturnthick-1-s {
+	background-position: -48px -64px
+}
+.ui-icon-arrowreturn-1-w {
+	background-position: -64px -64px
+}
+.ui-icon-arrowreturn-1-n {
+	background-position: -80px -64px
+}
+.ui-icon-arrowreturn-1-e {
+	background-position: -96px -64px
+}
+.ui-icon-arrowreturn-1-s {
+	background-position: -112px -64px
+}
+.ui-icon-arrowrefresh-1-w {
+	background-position: -128px -64px
+}
+.ui-icon-arrowrefresh-1-n {
+	background-position: -144px -64px
+}
+.ui-icon-arrowrefresh-1-e {
+	background-position: -160px -64px
+}
+.ui-icon-arrowrefresh-1-s {
+	background-position: -176px -64px
+}
+.ui-icon-arrow-4 {
+	background-position: 0 -80px
+}
+.ui-icon-arrow-4-diag {
+	background-position: -16px -80px
+}
+.ui-icon-extlink {
+	background-position: -32px -80px
+}
+.ui-icon-newwin {
+	background-position: -48px -80px
+}
+.ui-icon-refresh {
+	background-position: -64px -80px
+}
+.ui-icon-shuffle {
+	background-position: -80px -80px
+}
+.ui-icon-transfer-e-w {
+	background-position: -96px -80px
+}
+.ui-icon-transferthick-e-w {
+	background-position: -112px -80px
+}
+.ui-icon-folder-collapsed {
+	background-position: 0 -96px
+}
+.ui-icon-folder-open {
+	background-position: -16px -96px
+}
+.ui-icon-document {
+	background-position: -32px -96px
+}
+.ui-icon-document-b {
+	background-position: -48px -96px
+}
+.ui-icon-note {
+	background-position: -64px -96px
+}
+.ui-icon-mail-closed {
+	background-position: -80px -96px
+}
+.ui-icon-mail-open {
+	background-position: -96px -96px
+}
+.ui-icon-suitcase {
+	background-position: -112px -96px
+}
+.ui-icon-comment {
+	background-position: -128px -96px
+}
+.ui-icon-person {
+	background-position: -144px -96px
+}
+.ui-icon-print {
+	background-position: -160px -96px
+}
+.ui-icon-trash {
+	background-position: -176px -96px
+}
+.ui-icon-locked {
+	background-position: -192px -96px
+}
+.ui-icon-unlocked {
+	background-position: -208px -96px
+}
+.ui-icon-bookmark {
+	background-position: -224px -96px
+}
+.ui-icon-tag {
+	background-position: -240px -96px
+}
+.ui-icon-home {
+	background-position: 0 -112px
+}
+.ui-icon-flag {
+	background-position: -16px -112px
+}
+.ui-icon-calendar {
+	background-position: -32px -112px
+}
+.ui-icon-cart {
+	background-position: -48px -112px
+}
+.ui-icon-pencil {
+	background-position: -64px -112px
+}
+.ui-icon-clock {
+	background-position: -80px -112px
+}
+.ui-icon-disk {
+	background-position: -96px -112px
+}
+.ui-icon-calculator {
+	background-position: -112px -112px
+}
+.ui-icon-zoomin {
+	background-position: -128px -112px
+}
+.ui-icon-zoomout {
+	background-position: -144px -112px
+}
+.ui-icon-search {
+	background-position: -160px -112px
+}
+.ui-icon-wrench {
+	background-position: -176px -112px
+}
+.ui-icon-gear {
+	background-position: -192px -112px
+}
+.ui-icon-heart {
+	background-position: -208px -112px
+}
+.ui-icon-star {
+	background-position: -224px -112px
+}
+.ui-icon-link {
+	background-position: -240px -112px
+}
+.ui-icon-cancel {
+	background-position: 0 -128px
+}
+.ui-icon-plus {
+	background-position: -16px -128px
+}
+.ui-icon-plusthick {
+	background-position: -32px -128px
+}
+.ui-icon-minus {
+	background-position: -48px -128px
+}
+.ui-icon-minusthick {
+	background-position: -64px -128px
+}
+.ui-icon-close {
+	background-position: -80px -128px
+}
+.ui-icon-closethick {
+	background-position: -96px -128px
+}
+.ui-icon-key {
+	background-position: -112px -128px
+}
+.ui-icon-lightbulb {
+	background-position: -128px -128px
+}
+.ui-icon-scissors {
+	background-position: -144px -128px
+}
+.ui-icon-clipboard {
+	background-position: -160px -128px
+}
+.ui-icon-copy {
+	background-position: -176px -128px
+}
+.ui-icon-contact {
+	background-position: -192px -128px
+}
+.ui-icon-image {
+	background-position: -208px -128px
+}
+.ui-icon-video {
+	background-position: -224px -128px
+}
+.ui-icon-script {
+	background-position: -240px -128px
+}
+.ui-icon-alert {
+	background-position: 0 -144px
+}
+.ui-icon-info {
+	background-position: -16px -144px
+}
+.ui-icon-notice {
+	background-position: -32px -144px
+}
+.ui-icon-help {
+	background-position: -48px -144px
+}
+.ui-icon-check {
+	background-position: -64px -144px
+}
+.ui-icon-bullet {
+	background-position: -80px -144px
+}
+.ui-icon-radio-on {
+	background-position: -96px -144px
+}
+.ui-icon-radio-off {
+	background-position: -112px -144px
+}
+.ui-icon-pin-w {
+	background-position: -128px -144px
+}
+.ui-icon-pin-s {
+	background-position: -144px -144px
+}
+.ui-icon-play {
+	background-position: 0 -160px
+}
+.ui-icon-pause {
+	background-position: -16px -160px
+}
+.ui-icon-seek-next {
+	background-position: -32px -160px
+}
+.ui-icon-seek-prev {
+	background-position: -48px -160px
+}
+.ui-icon-seek-end {
+	background-position: -64px -160px
+}
+.ui-icon-seek-start {
+	background-position: -80px -160px
+}
+.ui-icon-seek-first {
+	background-position: -80px -160px
+}
+.ui-icon-stop {
+	background-position: -96px -160px
+}
+.ui-icon-eject {
+	background-position: -112px -160px
+}
+.ui-icon-volume-off {
+	background-position: -128px -160px
+}
+.ui-icon-volume-on {
+	background-position: -144px -160px
+}
+.ui-icon-power {
+	background-position: 0 -176px
+}
+.ui-icon-signal-diag {
+	background-position: -16px -176px
+}
+.ui-icon-signal {
+	background-position: -32px -176px
+}
+.ui-icon-battery-0 {
+	background-position: -48px -176px
+}
+.ui-icon-battery-1 {
+	background-position: -64px -176px
+}
+.ui-icon-battery-2 {
+	background-position: -80px -176px
+}
+.ui-icon-battery-3 {
+	background-position: -96px -176px
+}
+.ui-icon-circle-plus {
+	background-position: 0 -192px
+}
+.ui-icon-circle-minus {
+	background-position: -16px -192px
+}
+.ui-icon-circle-close {
+	background-position: -32px -192px
+}
+.ui-icon-circle-triangle-e {
+	background-position: -48px -192px
+}
+.ui-icon-circle-triangle-s {
+	background-position: -64px -192px
+}
+.ui-icon-circle-triangle-w {
+	background-position: -80px -192px
+}
+.ui-icon-circle-triangle-n {
+	background-position: -96px -192px
+}
+.ui-icon-circle-arrow-e {
+	background-position: -112px -192px
+}
+.ui-icon-circle-arrow-s {
+	background-position: -128px -192px
+}
+.ui-icon-circle-arrow-w {
+	background-position: -144px -192px
+}
+.ui-icon-circle-arrow-n {
+	background-position: -160px -192px
+}
+.ui-icon-circle-zoomin {
+	background-position: -176px -192px
+}
+.ui-icon-circle-zoomout {
+	background-position: -192px -192px
+}
+.ui-icon-circle-check {
+	background-position: -208px -192px
+}
+.ui-icon-circlesmall-plus {
+	background-position: 0 -208px
+}
+.ui-icon-circlesmall-minus {
+	background-position: -16px -208px
+}
+.ui-icon-circlesmall-close {
+	background-position: -32px -208px
+}
+.ui-icon-squaresmall-plus {
+	background-position: -48px -208px
+}
+.ui-icon-squaresmall-minus {
+	background-position: -64px -208px
+}
+.ui-icon-squaresmall-close {
+	background-position: -80px -208px
+}
+.ui-icon-grip-dotted-vertical {
+	background-position: 0 -224px
+}
+.ui-icon-grip-dotted-horizontal {
+	background-position: -16px -224px
+}
+.ui-icon-grip-solid-vertical {
+	background-position: -32px -224px
+}
+.ui-icon-grip-solid-horizontal {
+	background-position: -48px -224px
+}
+.ui-icon-gripsmall-diagonal-se {
+	background-position: -64px -224px
+}
+.ui-icon-grip-diagonal-se {
+	background-position: -80px -224px
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-khtml-border-top-left-radius: 5px;
+	border-top-left-radius: 5px
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-khtml-border-top-right-radius: 5px;
+	border-top-right-radius: 5px
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-khtml-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-khtml-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px
+}
+.ui-widget-overlay {
+	background: #aaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+	opacity: .3;
+	filter: Alpha(Opacity=30)
+}
+.ui-widget-shadow {
+	margin: -8px 0 0 -8px;
+	padding: 8px;
+	background: #aaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+	opacity: .3;
+	filter: Alpha(Opacity=30);
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px
+}		
+		');
+		$html = ('
 		
-        <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-				</tr>
-				<tr>
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<!--td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				</td-->
-				<td width="144">
-				<input type="number"  name="znMCHStockQuantity_1" id="znMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="znMCHCommodityName_1" id="znMCHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="znMCHUnit_1" id="znMCHUnit_1" value="MCH" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="znMCHStockExpiryDate_1" id="znMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_1">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_1" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_1" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
+<!--begin level-4-and-above-->
 
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="orsMCHStockQuantity_1" id="orsMCHStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsMCHCommodityName_1" id="orsMCHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="orsMCHUnit_1" id="orsMCHUnit_1" value="MCH" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="orsMCHStockExpiryDate_1" id="orsMCHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_2">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_2" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_2" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="cipStockQuantity_1" id="cipStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="cipCommodityName_1" id="cipCommodityName_1" value="Ciprofloxacin" />
-				<input type="hidden"  name="cipMCHUnit_1" id="cipMCHUnit_1" value="MCH" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="cipStockExpiryDate_1" id="cipStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_3">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_3" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_3" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="metStockQuantity_1" id="metStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="metCommodityName_1" id="metCommodityName_1" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="metMCHUnit_1" id="metMCHUnit_1" value="MCH" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="metStockExpiryDate_1" id="metStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_4">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_4" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_4" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--close tabs-1-->
-	
-	<div id="tabs-2" class="tab PEDS step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: PEDS</div>
-	     <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<!--td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				</td-->
-				<td width="144">
-				<input type="number"  name="znPEDStockQuantity_1" id="znPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="znPEDCommodityName_1" id="znPEDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="znPEDUnit_1" id="znPEDUnit_1" value="PED" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="znPEDStockExpiryDate_1" id="znPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_5">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_5" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_5" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="orsPEDStockQuantity_1" id="orsPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsPEDCommodityName_1" id="orsPEDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="orsPEDUnit_1" id="orsPEDUnit_1" value="PED" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="orsPEDStockExpiryDate_1" id="orsPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_6">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_6" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_6" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="cipPEDStockQuantity_1" id="cipPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="cipPEDCommodityName_1" id="cipPEDCommodityName_1" value="Ciprofloxacin" />
-				<input type="hidden"  name="cipPEDUnit_1" id="cipPEDUnit_1" value="PED" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="cipPEDStockExpiryDate_1" id="cipPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_7">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_7" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_7" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="metPEDStockQuantity_1" id="metPEDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="metPEDCommodityName_1" id="metPEDCommodityName_1" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="metPEDUnit_1" id="metPEDUnit_1" value="PED" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="metPEDStockExpiryDate_1" id="metPEDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_8">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_8" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_8" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--close tabs-2-->
-	
-	<div id="tabs-3" class="tab OPD step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: OPD</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<!--td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				</td-->
-				<td width="144">
-				<input type="number"  name="znOPDStockQuantity_1" id="znOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="znOPDCommodityName_1" id="znOPDCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="znOPDUnit_1" id="znOPDUnit_1" value="OPD" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="znStockDispensedDate_1" id="znStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="znStockSupplier_1" id="znStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="znOPDStockExpiryDate_1" id="znOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_9">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_9" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_9" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="orsOPDStockQuantity_1" id="orsOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="orsOPDCommodityName_1" id="orsOPDCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="orsOPDUnit_1" id="orsOPDUnit_1" value="OPD" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="orsOPDStockExpiryDate_1" id="orsOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_10">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_10" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_10" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="cipOPDStockQuantity_1" id="cipOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="cipOPDCommodityName_1" id="cipOPDCommodityName_1" value="Ciprofloxacin" />
-				<input type="hidden"  name="cipOPDUnit_1" id="cipOPDUnit_1" value="OPD" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="cipOPDStockExpiryDate_1" id="cipOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_11">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_11" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_11" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<!--td width="144">Batch No</td-->
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<!--td width="144">Date Supplied to Facility</td-->
-					<!--td width="144">Supplier</td-->
-					<td width="144">Expiry Date</td>
-					<!--td width="144">Comments</td-->
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<!--td width="144">
-				<input type="text"  name="orsStockBatchNo_1" id="orsStockBatchNo_1" class="cloned" maxlength="10"/>
-				
-				</td-->
-				<td width="144">
-				<input type="number"  name="metOPDStockQuantity_1" id="metOPDStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="metOPDCommodityName_1" id="metOPDCommodityName_1" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="metOPDUnit_1" id="metOPDUnit_1" value="OPD" />
-				</td>
-				<!--td width="144">
-				<input type="date"  name="orsStockDispensedDate_1" id="orsStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td-->
-				<!--td width="144">
-				<input type="text"  name="orsStockSupplier_1" id="orsStockSupplier_1" class="cloned" maxlength="45"/>
-				</td-->
-				<td width="144">
-				<input type="text"  name="metOPDStockExpiryDate_1" id="metOPDStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_12">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_12" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_12" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--close tabs-3-->
-	
-	
-	<div id="tabs-4" class="tab Pharmacy step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Pharmacy</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Tablets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"  name="znStockBatchNo_1" id="znStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="znCommodityName_1" id="znCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="znPHAUnit_1" id="znPHAUnit_1" value="PHA" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="znPHAStockDispensedDate_1" id="znPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znPHAStockSupplier_1" id="znPHAStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znPHAStockExpiryDate_1" id="znPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znPHAStockComments_1" id="znPHAStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_13">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_13" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_13" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="orsPHAStockBatchNo_1" id="orsPHAStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsPHACommodityName_1" id="orsPHACommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="orsPHAUnit_1" id="orsPHAUnit_1" value="PHA" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="orsPHAStockDispensedDate_1" id="orsPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsPHAStockSupplier_1" id="orsPHAStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsPHAStockExpiryDate_1" id="orsPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsPHAStockComments_1" id="orsPHAStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_14">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_14" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_14" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="cipPHAStockBatchNo_1" id="cipPHAStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="cipPHACommodityName_1" id="cipPHACommodityName_1" value="Ciprofloxacin" />
-				<input type="hidden"  name="cipPHAUnit_1" id="cipPHAUnit_1" value="PHA" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="cipPHAStockDispensedDate_1" id="cipPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipPHAStockSupplier_1" id="cipPHAStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipPHAStockExpiryDate_1" id="cipPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipPHAStockComments_1" id="cipPHAStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_15">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_15" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_15" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-
-
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="metPHAStockBatchNo_1" id="metPHAStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="metPHACommodityName_1" id="metPHACommodityName_1" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="metPHAUnit_1" id="metPHAUnit_1" value="PHA" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="metPHAStockDispensedDate_1" id="metPHAStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metPHAStockSupplier_1" id="metPHAStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metPHAStockExpiryDate_1" id="metPHAStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metPHAStockComments_1" id="metPHAStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_16">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_16" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_16" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--close tabs-4-->
-	
-	<div id="tabs-5" class="tab Stores step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Stores</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Tablets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"    name="znSTOBatchNo_1" id="znSTOStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="znSTOCommodityName_1" id="znSTOCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="znSTOUnit_1" id="znSTOUnit_1" value="Store" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="znSTOStockDispensedDate_1" id="znSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znSTOStockSupplier_1" id="znSTOStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znSTOStockExpiryDate_1" id="znStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znSTOStockComments_1" id="znSTOStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_17">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_17" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_17" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="orsSTOStockBatchNo_1" id="orsSTOStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsSTOCommodityName_1" id="orsSTOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="orsSTOUnit_1" id="orsSTOUnit_1" value="Store" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="orsSTOStockDispensedDate_1" id="orsSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsSTOStockSupplier_1" id="orsSTOStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsSTOStockExpiryDate_1" id="orsSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsSTOStockComments_1" id="orsSTOStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_18">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_18" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_18" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="cipSTOStockBatchNo_1" id="cipSTOStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="cipSTOCommodityName_1" id="cipSTOCommodityName_1" value="Ciprofloxacin" />
-				<input type="hidden"  name="cipSTOUnit_1" id="cipSTOUnit_1" value="Store" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="cipSTOStockDispensedDate_1" id="cipSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipSTOStockSupplier_1" id="cipSTOStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipSTOStockExpiryDate_1" id="cipSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipSTOStockComments_1" id="cipSTOStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_19">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_19" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_19" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="metSTOStockBatchNo_1" id="metSTOStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="metSTOCommodityName_1" id="metSTOCommodityName_1" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="metSTOUnit_1" id="metSTOUnit_1" value="Store" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="metSTOStockDispensedDate_1" id="metSTOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metSTOStockSupplier_1" id="metSTOStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metSTOStockExpiryDate_1" id="metSTOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metSTOStockComments_1" id="metSTOStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_20">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_20" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_20" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-	</div> <!--close tabs-5-->
-	
-	<div id="tabs-6" class="tab Others step">
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Others</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Tablets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<div class="row2"> 
-				<label>Unit Name</label>
-				<input type="text"  name="otherUnit_1" id="otherUnit_1" class="cloned" maxlength="45"/>
-				</div>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"  name="znOTHStockBatchNo_1" id="znOTHStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="znOTHCommodityName_1" id="znOTHCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="znStockQuantity_1" id="znStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="znOTHStockDispensedDate_1" id="znOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znOTHStockSupplier_1" id="znOTHStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="znOTHStockExpiryDate_1" id="znOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="znStockComments_1" id="znStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_21">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_21" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_21" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="orsOTHStockBatchNo_1" id="orsOTHStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="orsOTHCommodityName_1" id="orsOTHCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="orsOTHStockDispensedDate_1" id="orsOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsOTHStockSupplier_1" id="orsOTHStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="orsOTHStockExpiryDate_1" id="orsOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsOTHStockComments_1" id="orsOTHStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_22">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_22" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_22" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="cipOTHStockBatchNo_1" id="cipOTHStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="cipOTHCommodityName_1" id="cipOTHCommodityName_1" value="Ciprofloxacin" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="cipOTHStockDispensedDate_1" id="cipOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipOTHStockSupplier_1" id="cipOTHStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="cipOTHStockExpiryDate_1" id="cipOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<!--td width="144">
-				<input type="text"  name="orsStockComments_1" id="orsStockComments_1" class="cloned" maxlength="255"/>
-				</td-->
-			</tr>
-			<tr id="formbuttons_23">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_23" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_23" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl)</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<!--tr><td>Low-Osmolarity Oral Rehydration Salts (ORS): </td></tr-->
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="metOTHStockBatchNo_1" id="metOTHStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="metOTHCommodityName_1" id="metOTHCommodityName_1" value="Metronidazole" />
-				</td>
-				<!--td width="144">
-				<input type="number"  name="orsStockQuantity_1" id="orsStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				</td-->
-				<td width="144">
-				<input type="date"  name="metOTHStockDispensedDate_1" id="metOTHStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metOTHStockSupplier_1" id="metOTHStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metOTHStockExpiryDate_1" id="metOTHStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="metOTHStockComments_1" id="metOTHStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_24">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_24" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_24" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--end of tabs-6-->
-<!--end child health drug section -->	
-
-<!--begin ort corner section-->
-<div id="ort_part1" class="step">
-<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
-	<div class="block">
-		<div class="column">
-			<div class="row-title">
-				<div class="left">
-					ASPECTS
-				</div>
-				<div class="right" style="float:right">
-					<div class="col">
-						YES
-					</div>
-					<div class="col">
-						NO
-					</div>
-				</div>
-			</div>
+<div id="level_4_above" class="step">
+	<div class="column-wide">
+		<div class="hide-level">
 			<div class="row">
-				<div class="left">
-					<label> Are dehydrated children rehydrated at this facility? </label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="radio" name="ortQuestion1" id="ortQuestion1_y" value="1" />
-					</div>
-					<div class="col">
-						<input type="radio" name="ortQuestion1" id="ortQuestion1_n" value="0" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="left">
-					<label> Does the facility have a designated location for oral rehydration ?</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="radio" name="ortQuestion2" id="ortQuestion2_y"  value="1" />
-					</div>
-					<div class="col">
-						<input type="radio" name="ortQuestion2" id="ortQuestion2_n" value="0" />
-					</div>
-				</div>
-			</div>
-			<div class="row hide" style="display:none">
-					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
-				</div>
-			<div class="row hide" style="display:none">
-				<div class="left" >
-					<label> MCH</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocation" id="ortDehydrationLocation"  value="" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide" style="display:none">
-				<div class="left" >
-					<label> OPD</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocationOPD" id="ortDehydrationLocationOPD"  value="" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide" style="display:none">
-				<div class="left" >
-					<label> WARD </label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocationWard" id="ortDehydrationLocationWard"  value="" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide" style="display:none">
-				<div class="left" >
-					<label> Other*?</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="text" name="ortDehydrationLocationOther" id="ortDehydrationLocationOther"  value="" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div> <!--end of ort corner part1 -->
-	
-	<div id="ort_questions" class="step">
-		<h3 align="center"> Oral Rehydration Therapy Corner Assessment ...</h3>
-		<div class="block">
-			
-			
-				<div class="row">
-			<div class="left"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility?</label> </div>
-			<div class="right"> 	<select name="budgetAvailable_3" id="budgetAvailable_3" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Government</option>
-						<option value="0">Partners</option>
-				</select></div>
+				<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
 			</div>
 
 			<div class="row">
-			<div class="left"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing or Broken ORT Corner equipment?</label> </div>
-			<div class="right"><select name="budgetAvailable_3" id="budgetAvailable_3" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-				</select> </div>
-			</div>
-			
-		
-				
-				
-			</div>
-		</div>
-	</div>
-	<div id="ort_part2" class="step">
-		<div class="row-title">
-			<label class="dcah-label">EQUIPMENT</label>
-		</div>
-		<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
-		<div class="block">
-			<table id="tableEquipmentList">
-				<tr class="row2">
-					<input type="button" id="editEquipmentListTopButton" name="editEquipmentListTopButton" class="awesome myblue medium" value="Edit List"/>
-				</tr>
-				<tr>
-					<thead >
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Yes/No</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
-					</thead>
-
-				</tr>
-
-				<tr class="row2" id="tr_1">
-					<td width="400"><label>Tea spoons </label>
-					<input type="hidden"  name="equipCode_1" id="equipCode_1" value="EQP01" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_1" id="equipAvailable_1" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_1" id="equipQuantity_1" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_2">
-					<td width="400"><label>Table spoons </label>
-					<input type="hidden"  name="equipCode_2" id="equipCode_2" value="EQP02" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_2" id="equipAvailable_2" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_2" id="equipQuantity_2" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_3">
-					<td width="400"><label>Stirring spoon </label>
-					<input type="hidden"  name="equipCode_3" id="equipCode_3" value="EQP03" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_3" id="equipAvailable_3" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_3" id="equipQuantity_3" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_4">
-					<td width="400"><label>Plastic buckets (with lids for infection prevention) </label>
-					<input type="hidden"  name="equipCode_4" id="equipCode_4" value="EQP04" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_4" id="equipQuantity_4" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_5">
-					<td width="400"><label> Buckets â€“ for storing cups, spoons </label>
-					<input type="hidden"  name="equipCode_5" id="equipCode_5" value="EQP05" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_5" id="equipAvailable_5" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_5" id="equipQuantity_5" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_6">
-					<td width="400"><label> Plastic cups (50-100mls) </label>
-					<input type="hidden"  name="equipCode_6" id="equipCode_6" value="EQP06" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_6" id="equipAvailable_6" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_6" id="equipQuantity_6" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_7">
-					<td width="400"><label> Plastic cups (101-200mls) </label>
-					<input type="hidden"  name="equipCode_7" id="equipCode_7" value="EQP07" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_7" id="equipAvailable_7" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_7" id="equipQuantity_7" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_8">
-					<td width="400"><label> Plastic cups (201mls-499mls) </label>
-					<input type="hidden"  name="equipCode_8" id="equipCode_8" value="EQP08" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_8" id="equipAvailable_8" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_8" id="equipQuantity_8" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_9">
-					<td width="400"><label> Plastic cups (500mls) </label>
-					<input type="hidden"  name="equipCode_9" id="equipCode_9" value="EQP09" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_9" id="equipAvailable_9" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_9" id="equipQuantity_9" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_10">
-					<td width="400"><label> 1 litre Calibrated measuring jars </label>
-					<input type="hidden"  name="equipCode_10" id="equipCode_10" value="EQP10" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_10" id="equipAvailable_10" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_10" id="equipQuantity_10" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_11">
-					<td width="400"><label> Table Trays </label>
-					<input type="hidden"  name="equipCode_11" id="equipCode_11" value="EQP11" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_11" id="equipAvailable_11" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_11" id="equipQuantity_11" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_12">
-					<td width="400"><label> Wash Basins </label>
-					<input type="hidden"  name="equipCode_12" id="equipCode_12" value="EQP12" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_12" id="equipAvailable_12" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_12" id="equipQuantity_12" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_13">
-					<td width="400"><label> Water heating equipment,(e.g..hot plate/Meko ) </label>
-					<input type="hidden"  name="equipCode_13" id="equipCode_13" value="EQP13" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_13" id="equipAvailable_13" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_14">
-					<td width="400"><label> Hot plate-Electric/Solar powered </label>
-					<input type="hidden"  name="equipCode_14" id="equipCode_14" value="EQP14" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_14" id="equipAvailable_14" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_14" id="equipQuantity_14" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_15">
-					<td width="400"><label> Heater- Gas powered </label>
-					<input type="hidden"  name="equipCode_15" id="equipCode_15" value="EQP15" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_15" id="equipAvailable_15" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_15" id="equipQuantity_15" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_16">
-					<td width="400"><label> Charcoal or Firewood  stove/Heater </label>
-					<input type="hidden"  name="equipCode_16" id="equipCode_16" value="EQP16" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_16" id="equipAvailable_16" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_16" id="equipQuantity_16" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_17">
-					<td width="400"><label> Paraffin Stove/Heater </label>
-					<input type="hidden"  name="equipCode_17" id="equipCode_17" value="EQP17" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_17" id="equipAvailable_17" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_17" id="equipQuantity_17" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_18">
-					<td width="400"><label> Sufurias  with a Lid (14 inch) </label>
-					<input type="hidden"  name="equipCode_18" id="equipCode_18" value="EQP18" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_18" id="equipAvailable_18" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_18" id="equipQuantity_18" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_19">
-					<td width="400"><label> Waste Container </label>
-					<input type="hidden"  name="equipCode_19" id="equipCode_19" value="EQP19" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_19" id="equipAvailable_19" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_19" id="equipQuantity_19" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_20">
-					<td width="400"><label> Wall Clock /Timing device </label>
-					<input type="hidden"  name="equipCode_20" id="equipCode_20" value="EQP20" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_20" id="equipAvailable_20" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_20" id="equipQuantity_20" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_21">
-					<td width="400"><label> Table- for mixing ORS </label>
-					<input type="hidden"  name="equipCode_21" id="equipCode_21" value="EQP21" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_21" id="equipAvailable_21" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_21" id="equipQuantity_21" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_22">
-					<td width="400"><label> Benches/chair(s) </label>
-					<input type="hidden"  name="equipCode_22" id="equipCode_22" value="EQP22" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_22" id="equipAvailable_22" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_22" id="equipQuantity_22" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_23">
-					<td width="400"><label> Water Storage Container ( at least 40lts)- With Tap </label>
-					<input type="hidden"  name="equipCode_23" id="equipCode_23" value="EQP23" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_23" id="equipAvailable_23" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_23" id="equipQuantity_23" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_24">
-					<td width="400"><label> Water Storage Container ( at least 40lts)- Without Tap </label>
-					<input type="hidden"  name="equipCode_24" id="equipCode_24" value="EQP24" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_24" id="equipAvailable_24" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_24" id="equipQuantity_24" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_25">
-					<td width="400"><label> Locally available measuring containers e.g. cooking fat Tins. </label>
-					<input type="hidden"  name="equipCode_25" id="equipCode_25" value="EQP25" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_25" id="equipAvailable_25" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_25" id="equipQuantity_25" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_26">
-					<td width="400"><label> Weighing scale </label>
-					<input type="hidden"  name="equipCode_26" id="equipCode_26" value="EQP26" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_26" id="equipAvailable_26" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_26" id="equipQuantity_26" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_27">
-					<td width="400"><label> Hand Washing Facility/Point e.g. tippy taps. </label>
-					<input type="hidden"  name="equipCode_27" id="equipCode_27" value="EQP27" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_27" id="equipAvailable_27" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_27" id="equipQuantity_27" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_28">
-					<td width="400"><label> Safe water source </label>
-					<input type="hidden"  name="equipCode_28" id="equipCode_28" value="EQP28" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_28" id="equipAvailable_28" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_28" id="equipQuantity_28" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_29">
-					<td width="400"><label> Thermometer </label>
-					<input type="hidden"  name="equipCode_29" id="equipCode_29" value="EQP29" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_29" id="equipAvailable_29" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_29" id="equipQuantity_29" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<tr class="row2" id="tr_30">
-					<td width="400"><label> MUAC Tape </label>
-					<input type="hidden"  name="equipCode_30" id="equipCode_30" value="EQP30" />
-					</td>
-					<td width="400">
-					<select name="equipAvailable_30" id="equipAvailable_30" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option value="1">Yes</option>
-						<option value="0">No</option>
-					</select></td>
-					<td width="400">
-					<input type="number"  name="equipQuantity_30" id="equipQuantity_30" class="cloned fromZero" maxlength="6"/>
-					</td>
-					
-				</tr>
-				<!--tr class="row2">
-				<input type="button" id="editEquipmentListBottomButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/-->
-				</tr>
-			</table>
-		</div>
-	</div>
-	<!--end of ort corner part 2 -->
-	<!--end ort corner div-->
-
-<!--end of child health commodity form-->
-	
-<!--begin of mnh_form-->
-	<!-- form for collecting mnh information -->
-	<div id="beginMCH" class="step">
-	
-	<div class="block">
-	<h3 align="center" style="font-size:2em;color:#AA1317">Maternal Health Assessment</h3>
-			<div class="row" style="margin-top:3%">
-					<div class="left">
-						<label>Does the facility provide for delivery services?</label>
-					</div>
-					<div class="center cloned" >
-
-						<select style="width:90%" name="lndq4FacilityDelivery" id="lndq4FacilityDelivery" class="cloned left-combo">
-							<option value="" selected="selected">Select One</option>
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>
-						</select>
-					</div>
-
-					<div id="q4comm" class="right" style="display: none">
-						<input type="text" name="lndq4Comment" id="lndq4Comment" class="cloned"/>
-
-					</div>
-
-				</div>
-	</div>
-	</div>
-	<!--begin diarrhoiea morbidity factor div-->
-	<div id="delivery_cases" class="step">
-	
-	<h3 align="center">Information on Delivery Cases </h3>
-
-	<div class="row2">
-	<div class="left">
-	<label>Indicate number of deliveries cases (includes deliveries by caesarian section) recorded in the <b>last 2  months</b></label>
-	</div>
-	<div class="center">
-
-	<input type="text" id="deliveryCases" name="InformationCases" class="cloned numbers fromZero"/>
-	</div>
-	</div>
-	</div>
-	
-	<!--end diarrhoiea morbidity factor div-->
-    
-	<!-- form for collecting inventory status information -->
-
-	<!--begin emonc div-->
-	<div id="emonc" class="step">
-		<h3 align="center"> ASSESSMENT OF EQUIPMENT AND SUPPLIES FOR EmONC</h3>
-
-		<div class="block">
-			<div class="column-wide">
 				<div class="row-title">
 					<div class="left">
-						<label class="dcah-label">Inventory Type: Labor &amp; Delivery</label>
-					</div>
-					<div class="center">
-						<label class="dcah-label">ANSWER</label>
-					</div>
 
-				</div>
-
-		
-
-				<div class="row">
-					<div class="left">
-						<label>5. Does the facility provide 24 hour coverage for delivery services?</label>
-					</div>
-					<div class="center cloned" >
-
-						<select name="lndq5FacilityDelivery" id="lndq5FacilityDelivery" class="cloned left-combo">
-							<option value="" selected="selected">Select One</option>
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>
-						</select>
-					</div>
-
-					<div id="q5comm" class="right" style="display: none">
-						<input type="text" name="lndq5Comment" id="lndq5Comment" class="cloned"/>
-
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="left">
-						<label>6a. Is a person skilled in conducting deliveries present  at the facility or on call 24 hours a day,
-						including weekends, to provide delivery care?</label>
-					</div>
-					<div class="center cloned">
-
-						<select name="lndq6aConductingDelivery" id="lndq6aConductingDelivery" class="cloned left-combo">
-							<option value="" selected="selected">Select One</option>
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>
-						</select>
-					</div>
-				</div>
-				<div id="q6ay" class="row" style="display: none">
-					<div class="left">
-						<label>6b. Who conducts deliveries in this facility?</label>
-					</div>
-					<div class="center cloned" >
-						<select name="lndq6bSkilledProviders[]" multiple="multiple" id="lndq6bSkilledProviders">
-
-							<option>Mid-wife</option>
-							<option>Trained Medical Officer</option>
-							<option>Clinicial Officer</option>
-							<option>Nursing Officer</option>
-							<option>Doctor</option>
-							<option>Community Health Worker</option>
-
-						</select>
-						<label for="lndq6otherProvider">Others(Specify)</label>
-						<input type="text" id="lndq6otherProvider" name="lndq6otherProvider" maxlength="55" placeholder="provider1,provider2,...,"/>
-
-					</div>
-				</div>
-				<div class="row">
-					<div class="left">
-						<label>7. Indicate the total number of beds in the maternity ward / unit in this facility*</label>
-					</div>
-					<div class="right">
-
-						<input type="number" name="lndq7TotalBeds" id="lndq7TotalBeds" class="cloned numbers  fromZero" min="0" style="float:left"/>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-	<!--end emonc div-->
-
-	<!--begin delivery place description div-->
-	<div id="delivery_div" class="step">
-		<div class="block">
-			<div class="row-title">
-				<label class="dcah-label">*Ask to see the room where Normal Deliveries are conducted</label>
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>8. What is the setting of the Delivery Room?</label>
-				</div>
-				<div class="right">
-
-					<select name="lndq8DeliveryRoom" id="lndq8DeliveryRoom" class="cloned">
-
-						<option value="" selected="selected">Select One</option>
-						<option>Private Room (accomodates one client)</option>
-						<option>Partitioned Shared Room</option>
-						<option>Non-Partitioned Shared Room</option>
-					</select>
-				</div>
-
-			</div>
-		</div>
-		<!--end delivery place description div-->
-	</div>
-
-         
-	<!--begin delivery services equipment div-->
-	<div id="delivery_serv_equip" class="step">
-		<h3>NOTE THE AVAILABILITY AND FUNCTIONALITY OF SUPPLIES AND EQUIPMENT REQUIRED FOR DELIVERY SERVICES. EQUIPMENT MAY BE IN DELIVERY ROOM OR AN ADJACENT ROOM.</h3>
-
-		<div class="column-wide">
-			<div class="row">
-
-				<div class="row-title">
-					<div class="left">
-						<label class="dcah-label">9. EQUIPMENT REQUIRED FOR DELIVERY SERVICES</label>
+						<label class="dcah-label">Supply/Equipment</label>
 					</div>
 					<div class="center">
 						<label class="dcah-label" style="width:45%">Availability (A)</label>
 						<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-
 					</div>
 					<div class="right">
-						<label class="dcah-label" style="width:45%">Functioning (b)</label>
+						<label class="dcah-label" style="width:45%">Functioning(b)</label>
 						<label class="dcah-label" style="float:right;width:45%">Quantity</label>
 					</div>
 				</div>
-			</div>
 
-			<div id="tableEquipmentList_1">
-				<div class="row2">
-					<input type="button" id="editEquipmentListTopButton_1" name="editEquipmentListTopButton_1" class="awesome myblue medium" value="Edit List"/>
-				</div>
-
-				<div class="row" id="mtr_1">
-					<div class="left">
-						<label>9a. Examination light</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_1" id="q9equipAvailability_1">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q9equipFunctioning_1" id="q9equipFunctioning_1" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_1" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q9equipCode_1" id="q9equipCode_1" value="EQP31" />
-				</div>
-
-				<div class="row" id="mtr_2">
-					<div class="left">
-						<label>9b. Delivery bed/ couch</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_2" id="q9equipAvailability_2">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-
-						<select name="q9equipFunctioning_2" id="q9equipFunctioning_2" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_2" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q9equipCode_2" id="q9equipCode_2" value="EQP32" />
-				</div>
-
-				<div class="row" id="mtr_3">
-					<div class="left">
-						<label>9c. Drip stand</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_3" id="q9equipAvailability_3">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-
-					<div class="right">
-						<select name="q9equipFunctioning_3" id="q9equipFunctioning_3" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q9equipCode_3" id="q9equipCode_3" value="EQP33" />
-				</div>
-
-				<div class="row" id="mtr_4">
-					<div class="left">
-						<label>9d.Mackintosh (On the Delivery Couch)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_4" id="q9equipAvailability_4">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q9equipFunctioning_4" id="q9equipFunctioning_4" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_4" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_4" id="q9equipCode_4" value="EQP34" />
-				</div>
-
-				<div class="row" id="mtr_5">
-					<div class="left">
-						<label>9e. Linen(Draping)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_5" id="q9equipAvailability_5">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-
-						<select name="q9equipFunctioning_5" id="q9equipFunctioning_5" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_5" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_5" id="q9equipCode_5" value="EQP35" />
-				</div>
-
-				<div class="row" id="mtr_6">
-					<div class="left">
-						<label>9f.i. Linen(Delivery Couch)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_6" id="q9equipAvailability_6">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q9equipFunctioning_6" id="q9equipFunctioning_6" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_6" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_6" id="q9equipCode_6" value="EQP36" />
-				</div>
-
-				<div class="row" id="mtr_7">
-					<div class="left">
-						<label>9f.ii. Linen(Green Towels)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_7" id="q9equipAvailability_7">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q9equipFunctioning_7" id="q9equipFunctioning_7" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_7" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_7" id="q9equipCode_7" value="EQP37" />
-				</div>
-
-				<div class="row" id="mtr_8">
-					<div class="left">
-						<label>9g. Sharps container</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_8" id="q9equipAvailability_8">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-
-						<select name="q9equipFunctioning_8" id="q9equipFunctioning_8" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q9equipFQty_8" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q9equipCode_8" id="q9equipCode_8" value="EQP38" />
-				</div>
-
-				<div class="row" id="mtr_9">
-					<div class="left">
-						<label>9h. At least five or more 2-ml or 5-ml disposable syringes</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_9" id="q9equipAvailability_9">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_9" id="q9equipCode_9" value="EQP39" />
-				</div>
-
-				<div class="row" id="mtr_10">
-					<div class="left">
-						<label>9i. Three properly labeled or colour coded IP buckets</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_10" id="q9equipAvailability_10">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_10" id="q9equipCode_10" value="EQP40" />
-				</div>
-
-				<div class="row" id="mtr_11">
-					<div class="left">
-						<label>9j. High Level Chemical Disinfectant (Jik, Cidex)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_11" id="q9equipAvailability_11">
-							<option value="" selected="selected">Select One</option>
-							<option>Always </option>
-							<option>Sometimes </option>
-							<option>Never </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q9equipCode_11" id="q9equipCode_11" value="EQP41" />
-				</div>
-
-				<div class="row" id="mtr_12">
-					<div class="left">
-						<label>9k. Soap for washing instruments (constantly available)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_12" id="q9equipAvailability_12">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					
-					<input type="hidden"  name="q9equipCode_12" id="q9equipCode_12" value="EQP42" />
-				</div>
-
-				<div class="row" id="mtr_13">
-					<div class="left">
-						<label>9l.Soap for handwashing (constantly available)</label>
-					</div>
-					<div class="center">
-						<select class="cloned left-combo" name="q9equipAvailability_13" id="q9equipAvailability_13">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					
-					<input type="hidden"  name="q9equipCode_13" id="q9equipCode_13" value="EQP43" />
-				</div>
-
-				<div class="row" id="mtr_14">
-					<div class="left">
-						<label>9m.Properly Labelled or colour coded waste segragation bins</label>
-					</div>
-
-					<div class="center">
-
-						<select class="cloned left-combo" name="q9equipAvailability_14" id="q9equipAvailability_14">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q9equipAQty_14" type="number" class="cloned numbers  fromZero" min="0"/>
-						<input type="hidden"  name="q9equipCode_14" id="q9equipCode_14" value="EQP44" />
-					</div>
-				</div>
-
-				<div class="row" id="mtr_15">
-					<div class="left">
-						<label>9o. Single-use hand-drying towels (constantly available)</label>
-					</div>
-
-					<div class="center">
-
-						<select class="cloned left-combo" name="q9equipAvailability_15" id="q9equipAvailability_15">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					
-					<input type="hidden"  name="q9equipCode_15" id="q9equipCode_15" value="EQP45" />
-				</div>
-
-				<div class="row" id="mtr_16">
-					<div class="left">
-						<label>9p. Running  Water for handwashing (constantly available)</label>
-					</div>
-
-					<div class="center">
-
-						<select class="cloned left-combo" name="q9equipAvailability_16" id="q9equipAvailability_16">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					
-					<input type="hidden"  name="q9equipCode_16" id="q9equipCode_16" value="EQP46" />
-				</div>
-
-			</div>
-			<!--close editTable-->
-		</div>
-
-	</div>
-	<!--end delivery place description div-->
-			
-					
-	<!--begin delivery kit contents div-->
-	<div id="del_kit_content" class="step">
-		<div class="column-wide">
-			<div class="row">
-
-				<div class="row-title">
-					<div class="left">
-						<label class="dcah-label">10. Indicate the quantities available of the following delivery instruments</label>
-					</div>
-					<div class="center">
-						<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10a. Cord scissors</label>
-				</div>
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_1" id="q10equipAQty_1" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_1" id="q10equipCode_1" value="EQP47"/>
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10b. Long artery Forceps (straight, lockable)</label>
-				</div>
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_2" id="q10equipAQty_2" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_2" id="q10equipCode_2" value="EQP48" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10c. Episiotomy scissors</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_3" id="q10equipAQty_3" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_3" id="q10equipCode_3" value="EQP49" />
-
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10d. Kidney dishes</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_4" id="q10equipAQty_4" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_4" id="q10equipCode_4" value="EQP50" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10e. Gallipots</label>
-				</div>
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_5" id="q10equipAQty_5" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_5" id="q10equipCode_5" value="EQP51" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10f. Sponge-holding forceps</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_6" id="q10equipAQty_6" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_6" id="q10equipCode_6" value="EQP52" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10g. Needle holder</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_7" id="q10equipAQty_7" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_7" id="q10equipCode_7" value="EQP53" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>
-						10h. Dissecting forceps -toothed
-					</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_8" id="q10equipAQty_8" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_8" id="q10equipCode_8" value="EQP54" />
-			</div>
-
-			<div class="row">
-				<div class="left">
-					<label>10i. Instrument tray</label>
-				</div>
-
-				<div class="center">
-					<input type="number" class="cloned numbers  fromZero" name="q10equipAQty_9" id="q10equipAQty_9" min="0"/>
-				</div>
-				<input type="hidden"  name="q10equipCode_9" id="q10equipCode_9" value="EQP55" />
-
-			</div>
-		</div>
-
-	</div>
-	<!--/div-->
-	<!--end delivery kit contents div-->
-					
-							
-	<!--begin other equipments div-->
-	<div id="other_equip_sec" class="step">
-		<div class="column-wide">
-			<div class="row-title">
-				<div class="left">
-
-					<label class="dcah-label">11. Other Equipment and supplies</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label" style="width:45%">Availability (A)</label>
-					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-				</div>
-
-				<div class="right">
-					<label class="dcah-label" style="width:45%">Functioning (b)</label>
-					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-				</div>
-			</div>
-
-			<div id="tableEquipmentList_2">
-				<div class="row2">
-					<input type="button" id="editEquipmentListTopButton_2" name="editEquipmentListTopButton_2" class="awesome myblue medium" value="Edit List"/>
-				</div>
-
-				<div class="row" id="mtr_17">
-					<div class="left">
-						<label>11a. Stethoscopes (Adult)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_17" id="q11equipAvailability_17">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_17" id="q11equipFunctioning_17" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_17" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_17" id="q11equipCode_17" value="EQP56" />
-				</div>
-
-				<div class="row" id="mmtr_18">
-					<div class="left">
-						<label>11b. Stethoscopes (Paediatric)</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_18" id="q11equipAvailability_18">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<div class="right">
-
-						<select name="q11equipFunctioning_18" id="q11equipFunctioning_18" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_18" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_18" id="q11equipCode_18" value="EQP57" />
-				</div>
-
-				<div class="row" id="mmtr_19">
-					<div class="left">
-						<label>11c. BP machine</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_19" id="q11equipAvailability_19">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-					</div>
-					<div class="right">
-
-						<select name="q11equipFunctioning_19" id="q11equipFunctioning_19" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_19" id="q11equipCode_19" value="EQP58" />
-				</div>
-
-				<div class="row" id="mtr_20">
-					<div class="left">
-						<label>11d.i. Clinical Thermometer</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_20" id="q11equipAvailability_20">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_20" id="q11equipFunctioning_20" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_20" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_20" id="q11equipCode_20" value="EQP59" />
-				</div>
-
-				<div class="row" id="mtr_21">
-					<div class="left">
-						<label>11d.ii. Room Thermometer</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_21" id="q11equipAvailability_21">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_21" id="q11equipFunctioning_21" class="cloned">
-							<option value="" selected="selected">Select One</option>
-
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_21" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_21" id="q11equipCode_21" value="EQP60" />
-				</div>
-
-				<div class="row" id="mtr_22">
-					<div class="left">
-						<label>11e. Fetoscope</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_22" id="q11equipAvailability_22">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_22" id="q11equipFunctioning_22" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_22" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_22" id="q11equipCode_22" value="EQP61" />
-				</div>
-
-				<div class="row" id="mtr_23">
-					<div class="left">
-						<label>11f. Sonicaid</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_23" id="q11equipAvailability_23">
-							<option value="" selected="selected">Select One</option>
-
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_23" id="q11equipFunctioning_23" class="cloned">
-
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_23" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_23" id="q11equipCode_23" value="EQP62" />
-				</div>
-
-				<div class="row" id="mtr_24">
-					<div class="left">
-						<label>11g. Suction Machine</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_24" id="q11equipAvailability_24">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_24" id="q11equipFunctioning_24" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_24" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_24" id="q11equipCode_24" value="EQP63" />
-				</div>
-
-				<div class="row" id="mtr_25">
-					<div class="left">
-						<label>11h. Weighing Scale for babies</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_25" id="q11equipAvailability_25">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
-
-						<select name="q11equipAType_25" id="q11equipAType_25" class="cloned">
-							<option value="" selected="selected">Select Type</option>
-							<option>Digital</option>
-							<option>Graduated</option>
-						</select>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_25" id="q11equipFunctioning_25" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_25" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_25" id="q11equipCode_25" value="EQP64" />
-				</div>
-
-				<div class="row" id="mtr_26">
-					<div class="left">
-						<label>11i. Adult resuscitation tray</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_26" id="q11equipAvailability_26">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-
-						<select name="q11equipFunctioning_26" id="q11equipFunctioning_26" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_26" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_26" id="q11equipCode_26" value="EQP65" />
-				</div>
-
-				<div class="row" id="mtr_27a">
-					<div class="left">
-						<label>11j. Indicate the Sterilization Method(s) used or avaialable in this facility</label>
-					</div>
-
-					<div class="center">
-						<select name="sterilizationMethod" id="sterilizationMethod" class="cloned">
-
-							<option selected="selected" value="">Select One</option>
-							<option>Autoclave</option>
-							<option>HLD</option>
-							<option value="other">Other(specify)</option>
-
-						</select>
-
-						<input type="text" style="display:none" name="sterilizationMethodOther" id="sterilizationMethodOther"/>
-
-					</div>
-				</div>
-
-				<div class="row" id="mtr_27">
-					<div class="left">
-						<label>11k. Indicate if a Manual Vacuum Aspiration kit is available in this unit or else where in the facility</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_27" id="q11equipAvailability_27">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_27" id="q11equipFunctioning_27" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_27" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_27" id="q11equipCode_27" value="EQP66" />
-				</div>
-
-				<div class="row" id="mtr_29a">
-					<div class="left">
-						<label>11l. Indicate the Vacuum Extractors available in this unit/facility</label>
-					</div>
-					<div class="center">
-						<select class="cloned left-combo" name="q1_1_equipCode_28" id="q1_1_equipCode_28">
-							<option value="">Select One</option>
-							<option value="EQP67">Ventouse </option>
-							<option value="EQP68">Kiwi Vacuum Extractor </option>
-						</select>
-
-						<input name="q11equipAQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_28" id="q11equipFunctioning_28" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_28" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_28" id="q11equipCode_28" />
-				</div>
-
-				<div class="row" id="mtr_29">
-					<div class="left">
-						<label>11n. Dilatation and curretage kit</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_29" id="q11equipAvailability_29">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_29" id="q11equipFunctioning_29" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_29" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_29" id="q11equipCode_29" value="EQP69" />
-				</div>
-
-				<div class="row" id="mtr_30">
-					<div class="left">
-						<label>11o. Sterile gauze</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_30" id="q11equipAvailability_30">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_30" id="q11equipCode_30" value="EQP70" />
-				</div>
-
-				<div class="row" id="mtr_31">
-					<div class="left">
-						<label>11p. Sanitary pads</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_31" id="q11equipAvailability_31">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_31" id="q11equipCode_31" value="EQP71" />
-				</div>
-
-				<div class="row" id="mtr_32">
-					<div class="left">
-						<label>11q. Elbow length gloves</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_32" id="q11equipAvailability_32">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_32" id="q11equipFunctioning_32" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_32" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_32" id="q11equipCode_32" value="EQP72" />
-				</div>
-
-				<div class="row" id="mtr_33">
-					<div class="left">
-						<label>11r. Patellar Hammer</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q11equipAvailability_33" id="q11equipAvailability_33">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_33" id="q11equipFunctioning_33" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_33" id="q11equipCode_33" value="EQP73" />
-				</div>
-
-				<div class="row" id="mtr_34">
-					<div class="left">
-						<label>11s. Sutures</label>
-					</div>
-
-					<div class="center">
-						<select name="q11equipAvailability_34" id="q11equipAvailability_34" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q11equipAQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<div class="right">
-						<select name="q11equipFunctioning_34" id="q11equipFunctioning_34" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q11equipFQty_34" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q11equipCode_34" id="q11equipCode_34" value="EQP74" />
-				</div>
-
-				<div class="row" id="mtr_35">
-					<div class="left">
-						<label>11s.i. Oxygen-Cylinder</label>
-					</div>
-
-					<div class="center">
-						<select name="q11equipAvailability_35" id="q11equipAvailability_35" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-						
-					</div>
-					<input type="hidden"  name="q11equipCode_35" id="q11equipCode_35" value="EQP75" />
-				</div>
-
-				<div class="row" id="mtr_36">
-					<div class="left">
-						<label>11s.ii. Oxygen-Concentrator</label>
-					</div>
-
-					<div class="center">
-						<select name="q11equipAvailability_36" id="q11equipAvailability_36" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
-				</div>
-
-			</div>
-			<!--close editList_2-->
-		</div>
-		<!--close div wide-->
-
-	</div><!--end other equipments div-->
-							
-	<!--begin medications in the maternity/labour ward div -->
-	<div id="mlw_medication" class="step">
-		<div class="column-wide">
-
-			<div class="row-title">
-				<div class="left">
-					<label class="dcah-label">12. Medications in the Maternity/Labour ward</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label" style="float:left;width:45%">Availability</label>
-					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_37">
-				<div class="left">
-					<label>12a.i. Injectable-Oxytocin(or Injectable-Syntocin)</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_1" id="q12mnhCommodityName_1" value="Injectable-Oxytocin" />
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_1" id="q12equipAvailability_1">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-
-				</div>
-
-			</div>
-
-			<!--div class="row" id="mtr_39">
-			<div class="left">
-			12a.ii. Injectable-Syntocin
-			</div>
-			<input type="hidden"  name="q12mnhCommodityName_2" id="q12mnhCommodityName_2" value="Injectable-Syntocin" />
-			<div class="center">
-			<select class="cloned left-combo" name="q12equipAvailability_2" id="q12equipAvailability_2">
-			<option value="" selected="selected">Select One</option>
-			<option>Always Available</option>
-			<option>Sometimes Available</option>
-			<option>Never Available</option>
-			</select>
-
-
-			</div>
-
-			</div-->
-
-			<div class="row" id="mtr_40">
-				<div class="left">
-					<label>12b.i. Indicate the available Intravenous fluids</label>
-				</div>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12mnhCommodityName_3" id="q12mnhCommodityName_3">
-						<option value="" selected="selected">Select Type</option>
-						<option value="Intravenous solution-Ringers Lactate">Ringers Lactate</option>
-						<option value="Intravenous solution-D5NS">D5NS</option>
-						<option value="Intravenous solution-NS Infusion">NS Infusion</option>
-
-					</select>
-					<input name="q12equipAQty_3" type="number" class="cloned numbers  fromZero" min="0"/>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_41">
-				<div class="left">
-					<label>12b.ii. Intravenous Metronidazole</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_4" id="q12mnhCommodityName_4" value="Intravenous Metronidazole"/>
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_4" id="q12equipAvailability_4">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-
-				</div>
-
-			</div>
-
-			<!--div class="row" id="mtr_42">
-			<div class="left">
-			12c. Injectable methergine
-			</div>
-			<input type="hidden"  name="q12mnhCommodityName_5" id="q12mnhCommodityName_5" value="Injectable methergine"/>
-
-			<div class="center">
-			<select class="cloned left-combo" name="q12equipAvailability_5" id="q12equipAvailability_5">
-			<option value="" selected="selected">Select One</option>
-			<option>Always Available</option>
-			<option>Sometimes Available</option>
-			<option>Never Available</option>
-			</select>
-			</div>
-
-			</div-->
-
-			<div class="row" id="mtr_43i">
-				<div class="left">
-					<label>12di. Injectable Hydralazine/Apresoline</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_6" id="q12mnhCommodityName_6" value="Injectable Hydralazine"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_6" id="q12equipAvailability_6">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-
-				</div>
-
-			</div>
-			<!--div class="row" id="mtr_43ii">
-			<div class="left">
-			12dii. Injectable Apresoline
-			</div>
-			<input type="hidden"  name="q12mnhCommodityName_7" id="q12mnhCommodityName_7" value="Injectable Apresoline"/>
-
-			<div class="center">
-			<select class="cloned left-combo" name="q12equipAvailability_7" id="q12equipAvailability_7">
-			<option value="" selected="selected">Select One</option>
-			<option>Always Available</option>
-			<option>Sometimes Available</option>
-			<option>Never Available</option>
-			</select>
-
-			</div>
-
-			</div-->
-
-			<div class="row" id="mtr_44">
-				<div class="left">
-					<label>12e. Injectable diazepam</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_8" id="q12mnhCommodityName_8" value="Injectable diazepam"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_8" id="q12equipAvailability_8">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_45">
-				<div class="left">
-					<label>12f. Injectable magnesium sulfate</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_9" id="q12mnhCommodityName_9" value="Injectable magnesium sulfate"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_9" id="q12equipAvailability_9">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_46">
-				<div class="left">
-					<label>12g. Injectable penicillin</label>
-
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_10" id="q12mnhCommodityName_10" value="Injectable amoxicillin/ampicillin"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_10" id="q12equipAvailability_10">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_47">
-				<div class="left">
-					<label>12h. Injectable gentamicin</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_11" id="q12mnhCommodityName_11" value="Injectable gentamicin"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_11" id="q12equipAvailability_11">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_48">
-				<div class="left">
-					<label>12i. Calcium gluconate</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_12" id="q12mnhCommodityName_12" value="Calcium gluconate"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_12" id="q12equipAvailability_12">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_49">
-				<div class="left">
-					<label>12j. Methyldopa/Aldomet</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_13" id="q12mnhCommodityName_13" value="Methyldopa/Aldomet"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_13" id="q12equipAvailability_13">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_50">
-				<div class="left">
-					<label>12k. Lidocaine (lignocaine) or other local anesthetic</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_14" id="q12mnhCommodityName_14" value="Lidocaine(lignocaine)/other local anesthetic"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_14" id="q12equipAvailability_14">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_51">
-				<div class="left">
-					<label>12l. Nifedipine Tablets</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_15" id="q12mnhCommodityName_15" value="Nifedipine Tablets"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_15" id="q12equipAvailability_15">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_52">
-				<div class="left">
-					<label>12m. Vitamin A</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_16" id="q12mnhCommodityName_16" value="Vitamin A"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_16" id="q12equipAvailability_16">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-
-			<div class="row" id="mtr_53">
-				<div class="left">
-					<label>12n. Vitamin K</label>
-				</div>
-				<input type="hidden"  name="q12mnhCommodityName_17" id="q12mnhCommodityName_17" value="Vitamin K"/>
-
-				<div class="center">
-					<select class="cloned left-combo" name="q12equipAvailability_17" id="q12equipAvailability_17">
-						<option value="" selected="selected">Select One</option>
-						<option>Always Available</option>
-						<option>Sometimes Available</option>
-						<option>Never Available</option>
-					</select>
-				</div>
-
-			</div>
-		</div>
-
-	</div><!--end medications in the maternity/labour ward div -->
-
-								<!--begin newborn care div-->
-								<div id="nbc_div_1" class="step">
-
-								<h3>New-Born Care</h3>
-								<div class="row">
-									<div class="row-title">
-										<div class="left">
-											<label class="dcah-label">QUESTION</label>
-										</div>
-										<div class="center">
-											<label class="dcah-label">ANSWER</label>
-										</div>
-									</div>
-								</div>
-								<div class="left">
-									<label>13. Does this facility perform newborn resuscitation?</label>
-								</div>
-								<div class="right">
-
-									<select name="nbcgqnewBornResuscitated" id="nbcgqnewBornResuscitated" class="cloned">
-
-										<option value="" selected="selected">Select One</option>
-										<option> Yes </option>
-										<option> No </option>
-									</select>
-
-								</div>
-								
-								</div> <!--end of new born care div 1-->
-								
-	<!--begin neonatal unit div-->
-	<div id="neonatal_unit" class="step">
-
-		<div class="column-wide">
-
-			<div class="row">
-				<h3> Neonatal Unit</h3>
-			</div>
-
-			<div class="row-title">
-				<div class="left">
-					<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label" style="width:45%">Availability (A)</label>
-					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label" style="width:45%">Functioning (b)</label>
-					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
-				</div>
-				<div class="center">
-
-				</div>
-			</div>
-
-			<div id="tableEquipmentList_3b">
-				<div class="row2">
-					<input type="button" id="editEquipmentListTopButton_3b" class="awesome myblue medium" value="Edit List"/>
-				</div>
-
-				<div class="row" id="mtr_58">
-					<div class="left">
-						<label>14c. Clock  with seconds arm</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_58" id="q14equipAvailability_58">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_58" id="q14equipCode_58" value="EQP82" />
-				</div>
-
-				<div class="row" id="mtr_59">
-					<div class="left">
-						<label>14d. Neonatal Incubator</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_59" id="q14equipAvailability_59">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-						<input name="q14equipAQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_59" id="q14equipFunctioning_59" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q14equipFQty_59" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q14equipCode_59" id="q14equipCode_59" value="EQP83" />
-				</div>
-
-				<div class="row" id="mtr_60">
-					<div class="left">
-						<label>14e. A Radiant Heater</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_60" id="q14equipAvailability_60">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-						<input name="q14equipAQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_60" id="q14equipFunctioning_60" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q14equipFQty_60" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q14equipCode_60" id="q14equipCode_60" value="EQP84" />
-				</div>
-
-				<div class="row" id="mtr_61">
-					<div class="left">
-						<label>14f. Infant Scale</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_61" id="q14equipAvailability_61">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-						<input name="q14equipAQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_61" id="q14equipFunctioning_61" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q14equipFQty_61" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_61" id="q14equipCode_61" value="EQP85" />
-				</div>
-
-				<div class="row" id="mtr_62">
-					<div class="left">
-						<label>14g. Suction bulb for mucus extraction</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_62" id="q14equipAvailability_62">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q14equipAQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-
-						<select name="q14equipFunctioning_62" id="q14equipFunctioning_62" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q14equipFQty_62" type="number" class="cloned numbers  fromZero" min="0"/>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_62" id="q14equipCode_62" value="EQP86" />
-				</div>
-
-				<div class="row" id="mtr_63">
-					<div class="left">
-						<label>14h. Suction apparatus for use with catheter</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_63" id="q14equipAvailability_63">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-						<input name="q14equipAQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_63" id="q14equipFunctioning_63" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option> Yes </option>
-							<option> No </option>
-							<option> Do Not Know </option>
-						</select>
-
-						<input name="q14equipFQty_63" type="number" class="cloned numbers  fromZero" min="0"/>
-					</div>
-					<input type="hidden"  name="q14equipCode_63" id="q14equipCode_63" value="EQP87" />
-				</div>
-
-				<div class="row" id="mtr_64">
-					<div class="left">
-						<label>14i. A flat, clean, dry and warm newborn resuscitation surface</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_64" id="q14equipAvailability_64">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes </option>
-							<option>No </option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_64" id="q14equipCode_64" value="EQP88" />
-				</div>
-
-				<div class="row" id="mtr_65">
-					<div class="left">
-						<label>14j. Disposable cord ties or clamps</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_65" id="q14equipAvailability_65">
-							<option value="" selected="selected">Select One</option>
-							<option>Yes</option>
-							<option>No</option>
-						</select>
-
-					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_65" id="q14equipFunctioning_65" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_65" id="q14equipCode_65" value="EQP89" />
-				</div>
-
-				<div class="row" id="mtr_66">
-					<div class="left">
-						<label>14k. Clean and warm towels/cloths for drying / warming / wrapping baby</label>
-					</div>
-
-					<div class="center">
-						<select class="cloned left-combo" name="q14equipAvailability_66" id="q14equipAvailability_66">
-							<option value="" selected="selected">Select One</option>
-							<option>Select One</option>
-							<option>Yes</option>
-							<option>No</option>
-
-						</select>
-
+				<div id="tableEquipmentList_4">
+					<div class="row2">
+						<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
 					</div>
-					<div class="right">
-						<select name="q14equipFunctioning_66" id="q14equipFunctioning_66" class="cloned">
-							<option value="" selected="selected">Select One</option>
-							<option>Always Available</option>
-							<option>Sometimes Available</option>
-							<option>Never Available</option>
-						</select>
-
-					</div>
-					<input type="hidden"  name="q14equipCode_66" id="q14equipCode_66" value="EQP90" />
-
-				</div>
-			</div>
-			<!--close div tableEquipmentList_3b-->
-
-		</div>
-		<!--close div column-wide -->
-	</div>
-	<!--end neonatal unit div-->
-
-	<!--begin blood transfusion div-->
-	<div id="blood_transfusion" class="step">
-		<div class="column-wide">
-			<h3>Blood Transfusion Services Assessment</h3>
-
-			<div class="row-title">
-				<div class="left">
-
-					<label class="dcah-label">QUESTION</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label">ANSWER</label>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="left">
-
-					<label>15. Does this facility perform blood transfusions?</label>
-				</div>
-				<div class="center">
-
-					<select name="nbcgqBloodTransfusionsDone" class="cloned">
-						<option value="" selected="selected">Select One</option>
-						<option>Yes</option>
-						<option>No</option>
-					</select>
-				</div>
-				<div class="right">
-					<label for="q15BloodTransfusions_2">Specify:</label>
-
-					<select name="nbcgqBloodBank" class="cloned">
-						<option selected="selected" value="">Select One</option>
-
-						<option>Blood Bank available</option>
-						<option>Transfusions done but no blood bank</option>
-					</select>
-				</div>
-			</div>
-
-			<!--div class="row">
-			<div class="left">
-			16. Does this facility ever perform caesarean section?
-			</div>
-			<div class="center">
-
-			<select name="nbcgqCSDone" class="cloned">
-			<option selected="selected" value="">Select One</option>
-
-			<option> Yes</option>
-			<option> No</option>
-			</select>
-			</div>
-			<div class="row hide" style="display:true">
-			<div class="left" >
-			<label class="dcah-label"> If Yes, how many caesarean sections were performed in September 2012</label>
-			</div>
-			<div class="right">
-			<div class="col">
-
-			<input type="number" class="cloned numbers  fromZero" name="nbcgqNoOfDone" id="nbcgqNoOfDone"  value=""/>
-
-			</div>
-			</div>
-			</div>
-			</div-->
-		</div>
-		<!--close div column-wide -->
-
-	</div>
-	<!--end blood transfusion div-->
-
-	<!--begin level-4-and-above-->
-
-	<div id="level_4_above" class="step">
-		<div class="column-wide">
-			<div class="hide-level">
-				<div class="row">
-					<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
-				</div>
-
-				<div class="row">
-					<div class="row-title">
+					<div class="row" id="mtr_67">
 						<div class="left">
+							<label>16a. Operating Table</label>
+						</div>
 
-							<label class="dcah-label">Supply/Equipment</label>
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_67" id="q16equipAvailability_67">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 						</div>
 						<div class="center">
-							<label class="dcah-label" style="width:45%">Availability (A)</label>
-							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+							<select name="q16equipFunctioning_67" id="q16equipFunctioning_67" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
 						</div>
-						<div class="right">
-							<label class="dcah-label" style="width:45%">Functioning(b)</label>
-							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+						<input type="hidden"  name="q16equipCode_67" id="q16equipCode_67" value="EQP91" />
+					</div>
+
+					<div class="row" id="mtr_68">
+						<div class="left">
+							<label>16b. Operating Light</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_68" id="q16equipAvailability_68">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_68" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_68" id="q16equipFunctioning_68" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input type="number" class="cloned numbers  fromZero" />
+						</div>
+						<input type="hidden"  name="q16equipCode_68" id="q16equipCode_68" value="EQP92" />
+					</div>
+
+					<div class="row" id="mtr_69">
+						<div class="left">
+							<label>16c. Anaesthetic machine</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_69" id="q16equipAvailability_69">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_69" id="q16equipFunctioning_69" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_69" id="q16equipCode_69" value="EQP93" />
+					</div>
+
+					<div class="row" id="mtr_70">
+						<div class="left">
+							<label>16d. Laryngoscopes</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_70" id="q16equipAvailability_70">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_70" id="q16equipFunctioning_70" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_70" id="q16equipCode_70" value="EQP94" />
+					</div>
+
+					<div class="row" id="mtr_71">
+						<div class="left">
+							<label>16e. Endotracheal tubes</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_71" id="q16equipAvailability_71">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_71" id="q16equipFunctioning_71" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_71" id="q16equipCode_71" value="EQP95" />
+					</div>
+
+					<div class="row" id="mtr_72">
+						<div class="left">
+							<label>16f. Anaesthetic drugs e.g ketamine</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_72" id="q16equipAvailability_72">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_72" id="q16equipFunctioning_72" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option>Always Available</option>
+								<option>Sometimes Available</option>
+								<option>Never Available</option>
+							</select>
+
+						</div>
+						<input type="hidden"  name="q16equipCode_72" id="q16equipCode_72" value="EQP96" />
+					</div>
+
+					<div class="row" id="mtr_73">
+						<div class="left">
+							<label>16g. Anaesthetic gases (halothane, NO2, Oxygen, etc)</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_73" id="q16equipAvailability_73">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_73" id="q16equipFunctioning_73" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option>Always Available</option>
+								<option>Sometimes Available</option>
+								<option>Never Available</option>
+							</select>
+
+						</div>
+						<input type="hidden"  name="q16equipCode_73" id="q16equipCode_73" value="EQP97" />
+					</div>
+
+					<div class="row" id="mtr_74">
+						<div class="left">
+							<label>16h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_74" id="q16equipAvailability_74">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_74" id="q16equipFunctioning_74" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option>Always Available</option>
+								<option>Sometimes Available</option>
+								<option>Never Available</option>
+							</select>
+
+						</div>
+						<input type="hidden"  name="q16equipCode_74" id="q16equipCode_74" value="EQP98" />
+					</div>
+
+					<div class="row" id="mtr_75">
+						<div class="left">
+							<label>16i. Scrub area adjacent to or in the operating room</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_75" id="q16equipAvailability_75">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_75" id="q16equipFunctioning_75" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_75" id="q16equipCode_75" value="EQP99" />
+					</div>
+
+					<div class="row" id="mtr_76">
+						<div class="left">
+							<label>16j. Running Water</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_76" id="q16equipAvailability_76">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+						</div>
+
+						<input type="hidden"  name="q16equipCode_76" id="q16equipCode_76" value="EQP100" />
+					</div>
+
+					<div class="row" id="mtr_77">
+						<div class="left">
+							<label>16k. Suction Machine</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_77" id="q16equipAvailability_77">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_77" id="q16equipFunctioning_77" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_77" id="q16equipCode_77" value="EQP101" />
+					</div>
+
+					<div class="row" id="mtr_78">
+						<div class="left">
+							<label>16l. Standard Cesaerian Section kit</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_78" id="q16equipAvailability_78">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_78" id="q16equipFunctioning_78" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_78" id="q16equipCode_78" value="EQP102" />
+					</div>
+
+					<div class="row" id="mtr_79">
+						<div class="left">
+							<label>16m. Sterile operation gowns</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_79" id="q16equipAvailability_79">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_79" id="q16equipFunctioning_79" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_79" id="q16equipCode_79" value="EQP103" />
+					</div>
+
+					<div class="row" id="mtr_80">
+						<div class="left">
+							<label>16n. Sterile Drapes</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_80" id="q16equipAvailability_80">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_80" id="q16equipFunctioning_80" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_80" id="q16equipCode_80" value="EQP104" />
+					</div>
+
+					<div class="row" id="mtr_81">
+						<div class="left">
+							<label>16o. Sterile gloves in various sizes</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_81" id="q16equipAvailability_81">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+							<label>Sizes (Hold down Ctrl and click to select many)</label>
+							<select multiple="multiple" name="q16equipAType_81[]" id="q16equipAType_81" class="cloned">
+
+								<option value="1">Size 1</option>
+
+								<option value="2">Size 2</option>
+								<option value="3">Size 3</option>
+								<option value="4">Size 4</option>
+								<option value="5">Size 5</option>
+								<option value="6">Size 6</option>
+								<option value="6.5">Size 6.5</option>
+								<option value="7">Size 7</option>
+
+								<option value="7.5">Size 7.5 </option>
+
+								<option value="8">Size 8</option>
+								<option value="8.5">Size 8.5</option>
+								<option value="9">Size 9</option>
+							</select>
+
+							<input name="q16equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_81" id="q16equipFunctioning_81" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_81" id="q16equipCode_81" value="EQP105" />
+					</div>
+
+					<div class="row" id="mtr_82">
+						<div class="left">
+							<label>16p. IV canulas</label>
+						</div>
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_82" id="q16equipAvailability_82">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_82" id="q16equipFunctioning_82" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_82" id="q16equipCode_82" value="EQP106" />
+					</div>
+
+					<div class="row" id="mtr_83">
+						<div class="left">
+							<label>16q. Drip Stand</label>
+						</div>
+						<input type="hidden"  name="q16equipCode_105" id="q16equipCode_105" value="EQP107" />
+
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_83" id="q16equipAvailability_83">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_83" id="q16equipFunctioning_83" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+							<input name="q16equipFQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
 						</div>
 					</div>
 
-					<div id="tableEquipmentList_4">
-						<div class="row2">
-							<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
-						</div>
-						<div class="row" id="mtr_67">
-							<div class="left">
-								<label>16a. Operating Table</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_67" id="q16equipAvailability_67">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_67" id="q16equipFunctioning_67" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_67" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_67" id="q16equipCode_67" value="EQP91" />
+					<div class="row" id="mtr_84">
+						<div class="left">
+							<label>16r. Blood transfusion set</label>
 						</div>
 
-						<div class="row" id="mtr_68">
-							<div class="left">
-								<label>16b. Operating Light</label>
-							</div>
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_84" id="q16equipAvailability_4">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
 
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_68" id="q16equipAvailability_68">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_68" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_68" id="q16equipFunctioning_68" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input type="number" class="cloned numbers  fromZero" />
-							</div>
-							<input type="hidden"  name="q16equipCode_68" id="q16equipCode_68" value="EQP92" />
+							<input name="q16equipAQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_84" id="q16equipFunctioning_84" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
 
-						<div class="row" id="mtr_69">
-							<div class="left">
-								<label>16c. Anaesthetic machine</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_69" id="q16equipAvailability_69">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_69" id="q16equipFunctioning_69" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_69" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_69" id="q16equipCode_69" value="EQP93" />
+							<input name="q16equipFQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
 						</div>
-
-						<div class="row" id="mtr_70">
-							<div class="left">
-								<label>16d. Laryngoscopes</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_70" id="q16equipAvailability_70">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_70" id="q16equipFunctioning_70" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_70" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_70" id="q16equipCode_70" value="EQP94" />
-						</div>
-
-						<div class="row" id="mtr_71">
-							<div class="left">
-								<label>16e. Endotracheal tubes</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_71" id="q16equipAvailability_71">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_71" id="q16equipFunctioning_71" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_71" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_71" id="q16equipCode_71" value="EQP95" />
-						</div>
-
-						<div class="row" id="mtr_72">
-							<div class="left">
-								<label>16f. Anaesthetic drugs e.g ketamine</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_72" id="q16equipAvailability_72">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_72" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_72" id="q16equipFunctioning_72" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option>Always Available</option>
-									<option>Sometimes Available</option>
-									<option>Never Available</option>
-								</select>
-
-							</div>
-							<input type="hidden"  name="q16equipCode_72" id="q16equipCode_72" value="EQP96" />
-						</div>
-
-						<div class="row" id="mtr_73">
-							<div class="left">
-								<label>16g. Anaesthetic gases (halothane, NO2, Oxygen, etc)</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_73" id="q16equipAvailability_73">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_73" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_73" id="q16equipFunctioning_73" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option>Always Available</option>
-									<option>Sometimes Available</option>
-									<option>Never Available</option>
-								</select>
-
-							</div>
-							<input type="hidden"  name="q16equipCode_73" id="q16equipCode_73" value="EQP97" />
-						</div>
-
-						<div class="row" id="mtr_74">
-							<div class="left">
-								<label>16h. Drugs and supplies for spinal anesthesia (e.g. Spinal needle)</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_74" id="q16equipAvailability_74">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_74" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_74" id="q16equipFunctioning_74" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option>Always Available</option>
-									<option>Sometimes Available</option>
-									<option>Never Available</option>
-								</select>
-
-							</div>
-							<input type="hidden"  name="q16equipCode_74" id="q16equipCode_74" value="EQP98" />
-						</div>
-
-						<div class="row" id="mtr_75">
-							<div class="left">
-								<label>16i. Scrub area adjacent to or in the operating room</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_75" id="q16equipAvailability_75">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_75" id="q16equipFunctioning_75" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_75" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_75" id="q16equipCode_75" value="EQP99" />
-						</div>
-
-						<div class="row" id="mtr_76">
-							<div class="left">
-								<label>16j. Running Water</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_76" id="q16equipAvailability_76">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-							
-							</div>
-							
-							<input type="hidden"  name="q16equipCode_76" id="q16equipCode_76" value="EQP100" />
-						</div>
-
-						<div class="row" id="mtr_77">
-							<div class="left">
-								<label>16k. Suction Machine</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_77" id="q16equipAvailability_77">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_77" id="q16equipFunctioning_77" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_77" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_77" id="q16equipCode_77" value="EQP101" />
-						</div>
-
-						<div class="row" id="mtr_78">
-							<div class="left">
-								<label>16l. Standard Cesaerian Section kit</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_78" id="q16equipAvailability_78">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_78" id="q16equipFunctioning_78" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_78" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_78" id="q16equipCode_78" value="EQP102" />
-						</div>
-
-						<div class="row" id="mtr_79">
-							<div class="left">
-								<label>16m. Sterile operation gowns</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_79" id="q16equipAvailability_79">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_79" id="q16equipFunctioning_79" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_79" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_79" id="q16equipCode_79" value="EQP103" />
-						</div>
-
-						<div class="row" id="mtr_80">
-							<div class="left">
-								<label>16n. Sterile Drapes</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_80" id="q16equipAvailability_80">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_80" id="q16equipFunctioning_80" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_80" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_80" id="q16equipCode_80" value="EQP104" />
-						</div>
-
-						<div class="row" id="mtr_81">
-							<div class="left">
-								<label>16o. Sterile gloves in various sizes</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_81" id="q16equipAvailability_81">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-								<label>Sizes (Hold down Ctrl and click to select many)</label>
-								<select multiple="multiple" name="q16equipAType_81[]" id="q16equipAType_81" class="cloned">
-
-									<option value="1">Size 1</option>
-
-									<option value="2">Size 2</option>
-									<option value="3">Size 3</option>
-									<option value="4">Size 4</option>
-									<option value="5">Size 5</option>
-									<option value="6">Size 6</option>
-									<option value="6.5">Size 6.5</option>
-									<option value="7">Size 7</option>
-
-									<option value="7.5">Size 7.5 </option>
-
-									<option value="8">Size 8</option>
-									<option value="8.5">Size 8.5</option>
-									<option value="9">Size 9</option>
-								</select>
-
-								<input name="q16equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_81" id="q16equipFunctioning_81" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_81" id="q16equipCode_81" value="EQP105" />
-						</div>
-
-						<div class="row" id="mtr_82">
-							<div class="left">
-								<label>16p. IV canulas</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_82" id="q16equipAvailability_82">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_82" id="q16equipFunctioning_82" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_82" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_82" id="q16equipCode_82" value="EQP106" />
-						</div>
-
-						<div class="row" id="mtr_83">
-							<div class="left">
-								<label>16q. Drip Stand</label>
-							</div>
-							<input type="hidden"  name="q16equipCode_105" id="q16equipCode_105" value="EQP107" />
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_83" id="q16equipAvailability_83">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_83" id="q16equipFunctioning_83" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-								<input name="q16equipFQty_83" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-						</div>
-
-						<div class="row" id="mtr_84">
-							<div class="left">
-								<label>16r. Blood transfusion set</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_84" id="q16equipAvailability_4">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_84" id="q16equipFunctioning_84" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_84" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_84" id="q16equipCode_84" value="EQP108" />
-						</div>
-
-						<div class="row" id="mtr_85">
-							<div class="left">
-								<label>16s. Recovery room/ recovery area</label>
-							</div>
-
-							<div class="center">
-								<select class="cloned left-combo" name="q16equipAvailability_85" id="q16equipAvailability_85">
-									<option value="" selected="selected">Select One</option>
-									<option>Yes </option>
-									<option>No </option>
-								</select>
-
-								<input name="q16equipAQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_85" id="q16equipFunctioning_85" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_85" id="q16equipCode_85" value="EQP109" />
-						</div>
-						<!--close div tableEquipmentList_4-->
+						<input type="hidden"  name="q16equipCode_84" id="q16equipCode_84" value="EQP108" />
 					</div>
 
-					<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+					<div class="row" id="mtr_85">
+						<div class="left">
+							<label>16s. Recovery room/ recovery area</label>
+						</div>
 
+						<div class="center">
+							<select class="cloned left-combo" name="q16equipAvailability_85" id="q16equipAvailability_85">
+								<option value="" selected="selected">Select One</option>
+								<option>Yes </option>
+								<option>No </option>
+							</select>
+
+							<input name="q16equipAQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<div class="center">
+							<select name="q16equipFunctioning_85" id="q16equipFunctioning_85" class="cloned">
+								<option value="" selected="selected">Select One</option>
+								<option> Yes </option>
+								<option> No </option>
+								<option> Dont Know </option>
+							</select>
+
+							<input name="q16equipFQty_85" type="number" class="cloned numbers  fromZero" min="0"/>
+						</div>
+						<input type="hidden"  name="q16equipCode_85" id="q16equipCode_85" value="EQP109" />
+					</div>
+					<!--close div tableEquipmentList_4-->
 				</div>
-			</div><!--close div level-hide-->
-		</div><!--close div column-wide-->
 
-	</div>
-	<!--end level-4-and-above-->
-		 <div id="buttonsPane" class="buttons">					
-		<input title="To move to the previous step" id="back" class="awesome magenta medium" type="reset"/>
-		<input title="To move to the next step" id="next" class="awesome blue medium"  type="submit"/>
-		<!--a title="To close the form." id="close_opened_form" class="awesome red medium">Close</a-->
-		</div>
-		</form>
-		<hr />
-	    
-<!--end of mnh_form-->');
+				<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+
+			</div>
+		</div><!--close div level-hide-->
+	</div><!--close div column-wide-->
+		
+		');
 		$this -> load -> library('mpdf');
-		$this -> mpdf = new mPDF();
-		$this -> mpdf -> SetTitle('Test');
+		$this -> mpdf = new mPDF('', 'A4-L', 0, '', 15, 15, 16, 16, 9, 9, '');
+		$this -> mpdf -> SetTitle('DCAH Assessment Tool');
 
 		$this -> mpdf -> simpleTables = true;
 		$this -> mpdf -> WriteHTML($stylesheet, 1);
 		$this -> mpdf -> WriteHTML($html, 2);
-		$report_name = 'DCAH Assessment' . ".pdf";
+		$report_name = 'DCAH Assessment Tool' . ".pdf";
 		$this -> mpdf -> Output($report_name, 'D');
 
 	}
 
-	
 }
