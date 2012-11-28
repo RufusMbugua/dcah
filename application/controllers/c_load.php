@@ -79,10 +79,10 @@ class C_Load extends MY_Controller {
 
 		<form class="bbq" name="dcah_tool" id="dcah_tool" method="POST">
 
-   <p id="data" class="message success"></p>
+   <p id="data" style="display:none" class="message success"></p>
 
 	<!-- begin facility  div --->
-	<div id="facility_div" class="step">
+	<div id="facility_div" class="step" style="display:none">
 	<input type="hidden" name="step_name" value="facility_div"/>
 		<h3 align="center">FACILITY REGISTRATION</h3>
 
@@ -295,7 +295,7 @@ class C_Load extends MY_Controller {
 				<label><b>Click on the Checkbox on the right if no Maternity Contact Information is available</b></label>
 				</div>
 				<div class="center">
-				<input type="checkbox" name="noMaternityContact" id="noMaternityContact"di title="check this box if Maternity Contact Information is not available"/>
+				<input type="checkbox" name="noMaternityContact" id="noMaternityContact" title="check this box if Maternity Contact Information is not available"/>
 				</div>
 				
 				</div>
@@ -356,7 +356,7 @@ class C_Load extends MY_Controller {
 
    <!--begin of child health commodity form-->
 	<!--begin diarrhoiea morbidity factor div-->
-	<div id="diarrhoea_cases" class="step">
+	<div id="diarrhoea_cases" class="step" style="display:none">
 	<input type="hidden" name="step_name" value="diarrhoea_cases"/>
 		<h3 align="center">Diarrhoea Morbidity Data </h3>
 		<div class="row2">
@@ -373,7 +373,7 @@ class C_Load extends MY_Controller {
 	<!--end diarrhoiea morbidity factor div-->
 
 <!--begin child health drug section -->
-     <div id="tabs-1" class="tab MCH step">
+     <div id="tabs-1" class="tab MCH step" style="display:none">
      <input type="hidden" name="step_name" value="childhealth_mch_tab"/>
    	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
 	
@@ -1591,24 +1591,21 @@ class C_Load extends MY_Controller {
 			</div>
 		</div>
 	</div><!--end of ort questions-->
-	<div id="ort_part2" class="step">
-	<input type="hidden" name="step_name" value="ort_part2"/>
+<div id="ort_part2a" class="step"><!--begin ort part 2a-->
+	<input type="hidden" name="step_name" value="ort_part2a"/>
 		<div class="row-title">
-			<label class="dcah-label">EQUIPMENT</label>
+			<label class="dcah-label">EQUIPMENT: Part 1 of 2</label>
 		</div>
 		<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
 		<div class="block">
-			<table id="tableEquipmentList">
+			<table id="tableEquipmentList_2a">
 				<tr class="row2">
-					<input type="button" id="editEquipmentListTopButton" name="editEquipmentListTopButton" class="awesome myblue medium" value="Edit List"/>
+					<input type="button" id="editEquipmentListTopButton_2a" name="editEquipmentListTopButton_2a" class="awesome myblue medium" value="Edit List"/>
 				</tr>
 				<tr>
-					<thead >
 						<td width="400"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Yes/No</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Available</label></td>
 						<td width="400"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
-					</thead>
-
 				</tr>
 
 				<tr class="row2" id="tr_1">
@@ -1672,7 +1669,7 @@ class C_Load extends MY_Controller {
 					
 				</tr>
 				<tr class="row2" id="tr_5">
-					<td width="400"><label> Buckets Ã¢â‚¬â€œ for storing cups, spoons </label>
+					<td width="400"><label> Buckets for storing cups, spoons </label>
 					<input type="hidden"  name="equipCode_5" id="equipCode_5" value="EQP05" />
 					</td>
 					<td width="400">
@@ -1805,6 +1802,32 @@ class C_Load extends MY_Controller {
 					<input type="number"  name="equipQuantity_13" id="equipQuantity_13" class="cloned fromZero" maxlength="6"/>
 					</td>
 					
+				
+				<!--tr class="row2">
+				<input type="button" id="editEquipmentListBottomButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/-->
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--end of ort corner part 2a -->
+	<div id="ort_part2b" class="step"><!--begin ort part 2b-->
+	<input type="hidden" name="step_name" value="ort_part2b"/>
+		<div class="row-title">
+			<label class="dcah-label">EQUIPMENT: Part 2 of 2</label>
+		</div>
+		<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
+		<div class="block">
+			<table id="tableEquipmentList_2b">
+				<tr class="row2">
+					<input type="button" id="editEquipmentListTopButton_2b" name="editEquipmentListTopButton_2b" class="awesome myblue medium" value="Edit List"/>
+				</tr>
+               <tr>
+				
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Available</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
+					
+
 				</tr>
 				<tr class="row2" id="tr_14">
 					<td width="400"><label> Hot plate-Electric/Solar powered </label>
@@ -2061,14 +2084,12 @@ class C_Load extends MY_Controller {
 					</td>
 					
 				</tr>
-				<!--tr class="row2">
-				<input type="button" id="editEquipmentListBottomButton" name="editEquipmentList" class="awesome myblue medium" value="Edit List"/-->
-				</tr>
 			</table>
 		</div>
 	</div>
-	<!--end of ort corner part 2 -->
+	<!--end of ort corner part 2b -->
 	<!--end ort corner div-->
+
 
 <!--end of child health commodity form-->
 	
@@ -2084,14 +2105,15 @@ class C_Load extends MY_Controller {
 					</div>
 					<div class="center cloned" >
 
-						<select style="width:90%" name="lndq4FacilityDelivery" id="lndq4FacilityDelivery" class="cloned left-combo">
+						<select style="width:90%" name="delivery_cases" id="lndq4FacilityDelivery" class="cloned left-combo link">
 							<option value="" selected="selected">Select One</option>
-							<option value="Yes">Yes</option>
+							<option value="delivery_cases">Yes</option>
 							<option value="No">No</option>
 						</select>
 					</div>
 
 					<div id="q4comm" class="right" style="display: none">
+					   <label>Comment on why not:</label>
 						<input type="text" name="lndq4Comment" id="lndq4Comment" class="cloned"/>
 
 					</div>
@@ -2099,6 +2121,17 @@ class C_Load extends MY_Controller {
 				</div>
 	</div>
 	</div><!--end of beginMNH div -->
+	
+	<div id="No" class="step">
+	<input type="hidden" name="step_name" value="end_of_assessment"/>
+	<div class="block">
+	<h3 align="center" style="font-size:2em;color:#AA1317">Child Health Assessment Complete</h3>
+			<p id="data" class="message success">Thank you for completing this assessment.<br></p><br><hr><hr>
+			<p class="message success">'.anchor(base_url().'c_front/inventory/','Log Out').'</p><br>
+			<p class="message">'.anchor(base_url().'c_front/inventory/','Start Another Assessment').'</p>
+			</div>
+	</div><!--end of child assessment message div -->
+	
 	<!--begin delivery cases div-->
 	<div id="delivery_cases" class="step">
 	<input type="hidden" name="step_name" value="delivery_cases"/>
@@ -2106,7 +2139,7 @@ class C_Load extends MY_Controller {
 
 	<div class="row2">
 	<div class="left">
-	<label>Indicate number of deliveries cases (includes deliveries by caesarian section) recorded in the <b>last 2  months</b></label>
+	<label>Indicate total number of deliveries cases (includes deliveries by caesarian section) recorded in the <b>last 2  months</b></label>
 	</div>
 	<div class="center">
 
@@ -2150,12 +2183,13 @@ class C_Load extends MY_Controller {
 					</div>
 
 					<div id="q5comm" class="right" style="display: none">
+					    <label> Comment on why not:</label>
 						<input type="text" name="lndq5Comment" id="lndq5Comment" class="cloned"/>
 
 					</div>
 
 				</div>
-				<div class="row">
+				                  <div class="row">
 					<div class="left">
 						<label>6a. Is a person skilled in conducting deliveries present  at the facility or on call 24 hours a day,
 						including weekends, to provide delivery care?</label>
@@ -2184,11 +2218,18 @@ class C_Load extends MY_Controller {
 							<option>Community Health Worker</option>
 
 						</select>
-						<label for="lndq6otherProvider">Others(Specify)</label>
+						</div>
+						
+						<div class="row">
+						<div class="left">
+						<label for="lndq6otherProvider">Other Personnell that conducts deliveries(Specify)</label>
+						</div>
+						<div class="center">
 						<input type="text" id="lndq6otherProvider" name="lndq6otherProvider" maxlength="55" placeholder="provider1,provider2,...,"/>
-
-					</div>
-				</div>
+                         </div>
+					
+				      </div>
+				</div> <!--close div q6ay-->
 				<div class="row">
 					<div class="left">
 						<label>7. Indicate the total number of beds in the maternity ward / unit in this facility*</label>
@@ -2236,16 +2277,16 @@ class C_Load extends MY_Controller {
 
          
 	<!--begin delivery services equipment div-->
-	<div id="delivery_serv_equip" class="step">
-	<input type="hidden" name="step_name" value="delivery_serv_equip"/>
+	<div id="delivery_serv_equip_1" class="step">
+	<input type="hidden" name="step_name" value="delivery_serv_equip_1"/>
 		<h3>NOTE THE AVAILABILITY AND FUNCTIONALITY OF SUPPLIES AND EQUIPMENT REQUIRED FOR DELIVERY SERVICES. EQUIPMENT MAY BE IN DELIVERY ROOM OR AN ADJACENT ROOM.</h3>
 
 		<div class="column-wide">
 			<div class="row">
-
 				<div class="row-title">
+				   <label>Part 1 of 2</label>
 					<div class="left">
-						<label class="dcah-label">9. EQUIPMENT REQUIRED FOR DELIVERY SERVICES</label>
+						<label class="dcah-label">9. EQUIPMENT REQUIRED FOR DELIVERY SERVICES:</label>
 					</div>
 					<div class="center">
 						<label class="dcah-label" style="width:45%">Availability (A)</label>
@@ -2259,9 +2300,9 @@ class C_Load extends MY_Controller {
 				</div>
 			</div>
 
-			<div id="tableEquipmentList_1">
+			<div id="tableEquipmentList_1a">
 				<div class="row2">
-					<input type="button" id="editEquipmentListTopButton_1" name="editEquipmentListTopButton_1" class="awesome myblue medium" value="Edit List"/>
+					<input type="button" id="editEquipmentListTopButton_1a" name="editEquipmentListTopButton_1a" class="awesome myblue medium" value="Edit List"/>
 				</div>
 
 				<div class="row" id="mtr_1">
@@ -2489,6 +2530,42 @@ class C_Load extends MY_Controller {
 					<input type="hidden"  name="q9equipCode_8" id="q9equipCode_8" value="EQP38" />
 				</div>
 
+				
+			</div>
+			<!--close editTable-->
+		</div>
+
+	</div>
+	<!--end delivery services equip part 1 div-->
+	
+	<div id="delivery_serv_equip_2" class="step">
+	<input type="hidden" name="step_name" value="delivery_serv_equip_2"/>
+		<h3>NOTE THE AVAILABILITY AND FUNCTIONALITY OF SUPPLIES AND EQUIPMENT REQUIRED FOR DELIVERY SERVICES. EQUIPMENT MAY BE IN DELIVERY ROOM OR AN ADJACENT ROOM.</h3>
+
+		<div class="column-wide">
+			<div class="row">
+			
+				<div class="row-title">
+				    <label>Part 2 of 2</label>
+					<div class="left">
+						<label class="dcah-label">9. EQUIPMENT REQUIRED FOR DELIVERY SERVICES</label>
+					</div>
+					<div class="center">
+						<label class="dcah-label" style="width:45%">Availability (A)</label>
+						<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+
+					</div>
+					<div class="right">
+						<label class="dcah-label" style="width:45%">Functioning (b)</label>
+						<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+					</div>
+				</div>
+			</div>
+
+			<div id="tableEquipmentList_1b">
+				<div class="row2">
+					<input type="button" id="editEquipmentListTopButton_1b" name="editEquipmentListTopButton_1b" class="awesome myblue medium" value="Edit List"/>
+				</div>
 				<div class="row" id="mtr_9">
 					<div class="left">
 						<label>9h. At least five or more 2-ml or 5-ml disposable syringes</label>
@@ -2631,13 +2708,12 @@ class C_Load extends MY_Controller {
 					
 					<input type="hidden"  name="q9equipCode_16" id="q9equipCode_16" value="EQP46" />
 				</div>
-
-			</div>
+				</div>
 			<!--close editTable-->
 		</div>
 
 	</div>
-	<!--end delivery services equip div-->
+	<!--end of del serv equip part 2-->
 			
 					
 	<!--begin delivery kit contents div-->
@@ -2765,10 +2841,11 @@ class C_Load extends MY_Controller {
 					
 							
 	<!--begin other equipments div-->
-	<div id="other_equip_sec" class="step">
-	<input type="hidden" name="step_name" value="other_equip_sec"/>
+	<div id="other_equip_sec_1" class="step">
+	<input type="hidden" name="step_name" value="other_equip_sec_1"/>
 		<div class="column-wide">
 			<div class="row-title">
+			<label>Part 1 of 2</label>
 				<div class="left">
 
 					<label class="dcah-label">11. Other Equipment and supplies</label>
@@ -2784,9 +2861,9 @@ class C_Load extends MY_Controller {
 				</div>
 			</div>
 
-			<div id="tableEquipmentList_2">
+			<div id="tableEquipmentList_2i">
 				<div class="row2">
-					<input type="button" id="editEquipmentListTopButton_2" name="editEquipmentListTopButton_2" class="awesome myblue medium" value="Edit List"/>
+					<input type="button" id="editEquipmentListTopButton_2i" name="editEquipmentListTopButton_2i" class="awesome myblue medium" value="Edit List"/>
 				</div>
 
 				<div class="row" id="mtr_17">
@@ -2818,7 +2895,7 @@ class C_Load extends MY_Controller {
 					<input type="hidden"  name="q11equipCode_17" id="q11equipCode_17" value="EQP56" />
 				</div>
 
-				<div class="row" id="mmtr_18">
+				<div class="row" id="mtr_18">
 					<div class="left">
 						<label>11b. Stethoscopes (Paediatric)</label>
 					</div>
@@ -2848,7 +2925,7 @@ class C_Load extends MY_Controller {
 					<input type="hidden"  name="q11equipCode_18" id="q11equipCode_18" value="EQP57" />
 				</div>
 
-				<div class="row" id="mmtr_19">
+				<div class="row" id="mtr_19">
 					<div class="left">
 						<label>11c. BP machine</label>
 					</div>
@@ -3095,11 +3172,43 @@ class C_Load extends MY_Controller {
 
 						</select>
 
-						<input type="text" style="display:none" name="sterilizationMethodOther" id="sterilizationMethodOther"/>
+						<input type="text" style="display:none" name="sterilizationMethodOther" id="sterilizationMethodOther" placeholder="specify"/>
 
 					</div>
 				</div>
 
+				
+			</div>
+			<!--close editList_2-->
+		</div>
+		<!--close div wide-->
+
+	</div><!--end other equipments part 1 div-->
+	
+	<div id="other_equip_sec_2" class="step">
+	<input type="hidden" name="step_name" value="other_equip_sec_2"/>
+		<div class="column-wide">
+			<div class="row-title">
+			<label>Part 2 of 2</label>
+				<div class="left">
+
+					<label class="dcah-label">11. Other Equipment and supplies</label>
+				</div>
+				<div class="center">
+					<label class="dcah-label" style="width:45%">Availability (A)</label>
+					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+				</div>
+
+				<div class="right">
+					<label class="dcah-label" style="width:45%">Functioning (b)</label>
+					<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+				</div>
+			</div>
+
+			<div id="tableEquipmentList_2ii">
+				<div class="row2">
+					<input type="button" id="editEquipmentListTopButton_2ii" name="editEquipmentListTopButton_2ii" class="awesome myblue medium" value="Edit List"/>
+				</div>
 				<div class="row" id="mtr_27">
 					<div class="left">
 						<label>11k. Indicate if a Manual Vacuum Aspiration kit is available in this unit or else where in the facility</label>
@@ -3330,13 +3439,11 @@ class C_Load extends MY_Controller {
 					</div>
 					<input type="hidden"  name="q11equipCode_36" id="q11equipCode_36" value="EQP76" />
 				</div>
-
 			</div>
 			<!--close editList_2-->
 		</div>
 		<!--close div wide-->
-
-	</div><!--end other equipments div-->
+	</div><!--end other equipments part 2 div-->
 							
 	<!--begin medications in the maternity/labour ward div -->
 	<div id="mlw_medication" class="step">
@@ -3653,7 +3760,7 @@ class C_Load extends MY_Controller {
 	</div><!--end medications in the maternity/labour ward div -->
 
 	<!--begin newborn care div-->
-	<div id="nbc_div_1" class="step">
+	<div id="nbc_div_1" class="step" style="display:none">
    <input type="hidden" name="step_name" value="nbc_div_1"/>
 	<h3>New-Born Care</h3>
 	<div class="row">
@@ -3681,9 +3788,119 @@ class C_Load extends MY_Controller {
 	</div>
 	
 	</div> <!--end of new born care div 1-->
+	
+	<!--begin new born care section 2-->
+	<div id="nbc_section_2" class="step">
+	<input type="hidden" name="step_name" id="nbc_section_2" value="nbc_section_2"/>
+	<section class="column-wide">
+
+	<section class="row-title">
+	<label> Part 1 of 2</label>
+		<section class="left">
+			<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
+		</section>
+		<section class="center">
+			<label class="dcah-label" style="width:45%">Availability (A)</label>
+			<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+		</section>
+		<section class="center">
+			<label class="dcah-label" style="width:45%">Functioning (b)</label>
+			<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+		</section>
+		<section class="center">
+
+		</section>
+	</section>
+
+
+<section id="tableEquipmentList_3a">
+<section class="row2">
+<input type="button" id="editEquipmentListTopButton_3a" name="editEquipmentListTopButton_3a" class="awesome myblue medium" value="Edit List"/>
+</section>
+	<section class="row" id="tr_54">
+		<section class="left">
+			14a. Self inflating Neonatal Ambu bag ( 500 mls)
+		</section>
+		<section class="center">
+			<select class="cloned left-combo" name="q14equipAvailability_54" id="q12equipAvailability_54">
+				<option value="" selected="selected">Select One</option>
+				<option>Yes </option>
+				<option>No </option>
+			</select>
+
+			<input name="q14equipAQty_54" type="number" class="cloned fromZero" min="0"/>
+		</section>
+		<section class="right">
+			<select name="q14equipFunctioning_54" id="q14equipFunctioning_54" class="cloned">
+				<option value="" selected="selected">Select One</option>
+				<option> Yes </option>
+				<option> No </option>
+				<option> Do Not Know </option>
+			</select>
+
+			<input name="q14equipFQty_54" type="number" class="cloned fromZero" min="0"/>
+			
+		</section>
+			<input type="hidden"  name="q14equipCode_54" id="q14equipCode_54" value="EQP78" />
+	</section>
+
+	<section class="row" id="tr_55">
+		<section class="left">
+			14b.i. Infant masks-Size 0
+		</section>
+		<section class="center">
+			<select class="cloned left-combo" name="q14equipAvailability_55" id="q12equipAvailability_55">
+				<option value="" selected="selected">Select One</option>
+				<option>Always Available</option>
+				<option>Sometimes Available</option>
+				<option>Never Available</option>
+			</select>
+			
+		</section>
+			<input type="hidden"  name="q14equipCode_55" id="q14equipCode_55" value="EQP79" />
+	</section>
+
+	<section class="row" id="tr_56">
+		<section class="left">
+			14b.ii. Infant masks-Size 1
+		</section>
+		
+		<section class="center">
+			<select class="cloned left-combo" name="q14equipAvailability_56" id="q12equipAvailability_56">
+				<option value="" selected="selected">Select One</option>
+				<option>Always Available</option>
+				<option>Sometimes Available</option>
+				<option>Never Available</option>
+			</select>
+
+
+		</section>
+			<input type="hidden"  name="q14equipCode_56" id="q14equipCode_56" value="EQP80" />
+	</section>
+
+	<section class="row" id="tr_57">
+		<section class="left">
+			14b.iii. Infant masks-Size 2
+		</section>
+		
+		<section class="center">
+			<select class="cloned left-combo" name="q14equipAvailability_57" id="q12equipAvailability_57">
+				<option value="" selected="selected">Select One</option>
+				<option>Always Available</option>
+				<option>Sometimes Available</option>
+				<option>Never Available</option>
+			</select>
+
+
+		</section>
+		<input type="hidden"  name="q14equipCode_57" id="q14equipCode_57" value="EQP81" />
+	</section>
+</section><!--close the tableEquipmentList_3a section -->
+</section> <!--end section column-wide -->
+	</div><!--end new born care section 2-->
 								
 	<!--begin neonatal unit div-->
-	<div id="neonatal_unit" class="step">
+	<div id="neonatal_unit" class="step" style="display:none">
     <input type="hidden" name="step_name" value="neonatal_unit"/>
 		<div class="column-wide">
 
@@ -3692,6 +3909,7 @@ class C_Load extends MY_Controller {
 			</div>
 
 			<div class="row-title">
+			<label>Part 2 of 2</label>
 				<div class="left">
 					<label class="dcah-label">14. EQUIPMENT AND SUPPLIES FOR NEWBORN CARE</label>
 				</div>
@@ -3941,7 +4159,7 @@ class C_Load extends MY_Controller {
 	<!--end neonatal unit div-->
 
 	<!--begin blood transfusion div-->
-	<div id="blood_transfusion" class="step">
+	<div id="blood_transfusion" class="step" style="display:none">
 	<input type="hidden" name="step_name" value="blood_transfusion"/>
 		<div class="column-wide">
 			<h3>Blood Transfusion Services Assessment</h3>
@@ -3963,14 +4181,14 @@ class C_Load extends MY_Controller {
 				</div>
 				<div class="center">
 
-					<select name="nbcgqBloodTransfusionsDone" class="cloned">
+					<select name="nbcgqBloodTransfusionsDone" id="nbcgqBloodTransfusionsDone" class="cloned">
 						<option value="" selected="selected">Select One</option>
-						<option>Yes</option>
-						<option>No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 				</div>
-				<div class="right">
-					<label for="q15BloodTransfusions_2">Specify:</label>
+				<div class="right" id="bloodBankAvailable" style="display:none">
+					<label for="q15BloodTransfusions_2">If blood transfusion service is available, select appropriately:</label>
 
 					<select name="nbcgqBloodBank" class="cloned">
 						<option selected="selected" value="">Select One</option>
@@ -3987,16 +4205,15 @@ class C_Load extends MY_Controller {
 			</div>
 			<div class="center">
 
-			<select name="nbcgqCSDone" class="cloned">
+			<select name="nbcgqCSDone" id="nbcgqCSDone" class="cloned">
 			<option selected="selected" value="">Select One</option>
-
-			<option> Yes</option>
-			<option> No</option>
+			<option value="Yes"> Yes</option>
+			<option value="No"> No</option>
 			</select>
 			</div>
-			<div class="row hide" style="display:true">
+			<div id="csNumIfYes" class="row " style="display:none">
 			<div class="left" >
-			<label class="dcah-label"> If Yes, how many caesarean sections were performed in September 2012</label>
+			<label class="dcah-label"> If Yes, how many caesarean sections were performed in the <b>last 2 months</b>?</label>
 			</div>
 			<div class="right">
 			<div class="col">
@@ -4013,10 +4230,9 @@ class C_Load extends MY_Controller {
 	</div>
 	<!--end blood transfusion div-->
 
-	<!--begin level-4-and-above-->
-
-	<div id="level_4_above" class="step">
-	<input type="hidden" name="step_name" value="level_4_above"/>
+	<!--begin level-4-and-above part 1-->
+	<div id="level_4_above_1" class="step" style="display:none">
+	<input type="hidden" name="step_name" value="level_4_above_1"/>
 		<div class="column-wide">
 			<div class="hide-level">
 				<div class="row">
@@ -4025,6 +4241,7 @@ class C_Load extends MY_Controller {
 
 				<div class="row">
 					<div class="row-title">
+					<label>Part 1 of 2</label>
 						<div class="left">
 
 							<label class="dcah-label">Supply/Equipment</label>
@@ -4038,10 +4255,12 @@ class C_Load extends MY_Controller {
 							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
 						</div>
 					</div>
+					
+				</div>
 
-					<div id="tableEquipmentList_4">
+					<div id="tableEquipmentList_4a">
 						<div class="row2">
-							<input type="button" id="editEquipmentListTopButton_4" name="editEquipmentListTopButton_4" class="awesome myblue medium" value="Edit List"/>
+							<input type="button" id="editEquipmentListTopButton_4a" name="editEquipmentListTopButton_4a" class="awesome myblue medium" value="Edit List"/>
 						</div>
 						<div class="row" id="mtr_67">
 							<div class="left">
@@ -4409,7 +4628,44 @@ class C_Load extends MY_Controller {
 							<input type="hidden"  name="q16equipCode_80" id="q16equipCode_80" value="EQP104" />
 						</div>
 
-						<div class="row" id="mtr_81">
+						</div><!--close div tableEquipmentList_4a-->
+				</div><!--close div level-hide-->
+		</div><!--close div column-wide-->
+		
+	</div><!--end level-4-and-above part 1-->
+		
+		<!--begin level-4-and-above part 2-->
+
+	<div id="level_4_above_2" class="step" style="display:none">
+	<input type="hidden" name="step_name" value="level_4_above_2"/>
+		<div class="column-wide">
+			<div class="hide-level">
+				<div class="row">
+					<h3>Complete this section for Level 4, 5 and 6 Facilities</h3>
+				</div>
+
+				<div class="row">
+					<div class="row-title">
+					<label>Part 2 of 2</label>
+						<div class="left">
+
+							<label class="dcah-label">Supply/Equipment</label>
+						</div>
+						<div class="center">
+							<label class="dcah-label" style="width:45%">Availability (A)</label>
+							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+						</div>
+						<div class="right">
+							<label class="dcah-label" style="width:45%">Functioning(b)</label>
+							<label class="dcah-label" style="float:right;width:45%">Quantity</label>
+						</div>
+					</div>
+
+					<div id="tableEquipmentList_4b">
+						<div class="row2">
+							<input type="button" id="editEquipmentListTopButton_4b" name="editEquipmentListTopButton_4b" class="awesome myblue medium" value="Edit List"/>
+						</div>
+							<div class="row" id="mtr_81">
 							<div class="left">
 								<label>16o. Sterile gloves in various sizes</label>
 							</div>
@@ -4420,8 +4676,29 @@ class C_Load extends MY_Controller {
 									<option>Yes </option>
 									<option>No </option>
 								</select>
-								<label>Sizes (Hold down Ctrl and click to select many)</label>
-								<select multiple="multiple" name="q16equipAType_81[]" id="q16equipAType_81" class="cloned">
+
+								<input name="q16equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
+							</div>
+							
+							
+							<div class="center">
+								<select name="q16equipFunctioning_81" id="q16equipFunctioning_81" class="cloned">
+									<option value="" selected="selected">Select One</option>
+									<option> Yes </option>
+									<option> No </option>
+									<option> Dont Know </option>
+								</select>
+
+								<input name="q16equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
+							</div>
+							<input type="hidden"  name="q16equipCode_81" id="q16equipCode_81" value="EQP105" />
+						</div>
+						
+						<div class="row">
+						<!div class="center"></div-->
+						<div class="right">
+								<label>Sizes Available </label>
+								<select multiple="multiple" title="Hold down Ctrl button and click on the size to select many" name="q16equipAType_81[]" id="q16equipAType_81" class="cloned">
 
 									<option value="1">Size 1</option>
 
@@ -4439,20 +4716,7 @@ class C_Load extends MY_Controller {
 									<option value="8.5">Size 8.5</option>
 									<option value="9">Size 9</option>
 								</select>
-
-								<input name="q16equipAQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<div class="center">
-								<select name="q16equipFunctioning_81" id="q16equipFunctioning_81" class="cloned">
-									<option value="" selected="selected">Select One</option>
-									<option> Yes </option>
-									<option> No </option>
-									<option> Dont Know </option>
-								</select>
-
-								<input name="q16equipFQty_81" type="number" class="cloned numbers  fromZero" min="0"/>
-							</div>
-							<input type="hidden"  name="q16equipCode_81" id="q16equipCode_81" value="EQP105" />
+								</div>
 						</div>
 
 						<div class="row" id="mtr_82">
@@ -4561,15 +4825,13 @@ class C_Load extends MY_Controller {
 							</div>
 							<input type="hidden"  name="q16equipCode_85" id="q16equipCode_85" value="EQP109" />
 						</div>
-						<!--close div tableEquipmentList_4-->
+						<!--close div tableEquipmentList_4b-->
 					</div>
-
-					<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
+				<label class="dcah-label" style="text-align:center">End of Questionnaire</label>
 
 				</div>
 			</div><!--close div level-hide-->
 		</div><!--close div column-wide-->
-
 	</div>
 	<!--end level-4-and-above-->
 		 <div id="buttonsPane" class="buttons">					

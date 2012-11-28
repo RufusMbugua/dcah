@@ -45,24 +45,110 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	function updateFacility(){
 		 /*check assessment tracker log*/
 		 if($this->input->post()){
-
-			 $this->writeAssessmentTrackerLog();
 		 	 $step=$this->input->post('step_name',TRUE);
 			switch($step){
 				case 'facility_div':
-				$this->updateFacilityInfo();/*Defined in MY_Model*/
+				if($this->updateFacilityInfo()==true){/*Defined in MY_Model*/
+					$this->writeAssessmentTrackerLog();
+				     	return $this -> response = 'true';
+				}else{
+						return $this -> response = 'false';
+				}
+				
 					break;
 				case 'diarrhoea_cases':
-
+                   if($this->addDiarrhoeaData()==true){/*defined in this model*/
+                   	 $this->writeAssessmentTrackerLog();
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
 					break;
 
 			}
 		 	//print var_dump($this->input->post());
 
 
-		 return $this -> response = 'true';
+		 //return $this -> response = 'true';
 		 }
 	}
+	
+	protected function addDiarrhoeaData(){
+			foreach ($this -> input -> post() as $key => $val) {//For every posted values
+
+			     $this->attr = $key;//the attribute name
+				 if (!empty($val)) {
+					//We then store the value of this attribute for this element.
+					// $this->elements[$this->id][$this->attr]=htmlentities($val);
+					$this->elements[$this->attr]=htmlentities($val);
+				   }else{
+				   	$this->elements[$this->attr]='';
+				   }
+
+			
+
+			// print $key.' val='.$val.' <br />';
+
+			 }//close foreach ($this -> input -> post() as $key => $val)
+
+			//print var_dump($this->elements);
+			// exit;
+
+			//check if entry exists--advance it to be comparing month's using the assessment tracker's info before updating or creating a new entry
+			$this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
+			
+			
+
+		    //get the highest value of the array that will control the number of inserts to be done
+						$this->noOfInsertsBatch=1; /*only 1 facility record is expected*/
+
+						// print "max rows: ".$this->noOfInsertsBatch; exit;
+						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+
+                //if no log entry, means, this this the first entry
+				if($this->sectionExists !=true){
+				//
+				//die('New entry, enter new one');
+			   $this -> theForm = new \models\Entities\e_diarrhoea_cases(); //create an object of the model
+			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
+			   $this -> theForm -> setFacilityCode($this -> session -> userdata('fCode')); /*timestamp option*/
+				}else{
+				//die('Duplicate entry, so update');
+				try{
+					$this -> theForm=$this->em->getRepository('models\Entities\e_diarrhoea_cases')
+					                       ->findOneBy( array('facilityCode'=>$this -> session -> userdata('fCode')));
+					$this -> theForm -> setUpdatedAt(new DateTime()); /*timestamp option*/	
+					}catch(exception $ex){
+						//ignore
+						//die($ex->getMessage());
+						return false;
+					}
+					
+				}
+
+                
+				$this -> theForm -> setNumberOfDiarrhoeaCases($this->input->post('diarrhoeaCases',TRUE)); /*timestamp option*/
+				$this -> em -> persist($this -> theForm);
+				try{
+
+				$this -> em -> flush();
+				$this->em->clear(); //detaches all objects from doctrine
+				return true;
+				//print 'true';
+				}catch(Exception $ex){
+				   // die($ex->getMessage());
+				    //print 'false';
+					/*display user friendly message*/
+					return false;
+
+				}//end of catch
+
+        	
+
+					 } //end of innner loop
+
+	} //close addDiarrhoeaData
+	
 
 
    
@@ -84,6 +170,8 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			return $this->facility;
 
 	}/*close facilityExists($mfc)*/
+	
+	
 
 	public function getFacilityCode(){
 		if ($this -> input -> post()) {//check if a post was made

@@ -220,6 +220,7 @@ function __construct() {
 
 			 }//close foreach ($this -> input -> post() as $key => $val)
 
+			//print var_dump($this->elements);
 			// exit;
 
 			//check if facility exists
@@ -254,7 +255,8 @@ function __construct() {
 					                       ->findOneBy( array('facilityName'=>$this -> session -> userdata('fName')));
 					}catch(exception $ex){
 						//ignore
-						die($ex->getMessage());
+						//die($ex->getMessage());
+						return false;
 					}	
 				}
 
@@ -275,19 +277,21 @@ function __construct() {
 
 				($this->elements['MCHEmail']=='')?$this -> theForm -> setFacilityMCHEmail('n/a'):$this -> theForm -> setFacilityMCHEmail($this->input->post('MCHEmail',TRUE));
 
-				($this->elements['MaternityContactPerson']=='')?$this -> theForm -> setFacilityMaternityContactPerson('n/a'):$this -> theForm -> setFacilityMaternityContactPerson($this->input->post('MaternityContactPerson',TRUE));
-				($this->input->post('MaternityAltTelephone',TRUE) !='')?$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE).'/'.$this->input->post('MaternityAltTelephone',TRUE)):$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE));
-				($this->elements['MaternityEmail']=='')?$this -> theForm -> setFacilityMaternityEmail('n/a'):$this -> theForm -> setFacilityMaternityEmail($this->input->post('MaternityEmail',TRUE));
+				(isset($this->elements['MaternityContactPerson']) && $this->elements['MaternityContactPerson']!='')?$this -> theForm -> setFacilityMaternityContactPerson($this->input->post('MaternityContactPerson',TRUE)):$this -> theForm -> setFacilityMaternityContactPerson('n/a');
+				(isset($this->elements['MaternityAltTelephone']) && $this->elements['MaternityAltTelephone']!='')?$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE).'/'.$this->input->post('MaternityAltTelephone',TRUE)):$this -> theForm -> setFacilityMaternityTelephone($this->input->post('MaternityTelephone',TRUE));
+				(isset($this->elements['MaternityEmail']) && $this->elements['MaternityEmail']!='' )?$this -> theForm -> setFacilityMaternityEmail($this->input->post('MaternityEmail',TRUE)):$this -> theForm -> setFacilityMaternityEmail('n/a');
 				$this -> em -> persist($this -> theForm);
                 
 				try{
 
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
+				return true;
 				//print 'true';
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 				    //print 'false';
+				    return false;
 					/*display user friendly message*/
 
 				}//end of catch
@@ -339,7 +343,7 @@ function __construct() {
 				$this->em->clear(); //detaches all objects from doctrine
 				//print 'true';
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 				    //print 'false';
 					/*display user friendly message*/
 
