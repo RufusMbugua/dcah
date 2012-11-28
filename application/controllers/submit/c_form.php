@@ -4,7 +4,7 @@ class C_Form extends MY_Controller{
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('M_Zinc_Ors_Inventory');
+		//$this->load->model(); //load the needed models
 	}
 
 	public function form_zinc_ors_inventory(){
@@ -36,7 +36,7 @@ class C_Form extends MY_Controller{
 			print 'false';
 		}
 
-	}
+	}//close data_handler
 
 	public function form_mnh_equipment_assessment(){
 		$this->load->model('m_mnh_assessment');

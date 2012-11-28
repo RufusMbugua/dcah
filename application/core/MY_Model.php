@@ -255,7 +255,8 @@ function __construct() {
 					                       ->findOneBy( array('facilityName'=>$this -> session -> userdata('fName')));
 					}catch(exception $ex){
 						//ignore
-						die($ex->getMessage());
+						//die($ex->getMessage());
+						return false;
 					}	
 				}
 
@@ -285,10 +286,12 @@ function __construct() {
 
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
+				return true;
 				//print 'true';
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 				    //print 'false';
+				    return false;
 					/*display user friendly message*/
 
 				}//end of catch

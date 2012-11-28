@@ -31,7 +31,7 @@ class E_Equipment{
 	private $createdAt;
 	
 	/**
-	 * @Column(name="updatedAt", type="date", nullable=true)
+	 * @Column(name="updatedAt", type="datetime", nullable=true)
 	 * */
 	private $updatedAt;
 
@@ -40,7 +40,7 @@ class E_Equipment{
 		return $this -> equipmentID;
 	}
 
-	public function seEquipmentID($equipmentID) {
+	public function setEquipmentID($equipmentID) {
 		$this -> equipmentID = $equipmentID;
 	}
 
@@ -49,7 +49,7 @@ class E_Equipment{
 		return $this -> equipmentCode;
 	}
 
-	public function seEquipmentCode($equipmentCode) {
+	public function setEquipmentCode($equipmentCode) {
 		$this -> equipmentCode = $equipmentCode;
 	}
 
@@ -57,7 +57,7 @@ class E_Equipment{
 		return $this -> equipmentName;
 	}
 
-	public function seEquipmentName($equipmentName) {
+	public function setEquipmentName($equipmentName) {
 		$this -> equipmentName = $equipmentName;
 	}
 	

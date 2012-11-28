@@ -465,14 +465,15 @@ $mfCode = $this -> session -> userdata('fCode');
 									remoteAjax[$(this).attr("id")] = {
 										url : "<?php echo base_url()?>submit/c_form/data_handler", // the url which stores the stuff in db for each step
 										dataType : 'json',
-										beforeSubmit: function(data){$("#data").html("Processing... " + $.param(data))},
+										beforeSubmit: function(data){$("#data").html("<div class='error ui-autocomplete-loading' style='width:auto;height:25px'>Processing...</div>")},
 										//beforeSubmit: function(data){$("#data").html("Saving the previous section's response")},
 										success : function(data){
-										 			if(data !='false'){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
+										 			if(data){ //data is either true or false (returned from store_in_database.html) simulating successful / failing store
 											 			$("#data").show();
 											 			$("#data").html("...Data was saved successfully");
 											 		}else{
 											 			alert("An internal error occurred, nothing was stored.");
+											 			return false;
 											 		}
 											 		
 										 			return data; //return true to make the wizard move to the next step, false will cause the wizard to stay on the CV step (change this in store_in_database.html)
