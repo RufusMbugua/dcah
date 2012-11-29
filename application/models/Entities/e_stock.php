@@ -15,7 +15,7 @@ namespace models\Entities;
 	private $stockID;
 	
    /**
-	* @Column(name="stockBatchNo", type="string",length=45, nullable=false)
+	* @Column(name="stockBatchNo", type="string",length=45, nullable=true)
 	* */
 	private $stockBatchNo;
 	
@@ -58,14 +58,24 @@ namespace models\Entities;
 	private $stockFacility;
 	
 	/**
-	* @Column(name="stockDateOfInventory", type="string", length=12, nullable=true)
+	* @Column(name="stockDateOfInventory", type="date", nullable=true)
 	* */
 	private $stockDateOfInventory;
 	
 	/**
-	* @Column(name="createdAt", type="datetime", nullable=true)
+	* @Column(name="placeFound", type="string", length=45, nullable=true)
+	* */
+	private $placeFound;
+	
+	/**
+	* @Column(name="createdAt", type="datetime", nullable=false)
 	* */
 	private $createdAt;
+	
+	/**
+	* @Column(name="updatedAt", type="datetime", nullable=true)
+	* */
+	private $updatedAt;
 	
 	public function getStockID() {
 			return $this -> stockID;
@@ -131,11 +141,27 @@ namespace models\Entities;
 	public function setStockDateOfInventory($stockDateOfInventory) { $this ->stockDateOfInventory = $stockDateOfInventory;
 	}
 	
+	public function getPlaceFound() {
+			return $this -> placeFound;
+	}
+	
+	public function setPlaceFound($placeFound) { $this ->placeFound = $placeFound;
+	}
+	
 	public function getCreatedAt() {
 			return $this -> createdAt;
 	}
 	
 	public function setCreatedAt($createdAt) { $this ->createdAt = $createdAt;
 	}
+	
+	public function getUpdatedAt() {
+			return $this -> updatedAt;
+	}
+	
+	public function setUpdatedAt($updatedAt) { $this ->updatedAt = $updatedAt;
+	}
+	
+	
 }
 ?>

@@ -174,7 +174,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				$(".form-container").load('<?php echo base_url() . 'c_load/get_form'; ?>',function(){
 
 					//include remote scripts
-					loadGlobalScript();renderFacilityInfo();break_form_to_steps(form_id);select_option_changed();
+					loadGlobalScript();renderFacilityInfo();break_form_to_steps(form_id);select_option_changed();clonable_events_register();
 
 					});
 				
@@ -423,6 +423,15 @@ $mfCode = $this -> session -> userdata('fCode');
 						}
 					});
 					
+					//specify ort supplier if other or partner is selected
+					$('#ortSupplier').change(function(){
+						if($(this).val()=="Partners" || $(this).val()=="Others"){
+						$('#partner').show();
+						}else{
+							$('#partner').hide();
+						}
+					});
+					
 				
 					
 				
@@ -434,6 +443,103 @@ $mfCode = $this -> session -> userdata('fCode');
 				});
 						}//end of select_option_changed
 						
+				function clonable_events_register(){
+					 /*----------------------------------------------------------------------------------------------------------------*/
+								/*start of clone trigger functions*/
+								$('#clonetrigger_13,#clonetrigger_14').click(function() {
+							            form_id='#'+$(".form-container").find('form').attr('id'); /*what form has been loaded now?*/
+										var yourclass = ".clonable";
+										//The class you have used in your form
+										var clonecount = $(yourclass).length;
+										//how many clones do we already have?
+										var newid = Number(clonecount) + 1;
+										//Id of the new clone
+										
+										if($(this).attr('id')=="clonetrigger_13"){
+											c_target='#formbuttons_13';
+											yourclass = ".clonable.zinc";
+											clonecount = $(yourclass).length;
+											newid = Number(clonecount) + 1;
+											//alert('1');
+										}else if($(this).attr('id')=="clonetrigger_14"){
+											c_target='#formbuttons_14';
+											yourclass = ".clonable.ors";
+											clonecount = $(yourclass).length;
+											newid = Number(clonecount) + 1;
+											//alert('2');
+										}
+					
+										$(yourclass + ":first").fieldclone({//Clone the original element
+											newid_ : newid, //Id of the new clone, (you can pass your own if you want)
+											target_ : $(c_target), //where do we insert the clone? (target element)
+											insert_ : "before", //where do we insert the clone? (after/before/append/prepend...)
+											limit_ : 0							//Maximum Number of Clones
+										});
+										
+										
+										/*reinitialize datepicker options on the cloned item*/
+										$('.clonable label.error').remove();
+										$('.cloned').removeClass('error');
+										$('.autoDate').removeClass('hasDatepicker error');
+										$('.futureDate').removeClass('hasDatepicker error');
+							            $('.autoDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '-10y', maxDate: "0D"});
+							            $('.futureDate').datepicker({defaultDate:new Date(),changeMonth: true,changeYear: true,dateFormat:"yy-mm-dd",minDate: '0y', maxDate: "2y"});
+							          
+							            /*reinitialize timepicker options on the cloned item*/
+							            $('.mobiscroll').removeClass('scroller');
+					                    $('.mobiscroll').scroller({preset:'time'});
+					
+										var t = 'default';
+										var m = 'mixed';
+										$('.mobiscroll').scroller('destroy').scroller({ preset: 'time', theme: t, mode: m });
+										
+										$(".cloned").on("keyup", function(){
+						                    //alert("active element: "+$("input:text:focus").attr("id"));
+					
+						                   //alert('Last Id: '+clonecount);
+						                   lastRowId=clonecount+1;
+						                    //do some calculations on key typed
+						                 // var id=$("input:text:focus").attr("id");
+						                 var id=$(this).attr('id');
+						                  var no=id.substr(id.indexOf('_')+1,id.length);
+						                 // alert("append: "+no);
+						                switch(form_id){
+						                	
+						               case '#zinc_ors_inventory':/*zinc and ors inventory form*/
+						            
+										break;
+									 
+						                    } /*end of the case*/
+									
+						               }); //end of cloned key up function
+							 
+										return  false;
+									});/*end of clone trigger*/
+				
+				/*----------------------------------------------------------------------------------------------------------------*/
+				/*----------------------------------------------------------------------------------------------------------------*/
+									/*start of clone_remove*/
+									$('#cloneremove_13,#cloneremove_14').click(function() {
+										//alert($(".clonable").find("tr:last").attr('name'));
+									
+											if($(this).attr('id')=='cloneremove_13'){
+												if($(".clonable.zinc").length>1)
+												//alert('1');
+												$(".clonable.zinc:last").after().remove();
+											}else if($(this).attr('id')=='cloneremove_14'){
+												//alert($(".clonable.ors").length);
+												if($(".clonable.ors").length>1)
+												$(".clonable.ors:last").after().remove();
+											}
+										//}else{
+											//('#cloneremove').disable();
+										//}
+									 return false;
+									 });
+									 /*end of clone_remove*/
+				/*-----------------------------------------------------------------------------------------------------------------*/
+				}//end of clonable_events_register
+						
 
 						}); /*close document ready*/
 						
@@ -444,7 +550,7 @@ $mfCode = $this -> session -> userdata('fCode');
 						   var end_url;
 								$(form_id).formwizard({ 
 								 	formPluginEnabled: false,
-								 	validationEnabled: false,
+								 	validationEnabled: true,
 								 	historyEnabled:true,
 								 	focusFirstInput : true,
 								 	formOptions :{
@@ -510,6 +616,8 @@ $mfCode = $this -> session -> userdata('fCode');
 								 		$('#maternity_info').find('input').prop('disabled', false);
 								 	}
 								 });
+								 
+								
 			
 				  	}
 				  	

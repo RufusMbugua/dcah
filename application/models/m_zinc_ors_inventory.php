@@ -46,9 +46,9 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		 /*check assessment tracker log*/
 		 if($this->input->post()){
 		 	 $step=$this->input->post('step_name',TRUE);
-			switch($step){
-				case 'facility_div':
-				if($this->updateFacilityInfo()==true){/*Defined in MY_Model*/
+			/**/switch($step){
+				/**/case 'facility_div':
+				if($this->updateFacilityInfo()==true){//Defined in MY_Model
 					$this->writeAssessmentTrackerLog();
 				     	return $this -> response = 'true';
 				}else{
@@ -57,19 +57,83 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				
 					break;
 				case 'diarrhoea_cases':
-                   if($this->addDiarrhoeaData()==true){/*defined in this model*/
+                   if($this->addDiarrhoeaData()==true){//defined in this model
                    	 $this->writeAssessmentTrackerLog();
 				     	return $this -> response = 'true';
                    }else{
                    	return $this -> response = 'false';
                    }
 					break;
+				case 'childhealth_mch_tab':
+					 if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					
+					break;
+				case 'childhealth_peds_tab':
+					 if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					
+					break;
+				case 'childhealth_opd_tab':
+					 if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					
+					break;
+					
+				 case 'childhealth_store_tab':
+					if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					
+					break;
+				 
+				 case 'childhealth_other_tab':
+					if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+				 
+				  /*case 'ort_questions':
+					if($this->addUnitCommoditiesInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					break;*/
+			
+				 case 'ort_part1':
+					if($this->addORTInfo()==true){//defined in this model
+                     
+				     	return $this -> response = 'true';
+                  }else{
+                   	   return $this -> response = 'false';
+                 }
+					   break;
+				 
 
 			}
 		 	//print var_dump($this->input->post());
 
 
-		 //return $this -> response = 'true';
+		return $this -> response = 'true';
 		 }
 	}
 	
@@ -226,41 +290,86 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	private function addORTInfo(){
 
 		    foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		    if(substr($key,0,3)=="ort"){//select data for ort
+		    //if(substr($key,0,3)=="ort"){//select data for ort
 			     $this->attr = $key;//the attribute name
 				 if (!empty($val)) {
 					//We then store the value of this attribute for this element.
 					// $this->elements[$this->id][$this->attr]=htmlentities($val);
+					
+					//stringify any array value
+					if(is_array($val)){
+			     	    $val=implode(',',$val);
+					}
+					
 					$this->elements[$this->attr]=htmlentities($val);
 				   }else{
 				   	$this->elements[$this->attr]='';
 				   }
 				   //print $key.' val='.$val.' <br />';
-			 }
+			// }//close if(substr($key,0,3)=="ort")
 
 			 }//close foreach ($this -> input -> post() as $key => $val)
-
+            // print var_dump($this->elements);
 			 //exit;
+			 
+			    //check if entry exists--advance it to be comparing month's using the assessment tracker's info before updating or creating a new entry
+			   $this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
 
 		        //get the highest value of the array that will control the number of inserts to be done
-						$this->noOfInsertsBatch=1; //only 1 ort corner record inserted
+			    $this->noOfInsertsBatch=1; //only 1 ort corner record inserted
+			    
+			    //source of request
+			    $source=$this->input->post('step_name',TRUE);
 
 
-						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-
-				//insert facility if new, else update the existing one
-			   $this -> theForm = new \models\Entities\E_OrtC_Assessment(); //create an object of the model
-
-
-				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setFacilityMFC($this->input->post('facilityMFC'));
-				$this -> theForm -> setQuestion1($this->elements['ortQuestion1']);
-				$this -> theForm -> setQuestion2($this->elements['ortQuestion2']);
-				if($this->elements['ortDehydrationLocation']==''){
-					$this->elements['ortDehydrationLocation']='N/A';
+			for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+						 	
+				 //if no log entry, means, this this the first entry
+				if($this->sectionExists !=true){
+				
+				//die('New entry, enter new one');
+			  #new fields go here
+			 
+			   $this -> theForm = new \models\Entities\e_ortc_assessment(); //create an object of the model
+			   $this -> theForm -> setFacilityMFC($this -> session -> userdata('fCode'));
+			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
+			   //do some branching since this fellow gets feeds from diff sources
+			  switch($source){
+			  	case 'ort_part1':
+					$this -> theForm -> setKidsDehydrated($this->elements['ortQuestion1']);
+			        $this -> theForm -> setDesignatedDehydrationLocation($this->elements['ortQuestion2']);
+					$this->  theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
+					break;
+				case 'ort_questions':
+					break;
+					
+			  }
+				}else{
+				//die('Duplicate entry, so update');
+				try{
+					$this -> theForm=$this->em->getRepository('models\Entities\e_ortc_assessment')
+					                       ->findOneBy( array('facilityMFC'=>$this -> session -> userdata('fCode')));
+					$this -> theForm -> setUpdatedAt(new DateTime()); /*timestamp option*/	
+					 //do some branching since this fellow gets feeds from diff sources
+				   switch($source){
+				  	case 'ort_part1':
+						$this -> theForm -> setKidsDehydrated($this->elements['ortQuestion1']);
+				        $this -> theForm -> setDesignatedDehydrationLocation($this->elements['ortQuestion2']);
+						(isset($this->elements['ortDehydrationLocation']) && $this->elements['ortDehydrationLocation'] !='')?$this->  theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']):$this->  theForm -> setLocationOfDehydrationUnit('n/a');
+						break;
+					case 'ort_questions':
+						break;
+					
+			   }
+					}catch(exception $ex){
+						//ignore
+						die($ex->getMessage());
+						return false;
+					}
+					
 				}
-				$this -> theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
-				$this -> theForm -> setDateOfAssessment($this->input->post('facilityDateOfInventory'));
+				
+				$this -> theForm -> setDateOfAssessment(new DateTime());
 				$this -> em -> persist($this -> theForm);
 
 						//now do a batched insert
@@ -276,10 +385,14 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				//print ('last id: '.$this->ortAssessCode);exit;
 
 				$this->em->clear(); //detaches all objects from doctrine
-
+				
+				//log this change
+				$this->writeAssessmentTrackerLog();
+                return true;
 				}catch(Exception $ex){
-				    //die($ex->getMessage());
+				    die($ex->getMessage());
 					/*display user friendly message*/
+					return false;
 
 				}//end of catch
 
@@ -380,11 +493,11 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 	}//close addEquipmentAssessmentInfo
 
-	private function addZincCommoditiesInfo(){
+	private function addUnitCommoditiesInfo(){
 
-		 $count=1;$finalCount=0;
+		 $count=$finalCount=1;
 		foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		    if(substr($key,0,2)=="zn"){//select data for zn commodities
+		    if(strpos($key,'step_n')===FALSE){//select what we want for the array only
 			   //we separate the attribute name from the number
 
 				  $this->frags = explode("_", $key);
@@ -393,11 +506,11 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 				$this->id = $count;  // the id
 
-
-				  $this->attr = $this->frags[0];//the attribute name
+                  
+				  $this->attr = substr($this->frags[0],1,strlen($this->frags[0]));//the attribute name
 
 				  //mark the end of 1 row...for record count
-				if($this->attr=="znStockComments"){
+				if($this->attr=="StockExpiryDate"){
 					//print 'count at:'.$count.'<br />';
 					$finalCount=$count;
 					 $count++;
@@ -410,46 +523,74 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				   }else{
 				   	$this->elements[$this->id][$this->attr]='';
 				   }
-				 // print $this->attr.' val='.$val.' id='.$this->id.' <br />';
+				// print $this->attr.' val='.$val.' id='.$this->id.' <br />';
 				  //print $key.' val='.$this->elements[$this->id][$this->attr].'<br />';
 
-			 }//close  if(substr($key,0,2)=="zn")
+			 }//close  if(strpos($key,'step_n')!==FALSE)
 
 			 }//close foreach ($this -> input -> post() as $key => $val)
-			// print 'Record count at:'.$finalCount.'<br />';
-			 //exit;	
+			 //print 'Record count at:'.$finalCount.'<br />';
+			//print var_dump($this->elements);
+			//exit;	
+			 
+			 //check if entry exists--advance it to be comparing month's using the assessment tracker's info before updating or creating a new entry
+			$this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
 
 		  //get the record count that will control the number of inserts to be done        
 		  $this->noOfInsertsBatch=$finalCount;
 
 
 		for($i=1; $i<=$this->noOfInsertsBatch;++$i){
-
-				//insert facility if new, else update the existing one
-			   $this -> theForm = new \models\Entities\E_Stock(); //create an object of the model
-
-				$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setStockBatchNo($this->elements[$i]['znStockBatchNo']);
-				$this -> theForm -> setStockQuantity($this->elements[$i]['znStockQuantity']);
-				$this -> theForm -> setStockDateDispensed($this->elements[$i]['znStockDispensedDate']);
-				$this -> theForm -> setStockSupplier($this->elements[$i]['znStockSupplier']);
-				$this -> theForm -> setStockExpiryDate($this->elements[$i]['znStockExpiryDate']);
-				$this -> theForm -> setStockComments($this->elements[$i]['znStockComments']);
-				$this -> theForm -> setStockCommodityType($this->elements[$i]['znCommodityName']);
-				$this -> theForm -> setStockFacility($this->input->post('facilityMFC'));
-				$this -> theForm -> setStockDateOfInventory($this->input->post('facilityDateOfInventory'));
+			
+			//print $this->elements[$i]['CommodityName'].'<br>';
+	
+			    //if no log entry, means, this this the first entry
+				if($this->sectionExists !=true){
+				
+				//die('New entry, enter new one');
+			  #new fields go here
+			  $this -> theForm = new \models\Entities\e_stock(); //create an object of the model
+			   $this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
+			   $this -> theForm -> setStockDateOfInventory(new DateTime());
+			   $this -> theForm -> setStockFacility($this -> session -> userdata('fCode')); /*timestamp option*/
+				}else{
+				//die('Duplicate entry, so update');
+				try{
+					$this -> theForm=$this->em->getRepository('models\Entities\e_stock')
+					                       ->findOneBy( array('stockFacility'=>$this -> session -> userdata('fCode'),'placeFound'=>$this->elements[$i]['Unit'],'stockCommodityType'=>$this->elements[$i]['CommodityName']));
+					$this -> theForm -> setUpdatedAt(new DateTime()); /*timestamp option*/	
+					}catch(exception $ex){
+						//ignore
+						//die($ex->getMessage());
+						return false;
+					}
+					
+				}
+				
+				(isset($this->elements[$i]['StockSupplier']))?$this -> theForm -> setStockSupplier($this->elements[$i]['StockSupplier']):$this -> theForm -> setStockSupplier('n/a');
+				(isset($this->elements[$i]['StockBatchNo']))?$this -> theForm -> setStockBatchNo($this->elements[$i]['StockBatchNo']):$this -> theForm -> setStockBatchNo(null);
+				(isset($this->elements[$i]['StockQuantity']))?$this -> theForm -> setStockQuantity($this->elements[$i]['StockQuantity']):$this -> theForm -> setStockQuantity(-1);
+				(isset($this->elements[$i]['StockDispensedDate']))?$this -> theForm -> setStockDateDispensed($this->elements[$i]['StockDispensedDate']):$this -> theForm -> setStockDateDispensed(null);
+				(isset($this->elements[$i]['StockComments']))?$this -> theForm -> setStockComments($this->elements[$i]['StockComments']):$this -> theForm -> setStockComments('n/a');
+				$this -> theForm -> setStockExpiryDate($this->elements[$i]['StockExpiryDate']);
+				
+				$this -> theForm -> setStockCommodityType($this->elements[$i]['CommodityName']);
+				$this -> theForm -> setPlaceFound($this->elements[$i]['Unit']);
 				$this -> em -> persist($this -> theForm);
+				
 
-						//now do a batched insert, default at 5
-			  $this->batchSize=5;
+				//now do a batched insert, default at 5
+			 /**/ $this->batchSize=5;
 			if($i % $this->batchSize==0){
 			try{
 
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
+				//return true;
 				}catch(Exception $ex){
-				    //die($ex->getMessage());
-					/*display user friendly message*/
+				  // die($ex->getMessage());
+					//display user friendly message
+					return false;
 
 				}//end of catch
 
@@ -460,16 +601,27 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
+				//return true;
 				}catch(Exception $ex){
 					//die($ex->getMessage());
-					/*display user friendly message*/
+					return false;
+					//display user friendly message/
 
-				}//end of catch
+				}//end of catch 
 
 
 			}//end of batch condition
+			//print $i.'<br>';
+			if($i==$this->noOfInsertsBatch){
+			//die(print $i);
+			 $this->writeAssessmentTrackerLog();
+			 return true;
+			}
+			
 					 } //end of innner loop	
-	}//close addZincCommoditiesInfo
+					 
+					 // return false;
+	}//close addUnitCommoditiesInfo
 
 	private function addORSCommoditiesInfo(){
 

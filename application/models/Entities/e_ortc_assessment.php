@@ -21,30 +21,41 @@ namespace models\Entities;
 	private $facilityMFC;
 	
    /**
-	* @Column(name="question1", type="integer", length=1, nullable=true)
+	* @Column(name="kidsDehydrated", type="integer", length=1, nullable=true)
 	* */
-	private $question1;
-	
-	/**
-	* @Column(name="question2", type="integer", length=1, nullable=true)
-	* */
-	private $question2;
+	private $kidsDehydrated;
 	
    /**
-    * @Column(name="locationOfDehydrationUnit", type="string", length=50, nullable=true)
+	* @Column(name="designatedDehydrationLocation", type="integer", length=1, nullable=true)
+	* */
+	private $designatedDehydrationLocation;
+	
+   /**
+    * @Column(name="locationOfDehydrationUnit", type="string", length=255, nullable=true)
 	* */
 	private $locationOfDehydrationUnit;
 	
 	 
    /**
-    * @Column(name="dateOfAssessment", type="string",length=10, nullable=true)
+    * @Column(name="dateOfAssessment", type="date", nullable=true)
 	* */
 	private $dateOfAssessment;
 	
    /**
-	* @Column(name="createdAt", type="datetime", nullable=true)
+    * @Column(name="budgetKept", type="integer",length=1, nullable=true)
+	* */
+	private $budgetKept;
+	
+	
+   /**
+	* @Column(name="createdAt", type="datetime", nullable=false)
 	* */
 	private $createdAt;
+	
+   /**
+	* @Column(name="updatedAt", type="datetime", nullable=true)
+	* */
+	private $updatedAt;
 	
 	public function getOrtAssessmentCode() {
 			return $this -> ortAssessmentCode;
@@ -58,17 +69,17 @@ namespace models\Entities;
 	
 	public function setFacilityMFC($facilityMFC) { $this -> facilityMFC = $facilityMFC;
 	}
-	public function getQuestion1() {
-			return $this -> question1;
+	public function getKidsDehydrated() {
+			return $this -> kidsDehydrated;
 	}
 	
-	public function setQuestion1($question1) { $this ->question1= $question1;
+	public function setKidsDehydrated($kidsDehydrated) { $this ->kidsDehydrated= $kidsDehydrated;
 	}
-	public function getQuestion2() {
-			return $this -> question2;
+	public function getDesignatedDehydrationLocation() {
+			return $this -> designatedDehydrationLocation;
 	}
 	
-	public function setQuestion2($question2) { $this ->question2= $question2;
+	public function setDesignatedDehydrationLocation($designatedDehydrationLocation) { $this ->designatedDehydrationLocation= $designatedDehydrationLocation;
 	}
 	
 	public function getLocationOfDehydrationUnit() {
@@ -84,10 +95,22 @@ namespace models\Entities;
 	public function setDateOfAssessment($dateOfAssessment) { $this -> dateOfAssessment = $dateOfAssessment;
 	}
 	
+	public function getBudgetKept() {
+			return $this -> budgetKept;}
+	
+	public function setBudgetKept($budgetKept) { $this -> budgetKept = $budgetKept;
+	}
+	
 	public function getCreatedAt() {
 			return $this -> createdAt;}
 	
 	public function setCreatedAt($createdAt) { $this -> createdAt = $createdAt;
+	}
+	
+	public function getUpdatedAt() {
+			return $this -> updatedAt;}
+	
+	public function setUpdatedAt($updatedAt) { $this -> updatedAt = $updatedAt;
 	}
 	
 }

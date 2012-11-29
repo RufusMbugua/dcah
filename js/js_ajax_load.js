@@ -2890,9 +2890,12 @@ function log() {
 			    	$('.form-container').find('input[type="radio"]').click(function() {
 			        if($(this).attr('id') == 'ortQuestion2_y') {
 			            //$('#others-text').show();
-			             $('.hide').show();
+			             $('#special_unit_loc').find('input').prop('disabled',false);
+			             $('#special_unit_loc').show();
 			        } else if($(this).attr('id') == 'ortQuestion2_n'){ 
-				       $('.hide').hide();
+			        	$('#special_unit_loc').find('input').prop('disabled',true);
+				      // $('#special_unit_loc').hide();
+				      $('#special_unit_loc').show();
 				    }
 			    });
 			    }
@@ -2912,7 +2915,7 @@ function log() {
 				
 				/*----------------------------------------------------------------------------------------------------------------*/
 			/*start of clone trigger functions*/
-			$('#clonetrigger_1,#clonetrigger_2').click(function() {
+			$('#clonetrigger_13,#clonetrigger_14').click(function() {
 		            form_id='#'+$(".form-container").find('form').attr('id'); /*what form has been loaded now?*/
 					var yourclass = ".clonable";
 					//The class you have used in your form
@@ -2921,14 +2924,14 @@ function log() {
 					var newid = Number(clonecount) + 1;
 					//Id of the new clone
 					
-					if($(this).attr('id')=="clonetrigger_1"){
-						c_target='#formbuttons_1';
+					if($(this).attr('id')=="clonetrigger_13"){
+						c_target='#formbuttons_13';
 						yourclass = ".clonable.zinc";
 						clonecount = $(yourclass).length;
 						newid = Number(clonecount) + 1;
 						//alert('1');
-					}else if($(this).attr('id')=="clonetrigger_2"){
-						c_target='#formbuttons_2';
+					}else if($(this).attr('id')=="clonetrigger_14"){
+						c_target='#formbuttons_14';
 						yourclass = ".clonable.ors";
 						clonecount = $(yourclass).length;
 						newid = Number(clonecount) + 1;
@@ -2984,14 +2987,14 @@ function log() {
 				
 				/*----------------------------------------------------------------------------------------------------------------*/
 				/*start of clone_remove*/
-				$('#cloneremove_1,#cloneremove_2').click(function() {
+				$('#cloneremove_13,#cloneremove_14').click(function() {
 					//alert($(".clonable").find("tr:last").attr('name'));
 				
-						if($(this).attr('id')=='cloneremove_1'){
+						if($(this).attr('id')=='cloneremove_13'){
 							if($(".clonable.zinc").length>1)
 							//alert('1');
 							$(".clonable.zinc:last").after().remove();
-						}else if($(this).attr('id')=='cloneremove_2'){
+						}else if($(this).attr('id')=='cloneremove_14'){
 							//alert($(".clonable.ors").length);
 							if($(".clonable.ors").length>1)
 							$(".clonable.ors:last").after().remove();
