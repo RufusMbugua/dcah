@@ -35,6 +35,11 @@ namespace models\Entities;
 	* */
 	private $locationOfDehydrationUnit;
 	
+   /**
+    * @Column(name="facilitySupplier", type="string",length=45, nullable=true)
+	* */
+	private $facilitySupplier;
+	
 	 
    /**
     * @Column(name="dateOfAssessment", type="date", nullable=true)
@@ -88,6 +93,14 @@ namespace models\Entities;
 	
 	public function setLocationOfDehydrationUnit($locationOfDehydrationUnit) { $this -> locationOfDehydrationUnit = $locationOfDehydrationUnit;
 	}
+	
+	public function getFacilitySupplier() {
+			return $this -> facilitySupplier;
+	}
+	
+	public function setFacilitySupplier($facilitySupplier) { $this -> facilitySupplier = $facilitySupplier;
+	}
+	
 	
 	public function getDateOfAssessment() {
 			return $this -> dateOfAssessment;}

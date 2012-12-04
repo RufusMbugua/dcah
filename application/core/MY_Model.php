@@ -3,7 +3,7 @@
 
 class  MY_Model  extends  CI_Model{
 
-public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityFound,$commodity,$facility,$section,$sectionExists;
+public $em, $response, $theForm,$district,$county,$province,$owner,$level,$type,$formRecords,$facilityFound,$commodity,$facility,$section,$ort,$sectionExists;
 
 function __construct() {
 		parent::__construct();
@@ -184,6 +184,21 @@ function __construct() {
 			return $this->section;
 
 	}/*close sectionEntryExists($mfc,$section)*/
+	
+	//used in m_zinc_ors_inventory
+   public function findOrtCodeByFacility($mfc){
+	     try{
+			$this->ort=$this->em->getRepository('models\Entities\e_ortc_assessment')
+			                       ->findOneBy( array('facilityMFC'=>$mfc));
+			return $this->ort;
+			}catch(exception $ex){
+				//ignore
+				//die($ex->getMessage());
+				return false;
+			}
+			
+
+	}/*close findOrtCodeByFacility($mfc)*/
 
 
 	//checks if commodity name exists

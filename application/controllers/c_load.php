@@ -82,7 +82,7 @@ class C_Load extends MY_Controller {
    <p id="data" style="display:none" class="message success"></p>
 
 	<!-- begin facility  div --->
-	<div id="facility_div" class="step" style="display:none">
+	<div id="facility_div" class="step">
 	<input type="hidden" name="step_name" value="facility_div"/>
 		<h3 align="center">FACILITY REGISTRATION</h3>
 
@@ -356,7 +356,7 @@ class C_Load extends MY_Controller {
 
    <!--begin of child health commodity form-->
 	<!--begin diarrhoiea morbidity factor div-->
-	<div id="diarrhoea_cases" class="step" disabled="disabled" style="display:none">
+	<div id="diarrhoea_cases" class="step" >
 	<input type="hidden" name="step_name" value="diarrhoea_cases"/>
 		<h3 align="center">Diarrhoea Morbidity Data </h3>
 		<div class="row2">
@@ -3435,7 +3435,7 @@ class C_Load extends MY_Controller {
 	</div><!--end medications in the maternity/labour ward div -->
 
 	<!--begin newborn care div-->
-	<div id="nbc_div_1" class="step" style="display:none">
+	<div id="nbc_div_1" class="step">
    <input type="hidden" name="step_name" value="nbc_div_1"/>
 	<h3>New-Born Care</h3>
 	<div class="row">
@@ -3575,7 +3575,7 @@ class C_Load extends MY_Controller {
 	</div><!--end new born care section 2-->
 								
 	<!--begin neonatal unit div-->
-	<div id="neonatal_unit" class="step" style="display:none">
+	<div id="neonatal_unit" class="step">
     <input type="hidden" name="step_name" value="neonatal_unit"/>
 		<div class="column-wide">
 
@@ -3834,7 +3834,7 @@ class C_Load extends MY_Controller {
 	<!--end neonatal unit div-->
 
 	<!--begin blood transfusion div-->
-	<div id="blood_transfusion" class="step" style="display:none">
+	<div id="blood_transfusion" class="step" >
 	<input type="hidden" name="step_name" value="blood_transfusion"/>
 		<div class="column-wide">
 			<h3>Blood Transfusion Services Assessment</h3>
@@ -3906,7 +3906,7 @@ class C_Load extends MY_Controller {
 	<!--end blood transfusion div-->
 
 	<!--begin level-4-and-above part 1-->
-	<div id="level_4_above_1" class="step" style="display:none">
+	<div id="level_4_above_1" class="step" >
 	<input type="hidden" name="step_name" value="level_4_above_1"/>
 		<div class="column-wide">
 			<div class="hide-level">
@@ -4311,7 +4311,7 @@ class C_Load extends MY_Controller {
 		
 		<!--begin level-4-and-above part 2-->
 
-	<div id="level_4_above_2" class="step" style="display:none">
+	<div id="level_4_above_2" class="step" >
 	<input type="hidden" name="step_name" value="level_4_above_2"/>
 		<div class="column-wide">
 			<div class="hide-level">

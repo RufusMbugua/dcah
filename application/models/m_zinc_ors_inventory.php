@@ -47,7 +47,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 		 if($this->input->post()){
 		 	 $step=$this->input->post('step_name',TRUE);
 			/**/switch($step){
-				/**/case 'facility_div':
+				/*case 'facility_div':
 				if($this->updateFacilityInfo()==true){//Defined in MY_Model
 					$this->writeAssessmentTrackerLog();
 				     	return $this -> response = 'true';
@@ -109,15 +109,6 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
                    }else{
                    	return $this -> response = 'false';
                    }
-				 
-				  /*case 'ort_questions':
-					if($this->addUnitCommoditiesInfo()==true){//defined in this model
-                   	
-				     	return $this -> response = 'true';
-                   }else{
-                   	return $this -> response = 'false';
-                   }
-					break;*/
 			
 				 case 'ort_part1':
 					if($this->addORTInfo()==true){//defined in this model
@@ -127,7 +118,29 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
                    	   return $this -> response = 'false';
                  }
 					   break;
-				 
+					   
+				 case 'ort_questions':
+					if($this->addORTInfo()==true){//defined in this model
+                   	
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					break;*/
+				 case 'ort_part2a':
+					 
+					 if($this->addEquipmentAssessmentInfo()==true){//defined in this model
+                   	    //log this change
+				        $this->writeAssessmentTrackerLog();
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
+					break; 
+				
+				 case 'ort_part2b':
+					
+					break;
 
 			}
 		 	//print var_dump($this->input->post());
@@ -213,14 +226,6 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 	} //close addDiarrhoeaData
 	
-
-
-   
-   //methods required 1. to check if supplied facility name exists
-   // 2. If facility name exists, 1. skip the facility insert but update* the facility info supplied 2. insert into the others
-   //*For now, just update but later on, try to autosuggest and remind user of a need to update contact info
-   
-   //check if facility name exists
    
 
    public function facilityExists($mfc){
@@ -309,14 +314,14 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			// }//close if(substr($key,0,3)=="ort")
 
 			 }//close foreach ($this -> input -> post() as $key => $val)
-            // print var_dump($this->elements);
-			 //exit;
+            //print var_dump($this->elements);
+			//exit;
 			 
 			    //check if entry exists--advance it to be comparing month's using the assessment tracker's info before updating or creating a new entry
 			   $this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
 
 		        //get the highest value of the array that will control the number of inserts to be done
-			    $this->noOfInsertsBatch=1; //only 1 ort corner record inserted
+			    $this->noOfInsertsBatch=1; //only 1 ort corner record is inserted
 			    
 			    //source of request
 			    $source=$this->input->post('step_name',TRUE);
@@ -338,9 +343,11 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			  	case 'ort_part1':
 					$this -> theForm -> setKidsDehydrated($this->elements['ortQuestion1']);
 			        $this -> theForm -> setDesignatedDehydrationLocation($this->elements['ortQuestion2']);
-					$this->  theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
+					$this ->  theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']);
 					break;
 				case 'ort_questions':
+					(isset($this->elements['specificSupplier']) && $this->elements['specificSupplier'] !='')?$this->  theForm ->setFacilitySupplier($this->elements['ortSupplier'].'('.$this->elements['specificSupplier'].')'):$this->  theForm ->setFacilitySupplier($this->elements['ortSupplier']);
+					$this->theForm->setBudgetKept($this->elements['budgetAvailable']);
 					break;
 					
 			  }
@@ -358,12 +365,14 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 						(isset($this->elements['ortDehydrationLocation']) && $this->elements['ortDehydrationLocation'] !='')?$this->  theForm -> setLocationOfDehydrationUnit($this->elements['ortDehydrationLocation']):$this->  theForm -> setLocationOfDehydrationUnit('n/a');
 						break;
 					case 'ort_questions':
+						(isset($this->elements['specificSupplier']) && $this->elements['specificSupplier'] !='')?$this->  theForm ->setFacilitySupplier($this->elements['ortSupplier'].'('.$this->elements['specificSupplier'].')'):$this->  theForm ->setFacilitySupplier($this->elements['ortSupplier']);
+					    $this->theForm->setBudgetKept($this->elements['budgetAvailable']);
 						break;
 					
 			   }
 					}catch(exception $ex){
 						//ignore
-						die($ex->getMessage());
+						//die($ex->getMessage());
 						return false;
 					}
 					
@@ -390,7 +399,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this->writeAssessmentTrackerLog();
                 return true;
 				}catch(Exception $ex){
-				    die($ex->getMessage());
+				    //die($ex->getMessage());
 					/*display user friendly message*/
 					return false;
 
@@ -403,7 +412,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 	private function addEquipmentAssessmentInfo(){
 		$count=1;$finalCount=0;
 		foreach ($this -> input -> post() as $key => $val) {//For every posted values
-		    if(substr($key,0,5)=="equip"){//select data for equipment
+		   if(substr($key,0,5)=="equip"){//select data for equipment
 			   //we separate the attribute name from the number
 
 				  $this->frags = explode("_", $key);
@@ -417,7 +426,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 
 				     //mark the end of 1 row...for record count
-				if($this->attr=="equipBudgetPresent"){
+				if($this->attr=="equipQuantity"){
 					//print 'count at:'.$count.'<br />';
 					$finalCount=$count;
 					 $count++;
@@ -437,30 +446,56 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			 }
 
 			 }//close foreach ($this -> input -> post() as $key => $val)
-			// print var_dump($this->elements);
-			// exit;
+			//print var_dump($this->elements);
+			//exit;
+			
+			    //check if entry exists--advance it to be comparing month's using the assessment tracker's info before updating or creating a new entry
+			   $this->section=$this->sectionEntryExists($this -> session -> userdata('fCode'),$this->input->post('step_name',TRUE));
+			   
+			   //retrieve ort code assigned to this facility
+			   $this->findOrtCodeByFacility($this -> session -> userdata('fCode'));
+			   $this->ortAssessCode=$this->ort->getOrtAssessmentCode();
+			   
+			 
 
 		          //get the highest value of the array that will control the number of inserts to be done
 				  $this->noOfInsertsBatch=$finalCount;
 
 
-						 for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+				for($i=1; $i<=$this->noOfInsertsBatch;++$i){
+					
+			    //if no log entry, means, this this the first entry
+				if($this->sectionExists !=true){
+				
+				//die('New entry, enter new one');
+			    #new fields go here
 
-				//insert facility if new, else update the existing one
-			   $this -> theForm = new \models\Entities\E_Equipment_Assessment(); //create an object of the model
+			   $this -> theForm = new \models\Entities\e_equipment_assessment(); //create an object of the model
+			   $this -> theForm -> setEquipmentCode($this->elements[$i]['equipCode']);
+			   $this -> theForm -> setOrtCode($this->ortAssessCode);
+			   
+			   }else{
+				//die('Duplicate entry, so update');
+				try{
+					$this -> theForm=$this->em->getRepository('models\Entities\e_equipment_assessment')
+					                       ->findOneBy( array('equipmentCode'=>$this -> elements[$i]['equipCode'],'ortCode'=>$this->ortAssessCode));
+					}catch(exception $ex){
+						//ignore
+						die($ex->getMessage());
+						return false;
+					}
+					
+				}
 
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
 
 				//$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
-				$this -> theForm -> setEquipmentCode($this->elements[$i]['equipCode']);
-				$this -> theForm -> setOrtCode($this->ortAssessCode);
+				
 				$this -> theForm -> setEquipmentAvailable($this->elements[$i]['equipAvailable']);
 				$this -> theForm -> setQuantity($this->elements[$i]['equipQuantity']);
-				$this -> theForm -> setSupplierName($this->elements[$i]['equipSupplier']);
-				$this -> theForm -> setBudgetKept($this->elements[$i]['equipBudgetPresent']);
 				$this -> em -> persist($this -> theForm);
 
-						//now do a batched insert, default at 5
+			//now do a batched insert, default at 5
 			  $this->batchSize=5;
 			if($i % $this->batchSize==0){
 			try{
@@ -468,8 +503,9 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
-				    //die($ex->getMessage());
+				   die($ex->getMessage());
 					/*display user friendly message*/
+					return false;
 
 				}//end of catch
 
@@ -481,8 +517,9 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
 				}catch(Exception $ex){
-					//die($ex->getMessage());
+					die($ex->getMessage());
 					/*display user friendly message*/
+					return false;
 
 				}//end of catch
 

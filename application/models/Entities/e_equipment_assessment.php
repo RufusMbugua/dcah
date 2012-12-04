@@ -37,20 +37,7 @@ namespace models\Entities;
 	private $quantity;
 	
 	 
-   /**
-    * @Column(name="supplierName", type="string",length=45, nullable=true)
-	* */
-	private $supplierName;
 	
-   /**
-	* @Column(name="budgetKept", type="integer", length=1,nullable=true)
-	* */
-	private $budgetKept;
-	
-	/**
-	* @Column(name="createdAt", type="datetime", nullable=true)
-	* */
-	//private $createdAt;
 	
 	public function getEquipmentAssessmentID() {
 			return $this -> equipmentAssessmentID;
@@ -84,24 +71,6 @@ namespace models\Entities;
 	public function setQuantity($quantity) { $this -> quantity = $quantity;
 	}
 	
-	public function getSupplierName() {
-			return $this ->supplierName;}
-	
-	public function setSupplierName($supplierName) { $this -> supplierName = $supplierName;
-	}
-	
-	public function getBudgetKept() {
-			return $this -> budgetKept;}
-	
-	public function setBudgetKept($budgetKept) { $this -> budgetKept = $budgetKept;
-	}
-	
-	//public function getCreatedAt() {
-			//return $this -> createdAt;
-	//}
-	
-	//public function setCreatedAt($createdAt) { $this ->createdAt = $createdAt;
-	//}
 	
 }
 ?>
