@@ -446,15 +446,19 @@ $mfCode = $this -> session -> userdata('fCode');
 				function clonable_events_register(){
 					 /*----------------------------------------------------------------------------------------------------------------*/
 								/*start of clone trigger functions*/
-								$('#clonetrigger_13,#clonetrigger_14').click(function() {
-							            form_id='#'+$(".form-container").find('form').attr('id'); /*what form has been loaded now?*/
+								        var t = 'default';
+										var m = 'mixed';
+										
+										form_id='#'+$(".form-container").find('form').attr('id'); /*what form has been loaded now?*/
 										var yourclass = ".clonable";
 										//The class you have used in your form
 										var clonecount = $(yourclass).length;
 										//how many clones do we already have?
 										var newid = Number(clonecount) + 1;
-										//Id of the new clone
 										
+										//Id of the new clone
+								$('#clonetrigger_13,#clonetrigger_14,#clonetrigger_15,#clonetrigger_16').click(function() {
+										//alert($(this).attr('id'));
 										if($(this).attr('id')=="clonetrigger_13"){
 											c_target='#formbuttons_13';
 											yourclass = ".clonable.zinc";
@@ -464,6 +468,18 @@ $mfCode = $this -> session -> userdata('fCode');
 										}else if($(this).attr('id')=="clonetrigger_14"){
 											c_target='#formbuttons_14';
 											yourclass = ".clonable.ors";
+											clonecount = $(yourclass).length;
+											newid = Number(clonecount) + 1;
+											//alert('2');
+										}else if($(this).attr('id')=="clonetrigger_15"){
+											c_target='#formbuttons_15';
+											yourclass = ".clonable.cip";
+											clonecount = $(yourclass).length;
+											newid = Number(clonecount) + 1;
+											//alert('2');
+										}else if($(this).attr('id')=="clonetrigger_16"){
+											c_target='#formbuttons_16';
+											yourclass = ".clonable.met";
 											clonecount = $(yourclass).length;
 											newid = Number(clonecount) + 1;
 											//alert('2');
@@ -489,29 +505,8 @@ $mfCode = $this -> session -> userdata('fCode');
 							            $('.mobiscroll').removeClass('scroller');
 					                    $('.mobiscroll').scroller({preset:'time'});
 					
-										var t = 'default';
-										var m = 'mixed';
-										$('.mobiscroll').scroller('destroy').scroller({ preset: 'time', theme: t, mode: m });
 										
-										$(".cloned").on("keyup", function(){
-						                    //alert("active element: "+$("input:text:focus").attr("id"));
-					
-						                   //alert('Last Id: '+clonecount);
-						                   lastRowId=clonecount+1;
-						                    //do some calculations on key typed
-						                 // var id=$("input:text:focus").attr("id");
-						                 var id=$(this).attr('id');
-						                  var no=id.substr(id.indexOf('_')+1,id.length);
-						                 // alert("append: "+no);
-						                switch(form_id){
-						                	
-						               case '#zinc_ors_inventory':/*zinc and ors inventory form*/
-						            
-										break;
-									 
-						                    } /*end of the case*/
-									
-						               }); //end of cloned key up function
+										$('.mobiscroll').scroller('destroy').scroller({ preset: 'time', theme: t, mode: m });
 							 
 										return  false;
 									});/*end of clone trigger*/
@@ -519,7 +514,7 @@ $mfCode = $this -> session -> userdata('fCode');
 				/*----------------------------------------------------------------------------------------------------------------*/
 				/*----------------------------------------------------------------------------------------------------------------*/
 									/*start of clone_remove*/
-									$('#cloneremove_13,#cloneremove_14').click(function() {
+									$('#cloneremove_13,#cloneremove_14,#cloneremove_15,#cloneremove_16').click(function() {
 										//alert($(".clonable").find("tr:last").attr('name'));
 									
 											if($(this).attr('id')=='cloneremove_13'){
@@ -530,10 +525,16 @@ $mfCode = $this -> session -> userdata('fCode');
 												//alert($(".clonable.ors").length);
 												if($(".clonable.ors").length>1)
 												$(".clonable.ors:last").after().remove();
+											}else if($(this).attr('id')=='cloneremove_15'){
+												//alert($(".clonable.ors").length);
+												if($(".clonable.cip").length>1)
+												$(".clonable.cip:last").after().remove();
+											}else if($(this).attr('id')=='cloneremove_16'){
+												//alert($(".clonable.ors").length);
+												if($(".clonable.met").length>1)
+												$(".clonable.met:last").after().remove();
 											}
-										//}else{
-											//('#cloneremove').disable();
-										//}
+										
 									 return false;
 									 });
 									 /*end of clone_remove*/
