@@ -126,7 +126,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
                    }else{
                    	return $this -> response = 'false';
                    }
-					break;*/
+					break;
 				 case 'ort_part2a':
 					 
 					 if($this->addEquipmentAssessmentInfo()==true){//defined in this model
@@ -136,7 +136,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
                    }else{
                    	return $this -> response = 'false';
                    }
-					break; 
+					break; */
 				
 				 case 'ort_part2b':
 					
