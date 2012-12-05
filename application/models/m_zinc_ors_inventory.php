@@ -130,8 +130,6 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				 case 'ort_part2a':
 					 
 					 if($this->addEquipmentAssessmentInfo()==true){//defined in this model
-                   	    //log this change
-				        $this->writeAssessmentTrackerLog();
 				     	return $this -> response = 'true';
                    }else{
                    	return $this -> response = 'false';
@@ -139,7 +137,11 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 					break; */
 				
 				 case 'ort_part2b':
-					
+					if($this->addEquipmentAssessmentInfo()==true){//defined in this model
+				     	return $this -> response = 'true';
+                   }else{
+                   	return $this -> response = 'false';
+                   }
 					break;
 
 			}
@@ -468,7 +470,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				if($this->sectionExists !=true){
 				
 				//die('New entry, enter new one');
-			    #new fields go here
+			    #new fields go here--when it's the first time the record is inserted, set the values the that are inserted once here. e.g facility code, equipment code
 
 			   $this -> theForm = new \models\Entities\e_equipment_assessment(); //create an object of the model
 			   $this -> theForm -> setEquipmentCode($this->elements[$i]['equipCode']);
@@ -477,11 +479,12 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 			   }else{
 				//die('Duplicate entry, so update');
 				try{
+					//query to retrieve the existing record's info for an update
 					$this -> theForm=$this->em->getRepository('models\Entities\e_equipment_assessment')
 					                       ->findOneBy( array('equipmentCode'=>$this -> elements[$i]['equipCode'],'ortCode'=>$this->ortAssessCode));
 					}catch(exception $ex){
 						//ignore
-						die($ex->getMessage());
+						//die($ex->getMessage());
 						return false;
 					}
 					
@@ -489,8 +492,8 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 		       //return the id of the last ORT assessment insert to use it in this subsequent equipment assessment
 
-				//$this -> theForm -> setCreatedAt(new DateTime()); /*timestamp option*/
 				
+				#these values here are either updated/inserted every time the code is executed ,
 				$this -> theForm -> setEquipmentAvailable($this->elements[$i]['equipAvailable']);
 				$this -> theForm -> setQuantity($this->elements[$i]['equipQuantity']);
 				$this -> em -> persist($this -> theForm);
@@ -503,7 +506,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detaches all objects from doctrine
 				}catch(Exception $ex){
-				   die($ex->getMessage());
+				   //die($ex->getMessage());
 					/*display user friendly message*/
 					return false;
 
@@ -517,11 +520,18 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				$this -> em -> flush();
 				$this->em->clear(); //detactes all objects from doctrine
 				}catch(Exception $ex){
-					die($ex->getMessage());
+					//die($ex->getMessage());
 					/*display user friendly message*/
 					return false;
 
 				}//end of catch
+				
+				//on the last record to be inserted, log the process and return true;
+				if($i==$this->noOfInsertsBatch){
+				//die(print $i);
+				 $this->writeAssessmentTrackerLog();
+				 return true;
+				}
 
 
 			}//end of batch condition
@@ -648,7 +658,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 
 
 			}//end of batch condition
-			//print $i.'<br>';
+			//on the last record to be inserted, log the process and return true;
 			if($i==$this->noOfInsertsBatch){
 			//die(print $i);
 			 $this->writeAssessmentTrackerLog();
@@ -734,7 +744,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				}catch(Exception $ex){
 				    //die($ex->getMessage());
 					/*display user friendly message*/
-
+                    return false;
 				}//end of catch
 
 			} else if($i<$this->batchSize || $i>$this->batchSize || $i==$this->noOfInsertsBatch && 
@@ -747,6 +757,7 @@ class M_Zinc_Ors_Inventory  extends MY_Model {
 				}catch(Exception $ex){
 					//die($ex->getMessage());
 					/*display user friendly message*/
+					return false;
 
 				}//end of catch
 
