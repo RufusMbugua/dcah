@@ -1,81 +1,82 @@
 <?php
 class C_Load extends MY_Controller {
-	var $rows,$combined_form;
-	
+	var $rows, $combined_form;
+
 	public function __construct() {
 		parent::__construct();
 		//print var_dump($this->tValue); exit;
-		$this->rows='';
-		$this->combined_form;
-    
+		$this -> rows = '';
+		$this -> combined_form;
+
 	}
-	
-	public function getFacilityDetails(){
-    	/*retrieve files under this form if any*/
-		$this->load->model('m_zinc_ors_inventory');
-		if(($this->m_zinc_ors_inventory->retrieveFacilityInfo($this -> session -> userdata('fCode')))==true){
+
+	public function getFacilityDetails() {
+		/*retrieve files under this form if any*/
+		$this -> load -> model('m_zinc_ors_inventory');
+		if (($this -> m_zinc_ors_inventory -> retrieveFacilityInfo($this -> session -> userdata('fCode'))) == true) {
 			//retrieve existing data..else just load a blank form
-			print $this->m_zinc_ors_inventory->formRecords;
+			print $this -> m_zinc_ors_inventory -> formRecords;
 		}
-    }
-	
-	public function suggestFacilityName(){
-		$this->load->model('m_autocomplete');
-		$facilityName=strtolower($this->input->get_post('term',TRUE)); //term is obtained from the ajax call
-		
+	}
+
+	public function suggestFacilityName() {
+		$this -> load -> model('m_autocomplete');
+		$facilityName = strtolower($this -> input -> get_post('term', TRUE));
+		//term is obtained from the ajax call
+
 		//echo $facilityName; exit;
-		
+
 		//$facilityName='Keri';
-		
-		if (!strlen($facilityName)<2)
-		
-		//echo $facilityName; 
-		
-		try{
-		$this->rows=$this->m_autocomplete->getAutocomplete(array('keyword'=>$facilityName));
-		//die (var_dump($this->rows));
-		$json_data=array();
-		
-		//foreach($this->rows as $key=>$value)
-		//array_push($json_data,$value['facilityName']);
-		foreach($this->rows as $value){
-			array_push($json_data,$value->facilityName);
-		  
-			//print $key.' '.$value.'<br />';
-			//$json_data=array('code'=>$value->facilityMFC,'name'=>$value->facilityName);
-		}
-			print json_encode($json_data);//die;
-		
-		}catch(exception $ex){
-			//ignore
-			//$ex->getMessage();
-		}
-		
+
+		if (!strlen($facilityName) < 2)
+
+			//echo $facilityName;
+
+			try {
+				$this -> rows = $this -> m_autocomplete -> getAutocomplete(array('keyword' => $facilityName));
+				//die (var_dump($this->rows));
+				$json_data = array();
+
+				//foreach($this->rows as $key=>$value)
+				//array_push($json_data,$value['facilityName']);
+				foreach ($this->rows as $value) {
+					array_push($json_data, $value -> facilityName);
+
+					//print $key.' '.$value.'<br />';
+					//$json_data=array('code'=>$value->facilityMFC,'name'=>$value->facilityName);
+				}
+				print json_encode($json_data);
+				//die;
+
+			} catch(exception $ex) {
+				//ignore
+				//$ex->getMessage();
+			}
+
 	}
-	
-	public function suggest(){
-		$this->load->model('m_autocomplete');
+
+	public function suggest() {
+		$this -> load -> model('m_autocomplete');
 		//$facilityName=$this->input->post('username',TRUE);
-		
-		try{
-		$this->rows=$this->m_autocomplete->getAllFacilityNames();
-		//die(var_dump($this->rows));
-		$json_data=array();
-		
-		foreach($this->rows as $key=>$value)
+
+		try {
+			$this -> rows = $this -> m_autocomplete -> getAllFacilityNames();
+			//die(var_dump($this->rows));
+			$json_data = array();
+
+			foreach ($this->rows as $key => $value)
 			//array_push($json_names,$value['facilityName']);
-			$json_data=array('code'=>$value['facilityMFC'],'name'=>$value['facilityName']);
+				$json_data = array('code' => $value['facilityMFC'], 'name' => $value['facilityName']);
 			print json_encode($json_data);
-		}catch(exception $ex){
+		} catch(exception $ex) {
 			//ignore
-			$ex->getMessage();
+			$ex -> getMessage();
 		}
-		
+
 	}
 
-
-    public function get_form(){
-    	$this->combined_form.='<h5 id="status"></h5>
+	public function get_form() {
+		$this -> combined_form .= '<h5 id="status"></h5>
 
 		<form class="bbq" name="dcah_tool" id="dcah_tool" method="POST">
 
@@ -358,929 +359,345 @@ class C_Load extends MY_Controller {
 	<!--begin diarrhoiea morbidity factor div-->
 	<div id="diarrhoea_cases" class="step" >
 	<input type="hidden" name="step_name" value="diarrhoea_cases"/>
-		<h3 align="center">Diarrhoea Morbidity Data </h3>
+		<h3 align="center"> MATERNAL AND NEONATAL HEALTH ASSESSMENT								
+</h3>
 		<div class="row2">
 			<div class="left">
 				<label>
-					Indicate number of diarrhoea cases seen in this facility in the <b>last 2 months</b></label>
+					Indicate the number of deliveries conducted in the following periods: 		
+ </label>
 			</div>
+			<p></p>
 			<div class="center">
-				<input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/>
-			</div>
-		</div>
-	</div>
+			
+			<div class="left">
+				<label><b>Click the checkbox on the left if this facility does not routinely offer birth delivery services</b></label>
+				</div>
+				<div class="center">
+				<input type="checkbox" name="noMaternityContact" id="noMaternityContact" title="check this box if  this facility does not routinely offer birth delivery services			
+"/>
+				</div>
+				
+				</div>
+			<p></p>
+			<table><tr><td>
 
-	<!--end diarrhoiea morbidity factor div-->
+					Months</td><td colspan ="2"> </td><td> YEAR 2012</TD><td colspan ="1"> </td><TD>YEAR 2013</td><td colspan ="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Months</td><td> YEAR 2012</TD><td colspan ="1"> </td><TD>YEAR 2013</div></td></tr>
+			
+			
+			<tr><td>JANUARY</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>JULY</td> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			<hr>
+			<tr><td>FEBRUARY</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>AUGUST</td> <td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			
+			<tr><td>MARCH</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>SEPTEMBER</td>  <td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			<tr><td>APRIL</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>OCTOBER</td> <td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			<tr><td>MAY</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>NOVEMBER</td> <td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			<tr><td>JUNE</td> <td colspan ="2"> </td><td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td><td colspan ="2"> </td><td>DECEMBER</td> <td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td>
+			<td colspan ="1"> </td>
+			<td><input type="text" id="diarrhoeaCases" name="diarrhoeaCases" class="cloned numbers"/></td></tr>
+			
+			
+			
+			</table>
+			
+					
+				
+				
+			</div>
+			
+			
+		</div>
+
+	</div>
+	
+
+	<!--end indicate number of deliveries in period-->
 
 <!--begin child health drug section -->
      <div id="tabs-1" class="tab MCH step" style="display:none">
      <input type="hidden" name="step_name" value="childhealth_mch_tab"/>
-   	<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+   	<h3 align="center"> PERFORMANCE OF SIGNAL FUNCTIONS	</h3>
 	
 	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+			Indicate which BEmOC signal functions were conducted in the last 3 months Facility
+			<hr>
 	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: MCH</div>
-	
+	<p></p>
 		
-        <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-				</tr>
-				<tr>
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="number"  name="MStockQuantity_1" id="MStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="MCommodityName_1" id="MCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="MUnit_1" id="Unit_1" value="MCH" />
-				</td>
-				<td width="144">
-				<input type="text"  name="MStockExpiryDate_1" id="MStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-
-				</tr>
-			</thead>
-			
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="MStockQuantity_2" id="MStockQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="MCommodityName_2" id="MCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="MUnit_2" id="Unit_2" value="MCH" />
-				</td>
-				<td width="144">
-				<input type="text"  name="MStockExpiryDate_2" id="MStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="MStockQuantity_3" id="MStockQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="MCommodityName_3" id="MCommodityName_3" value="Ciprofloxacin" />
-				<input type="hidden"  name="MUnit_3" id="Unit_3" value="MCH" />
-				</td>
-				<td width="144">
-				<input type="text"  name="MStockExpiryDate_3" id="MStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="MStockQuantity_4" id="MStockQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="MCommodityName_4" id="MCommodityName_4" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="MUnit_4" id="MUnit_4" value="MCH" />
-				</td>
-				<td width="144">
-				<input type="text"  name="MStockExpiryDate_4" id="MStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-	</div> <!--close tabs-1-->
-	
-	<div id="tabs-2" class="tab PEDS step">
-	 <input type="hidden" name="step_name" value="childhealth_peds_tab"/>
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: PEDS</div>
-	     <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				
-				<tr>
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="number"  name="PStockQuantity_1" id="PStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="PCommodityName_1" id="PCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="PUnit_1" id="PUnit_1" value="PED" />
-				</td>
-				<td width="144">
-				<input type="text"  name="PStockExpiryDate_1" id="PStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="PStockQuantity_2" id="PStockQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="PCommodityName_2" id="PCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="PUnit_2" id="Unit_2" value="PED" />
-				</td>
-				<td width="144">
-				<input type="text"  name="PStockExpiryDate_2" id="PStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="PStockQuantity_3" id="PStockQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="PCommodityName_3" id="PCommodityName_3" value="Ciprofloxacin" />
-				<input type="hidden"  name="PUnit_3" id="Unit_3" value="PED" />
-				</td>
-				<td width="144">
-				<input type="text"  name="PStockExpiryDate_3" id="PStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="PStockQuantity_4" id="PStockQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="PCommodityName_4" id="PCommodityName_4" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="PUnit_4" id="PUnit_4" value="PED" />
-				</td>
-				<td width="144">
-				<input type="text"  name="PStockExpiryDate_4" id="PStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-	</div> <!--close tabs-2-->
-	
-	<div id="tabs-3" class="tab OPD step">
-	<input type="hidden" name="step_name" value="childhealth_opd_tab"/>
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: OPD</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Tablets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="number"  name="OStockQuantity_1" id="OStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="OCommodityName_1" id="OCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="OUnit_1" id="OUnit_1" value="OPD" />
-				</td>
-				<td width="144">
-				<input type="text"  name="OStockExpiryDate_1" id="OStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="OStockQuantity_2" id="OStockQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="OCommodityName_2" id="OCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="OUnit_2" id="OUnit_2" value="OPD" />
-				</td>
-				<td width="144">
-				<input type="text"  name="OStockExpiryDate_2" id="OStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="OStockQuantity_3" id="OStockQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="OCommodityName_3" id="OCommodityName_3" value="Ciprofloxacin" />
-				<input type="hidden"  name="OUnit_3" id="OUnit_3" value="OPD" />
-				</td>
-				<td width="144">
-				<input type="text"  name="OStockExpiryDate_3" id="OStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-					<td width="144">Quantities at Hand (Sachets)</td>
-					<td width="144">Expiry Date</td>
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="number"  name="OStockQuantity_4" id="OStockQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
-				<input type="hidden"  name="OCommodityName_4" id="OCommodityName_4" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="OUnit_4" id="OUnit_4" value="OPD" />
-				</td>
-				<td width="144">
-				<input type="text"  name="OStockExpiryDate_4" id="OStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-		</table>
-	</div> <!--close tabs-3-->
-	
-	
-	<div id="tabs-4" class="tab Pharmacy step">
-	<input type="hidden" name="step_name" value="childhealth_pharm_tab"/>
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Pharmacy</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"  name="HStockBatchNo_1" id="HStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="HCommodityName_1" id="HCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="HUnit_1" id="HUnit_1" value="PHA" />
-				</td>
-				<td width="144">
-				<input type="date"  name="HStockDispensedDate_1" id="HStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockSupplier_1" id="HStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockExpiryDate_1" id="HStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockComments_1" id="HStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_13">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_13" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_13" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="HStockBatchNo_2" id="HStockBatchNo_2" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="HCommodityName_2" id="HCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="HUnit_2" id="HUnit_2" value="PHA" />
-				</td>
-				<td width="144">
-				<input type="date"  name="HStockDispensedDate_2" id="HStockDispensedDate_2" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockSupplier_2" id="HStockSupplier_2" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockExpiryDate_2" id="HStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockComments_2" id="HStockComments_2" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_14">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_14" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_14" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable cip">
-				<td width="144">
-				<input type="text"  name="HStockBatchNo_3" id="HStockBatchNo_3" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="HCommodityName_3" id="HCommodityName_3" value="Ciprofloxacin" />
-				<input type="hidden"  name="HUnit_3" id="HUnit_3" value="PHA" />
-				</td>
-				<td width="144">
-				<input type="date"  name="HStockDispensedDate_3" id="HStockDispensedDate_3" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockSupplier_3" id="HStockSupplier_3" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockExpiryDate_3" id="HStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockComments_3" id="HStockComments_3" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_15">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_15" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_15" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-
-			<tr class="clonable met">
-				<td width="144">
-				<input type="text"  name="HStockBatchNo_4" id="HStockBatchNo_4" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="HCommodityName_4" id="HCommodityName_4" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="HUnit_4" id="HUnit_4" value="PHA" />
-				</td>
-				<td width="144">
-				<input type="date"  name="HStockDispensedDate_4" id="HStockDispensedDate_4" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockSupplier_4" id="HStockSupplier_4" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockExpiryDate_4" id="HStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="HStockComments_4" id="HStockComments_4" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_16">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_16" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_16" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--close tabs-4-->
-	
-	<div id="tabs-5" class="tab Stores step">
-	<input type="hidden" name="step_name" value="childhealth_store_tab"/>
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Stores</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Tablets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"    name="SBatchNo_1" id="SStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="SCommodityName_1" id="SCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				<input type="hidden"  name="SUnit_1" id="SUnit_1" value="Store" />
-				</td>
-				<td width="144">
-				<input type="date"  name="SStockDispensedDate_1" id="SStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockSupplier_1" id="SStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockExpiryDate_1" id="SStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockComments_1" id="SStockComments_1" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_17">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_17" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_17" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="SStockBatchNo_2" id="SStockBatchNo_2" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="SCommodityName_2" id="SCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				<input type="hidden"  name="SUnit_2" id="SUnit_2" value="Store" />
-				</td>
-				<td width="144">
-				<input type="date"  name="SStockDispensedDate_2" id="SStockDispensedDate_2" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockSupplier_2" id="SStockSupplier_2" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockExpiryDate_2" id="SStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockComments_2" id="SStockComments_2" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_18">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_18" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_18" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-				</tr>
-			</thead>
-			<tr class="clonable cip">
-				<td width="144">
-				<input type="text"  name="SStockBatchNo_3" id="SStockBatchNo_3" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="SCommodityName_3" id="SCommodityName_3" value="Ciprofloxacin" />
-				<input type="hidden"  name="SUnit_3" id="SUnit_3" value="Store" />
-				</td>
-				<td width="144">
-				<input type="date"  name="SStockDispensedDate_3" id="SStockDispensedDate_3" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockSupplier_3" id="SStockSupplier_3" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockExpiryDate_3" id="SStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockComments_3" id="SStockComments_3" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_19">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_19" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_19" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable met">
-				<td width="144">
-				<input type="text"  name="SStockBatchNo_4" id="SStockBatchNo_4" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="SCommodityName_4" id="SCommodityName_4" value="Metronidazole (Flagyl)" />
-				<input type="hidden"  name="SUnit_4" id="SUnit_4" value="Store" />
-				</td>
-				<td width="144">
-				<input type="date"  name="SStockDispensedDate_4" id="SStockDispensedDate_4" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockSupplier_4" id="SStockSupplier_4" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockExpiryDate_4" id="SStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="SStockComments_4" id="SStockComments_4" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_20">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_20" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_20" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-	</div> <!--close tabs-5-->
-	
-	<div id="tabs-6" class="tab Others step">
-	<input type="hidden" name="step_name" value="childhealth_other_tab"/>
-		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
-	
-	<p style="text-align: center;color:#872300">
-			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
-	</p>
-	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Others</div>
-		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<div class="row2"> 
-				<label>Unit Name</label>
-				<input type="text"  name="otherUnit_1" id="otherUnit_1" class="cloned" maxlength="45"/>
-				</div>
-			<tr class="clonable zinc">
-				<td width="144">
-				<input type="text"  name="TStockBatchNo_1" id="TStockBatchNo_1" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="TCommodityName_1" id="TCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
-				</td>
-				<td width="144">
-				<input type="date"  name="TStockDispensedDate_1" id="TStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockSupplier_1" id="TStockSupplier_1" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="OStockExpiryDate_1" id="TStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_21">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_21" value="Add Batch Number" width="auto"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_21" value="Remove Batch Number" width="auto"/>
-			</tr>
-		</table>
-
-		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable ors">
-				<td width="144">
-				<input type="text"  name="TStockBatchNo_2" id="TStockBatchNo_2" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="TCommodityName_2" id="TCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
-				</td>
-				<td width="144">
-				<input type="date"  name="TStockDispensedDate_2" id="TStockDispensedDate_2" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockSupplier_2" id="TStockSupplier_2" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockExpiryDate_2" id="TStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_22">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_22" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_22" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Ciprofloxacin Assessment</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable met">
-				<td width="144">
-				<input type="text"  name="TStockBatchNo_3" id="TStockBatchNo_3" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="TCommodityName_3" id="TCommodityName_3" value="Ciprofloxacin" />
-				</td>
-				<td width="144">
-				<input type="date"  name="TStockDispensedDate_3" id="TStockDispensedDate_3" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockSupplier_3" id="TStockSupplier_3" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockExpiryDate_3" id="TStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_23">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_23" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_23" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-		
-		<h3 align="center"> Metronidazole (Flagyl)</h3>
-		<table>
-			<thead>
-				<tr>
-
-					<td width="144">Batch No</td>
-					<!--td width="144">Quantities at Hand (Sachets)</td-->
-					<td width="144">Date Supplied to Facility</td>
-					<td width="144">Supplier</td>
-					<td width="144">Expiry Date</td>
-					<td width="144">Comments</td>
-
-				</tr>
-			</thead>
-			<tr class="clonable met">
-				<td width="144">
-				<input type="text"  name="TStockBatchNo_4" id="TStockBatchNo_4" class="cloned" maxlength="10"/>
-				<input type="hidden"  name="TCommodityName_4" id="TCommodityName_4" value="Metronidazole" />
-				</td>
-				<td width="144">
-				<input type="date"  name="TStockDispensedDate_4" id="TStockDispensedDate_4" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockSupplier_4" id="TStockSupplier_4" class="cloned" maxlength="45"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockExpiryDate_4" id="TStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
-				</td>
-				<td width="144">
-				<input type="text"  name="TStockComments_4" id="TStockComments_4" class="cloned" maxlength="255"/>
-				</td>
-			</tr>
-			<tr id="formbuttons_24">
-				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_24" value="Add Batch Number" width="12"/>
-				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_24" value="Remove Batch Number" width="12"/>
-			</tr>
-		</table>
-	</div> <!--end of tabs-6-->
-<!--end child health drug section -->	
-
-<!--begin ort corner section-->
-<div id="ort_part1" class="step">
-<input type="hidden" name="step_name" value="ort_part1"/>
-<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
-	<div class="block">
-		<div class="column">
-			<div class="row-title">
-				<div class="left">
-					ASPECTS
-				</div>
-				<div class="right" style="float:right">
-					<div class="col">
-						YES
+     <p></p>
+		<p></p>
+		   
+						
+				<div class="row2">
+					<div class="left">
+						<label>Administration of parenteral antibiotics				
+:</label>
 					</div>
-					<div class="col">
-						NO
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="left">
-					<label> Are dehydrated children rehydrated at this facility? </label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="radio" name="ortQuestion1" id="ortQuestion1_y" value="1" />
-					</div>
-					<div class="col">
-						<input type="radio" name="ortQuestion1" id="ortQuestion1_n" value="0" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="left">
-					<label> Does the facility have a designated location for oral rehydration ?</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="radio" name="ortQuestion2" id="ortQuestion2_y"  value="1" />
-					</div>
-					<div class="col">
-						<input type="radio" name="ortQuestion2" id="ortQuestion2_n" value="0" />
-					</div>
-				</div>
-			</div>
-			<div class="row hide" id="special_unit_loc" style="display:none">
-					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
-			<div class="row" style>
-				<div class="left" >
-					<label> MCH</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocation"  value="MCH" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide">
-				<div class="left" >
-					<label> OPD</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocationOPD"  value="OPD" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide">
-				<div class="left" >
-					<label> WARD </label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocationWard"  value="Ward" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			<div class="row hide">
-				<div class="left" >
-					<label> Other*?</label>
-				</div>
-				<div class="right">
-					<div class="col">
-						<input type="text" name="ortDehydrationLocation[]" id="ortDehydrationLocationOther"  value="" maxlength="50"/>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div><!--close class row hide -->
-	</div><!--close class block -->
-	</div> <!--end of ort corner part1 -->
-	
-	<div id="ort_questions" class="step">
-	<input type="hidden" name="step_name" value="ort_questions"/>
-		<h3 align="center"> Oral Rehydration Therapy Corner Assessment ...</h3>
-		<div class="block">
-		<div class="column-wide">	
-	    <div class="row-title">
-				<div class="left">
-
-					<label class="dcah-label">QUESTION</label>
-				</div>
-				<div class="center">
-					<label class="dcah-label">ANSWER</label>
-				</div>
-			</div>
-			<div class="row">
-			<div class="left"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility?</label> </div>
-			<div class="center">
-			            <select name="ortSupplier" id="ortSupplier" class="cloned left-combo">
-						<option value="" selected="selected">Select One</option>
-						<option >Government</option>
-						<option >Ministry</option>
-						<option >Facility Procurement</option>
-						<option >Partners</option>
-						<option >Others</option>
-				</select></div>
-				<div id="partner" class="right" style="display:none">
-				<label>Specify:</label>
-				<input type="text" name="specificSupplier" class="cloned" maxlength="45"/>
-			</div>
-			</div>
-			<div class="row">
-			
-			<div class="left"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing or Broken ORT Corner equipment?</label> </div>
-			<div class="right"><select name="budgetAvailable" id="budgetAvailable" class="cloned left-combo">
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
 						<option value="" selected="selected">Select One</option>
 						<option value="1">Yes</option>
 						<option value="0">No</option>
-				</select> </div>
-			</div></div>
-		</div><!--end of column wide-->
-		</div><!--end of ort questions-->
+					</select>
+					</div>
+					</div>		
+					<div class="row2">
+					<div class="left">
+						<label>Administration of uterotonic drugs 			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>	
+					
+					<div class="row2">
+					<div class="left">
+						<label>Administration of parenteral anticonvulsants					
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>	
+					<div class="row2">
+					<div class="left">
+						<label>Manual removal of placenta				
+
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>	
+					<div class="row2">
+					<div class="left">
+						<label>Removal of retained products				
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>		
+				<div class="row2">
+					<div class="left">
+						<label> Assisted vaginal delivery				
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>	
+					<div class="row2">
+					<div class="left">
+						<label> Newborn resuscitation				
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="equipAvailable_4" id="equipAvailable_4" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+					</div>
+					</div>	
+				
+			
+			
 		
+
+		<h3 align="left">Indicate the MAIN challenge experienced in performing the signal functions  
+</h3>
+		
+		<div class="row2">
+					<div class="left">
+						<label> Inadequate drugs
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					
+						<div class="row2">
+					<div class="left">
+						<label> Inadequate training
+
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					
+						<div class="row2">
+					<div class="left">
+						<label> Inadequate Supplies
+
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					
+						<div class="row2">
+					<div class="left">
+						<label> Inadequate Job aids
+
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					
+						<div class="row2">
+					<div class="left">
+						<label> Inadequate equipment
+
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					<div class="row2">
+					<div class="left">
+						<label> Case never presented
+
+
+			
+			
+			
+			
+:</label>
+					</div>
+					<div class="right">
+						<select name="facilityType" id="facilityType" class="cloned">
+							<option value="" selected="selected">Select One</option>
+							' . $this -> selectFacilityType . '
+						</select>
+					</div>
+					</div>	
+					
+					
+		
+	</div> <!--close tabs-1-->
+	
 	<div id="ort_part2a" class="step"><!--begin ort part 2a-->
 	<input type="hidden" name="step_name" value="ort_part2a"/>
 		<div class="row-title">
-			<label class="dcah-label">EQUIPMENT: Part 1 of 2</label>
+			<label class="dcah-label">AVAILABILITY OF COMMODITIES</label>
 		</div>
-		<h3 align="center"> State the availability &amp; Quantities of the following Equipment at the ORT Corner-(Assessor should ensure the interviewee responds to each of the questions). </h3>
+		<h3 align="center"> State the USUAL availability &amp; Quantities of the following Commodities. </h3>
 		<div class="block">
 			<table id="tableEquipmentList_2a">
 				<tr class="row2">
 					<input type="button" id="editEquipmentListTopButton_2a" name="editEquipmentListTopButton_2a" class="awesome myblue medium" value="Edit List"/>
 				</tr>
 				<tr>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Equipment Name</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Available</label></td>
-						<td width="400"><label class="dcah-label" style="font-size:1.0em">Total Equipment Quantities</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Commodity Name</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Availability</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em"> Main Reason for Unavailability</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Location Of Availability</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em">Main Source</label></td>
+						<td width="400"><label class="dcah-label" style="font-size:1.0em"> Quantities Available Currently</label></td>
+						
+				</tr>
+				<tr><td width="400"><label class="dcah-label" style="font-size:1.0em"></label></td>
+				<td width="1250"><label >Availabile</label></td>
+				<td width="125"><label >Availabile</label></td>
+				<td width="125"><label >Availabile</label></td>
 				</tr>
 
 				<tr class="row2" id="tr_1">
@@ -1484,6 +901,716 @@ class C_Load extends MY_Controller {
 			</table>
 		</div>
 	</div>
+	
+	
+	<div id="tabs-3" class="tab OPD step">
+	<input type="hidden" name="step_name" value="childhealth_opd_tab"/>
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<div align="center" class="row-title" style="font-size:1.8em"> Unit: OPD</div>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+					<td width="144">Quantities at Hand (Tablets)</td>
+					<td width="144">Expiry Date</td>
+				</tr>
+			</thead>
+			<tr class="clonable zinc">
+				<td width="144">
+				<input type="number"  name="OZStockQuantity_1" id="OZStockQuantity_1" class="cloned numbers  fromZero" maxlength="6"/>
+				<input type="hidden"  name="OZCommodityName_1" id="OZCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="OZUnit_1" id="OZUnit_1" value="OPD" />
+				</td>
+				<td width="144">
+				<input type="text"  name="OStockExpiryDate_1" id="OStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<td width="144">Expiry Date</td>
+				</tr>
+			</thead>
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="number"  name="OOStockQuantity_2" id="OOStockQuantity_2" class="cloned numbers  fromZero" maxlength="6"/>
+				<input type="hidden"  name="OOCommodityName_2" id="OOCommodityName_2" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="OOUnit_2" id="OOUnit_2" value="OPD" />
+				</td>
+				<td width="144">
+				<input type="text"  name="OOStockExpiryDate_2" id="OOStockExpiryDate_2" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<td width="144">Expiry Date</td>
+				</tr>
+			</thead>
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="number"  name="OCStockQuantity_3" id="OCStockQuantity_3" class="cloned numbers  fromZero" maxlength="6"/>
+				<input type="hidden"  name="OCCommodityName_3" id="OCCommodityName_3" value="Ciprofloxacin" />
+				<input type="hidden"  name="OCUnit_3" id="OUnit_3" value="OPD" />
+				</td>
+				<td width="144">
+				<input type="text"  name="OCStockExpiryDate_3" id="OCStockExpiryDate_3" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+					<td width="144">Quantities at Hand (Sachets)</td>
+					<td width="144">Expiry Date</td>
+				</tr>
+			</thead>
+			<tr class="clonable ors">
+				<td width="144">
+				<input type="number"  name="OMStockQuantity_4" id="OMStockQuantity_4" class="cloned numbers  fromZero" maxlength="6"/>
+				<input type="hidden"  name="OMCommodityName_4" id="OMCommodityName_4" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="OMUnit_4" id="OMUnit_4" value="OPD" />
+				</td>
+				<td width="144">
+				<input type="text"  name="OMStockExpiryDate_4" id="OMStockExpiryDate_4" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+			</tr>
+		</table>
+	</div> <!--close tabs-3-->
+	
+	<!--begin tabs-4 -->
+	<div id="tabs-4" class="tab Pharmacy step">
+	<input type="hidden" name="step_name" value="childhealth_pharm_tab"/>
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Pharmacy </div>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable zinc pharm">
+				<td width="144">
+				<input type="text"  name="HZStockBatchNo_1" id="HZStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="HZCommodityName_1" id="HZCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="HZUnit_1" id="HZUnit_1" value="PHA" />
+				</td>
+				<td width="144">
+				<input type="date"  name="HZStockDispensedDate_1" id="HZStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HZStockSupplier_1" id="HZStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HZStockExpiryDate_1" id="HZStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HZStockComments_1" id="HZStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_13">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_13" value="Add Batch Number" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_13" value="Remove Batch Number" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable ors pharm">
+				<td width="144">
+				<input type="text"  name="HOStockBatchNo_1" id="HOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="HOCommodityName_1" id="HOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="HOUnit_1" id="HOUnit_1" value="PHA" />
+				</td>
+				<td width="144">
+				<input type="date"  name="HOStockDispensedDate_1" id="HOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HOStockSupplier_1" id="HOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HOStockExpiryDate_1" id="HOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HOStockComments_1" id="HOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_14">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_14" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_14" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+	
+    <h3 align="center"> Ciprofloxacin Assessment</h3>
+    <table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable cip pharm">
+				<td width="144">
+				<input type="text"  name="HCStockBatchNo_1" id="HCStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="HCCommodityName_1" id="HCCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="HCUnit_1" id="HCUnit_1" value="PHA" />
+				</td>
+				<td width="144">
+				<input type="date"  name="HCStockDispensedDate_1" id="HCStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HCStockSupplier_1" id="HCStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HCStockExpiryDate_1" id="HCStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HCStockComments_1" id="HCStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_15">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_15" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_15" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+
+			<tr class="clonable met pharm">
+				<td width="144">
+				<input type="text"  name="HMStockBatchNo_1" id="HMStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="HMCommodityName_1" id="HMCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="HMUnit_1" id="HMUnit_1" value="PHA" />
+				</td>
+				<td width="144">
+				<input type="date"  name="HMStockDispensedDate_1" id="HMStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HMStockSupplier_1" id="HMStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HMStockExpiryDate_1" id="HMStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="HMStockComments_1" id="HMStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_16">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_16" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_16" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+</div> <!--close tabs-4 -->
+	
+	<div id="tabs-5" class="tab Stores step">
+	<input type="hidden" name="step_name" value="childhealth_store_tab"/>
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Stores</div>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+				</tr>
+			</thead>
+			<tr class="clonable zinc sto">
+				<td width="144">
+				<input type="text"    name="SZStockBatchNo_1" id="SZStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="SZCommodityName_1" id="SZCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				<input type="hidden"  name="SZUnit_1" id="SZUnit_1" value="Store" />
+				</td>
+				<td width="144">
+				<input type="date"  name="SZStockDispensedDate_1" id="SZStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SZStockSupplier_1" id="SZStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SZStockExpiryDate_1" id="SZStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SZStockComments_1" id="SZStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_17">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_17" value="Add Batch Number" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_17" value="Remove Batch Number" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable ors sto">
+				<td width="144">
+				<input type="text"  name="SOStockBatchNo_1" id="SOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="SOCommodityName_1" id="SOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				<input type="hidden"  name="SOUnit_1" id="SOUnit_1" value="Store" />
+				</td>
+				<td width="144">
+				<input type="date"  name="SOStockDispensedDate_1" id="SOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SOStockSupplier_1" id="SOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SOStockExpiryDate_1" id="SOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SOStockComments_1" id="SOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_18">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_18" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_18" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<!--td width="144">Quantities at Hand (Sachets)</td-->
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+				</tr>
+			</thead>
+			<tr class="clonable cip sto">
+				<td width="144">
+				<input type="text"  name="SCStockBatchNo_1" id="SCStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="SCCommodityName_1" id="SCCommodityName_1" value="Ciprofloxacin" />
+				<input type="hidden"  name="SCUnit_1" id="SCUnit_1" value="Store" />
+				</td>
+				<td width="144">
+				<input type="date"  name="SCStockDispensedDate_1" id="SCStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SCStockSupplier_1" id="SCStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SCStockExpiryDate_1" id="SCStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SCStockComments_1" id="SCStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_19">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_19" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_19" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl) Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable met sto">
+				<td width="144">
+				<input type="text"  name="SMStockBatchNo_1" id="SMStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="SMCommodityName_1" id="SMCommodityName_1" value="Metronidazole (Flagyl)" />
+				<input type="hidden"  name="SMUnit_1" id="SMUnit_1" value="Store" />
+				</td>
+				<td width="144">
+				<input type="date"  name="SMStockDispensedDate_1" id="SMStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SMStockSupplier_1" id="SMStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SMStockExpiryDate_1" id="SMStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="SMStockComments_1" id="SMStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_20">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_20" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_20" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+	</div> <!--close tabs-5-->
+	
+	<div id="tabs-6" class="tab Others step">
+	<input type="hidden" name="step_name" value="childhealth_other_tab"/>
+		<h3 align="center"> CHILD HEALTH COMMODITIES ASSESSMENT</h3>
+	
+	<p style="text-align: center;color:#872300">
+			Indicate the quantities of the Zinc,ORS,Ciprofloxacin &amp; Metronidazole (Flagyl) available in this facility at the:
+	</p>
+	<div align="center" class="row-title" style="font-size:1.8em"> Unit: Others</div>
+		 <h3 align="center">Zinc Sulphate 20mg Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<div class="row2"> 
+				<label>Unit Name</label>
+				<input type="text"  name="step_notherUnit" id="otherUnit" class="cloned" maxlength="45"/>
+				</div>
+			<tr class="clonable zinc oth">
+				<td width="144">
+				<input type="text"  name="TZStockBatchNo_1" id="TZStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="TZCommodityName_1" id="TZCommodityName_1" value="Zinc Sulphate (20mg) Tablet" />
+				</td>
+				<td width="144">
+				<input type="date"  name="TZStockDispensedDate_1" id="TZStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TZStockSupplier_1" id="TZStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TZStockExpiryDate_1" id="TZStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TZStockComments_1" id="TZStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_21">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_21" value="Add Batch Number" width="auto"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_21" value="Remove Batch Number" width="auto"/>
+			</tr>
+		</table>
+
+		<h3 align="center"> Low-Osmolarity Oral Rehydration Salts (ORS):</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable ors oth">
+				<td width="144">
+				<input type="text"  name="TOStockBatchNo_1" id="TOStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="TOCommodityName_1" id="TOCommodityName_1" value="Oral Rehydration Salts (ORS) Sachet" />
+				</td>
+				<td width="144">
+				<input type="date"  name="TOStockDispensedDate_1" id="TOStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TOStockSupplier_1" id="TOStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TOStockExpiryDate_1" id="TOStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TOStockComments_1" id="TOStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_22">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_22" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_22" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Ciprofloxacin Assessment</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable cip oth">
+				<td width="144">
+				<input type="text"  name="TCStockBatchNo_1" id="TCStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="TCCommodityName_1" id="TCCommodityName_1" value="Ciprofloxacin" />
+				</td>
+				<td width="144">
+				<input type="date"  name="TCStockDispensedDate_1" id="TCStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TCStockSupplier_1" id="TCStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TCStockExpiryDate_1" id="TCStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TCStockComments_1" id="TCStockComments_1" class="cloned" maxlength="255"/>
+				</td>
+			</tr>
+			<tr id="formbuttons_23">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_23" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_23" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+		
+		<h3 align="center"> Metronidazole (Flagyl)</h3>
+		<table>
+			<thead>
+				<tr>
+
+					<td width="144">Batch No</td>
+					<td width="144">Date Supplied to Facility</td>
+					<td width="144">Supplier</td>
+					<td width="144">Expiry Date</td>
+					<td width="144">Comments</td>
+
+				</tr>
+			</thead>
+			<tr class="clonable met oth">
+				<td width="144">
+				<input type="text"  name="TMStockBatchNo_1" id="TMStockBatchNo_1" class="cloned" maxlength="10"/>
+				<input type="hidden"  name="TMCommodityName_1" id="TMCommodityName_1" value="Metronidazole (Flagyl)" />
+				</td>
+				<td width="144">
+				<input type="date"  name="TMStockDispensedDate_1" id="TMStockDispensedDate_1" class="autoDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TMStockSupplier_1" id="TMStockSupplier_1" class="cloned" maxlength="45"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TMStockExpiryDate_1" id="TMStockExpiryDate_1" class="futureDate cloned" readonly="readonly" placeholder="click for date"/>
+				</td>
+				<td width="144">
+				<input type="text"  name="TMStockComments_1" id="TMStockComments_1" class="cloned" maxlength="255"/>
+			</tr>
+			<tr id="formbuttons_24">
+				<input title="Adds a new row after the last" type="button" class="awesome myblue medium" id="clonetrigger_24" value="Add Batch Number" width="12"/>
+				<input title="Removes the last row" type="button" class="awesome myblue medium" id="cloneremove_24" value="Remove Batch Number" width="12"/>
+			</tr>
+		</table>
+	</div> <!--end of tabs-6-->
+<!--end child health drug section -->	
+
+<!--begin ort corner section-->
+<div id="ort_part1" class="step">
+<input type="hidden" name="step_name" value="ort_part1"/>
+<h3 align="center"> Oral Rehydration Therapy Corner Assessment </h3>
+	<div class="block">
+		<div class="column">
+			<div class="row-title">
+				<div class="left">
+					ASPECTS
+				</div>
+				<div class="right" style="float:right">
+					<div class="col">
+						YES
+					</div>
+					<div class="col">
+						NO
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="left">
+					<label> Are dehydrated children rehydrated at this facility? </label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="radio" name="ortQuestion1" id="ortQuestion1_y" value="1" />
+					</div>
+					<div class="col">
+						<input type="radio" name="ortQuestion1" id="ortQuestion1_n" value="0" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="left">
+					<label> Does the facility have a designated location for oral rehydration ?</label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="radio" name="ortQuestion2" id="ortQuestion2_y"  value="1" />
+					</div>
+					<div class="col">
+						<input type="radio" name="ortQuestion2" id="ortQuestion2_n" value="0" />
+					</div>
+				</div>
+			</div>
+			<div class="row hide" id="special_unit_loc" style="display:none">
+					<label class="dcah-label"> Check the various locations where rehydration is carried out</label>
+			<div class="row" style>
+				<div class="left" >
+					<label> MCH</label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocation"  value="MCH" maxlength="50"/>
+					</div>
+				</div>
+			</div>
+			<div class="row hide">
+				<div class="left" >
+					<label> OPD</label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocationOPD"  value="OPD" maxlength="50"/>
+					</div>
+				</div>
+			</div>
+			<div class="row hide">
+				<div class="left" >
+					<label> WARD </label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="checkbox" name="ortDehydrationLocation[]" id="ortDehydrationLocationWard"  value="Ward" maxlength="50"/>
+					</div>
+				</div>
+			</div>
+			<div class="row hide">
+				<div class="left" >
+					<label> Other*?</label>
+				</div>
+				<div class="right">
+					<div class="col">
+						<input type="text" name="ortDehydrationLocation[]" id="ortDehydrationLocationOther"  value="" maxlength="50"/>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div><!--close class row hide -->
+	</div><!--close class block -->
+	</div> <!--end of ort corner part1 -->
+	
+	<div id="ort_questions" class="step">
+	<input type="hidden" name="step_name" value="ort_questions"/>
+		<h3 align="center"> Oral Rehydration Therapy Corner Assessment ...</h3>
+		<div class="block">
+		<div class="column-wide">	
+	    <div class="row-title">
+				<div class="left">
+
+					<label class="dcah-label">QUESTION</label>
+				</div>
+				<div class="center">
+					<label class="dcah-label">ANSWER</label>
+				</div>
+			</div>
+			<div class="row">
+			<div class="left"><label class="dcah-label" style="font-size:1.0em">Who supplied the supplies to the facility?</label> </div>
+			<div class="center">
+			            <select name="ortSupplier" id="ortSupplier" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option >Government</option>
+						<option >Ministry</option>
+						<option >Facility Procurement</option>
+						<option >Partners</option>
+						<option >Others</option>
+				</select></div>
+				<div id="partner" class="right" style="display:none">
+				<label>Specify:</label>
+				<input type="text" name="specificSupplier" class="cloned" maxlength="45"/>
+			</div>
+			</div>
+			<div class="row">
+			
+			<div class="left"><label class="dcah-label" style="font-size:1.0em">Is there a budget for replacement of the missing or Broken ORT Corner equipment?</label> </div>
+			<div class="right"><select name="budgetAvailable" id="budgetAvailable" class="cloned left-combo">
+						<option value="" selected="selected">Select One</option>
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+				</select> </div>
+			</div></div>
+		</div><!--end of column wide-->
+		</div><!--end of ort questions-->
+		
+	
 	<!--end of ort corner part 2a -->
 	<div id="ort_part2b" class="step"><!--begin ort part 2b-->
 	<input type="hidden" name="step_name" value="ort_part2b"/>
@@ -1776,7 +1903,7 @@ class C_Load extends MY_Controller {
 	<h3 align="center" style="font-size:2em;color:#AA1317">Maternal Health Assessment</h3>
 			<div class="row" style="margin-top:3%">
 					<div class="left">
-						<label>Does the facility provide for delivery services?</label>
+						<label>Does the facility provide delivery services?</label>
 					</div>
 					<div class="center cloned" >
 
@@ -1802,27 +1929,34 @@ class C_Load extends MY_Controller {
 	<div class="block">
 	<h3 align="center" style="font-size:2em;color:#AA1317">Child Health Assessment Complete</h3>
 			<p id="data" class="message success">Thank you for completing this assessment.<br></p><br><hr><hr>
-			<p class="message success">'.anchor(base_url().'c_front/inventory/','Log Out').'</p><br>
-			<p class="message">'.anchor(base_url().'c_front/inventory/','Start Another Assessment').'</p>
+			<p class="message success">' . anchor(base_url() . 'c_front/inventory/', 'Log Out') . '</p><br>
+			<p class="message">' . anchor(base_url() . 'c_front/inventory/', 'Start Another Assessment') . '</p>
 			</div>
 	</div><!--end of child assessment message div -->
 	
-	<!--begin delivery cases div-->
+	
+     <!--begin delivery cases div-->
 	<div id="delivery_cases" class="step">
 	<input type="hidden" name="step_name" value="delivery_cases"/>
 	<h3 align="center">Information on Delivery Cases </h3>
 
-	<div class="row2">
-	<div class="left">
-	<label>Indicate total number of deliveries cases (includes deliveries by caesarian section) recorded in the <b>last 2  months</b></label>
+		<div class="row2">
+			<div class="left">
+				<label>Indicate total number of deliveries cases (includes deliveries by caesarian section) recorded in the <b>months of:</b></label>
+			</div>
+		</div>
+		<div class="row2">
+			<div class="center">
+	    		<label>September 2012</label>
+			<input type="text" id="deliveryCasesMonth1" name="deliveryCases[]" class="cloned numbers fromZero"/>
+			</div>
+		
+			<div class="center"> 
+	       	    <label>October 2012</label>
+		    	<input type="text" id="deliveryCasesMonth2" name="deliveryCases[]" class="cloned numbers fromZero"/>
+		   </div>
+		</div>
 	</div>
-	<div class="center">
-
-	<input type="text" id="deliveryCases" name="deliveryCases" class="cloned numbers fromZero"/>
-	</div>
-	</div>
-	</div>
-	
 	<!--end delivery cases div-->
     
 	<!-- form for collecting mnh inventory status information -->
@@ -4517,15 +4651,15 @@ class C_Load extends MY_Controller {
 		</form>
 		<hr />
 	   <!--end of mnh_form-->';
-		$data['form'] = $this->combined_form;
+		$data['form'] = $this -> combined_form;
 		$data['form_id'] = 'form_dcah';
 
 		$this -> load -> view('form', $data);
-    }
+	}
 
 	public function instructions() {
 		$instructions = '';
-		$instructions.= '
+		$instructions .= '
 <h3>Form Guide</h3>
 
 <ol start="1" type="1|a|A|i|I">
@@ -4610,7 +4744,7 @@ class C_Load extends MY_Controller {
 				</li>
 				<ol>
 					<li>
-						Commodities: Zinc sulphate 20mg, low â€“Osmolarity oral rehydration salts (ORS), Ciprofloxacin, and Metronidazole
+						Commodities: Zinc sulphate 20mg, low –Osmolarity oral rehydration salts (ORS), Ciprofloxacin, and Metronidazole
 					</li>
 					<li>
 						Supplies & Equipment:  Supplies and equipment available at the oral rehydration therapy corners in the facility
@@ -4664,7 +4798,7 @@ class C_Load extends MY_Controller {
 					</li>
 					<li>
 						Some divs of the tool will
-						have a provision for definite answers- YES/NO â€“ these will limit you to choose only one response
+						have a provision for definite answers- YES/NO – these will limit you to choose only one response
 					</li>
 					<li>
 						Some divs in the tool may allow for multiple divs.
@@ -4709,13 +4843,11 @@ class C_Load extends MY_Controller {
 
 
 ';
-						
-						$data['form'] = $instructions;
+
+		$data['form'] = $instructions;
 		$data['form_id'] = 'instructions';
 
 		$this -> load -> view('form', $data);
-		}
-		
-	
-}
+	}
 
+}
